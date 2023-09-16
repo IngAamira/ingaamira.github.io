@@ -1,0 +1,96 @@
+/* Estilos para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+header h2 {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+/* Estilos para la navegación */
+nav{
+    text-align: center;
+    float: center;
+    white-space: normal;
+}
+
+nav a{    
+    background-color: #007bff; /* Cambiamos el fondo a un tono azul */
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px 20px; /* Aumentamos el espacio vertical y horizontal del enlace */
+    margin: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s; /* Agregamos una transición suave al color de fondo */
+    display: inline-block;
+}
+
+nav a:hover {
+    background-color: #0056b3; /* Cambiamos el color de fondo al pasar el cursor sobre el enlace */
+}
+
+/* Estilos para las secciones */
+section {
+    background-color: #fff;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+section h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+section p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
+p::selection {
+    color: red;
+    background-color: yellow;
+}
+
+/* Estilos para los enlaces */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el pie de página */
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer h2 {
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    text-transform: capitalize;
+}
