@@ -1,9 +1,9 @@
 <h1 align="center">Hi 👋, I'm Andres Alfonso Mira Mejia</h1>
 <h3 align="center">
-  I am a Computer Engineer with a strong specialization in Business Intelligence. My passion lies in transforming ideas into functional products, and I actively engage in projects from their conceptualization, through planning and design, to construction and execution. I am always eager to take on challenges that allow me to grow and evolve professionally. 
-  
-  Throughout my career, I have had the valuable opportunity to work in various market sectors, including banking, retail, transportation, tourism, and more. My primary focus has been assisting clients in telling stories through data, empowering them with crucial information for strategic decision-making. With over a decade of experience in data analysis, I am committed to continually providing effective and creative solutions to address business challenges. 
-  
+  I am a Computer Engineer with a strong specialization in Business Intelligence. My passion lies in transforming ideas into functional products, and I actively engage in projects from their conceptualization, through planning and design, to construction and execution. I am always eager to take on challenges that allow me to grow and evolve professionally.
+  <br>  
+  Throughout my career, I have had the valuable opportunity to work in various market sectors, including banking, retail, transportation, tourism, and more. My primary focus has been assisting clients in telling stories through data, empowering them with crucial information for strategic decision-making. With over a decade of experience in data analysis, I am committed to continually providing effective and creative solutions to address business challenges.
+  <br>  
   Starting from July 1, 2023, I have directed my attention toward software programming training. My main focus centers around Java and its Spring framework, where I apply the principles of Clean Architectures, Hexagonal Architecture, Onion Architecture, and the Model-View-Controller (MVC) design pattern in designing high-quality software applications. Furthermore, I am fully immersed in an active learning phase in web development, exploring technologies such as HTML, CSS, and JavaScript.</h3>
 
 - 🔭 I’m currently working on **IAS Software**
