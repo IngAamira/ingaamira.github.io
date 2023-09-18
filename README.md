@@ -24,7 +24,6 @@
 
 - 💬 Ask me about **Data Base, BI, programing**
 
-- 📫 How to reach me **andres.mira@outlook.com**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
