@@ -82,6 +82,11 @@ a:hover {
     text-decoration: underline;
 }
 
+/*Estilos imagénes*/
+.images img { 
+    margin-left:20px; 
+}
+
 /* Estilos para el pie de página */
 footer {
     text-align: center;
