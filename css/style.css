@@ -1,4 +1,4 @@
-/* Estilos para el cuerpo de la página */
+/* Estilos globales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -23,24 +23,47 @@ header h2 {
     text-transform: capitalize;
 }
 
-/* Estilos para la navegación */
-nav{
+/* Estilos para la sección de selección de idioma */
+#language-selector {
     text-align: center;
-    float: center;
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+#language-selector button {
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+#language-selector button img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+/* Estilos para la navegación */
+nav {
+    text-align: center;
     white-space: normal;
 }
 
-nav a{    
-    background-color: #007bff; /* Cambiamos el fondo a un tono azul */
+nav a {
+    background-color: #007bff;
     border-radius: 10px;
     color: #fff;
-    padding: 10px 20px; /* Aumentamos el espacio vertical y horizontal del enlace */
+    padding: 10px 20px;
     margin: 5px;
     text-decoration: none;
-    transition: background-color 0.3s; /* Agregamos una transición suave al color de fondo */
+    transition: background-color 0.3s;
 }
 
-nav div{
+nav div {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -49,7 +72,7 @@ nav div{
 }
 
 nav a:hover {
-    background-color: #0056b3; /* Cambiamos el color de fondo al pasar el cursor sobre el enlace */
+    background-color: #0056b3;
 }
 
 /* Estilos para las secciones */
@@ -89,9 +112,9 @@ a:hover {
     text-decoration: underline;
 }
 
-/*Estilos imagénes*/
+/* Estilos para las imágenes */
 .images img { 
-    margin-left:20px; 
+    margin-left: 20px; 
 }
 
 /* Estilos para el pie de página */
