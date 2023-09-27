@@ -23,34 +23,6 @@ header h2 {
     text-transform: capitalize;
 }
 
-/*Typewriter Effect*/
-#typewriter-text {
-    display: inline-block;
-    overflow: hidden;
-    border-right: 2px solid transparent;
-    white-space: nowrap;
-    animation: typing 5s steps(40, end), blink-caret 0.75s step-end infinite;
-}
-
-/* Define la animación de escritura */
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-/* Define la animación de parpadeo del cursor */
-@keyframes blink-caret {
-    from, to {
-        border-color: transparent;
-    }
-    50% {
-        border-color: white;
-    }
-}
 
 /* Estilos para la sección de selección de idioma */
 #language-selector {
