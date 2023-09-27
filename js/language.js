@@ -2,9 +2,9 @@
 function cargarContenido(idioma) {
     var url;
     if (idioma === 'es') {
-        url = 'index_es.html';
+        url = '/web/profile_es.html';
     } else if (idioma === 'en') {
-        url = 'index_en.html';
+        url = '/web/profile_en.html';
     }
 
     // Realiza una solicitud HTTP para cargar el contenido del idioma
