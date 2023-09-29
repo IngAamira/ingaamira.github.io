@@ -11,7 +11,7 @@
     data analysis, I am committed to continually providing effective and creative solutions to address business
     challenges.
   <br></br>
-  Starting from July 1, 2023, I have directed my attention toward software programming training. My main focus centers
+  Currently, I have directed my attention toward software programming training. My main focus centers
     around Java and its Spring framework, where I apply the principles of Clean Architectures, Hexagonal Architecture,
     Onion Architecture, and the Model-View-Controller (MVC) design pattern in designing high-quality software
     applications. Furthermore, I am fully immersed in an active learning phase in web development, exploring
