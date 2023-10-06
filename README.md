@@ -2,45 +2,43 @@
 <h1 align="center">Hi there! 👋 I'm Andres Alfonso Mira Mejia - (IngAamira)</h1>
 
 <h3 align="justify">
-  
   <p>
     👨‍💻 Transforming Data into Value 👨‍💻
-
-    I'm a Computer Engineer with a profound expertise in Data Engineering, and I am deeply dedicated to harnessing the transformative potential of data.
   </p>
-  
+
+  I'm a Computer Engineer with a profound expertise in Data Engineering, and I am deeply dedicated to harnessing the transformative potential of data.
+
   <p>
     🚀 My Experience 🚀
-
-    Throughout my career, I've worked in various sectors, including banking, retail, transportation, and tourism. My primary focus has been to help organizations make the most of their data for well-informed strategic decisions. I have designed and optimized databases using technologies like Microsoft SQL Server, MySQL, Oracle, and PostgreSQL. I have also developed data warehouses, datamarts, and customized dashboards.
   </p>
+
+  Throughout my career, I've worked in various sectors, including banking, retail, transportation, and tourism. My primary focus has been to help organizations make the most of their data for well-informed strategic decisions. I have designed and optimized databases using technologies like Microsoft SQL Server, MySQL, Oracle, and PostgreSQL. I have also developed data warehouses, datamarts, and customized dashboards.
 
   <p>
     💡 My Passion 💡
-
-    My passion is turning data into actionable knowledge. I believe in the power of data visualization and analysis to drive informed decision-making. I have developed ETLs (Extract, Transform, Load) to facilitate efficient data transfer between systems, enabling process automation and data flow optimization within organizations.
   </p>
+
+  My passion is turning data into actionable knowledge. I believe in the power of data visualization and analysis to drive informed decision-making. I have developed ETLs (Extract, Transform, Load) to facilitate efficient data transfer between systems, enabling process automation and data flow optimization within organizations.
 
   <p>
     🌟 My Current Focus 🌟
-
-    Currently, I am immersed in software programming training. My main focus revolves around Java and its Spring framework, where I apply Clean Architecture principles, Hexagonal Architecture, Onion Architecture, and the Model-View-Controller (MVC) design pattern to create high-quality software applications. I am also exploring web technologies like HTML, CSS, and JavaScript.
   </p>
+
+  Currently, I am immersed in software programming training. My main focus revolves around Java and its Spring framework, where I apply Clean Architecture principles, Hexagonal Architecture, Onion Architecture, and the Model-View-Controller (MVC) design pattern to create high-quality software applications. I am also exploring web technologies like HTML, CSS, and JavaScript.
 
   <p>
     🔍 Why I Work with Data 🔍
-
-    I firmly believe that data is one of an organization's most valuable assets and can unlock significant opportunities. My goal is to continue collaborating with multidisciplinary teams and using agile approaches like Scrum and Kanban to deliver successful projects.
   </p>
+
+  I firmly believe that data is one of an organization's most valuable assets and can unlock significant opportunities. My goal is to continue collaborating with multidisciplinary teams and using agile approaches like Scrum and Kanban to deliver successful projects.
 
   <p>
     🤝 Connect with Me 🤝
-
-    If you share my passion for data management, business intelligence, or software development, I would love to connect with you! Together, we can explore new opportunities and challenges in the world of data engineering.
-
-    Let's talk! 👥
   </p>
 
+  If you share my passion for data management, business intelligence, or software development, I would love to connect with you! Together, we can explore new opportunities and challenges in the world of data engineering.
+
+  Let's talk! 👥
 </h3>
 
 </h3>
