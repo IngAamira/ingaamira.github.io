@@ -1,0 +1,36 @@
+.footer {
+  background-image: linear-gradient(360deg, #59A193 0%, #6e49fe 50%, #4c33b1 100%);
+  padding: 2rem 1rem;
+  padding-bottom: 1rem;
+  color: white;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.footer p {
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  transition: text-decoration 0.3s;
+}
+
+.footer a {
+  margin-right: 10px;
+}
+
+.footer a img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.footer a:hover img {
+  transform: scale(1.2);
+}
+
+.footer p:last-child {
+  margin-top: 20px;
+}

@@ -1,0 +1,30 @@
+.nav-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 35px;
+}
+
+.nav-item {
+  margin-right: 15px;
+  margin-bottom: 25px;
+}
+
+.navigation-link {
+  text-decoration: none;
+  color: #794999;
+  padding: 3px 8px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all ease .2s;
+  font-size: 24px;
+}
+
+.navigation-link:hover,
+.active-link {
+  color: #fff;
+  background-color: #7134F0;
+  font-weight: bold;
+}

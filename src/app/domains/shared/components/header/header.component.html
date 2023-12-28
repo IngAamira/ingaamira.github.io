@@ -1,0 +1,19 @@
+<div class="header">
+
+  <div class="language-selector bottom-right">
+    <button (click)="changeLanguage('en')">
+      <a>
+        <img src="assets/icons/usa.png" alt="English">
+      </a>
+    </button>
+    <button (click)="changeLanguage('es')">
+      <a>
+        <img src="assets/icons/spain.png" alt="Spanish">
+      </a>
+    </button>
+  </div>
+
+  <h1> {{ 'NAME' | translate }} </h1>
+  <h3> {{ 'TITLE' | translate }} </h3>
+
+</div>

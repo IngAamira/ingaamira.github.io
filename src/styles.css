@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  max-width: 100%;
+  min-width: 100%;
+}
+
+element.style {
+  border-top-width: 12px;
+  margin-top: 12px;
+}
+
+.tag {
+  padding: 0 20px;
+  height: 30px;
+  width: fit-content;
+  font-size: 14px;
+  line-height: 30px;
+  border-radius: 25px;
+  background-color: blue;
+  color: white;
+  margin-right: 8px;
+}
