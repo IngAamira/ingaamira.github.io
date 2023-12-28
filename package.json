@@ -7,6 +7,7 @@
     "build": "ng build",
     "build:prod": "ng build --configuration=production --base-href='https://IngAamira.github.io/'",
     "build:ghpages": "ngh --dir=dist/ingaamira.github.io/browser",
+    "build:deploy": "npm run build:prod && npm run build:ghpages",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
