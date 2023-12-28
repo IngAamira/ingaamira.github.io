@@ -1,0 +1,47 @@
+<div class="container">
+
+  <div class="row">
+
+    <!--About Me-->
+    <div class="col-lg shadow border m-1">
+
+      <div class="text-center">
+        <h2>{{ 'ABOUT_ME' | translate }}</h2>
+        <img src="assets/imgs/home/profile.jpg" alt="profile picture" width="256" height="256" class="rounded-circle">
+        <p style="text-align: left; margin-top: 10px;">
+          {{ 'ABOUT_ME_TEXT_1' | translate:{ years: years.toString() } }}
+        </p>
+        <p style="text-align: left; margin-top: 10px;">
+          {{ 'ABOUT_ME_TEXT_2' | translate }}
+        </p>
+        <p style="text-align: left; margin-top: 10px;">
+          {{ 'ABOUT_ME_TEXT_3' | translate }}
+        </p>
+      </div>
+
+    </div>
+
+    <!--Featured Project-->
+    <div class="col-lg shadow border m-1">
+
+      <div class="text-center">
+        <h2>{{ 'FEATURED_PROJECT' | translate }}</h2>
+        <h4>{{ featureProject.name }}</h4>
+      </div>
+
+      <carousel>
+        <div class="text-center">
+          <div *ngFor="let picture of featureProject.pictures">
+            <slide><img src={{picture}} alt="slide" width="600" height="220" display="block"></slide>
+          </div>
+        </div>
+      </carousel>
+
+      <p class="mt-2">{{ 'FEATURED_PROJECT_SUMMARY' | translate }}</p>
+      <p> {{ 'FEATURED_PROJECT_INFO' | translate }} <a [routerLink]="'/portfolio'" aria-current="page" >{{'PORTFOLIO' | translate }}</a> </p>
+
+    </div>
+
+  </div>
+
+</div>
