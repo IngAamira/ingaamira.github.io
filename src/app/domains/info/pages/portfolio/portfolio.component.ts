@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 
-import { ProjectCardComponent } from '../project-card/project-card.component';
 import { Project } from '../../../shared/models/project';
+import { ProjectCardComponent } from '../project-card/project-card.component';
 import { ProjectsService } from '../../../shared/services/projects.service';
 import { Tag } from '../../../shared/models/tag';
 

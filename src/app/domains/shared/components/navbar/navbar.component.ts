@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterLinkWithHref, RouterLinkActive } from '@angular/router';
 
-import { TranslateModule} from '@ngx-translate/core';
-
+import { TranslationModule } from '../../../shared/modules/translation.module';
 import { TranslationService } from '../../../shared/services/translation.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLinkWithHref, RouterLinkActive, TranslateModule],
+  imports: [ RouterLinkWithHref, RouterLinkActive, TranslationModule ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
