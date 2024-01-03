@@ -5,12 +5,13 @@ import { Title } from '@angular/platform-browser';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { TranslateModule} from '@ngx-translate/core';
 
+import { TranslationModule } from '../../../shared/modules/translation.module';
 import { TranslationService } from '../../../shared/services/translation.service';
 
 @Component({
   selector: 'app-resume',
   standalone: true,
-  imports: [AccordionModule, CommonModule, TranslateModule],
+  imports: [AccordionModule, CommonModule, TranslationModule],
   templateUrl: './resume.component.html',
   styleUrl: './resume.component.css'
 })

@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-
-import { TranslateModule} from '@ngx-translate/core';
-
+import { TranslationModule } from '../../../shared/modules/translation.module';
 import { TranslationService } from '../../../shared/services/translation.service';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [TranslateModule],
+  imports: [ TranslationModule ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })

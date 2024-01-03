@@ -5,16 +5,16 @@ import { NgFor } from '@angular/common';
 
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { TranslateModule } from '@ngx-translate/core';
 
-import { ProjectsService } from '../../../shared/services/projects.service';
 import { Project } from '../../../shared/models/project';
+import { ProjectsService } from '../../../shared/services/projects.service';
+import { TranslationModule } from '../../../shared/modules/translation.module';
 import { TranslationService } from '../../../shared/services/translation.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CarouselModule, RouterLink, NgFor, TranslateModule],
+  imports: [CarouselModule, RouterLink, NgFor, TranslationModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

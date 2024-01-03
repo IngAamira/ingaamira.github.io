@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 
-import { TranslateModule} from '@ngx-translate/core';
-
+import { TranslationModule } from '../../../shared/modules/translation.module';
 import { TranslationService } from '../../../shared/services/translation.service';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [TranslateModule],
+  imports: [ TranslationModule ],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
