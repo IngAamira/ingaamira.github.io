@@ -7,8 +7,8 @@ accordion-group::ng-deep .card-header {
 }
 
 .nav-box {
+  align-items: center;
   display: flex;
   flex-flow: nowrap;
   justify-content: center;
-  align-items: center;
 }

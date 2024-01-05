@@ -3,18 +3,18 @@
 }
 
 .navigation-link {
-  text-decoration: none;
-  color: #794999;
-  padding: 3px 8px;
   border-radius: 16px;
+  color: #794999;
   cursor: pointer;
-  transition: all ease .2s;
   font-size: 20px;
+  padding: 3px 8px;
+  text-decoration: none;
+  transition: all ease .2s;
 }
 
 .navigation-link:hover,
 .active-link {
-  color: #fff;
   background-color: #7134F0;
+  color: #fff;
   font-weight: bold;
 }
