@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 
+import { MaterialModule } from '../../../shared/modules/material.module';
 import { Project } from '../../../shared/models/project';
 import { ProjectCardComponent } from '../project-card/project-card.component';
 import { ProjectsService } from '../../../shared/services/projects.service';
@@ -13,7 +14,7 @@ import { Tag } from '../../../shared/models/tag';
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [ProjectCardComponent, CommonModule, CollapseModule, FormsModule],
+  imports: [ProjectCardComponent, CommonModule, CollapseModule, FormsModule, MaterialModule],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.css'
 })

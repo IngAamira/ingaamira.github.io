@@ -126,10 +126,17 @@
     </div>
   </div>
 
-  <div class="row">
-      <div *ngFor="let project of projects" class="col-lg-4 col-md-6 mb-4" style="max-width: 380px; min-width: 380px;">
+  <!-- Project-card Pages -->
+  <mat-divider></mat-divider>
+  <h1>List Projects</h1>
+
+  <mat-grid-list cols="2" rowHeight="2:1">
+
+    <div class="grid bm-8 pt-2">
+      <div *ngFor="let project of projects"
+        class="col-12 sm:col-4 md:col-3 xl:col-2 w-3">
         <app-project-card [project]="project" />
       </div>
-  </div>
+    </div>
 
-</div>
+  </mat-grid-list>

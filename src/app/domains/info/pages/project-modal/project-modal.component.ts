@@ -5,11 +5,12 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { Project } from '../../../shared/models/project';
+import { MaterialModule } from '../../../shared/modules/material.module';
 
 @Component({
   selector: 'app-project-modal',
   standalone: true,
-  imports: [CarouselModule, NgFor],
+  imports: [CarouselModule, NgFor, MaterialModule],
   templateUrl: './project-modal.component.html',
   styleUrl: './project-modal.component.css'
 })

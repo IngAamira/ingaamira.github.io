@@ -5,11 +5,12 @@ import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 
 import { Project } from '../../../shared/models/project';
 import { ProjectModalComponent } from '../project-modal/project-modal.component';
+import { MaterialModule } from '../../../shared/modules/material.module';
 
 @Component({
   selector: 'app-project-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MaterialModule],
   templateUrl: './project-card.component.html',
   styleUrl: './project-card.component.css',
 })
