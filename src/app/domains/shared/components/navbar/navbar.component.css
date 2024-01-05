@@ -1,15 +1,5 @@
-.nav-box {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin-top: 35px;
-}
-
-.nav-item {
-  margin-right: 15px;
-  margin-bottom: 25px;
+.w-4rem {
+  width: 6rem !important;
 }
 
 .navigation-link {
@@ -19,7 +9,7 @@
   border-radius: 16px;
   cursor: pointer;
   transition: all ease .2s;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .navigation-link:hover,

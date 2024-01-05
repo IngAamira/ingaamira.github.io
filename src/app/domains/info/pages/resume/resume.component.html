@@ -1,8 +1,20 @@
 <div class="container text-center">
 
   <div class="nav-box">
-    <button (click)="DownloadFileDev()" class="btn btn-primary mb-5 shadow border">{{ 'DOWNLOAD_PDF_RESUME_DEV' | translate }}</button>
-    <button (click)="DownloadFileData()" class="btn btn-primary mb-5 shadow border">{{ 'DOWNLOAD_PDF_RESUME_DATA' | translate }}</button>
+    <a
+      (click)="DownloadFileDev()"
+      type="button"
+      class="btn btn-primary mb-5 shadow border">
+      {{ 'DOWNLOAD_PDF_RESUME_DEV' | translate }}
+    </a>
+
+    <button
+      (click)="DownloadFileData()"
+      type="button"
+      class="btn btn-primary mb-5 shadow border">
+      {{ 'DOWNLOAD_PDF_RESUME_DATA' | translate }}
+    </button>
+
   </div>
 
   <div class="pb-2">
