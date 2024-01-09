@@ -2,8 +2,14 @@
 
   <div class="mb-2">
     <div>
-      <button class="btn btn-outline-primary mb-2 me-2" (click)="isCollapsed = !isCollapsed">Filter</button>
-      <button class="btn btn-outline-secondary mb-2 " (click)="ResetFilters()" [hidden]="!filtering">Reset</button>
+      <button mat-button mat-raised color="primary" (click)="isCollapsed = !isCollapsed">
+        <mat-icon>filter_alt</mat-icon>
+        Filter
+      </button>
+      <button mat-button mat-raised color="primary" (click)="ResetFilters()" [hidden]="!filtering">
+        <mat-icon>filter_alt_off</mat-icon>
+        Reset
+      </button>
     </div>
 
     <div [collapse]="isCollapsed" [isAnimated]="true">
@@ -128,7 +134,7 @@
 
   <!-- Project-card Pages -->
   <mat-divider></mat-divider>
-  <h1>List Projects</h1>
+  <h2>List Projects</h2>
 
   <div class="grid bm-8 pt-2 justify-content-center" >
     <div *ngFor="let project of projects"

@@ -1,18 +1,32 @@
-.card-header{
+/* Ajustar el espaciado del encabezado de la tarjeta */
+.card-header {
   display: flex;
   justify-content: space-between;
 }
 
+/* Mover las acciones de la tarjeta a la derecha */
 .card-actions {
   margin-left: auto;
 }
 
+/* Estilo de las imágenes en el carrusel de la tarjeta */
 .card-slide-img {
   display: block;
-  margin-top: 2rem;
   margin: 10px auto;
+  width: 100%; /* Establece el ancho en píxeles */
+  height: 100%; /* Establece la altura en píxeles */
+  object-fit: cover;
 }
 
+/* Estilo del pie de la tarjeta */
+.mat-card-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* Estilo de las etiquetas (tags) */
 .tag {
   background-color: blue;
   border-radius: 25px;

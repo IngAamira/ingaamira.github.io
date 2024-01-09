@@ -1,20 +1,16 @@
 <div class="container text-center">
 
-  <div class="nav-box">
-    <a
-      (click)="DownloadFileDev()"
-      type="button"
-      class="btn btn-primary mb-5 shadow border">
-      {{ 'DOWNLOAD_PDF_RESUME_DEV' | translate }}
-    </a>
-
-    <button
-      (click)="DownloadFileData()"
-      type="button"
-      class="btn btn-primary mb-5 shadow border">
-      {{ 'DOWNLOAD_PDF_RESUME_DATA' | translate }}
-    </button>
-
+  <div class="mb-2">
+    <div>
+      <button mat-button mat-raised color="primary" (click)="DownloadFileDev()" >
+        <mat-icon>folder_shared</mat-icon>
+        {{ 'DOWNLOAD_PDF_RESUME_DEV' | translate }}
+      </button>
+      <button mat-button mat-raised color="primary" (click)="DownloadFileData()" >
+        <mat-icon>folder_shared</mat-icon>
+        {{ 'DOWNLOAD_PDF_RESUME_DATA' | translate }}
+      </button>
+    </div>
   </div>
 
   <div class="pb-2">

@@ -1,36 +1,35 @@
 <mat-card>
 
   <mat-card-header class="card-header">
-
-    <mat-card-title>{{ project.name }}</mat-card-title>
-
+    <mat-card-title>{{ project?.name }}</mat-card-title>
     <mat-card-actions class="card-actions">
       <button mat-icon-button color="primary" (click)="bsModalRef.hide()">
         <mat-icon>close</mat-icon>
       </button>
     </mat-card-actions>
-
   </mat-card-header>
 
-  <mat-divider></mat-divider>
+  <mat-divider *ngIf="project.pictures && project.pictures.length > 0"></mat-divider>
 
   <carousel class="mt-2" style="background-color: black;">
-    <div *ngFor="let picture of project.pictures">
-      <slide> <img [src]="picture" alt="slide" class="card-slide-img"> </slide>
-    </div>
+    <slide *ngFor="let picture of project?.pictures">
+      <img [src]="picture" alt="slide" class="card-slide-img">
+    </slide>
   </carousel>
 
   <mat-card-content class="mt-2">
-    <h3>Description</h3>
-    <p>{{project.summary}}</p>
-    <p>You can find this project on Github <a [href]="project.projectLink" target="_blank">here</a></p>
+    <h3>
+      <strong>Description:</strong>
+    </h3>
+    <p>{{project?.summary}}</p>
+    <p>You can find this project on Github <a [href]="project?.projectLink" target="_blank">here</a></p>
   </mat-card-content>
 
   <mat-divider></mat-divider>
 
   <mat-card-footer>
     <div class="d-flex flex-wrap justify-content-center mt-2">
-      <div *ngFor="let tag of project.tags">
+      <div *ngFor="let tag of project?.tags">
         <div class="tag me-2 mb-1" [style.background-color]="tag.color">{{ tag }}</div>
       </div>
     </div>
