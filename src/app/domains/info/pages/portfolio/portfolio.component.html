@@ -130,13 +130,9 @@
   <mat-divider></mat-divider>
   <h1>List Projects</h1>
 
-  <mat-grid-list cols="2" rowHeight="2:1">
-
-    <div class="grid bm-8 pt-2">
-      <div *ngFor="let project of projects"
-        class="col-12 sm:col-4 md:col-3 xl:col-2 w-3">
-        <app-project-card [project]="project" />
-      </div>
+  <div class="grid bm-8 pt-2 justify-content-center" >
+    <div *ngFor="let project of projects"
+      class="col-12 sm:col-4 md:col-3 xl:col-2" >
+      <app-project-card [project]="project" />
     </div>
-
-  </mat-grid-list>
+  </div>

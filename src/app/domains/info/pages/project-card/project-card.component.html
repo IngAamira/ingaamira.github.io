@@ -1,23 +1,30 @@
-<mat-card class="project-card justify-content-center">
+<mat-card>
 
-  <mat-card-header class="justify-content-center">
-    <mat-card-title>{{ project.name }}</mat-card-title>
+  <mat-card-header>
+    <mat-card-title>{{ project?.name }}</mat-card-title>
   </mat-card-header>
 
   <mat-divider></mat-divider>
 
-  <mat-card-actions class="justify-content-center">
-    <button mat-raised-button color="primary" (click)="OpenProjectModal()" >View More</button>
-  </mat-card-actions>
+  <mat-card-content class="mt-2">
+    <h5>{{ project?.summary }}</h5>
+    <p>
+      <mat-chip-listbox>
+        <div class="d-flex flex-wrap justify-content-center mt-2">
+          <div *ngFor="let tag of project?.tags; trackBy: trackByTag">
+            <div class="tag me-2 mb-1" [style.background-color]="tag.color">{{ tag }}</div>
+          </div>
+        </div>
+      </mat-chip-listbox>
+    </p>
+  </mat-card-content>
 
   <mat-divider></mat-divider>
 
-  <mat-card-footer>
-    <div class="d-flex flex-wrap justify-content-center mt-2">
-      <div *ngFor="let tag of project.tags">
-        <div class="tag me-2 mb-1" [style.background-color]="tag.color">{{ tag }}</div>
-      </div>
-    </div>
-  </mat-card-footer>
+  <mat-card-actions>
+    <button mat-button mat-raised color="primary" (click)="OpenProjectModal()">
+      <mat-icon>more_horiz</mat-icon>
+    View More</button>
+  </mat-card-actions>
 
 </mat-card>

@@ -1,5 +1,5 @@
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
 
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 
@@ -9,28 +9,33 @@ import { MaterialModule } from '../../../shared/modules/material.module';
 
 @Component({
   selector: 'app-project-card',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [CommonModule, MaterialModule],
   templateUrl: './project-card.component.html',
-  styleUrl: './project-card.component.css',
+  styleUrls: ['./project-card.component.css'],
 })
 export class ProjectCardComponent {
-  @Input() project = {} as Project;
+  @Input() project: Project | undefined;
   bsModalRef?: BsModalRef;
 
-  constructor(private modalService: BsModalService) {
-
-  }
+  constructor(private modalService: BsModalService) {}
 
   OpenProjectModal() {
-    const modalOptions:ModalOptions = {
-      class: "modal-lg",
-      initialState: {
-        project: this.project
-      }
-    };
+    if (this.project) {
+      const modalOptions: ModalOptions = {
+        class: 'modal-lg',
+        initialState: {
+          project: this.project,
+        },
+      };
 
-    this.bsModalRef = this.modalService.show(ProjectModalComponent, modalOptions);
-  };
+      this.bsModalRef = this.modalService.show(ProjectModalComponent, modalOptions);
+    }
+  }
+
+  trackByTag(index: number, tag: any): string {
+    return tag;
+  }
 
 }
