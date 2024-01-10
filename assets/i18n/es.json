@@ -15,8 +15,8 @@
   "FEATURED_PROJECT_SUMMARY": "Este es un proyecto de comercio electrónico desarrollado en Java utilizando Spring Boot. La aplicación implementa funcionalidades clave para la gestión de productos, pedidos, usuarios y el proceso de compra online.",
   "FEATURED_PROJECT_INFO": "¡Visita la sección para conocer más!",
 
-  "DOWNLOAD_PDF_RESUME_DEV": "Currículum Desarrollador de Software",
-  "DOWNLOAD_PDF_RESUME_DATA": "Currículum Ingeniero de Datos",
+  "DOWNLOAD_PDF_RESUME_DEV": "Desarrollador de Software",
+  "DOWNLOAD_PDF_RESUME_DATA": "Ingeniero de Datos",
   "WORK": "Experiencia Laboral",
   "IAS_JOB_1": "Desarrollador de Software",
   "IAS_SD_OBJECTIVE_1": "Desarrollo y mantenimiento de aplicaciones backend utilizando Java y Spring Boot.",
