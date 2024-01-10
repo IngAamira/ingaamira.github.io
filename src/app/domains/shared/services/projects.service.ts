@@ -11,7 +11,7 @@ export class ProjectsService {
   projects: Project[] = [
 
     { id: 0,
-      name: 'TechSolutions',
+      name: 'Tech-Solutions',
       summary: 'This is an e-commerce project developed in Java using Spring Boot. The application implements key functionalities for managing products, orders, users, and the online purchasing process.',
       description: '',
       projectLink: 'https://github.com/IngAamira/TechSolutions',
@@ -29,6 +29,21 @@ export class ProjectsService {
       tags: [Tag.JAVA, Tag.SPRING]
     },
     { id: 1,
+      name: 'World Demographics API',
+      summary: 'WorldDemographicsAPI provides global demographic data for countries and continents. Access population statistics with ease. Ideal for developers and analysts. Explore demographics.',
+      description: '',
+      projectLink: 'https://github.com/IngAamira/WorldDemographicsAPI',
+      pictures: [
+        "assets/imgs/projects/worlddemographicsapi/folder.png",
+        "assets/imgs/projects/worlddemographicsapi/populations.png",
+        "assets/imgs/projects/worlddemographicsapi/world-populations.png"
+      ],
+      tags: [
+        Tag.PYTHON,
+        Tag.HTML
+      ]
+    },
+    { id: 2,
       name: 'To-Do App',
       summary: 'This is a simple To-Do application project developed in Angular.',
       description: '',
@@ -46,7 +61,7 @@ export class ProjectsService {
         Tag.BOOTSTRAP
       ]
     },
-    { id: 2,
+    { id: 3,
       name: 'Gifs App',
       summary: 'This is an Angular application that allows users to search and view gifs using the Giphy API.',
       description: '',
@@ -62,21 +77,6 @@ export class ProjectsService {
         Tag.HTML,
         Tag.CSS,
         Tag.BOOTSTRAP
-      ]
-    },
-    { id: 3,
-      name: 'World Demographics API',
-      summary: 'WorldDemographicsAPI provides global demographic data for countries and continents. Access population statistics with ease. Ideal for developers and analysts. Explore demographics.',
-      description: '',
-      projectLink: 'https://github.com/IngAamira/WorldDemographicsAPI',
-      pictures: [
-        "assets/imgs/projects/worlddemographicsapi/folder.png",
-        "assets/imgs/projects/worlddemographicsapi/populations.png",
-        "assets/imgs/projects/worlddemographicsapi/world-populations.png"
-      ],
-      tags: [
-        Tag.PYTHON,
-        Tag.HTML
       ]
     },
 

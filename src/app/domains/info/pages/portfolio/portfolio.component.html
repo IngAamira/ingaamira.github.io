@@ -2,10 +2,18 @@
 
   <div class="mb-2">
     <div>
-      <button class="btn btn-outline-primary mb-2 me-2" (click)="isCollapsed = !isCollapsed">Filter</button>
-      <button class="btn btn-outline-secondary mb-2 " (click)="ResetFilters()" [hidden]="!filtering">Reset</button>
+      <button class="btn btn-outline-primary mb-2 me-2" (click)="isCollapsed = !isCollapsed">
+        <i class="bi bi-funnel-fill"></i>
+        Filter
+      </button>
+      <button class="btn btn-outline-secondary mb-2 " (click)="ResetFilters()" [hidden]="!filtering">
+        <i class="bi bi-trash-fill"></i>
+        Reset
+      </button>
     </div>
+  </div>
 
+  <div>
     <div [collapse]="isCollapsed" [isAnimated]="true">
       <div class="border mb-2 shadow-sm" style="width: 250px;">
       <form>
@@ -126,10 +134,17 @@
     </div>
   </div>
 
-  <div class="row">
-      <div *ngFor="let project of projects" class="col-lg-4 col-md-6 mb-4" style="max-width: 380px; min-width: 380px;">
+  <!-- app-project-card Pages -->
+
+  <div class="grid bm-8 pt-2 justify-content-center">
+    <div class="row">
+      <div *ngFor="let project of projects"
+        class="col-6 col-sm-3">
         <app-project-card [project]="project" />
       </div>
+    </div>
   </div>
 
 </div>
+
+

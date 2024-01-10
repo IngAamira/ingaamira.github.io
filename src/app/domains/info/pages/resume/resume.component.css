@@ -5,11 +5,3 @@ accordion-group::ng-deep .btn-link {
 accordion-group::ng-deep .card-header {
   background-color: #007bff;
 }
-
-.nav-box {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: center;
-  align-content: center;
-}
