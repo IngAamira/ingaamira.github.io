@@ -1,12 +1,14 @@
 <div class="container text-center">
 
   <div class="d-grid gap-2 d-md-flex justify-content-center pb-4">
-    <button class="btn btn-primary" type="button" (click)="DownloadFileDev()">
-      <i class="bi bi-download"></i>
-      {{ 'DOWNLOAD_PDF_RESUME_DEV' | translate }}</button>
-    <button class="btn btn-primary" type="button" (click)="DownloadFileData()">
-      <i class="bi bi-download"></i>
-      {{ 'DOWNLOAD_PDF_RESUME_DATA' | translate }}</button>
+    <button class="btn btn-outline-primary mb-2 me-2" (click)="DownloadFileDev()">
+      <i class="bi bi-file-earmark-pdf-fill"></i>
+      {{ 'DOWNLOAD_PDF_RESUME_DEV' | translate }}
+    </button>
+    <button class="btn btn-outline-primary mb-2 me-2" (click)="DownloadFileData()">
+      <i class="bi bi-file-earmark-pdf-fill"></i>
+      {{ 'DOWNLOAD_PDF_RESUME_DATA' | translate }}
+    </button>
   </div>
 
   <div class="pb-2">

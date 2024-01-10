@@ -3,7 +3,6 @@ import { Component, Renderer2 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { AccordionModule } from 'ngx-bootstrap/accordion';
-import { TranslateModule} from '@ngx-translate/core';
 
 import { TranslationModule } from '../../../shared/modules/translation.module';
 import { TranslationService } from '../../../shared/services/translation.service';
@@ -37,7 +36,6 @@ export class ResumeComponent {
     const link = this.renderer.createElement('a');
     link.setAttribute('target','_blank');
     link.setAttribute('href', this.translationService.getPdfPathDev());
-    //link.setAttribute('download', this.translationService.getPdfPathDev());
     link.click();
     link.remove();
   }
@@ -46,7 +44,6 @@ export class ResumeComponent {
     const link = this.renderer.createElement('a');
     link.setAttribute('target','_blank');
     link.setAttribute('href', this.translationService.getPdfPathData());
-    //link.setAttribute('download', this.translationService.getPdfPathData());
     link.click();
     link.remove();
   }

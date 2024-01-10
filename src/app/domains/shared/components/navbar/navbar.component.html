@@ -6,8 +6,10 @@
       [routerLinkActive]="'active-link'"
       [routerLinkActiveOptions]="{ exact: true }"
       class="block navigation-link"
-      aria-current="page"
-    >{{ 'HOME' | translate }}</a>
+      aria-current="page" >
+      <i class="bi bi-house-fill"></i>
+      {{ 'HOME' | translate }}
+    </a>
   </div>
 
   <div class="nav-item" tabindex="0">
@@ -16,8 +18,10 @@
       [routerLinkActive]="'active-link'"
       [routerLinkActiveOptions]="{ exact: true }"
       class="block navigation-link"
-      aria-current="page"
-    >{{ 'PORTFOLIO' | translate }}</a>
+      aria-current="page" >
+      <i class="bi bi-folder-symlink-fill"></i>
+      {{ 'PORTFOLIO' | translate }}
+    </a>
   </div>
 
   <div class="nav-item" tabindex="0">
@@ -26,18 +30,10 @@
       [routerLinkActive]="'active-link'"
       [routerLinkActiveOptions]="{ exact: true }"
       class="block navigation-link"
-      aria-current="page"
-    >{{ 'RESUME' | translate }}</a>
+      aria-current="page" >
+      <i class="bi bi-file-person-fill"></i>
+      {{ 'RESUME' | translate }}
+    </a>
   </div>
-
-  <!-- <div class="nav-item" tabindex="0">
-    <a
-      [routerLink]="'/contact'"
-      [routerLinkActive]="'active-link'"
-      [routerLinkActiveOptions]="{ exact: true }"
-      class="block navigation-link"
-      aria-current="page"
-    >{{ 'CONTACT' | translate }}</a>
-  </div> -->
 
 </div>
