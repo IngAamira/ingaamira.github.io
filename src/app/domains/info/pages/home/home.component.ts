@@ -15,8 +15,7 @@ import { TranslationService } from '../../../shared/services/translation.service
   selector: 'app-home',
   standalone: true,
   imports: [CarouselModule, RouterLink, NgFor, TranslationModule],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit{
 

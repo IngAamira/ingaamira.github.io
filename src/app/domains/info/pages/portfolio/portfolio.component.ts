@@ -14,8 +14,7 @@ import { Tag } from '../../../shared/models/tag';
   selector: 'app-portfolio',
   standalone: true,
   imports: [ProjectCardComponent, CommonModule, CollapseModule, FormsModule],
-  templateUrl: './portfolio.component.html',
-  styleUrl: './portfolio.component.css'
+  templateUrl: './portfolio.component.html'
 })
 export class PortfolioComponent implements OnInit {
 

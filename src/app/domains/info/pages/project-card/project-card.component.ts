@@ -10,8 +10,7 @@ import { ProjectModalComponent } from '../project-modal/project-modal.component'
   selector: 'app-project-card',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './project-card.component.html',
-  styleUrl: './project-card.component.css',
+  templateUrl: './project-card.component.html'
 })
 export class ProjectCardComponent {
   @Input() project = {} as Project;

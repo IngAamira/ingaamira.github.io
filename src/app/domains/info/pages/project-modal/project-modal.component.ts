@@ -10,8 +10,7 @@ import { Project } from '../../../shared/models/project';
   selector: 'app-project-modal',
   standalone: true,
   imports: [CarouselModule, NgFor],
-  templateUrl: './project-modal.component.html',
-  styleUrl: './project-modal.component.css'
+  templateUrl: './project-modal.component.html'
 })
 export class ProjectModalComponent {
   project = {} as Project;
