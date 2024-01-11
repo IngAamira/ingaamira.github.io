@@ -30,7 +30,7 @@
   transition: transform 0.3s;
 }
 
-.language-selector a:hover img {
+.language-selector button:hover img {
   transform: scale(1.2);
 }
 
@@ -47,10 +47,6 @@
 
 .header h1 {
   font-size: 40px;
-}
-
-.header h2 {
-  text-transform: capitalize;
 }
 
 .header h3 {
