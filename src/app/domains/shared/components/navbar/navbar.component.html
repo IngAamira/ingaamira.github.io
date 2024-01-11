@@ -1,39 +1,53 @@
-<div class="nav-box">
+<hr>
+  <div class="d-flex justify-content-center mt-1">
 
-  <div class="nav-item" tabindex="0">
-    <a
-      [routerLink]="'/'"
-      [routerLinkActive]="'active-link'"
-      [routerLinkActiveOptions]="{ exact: true }"
-      class="block navigation-link"
-      aria-current="page" >
-      <i class="bi bi-house-fill"></i>
-      {{ 'HOME' | translate }}
-    </a>
+    <!-- Home -->
+    <div class="m-1 mb-1" tabindex="0">
+      <a
+        [routerLink]="'/'"
+        [routerLinkActive]="'active-link'"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="block navigation-link"
+        aria-current="page" >
+        <i class="bi bi-house-door-fill"></i>
+      </a>
+    </div>
+
+    <!-- Portfolio -->
+    <div class="m-1 mb-1" tabindex="0">
+      <a
+        [routerLink]="'/portfolio'"
+        [routerLinkActive]="'active-link'"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="block navigation-link"
+        aria-current="page" >
+        <i class="bi bi-briefcase-fill"></i>
+      </a>
+    </div>
+
+    <!-- Resume -->
+    <div class="m-1 mb-1" tabindex="0">
+      <a
+        [routerLink]="'/resume'"
+        [routerLinkActive]="'active-link'"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="block navigation-link"
+        aria-current="page" >
+        <i class="bi bi-person-workspace"></i>
+      </a>
+    </div>
+
+      <!-- Contact -->
+      <div class="m-1 mb-1" tabindex="0">
+        <a
+          [routerLink]="'/contact'"
+          [routerLinkActive]="'active-link'"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="block navigation-link"
+          aria-current="page" >
+          <i class="bi bi-person-fill-add"></i>
+        </a>
+      </div>
+
   </div>
-
-  <div class="nav-item" tabindex="0">
-    <a
-      [routerLink]="'/portfolio'"
-      [routerLinkActive]="'active-link'"
-      [routerLinkActiveOptions]="{ exact: true }"
-      class="block navigation-link"
-      aria-current="page" >
-      <i class="bi bi-folder-symlink-fill"></i>
-      {{ 'PORTFOLIO' | translate }}
-    </a>
-  </div>
-
-  <div class="nav-item" tabindex="0">
-    <a
-      [routerLink]="'/resume'"
-      [routerLinkActive]="'active-link'"
-      [routerLinkActiveOptions]="{ exact: true }"
-      class="block navigation-link"
-      aria-current="page" >
-      <i class="bi bi-file-person-fill"></i>
-      {{ 'RESUME' | translate }}
-    </a>
-  </div>
-
-</div>
+<hr>

@@ -30,23 +30,23 @@
       </div>
 
       <carousel>
-        <div class="text-center">
           <div *ngFor="let picture of featureProject.pictures">
-            <slide><img src={{picture}} alt="slide" width="600" height="220" display="block"></slide>
+            <slide>
+              <div class="text-center py-5 bg-dark text-white">
+                <img src={{picture}} alt="slide" width="600" height="220" display="block">
+              </div>
+            </slide>
           </div>
-        </div>
       </carousel>
 
       <p class="mt-2">{{ 'FEATURED_PROJECT_SUMMARY' | translate }}</p>
       <p>
         {{ 'FEATURED_PROJECT_INFO' | translate }}
-        <button
-          class="btn btn-outline-primary mb-2 me-2 h-29px w-105px p-1 border-1"
+        <a
           [routerLink]="'/portfolio'"
           aria-current="page" >
-          <i class="bi bi-folder-symlink-fill"></i>
-          {{'PORTFOLIO' | translate }}
-        </button>
+          <i class="bi bi-briefcase-fill"></i>
+        </a>
       </p>
 
     </div>

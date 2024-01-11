@@ -1,40 +1,32 @@
-import { CommonModule } from '@angular/common';
 import { Component, Renderer2 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-import { AccordionModule } from 'ngx-bootstrap/accordion';
-
-import { TranslationModule } from '../../../shared/modules/translation.module';
 import { TranslationService } from '../../../shared/services/translation.service';
 
 @Component({
   selector: 'app-resume',
-  standalone: true,
-  imports: [AccordionModule, CommonModule, TranslationModule],
   templateUrl: './resume.component.html',
-  styleUrl: './resume.component.css'
+  styleUrl: './resume.component.css',
 })
 export class ResumeComponent {
-
   isWorkExperienceOpen: boolean = false;
   isSectorExperienceOpen: boolean = false;
-  isEducationOpen:boolean = false;
+  isEducationOpen: boolean = false;
   isSkillsSdOpen: boolean = false;
   isSkillsDeOpen: boolean = false;
   isLanguagesOpen: boolean = false;
 
-  constructor (
+  constructor(
     private titleService: Title,
     private renderer: Renderer2,
-    private translationService:
-    TranslationService
+    private translationService: TranslationService
   ) {
     this.titleService.setTitle('Resume');
   }
 
   DownloadFileDev() {
     const link = this.renderer.createElement('a');
-    link.setAttribute('target','_blank');
+    link.setAttribute('target', '_blank');
     link.setAttribute('href', this.translationService.getPdfPathDev());
     link.click();
     link.remove();
@@ -42,7 +34,7 @@ export class ResumeComponent {
 
   DownloadFileData() {
     const link = this.renderer.createElement('a');
-    link.setAttribute('target','_blank');
+    link.setAttribute('target', '_blank');
     link.setAttribute('href', this.translationService.getPdfPathData());
     link.click();
     link.remove();
@@ -51,5 +43,4 @@ export class ResumeComponent {
   changeLanguage(lang: string): void {
     this.translationService.changeLanguage(lang);
   }
-
 }
