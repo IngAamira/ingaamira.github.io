@@ -1,13 +1,11 @@
 <div class="container text-center">
 
   <div class="d-grid gap-2 d-md-flex justify-content-center pb-4">
-    <button class="btn btn-outline-primary mb-2 me-2" (click)="DownloadFileDev()">
+    <button *ngFor="let item of menuItems"
+      class="btn btn-outline-primary mb-2 me-2"
+      (click)="item.event()">
       <i class="bi bi-file-earmark-pdf-fill"></i>
-      {{ 'DOWNLOAD_PDF_RESUME_DEV' | translate }}
-    </button>
-    <button class="btn btn-outline-primary mb-2 me-2" (click)="DownloadFileData()">
-      <i class="bi bi-file-earmark-pdf-fill"></i>
-      {{ 'DOWNLOAD_PDF_RESUME_DATA' | translate }}
+      {{ item.name | translate }}
     </button>
   </div>
 
@@ -32,14 +30,9 @@
           <h3 class="mb-0">IAS Software</h3>
           <h4 class="text-secondary">{{ 'DATE' | translate }}: 07/2023 - ({{ 'PRESENT' | translate }})</h4>
           <ul>
-            <li>{{ 'IAS_SD_OBJECTIVE_1' | translate }}</li>
-            <li>{{ 'IAS_SD_OBJECTIVE_2' | translate }}</li>
-            <li>{{ 'IAS_SD_OBJECTIVE_3' | translate }}</li>
-            <li>{{ 'IAS_SD_OBJECTIVE_4' | translate }}</li>
-            <li>{{ 'IAS_SD_OBJECTIVE_5' | translate }}</li>
-            <li>{{ 'IAS_SD_OBJECTIVE_6' | translate }}</li>
-            <li>{{ 'IAS_SD_OBJECTIVE_7' | translate }}</li>
-            <li>{{ 'IAS_SD_OBJECTIVE_8' | translate }}</li>
+            <li *ngFor="let objective of objectives">
+              {{ objective.translationKey | translate }}
+            </li>
           </ul>
         </div>
 
