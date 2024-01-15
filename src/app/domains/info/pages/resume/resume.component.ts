@@ -1,12 +1,8 @@
-import { Component, Renderer2 } from '@angular/core';
+import { Component, Renderer2, signal } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { TranslationService } from '../../../shared/services/translation.service';
-
-interface MenuItem {
-  name : string;
-  event: () => void;
-}
+import { MenuItemResume } from '../../../shared/interfaces/menu-item';
 
 interface Objective {
   id: number;
@@ -34,10 +30,10 @@ export class ResumeComponent {
     this.titleService.setTitle('Resume');
   }
 
-  public menuItems: MenuItem[] = [
+  public menuItemsResume = signal<MenuItemResume[]> ([
     { name: 'DOWNLOAD_PDF_RESUME_DEV',  event: () => this.DownloadFileDev()  },
     { name: 'DOWNLOAD_PDF_RESUME_DATA', event: () => this.DownloadFileData() },
-  ];
+  ]);
 
   public objectives: Objective[] = [
     { id: 1, translationKey: 'IAS_SD_OBJECTIVE_1' },
@@ -69,4 +65,5 @@ export class ResumeComponent {
   changeLanguage(lang: string): void {
     this.translationService.changeLanguage(lang);
   }
+
 }

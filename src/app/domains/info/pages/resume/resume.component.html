@@ -1,7 +1,7 @@
 <div class="container text-center">
 
   <div class="d-grid gap-2 d-md-flex justify-content-center pb-4">
-    <button *ngFor="let item of menuItems"
+    <button *ngFor="let item of menuItemsResume()"
       class="btn btn-outline-primary mb-2 me-2"
       (click)="item.event()">
       <i class="bi bi-file-earmark-pdf-fill"></i>

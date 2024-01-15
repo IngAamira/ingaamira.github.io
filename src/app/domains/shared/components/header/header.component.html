@@ -1,15 +1,13 @@
-  <div class="header">
+<div class="header">
 
-    <h1> {{ 'NAME' | translate }} </h1>
-    <h3> {{ 'TITLE' | translate }} </h3>
+  <h1> {{ 'NAME' | translate }} </h1>
+  <h3> {{ 'TITLE' | translate }} </h3>
 
-    <div class="language-selector bottom-right">
-      <button (click)="changeLanguage('en')">
-        <img src="{{ getUsa }}" alt="USA Flag">
-      </button>
-      <button (click)="changeLanguage('es')">
-        <img src="{{ getSpain }}" alt="Spain Flag">
-      </button>
-    </div>
-
+  <div class="language-selector bottom-right">
+    <button *ngFor="let item of menuItemsHeader()"
+      (click)="item.event()">
+      <img [src]="item.getName" [alt]="item.flag" >
+    </button>
   </div>
+
+</div>

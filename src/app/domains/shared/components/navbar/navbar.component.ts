@@ -1,14 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterModule, RouterLinkWithHref, RouterLinkActive } from '@angular/router';
 
 import { TranslationModule } from '../../../shared/modules/translation.module';
 import { TranslationService } from '../../../shared/services/translation.service';
-
-interface MenuItem {
-  route: string;
-  img: string;
-}
+import { MenuItemNav } from '../../../shared/interfaces/menu-item';
 
 @Component({
   selector: 'app-navbar',
@@ -23,12 +19,12 @@ export class NavbarComponent {
 
   }
 
-  public menuItems: MenuItem[] = [
+  public menuItemsHome = signal<MenuItemNav[]> ([
     { route: '/',          img: 'bi bi-house-door-fill'  },
     { route: '/portfolio', img: 'bi bi-briefcase-fill'   },
     { route: '/resume',    img: 'bi bi-person-workspace' },
     { route: '/contact',   img: 'bi bi-person-fill-add'  },
-  ];
+  ]);
 
   changeLanguage(lang: string): void {
     this.translationService.changeLanguage(lang);

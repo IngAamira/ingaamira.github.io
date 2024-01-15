@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 import { TranslationModule } from '../../../shared/modules/translation.module';
 import { TranslationService } from '../../../shared/services/translation.service';
+import { MenuItemHeader } from '../../../shared/interfaces/menu-item';
+
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [TranslationModule],
+  imports: [CommonModule, TranslationModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
@@ -19,6 +22,11 @@ export class HeaderComponent implements OnInit {
     private translationService: TranslationService,
     private http: HttpClient
   ) {}
+
+  public menuItemsHeader = signal<MenuItemHeader[]> ([
+    { flag: 'USA Flag',   getName: this.getUsa,   event: () => this.changeLanguage('en') },
+    { flag: 'Spain Flag', getName: this.getSpain, event: () => this.changeLanguage('es') },
+  ]);
 
   ngOnInit(): void {
     this.getUsa =
