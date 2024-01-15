@@ -1,36 +1,14 @@
 <footer class="footer">
 
   <div class="text-center info">
-    <!-- <p>{{ 'FOOTER_TEXT_1' | translate }}</p>
-    <p>✨ {{ 'FOOTER_TEXT_2' | translate }} ✨</p> -->
-    <p>🚀 {{ 'FOOTER_TEXT_3' | translate }} 🚀</p>
+    <p>🚀 {{ 'FOOTER_TEXT' | translate }} 🚀</p>
   </div>
 
   <div class="text-center social-links">
-    <a href="https://linkedin.com/in/ingaamira" target="_blank">
-      <img src="assets/icons/linkedin.png" alt="LinkedIn">
+    <a *ngFor="let item of menuItemsFooter()"
+      [href]="item.url" target="_blank" >
+      <img [src]="item.img" [alt]="item.flag" >
     </a>
-
-    <a href="https://github.com/IngAamira" target="_blank">
-      <img src="assets/icons/github.png" alt="GitHub">
-    </a>
-
-    <a href="https://platzi.com/p/IngAamira/" target="_blank">
-      <img src="assets/icons/platzi.png" alt="Platzi">
-    </a>
-
-    <a href="https://www.udemy.com/user/andres-mira/" target="_blank">
-      <img src="assets/icons/udemy.png" alt="Udemy">
-    </a>
-
-    <a href="https://twitter.com/Ingaamira" target="_blank">
-      <img src="assets/icons/twitter.png" alt="Twitter">
-    </a>
-
-    <a href="mailto:andres.mira@outlook.com" target="_blank">
-      <img src="assets/icons/e-mail.png" alt="Email">
-    </a>
-
   </div>
 
   <div class="text-center current-year">

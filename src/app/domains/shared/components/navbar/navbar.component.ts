@@ -11,19 +11,17 @@ import { MenuItemNav } from '../../../shared/interfaces/menu-item';
   standalone: true,
   imports: [ CommonModule, RouterModule, RouterLinkWithHref, RouterLinkActive, TranslationModule ],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
 
-  constructor(private translationService: TranslationService) {
-
-  }
+  constructor(private translationService: TranslationService) { }
 
   public menuItemsHome = signal<MenuItemNav[]> ([
-    { route: '/',          img: 'bi bi-house-door-fill'  },
-    { route: '/portfolio', img: 'bi bi-briefcase-fill'   },
-    { route: '/resume',    img: 'bi bi-person-workspace' },
-    { route: '/contact',   img: 'bi bi-person-fill-add'  },
+    { route: '/',          img: 'bi bi-house-door-fill',  name: 'Home'      },
+    { route: '/portfolio', img: 'bi bi-briefcase-fill',   name: 'Portfolio' },
+    { route: '/resume',    img: 'bi bi-person-workspace', name: 'Resume'    },
+    { route: '/contact',   img: 'bi bi-person-fill-add',  name: 'Contact'   },
   ]);
 
   changeLanguage(lang: string): void {

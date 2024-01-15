@@ -12,7 +12,7 @@ interface Objective {
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html',
-  styleUrl: './resume.component.css',
+  styleUrls: ['./resume.component.css'],
 })
 export class ResumeComponent {
   isWorkExperienceOpen: boolean = false;

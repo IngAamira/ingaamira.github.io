@@ -6,37 +6,12 @@
   </div>
 
   <div class="list-group shadow">
-
-    <a href="https://linkedin.com/in/ingaamira" target="_blank" class="list-group-item list-group-item-action d-flex gap-3 py-3" >
-      <img src="assets/icons/linkedin.png" width="32" height="32" class="rounded-circle flex-shrink-0 me-5">
-      <h3 class="mb-0">LinkedIn</h3>
+    <a *ngFor="let item of menuItemsContact()"
+      [href]="item.url" target="_blank"
+      class="list-group-item list-group-item-action d-flex gap-3 py-3" >
+      <img [src]="item.img" width="32" height="32" class="rounded-circle flex-shrink-0 me-5">
+      <h3 class="mb-0">{{ item.flag }}</h3>
     </a>
-
-    <a href="https://github.com/IngAamira" target="_blank" class="list-group-item list-group-item-action d-flex gap-3 py-3" >
-      <img src="assets/icons/github.png" width="32" height="32" class="rounded-circle flex-shrink-0 me-5">
-      <h3 class="mb-0">Github</h3>
-    </a>
-
-    <a href="https://platzi.com/p/IngAamira/" target="_blank" class="list-group-item list-group-item-action d-flex gap-3 py-3" >
-      <img src="assets/icons/platzi.png" width="32" height="32" class="rounded-circle flex-shrink-0 me-5">
-      <h3 class="mb-0">Platzi</h3>
-    </a>
-
-    <a href="https://www.udemy.com/user/andres-mira/" target="_blank" class="list-group-item list-group-item-action d-flex gap-3 py-3" >
-      <img src="assets/icons/udemy.png" width="32" height="32" class="rounded-circle flex-shrink-0 me-5">
-      <h3 class="mb-0">Udemy</h3>
-    </a>
-
-    <a href="https://twitter.com/Ingaamira" target="_blank" class="list-group-item list-group-item-action d-flex gap-3 py-3" >
-      <img src="assets/icons/twitter.png" width="32" height="32" class="rounded-circle flex-shrink-0 me-5">
-      <h3 class="mb-0">X</h3>
-    </a>
-
-    <a href="mailto:andres.mira@outlook.com" target="_blank" class="list-group-item list-group-item-action d-flex gap-3 py-3" >
-      <img src="assets/icons/e-mail.png" width="32" height="32" class="rounded-circle flex-shrink-0 me-5">
-      <h3 class="mb-0">Email</h3>
-    </a>
-
   </div>
 
 </div>

@@ -1,7 +1,7 @@
 /*Menu Header*/
 export  interface MenuItemHeader {
   flag : string;
-  getName: string;
+  img: string;
   event: () => void;
 }
 
@@ -9,10 +9,18 @@ export  interface MenuItemHeader {
 export  interface MenuItemNav {
   route: string;
   img: string;
+  name: string;
 }
 
 /*Menu Resume*/
 export interface MenuItemResume {
   name : string;
   event: () => void;
+}
+
+/*Menu Footer and Contact*/
+export  interface MenuItemContact {
+  url : string;
+  img: string;
+  flag: string;
 }

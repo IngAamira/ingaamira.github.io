@@ -1,11 +1,22 @@
 .navigation-link {
   text-decoration: none;
   color: #794999;
-  padding: 3px 8px;
+  padding: 3px 10px;
   border-radius: 16px;
   cursor: pointer;
   transition: all ease .2s;
-  font-size: 50px;
+  font-size: 25px; /* Tamaño de fuente predeterminado para todas las pantallas */
+
+  /* Estilo para pantallas grandes */
+  @media (min-width: 768px) {
+    font-size: 25px;
+  }
+
+  /* Estilo para pantallas pequeñas */
+  @media (max-width: 767px) {
+    font-size: 50px;
+  }
+
 }
 
 .navigation-link:hover,
