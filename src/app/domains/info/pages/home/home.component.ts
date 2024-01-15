@@ -41,4 +41,33 @@ export class HomeComponent implements OnInit {
     const years = Math.floor(timeDiff / (1000 * 3600 * 24 * 365.25));
     return years;
   }
+
+  getWidth(): number {
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth >= 768) {
+      return 600;
+    } else if (screenWidth >= 480) {
+      return 400;
+    } else {
+      return 300;
+    }
+  }
+
+  getHeight(): number {
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth >= 768) {
+      return 220;
+    } else if (screenWidth >= 480) {
+      return 150;
+    } else {
+      return 150;
+    }
+  }
+
+  isResponsive(): boolean {
+    return window.innerWidth < 768;
+  }
+
 }

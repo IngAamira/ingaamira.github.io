@@ -29,14 +29,19 @@
         <h4>{{ featureProject.name }}</h4>
       </div>
 
-      <carousel>
-          <div *ngFor="let picture of featureProject.pictures">
-            <slide>
-              <div class="text-center py-5 bg-dark text-white">
-                <img src={{picture}} alt="slide" width="600" height="220" display="block">
-              </div>
-            </slide>
-          </div>
+      <carousel class="d-block carousel carousel-dark slide">
+        <div *ngFor="let picture of featureProject.pictures">
+          <slide>
+            <div class="text-center py-2">
+              <img
+                [src]="picture"
+                alt="slide"
+                [ngStyle]="{'width.px': getWidth(), 'height.px': getHeight()}"
+                [ngClass]="{'img-fluid': isResponsive()}"
+              >
+            </div>
+          </slide>
+        </div>
       </carousel>
 
       <p class="mt-2">{{ 'FEATURED_PROJECT_SUMMARY' | translate }}</p>

@@ -5,7 +5,7 @@
   border-radius: 16px;
   cursor: pointer;
   transition: all ease .2s;
-  font-size: 25px; /* Tamaño de fuente predeterminado para todas las pantallas */
+  font-size: 25px;
 
   /* Estilo para pantallas grandes */
   @media (min-width: 768px) {
