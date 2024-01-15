@@ -18,10 +18,10 @@ export class NavbarComponent {
   constructor(private translationService: TranslationService) { }
 
   public menuItemsHome = signal<MenuItemNav[]> ([
-    { route: '/',          img: 'bi bi-house-door-fill',  name: 'Home'      },
-    { route: '/portfolio', img: 'bi bi-briefcase-fill',   name: 'Portfolio' },
-    { route: '/resume',    img: 'bi bi-person-workspace', name: 'Resume'    },
-    { route: '/contact',   img: 'bi bi-person-fill-add',  name: 'Contact'   },
+    { route: '/',          img: 'bi bi-house-door-fill',  name: 'HOME'      },
+    { route: '/portfolio', img: 'bi bi-briefcase-fill',   name: 'PORTFOLIO' },
+    { route: '/resume',    img: 'bi bi-person-workspace', name: 'RESUME'    },
+    { route: '/contact',   img: 'bi bi-person-fill-add',  name: 'CONTACT'   },
   ]);
 
   changeLanguage(lang: string): void {
