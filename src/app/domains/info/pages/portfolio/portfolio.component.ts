@@ -3,20 +3,20 @@ import { CommonModule } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
-import { CollapseModule } from 'ngx-bootstrap/collapse';
 
-import { Project } from '../../../shared/models/project';
+import { Project } from '../../../shared/classes/project';
 import { ProjectCardComponent } from '../project-card/project-card.component';
 import { ProjectsService } from '../../../shared/services/projects.service';
-import { Tag } from '../../../shared/models/tag';
+import { Tag } from '../../../shared/classes/tag';
+import { NgxBootstrapModule } from 'app/domains/shared/modules/ngx-bootstrap.module';
 
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [ProjectCardComponent, CommonModule, CollapseModule, FormsModule],
+  imports: [ProjectCardComponent, CommonModule, NgxBootstrapModule, FormsModule],
   templateUrl: './portfolio.component.html'
 })
-export class PortfolioComponent implements OnInit {
+export default class PortfolioComponent implements OnInit {
 
   projects = {} as Project[];
 

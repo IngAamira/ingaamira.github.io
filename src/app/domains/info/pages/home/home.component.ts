@@ -1,16 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
-import { Project } from '../../../shared/models/project';
+import { Project } from '../../../shared/classes/project';
 import { ProjectsService } from '../../../shared/services/projects.service';
 import { NgxBootstrapModule } from '../../../shared/modules/ngx-bootstrap.module';
 import { TranslationService } from '../../../shared/services/translation.service';
+import { TranslationModule } from 'app/domains/shared/modules/translation.module';
 
 @Component({
+  standalone: true,
+  imports: [CommonModule, TranslationModule, NgxBootstrapModule, RouterLink],
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
-export class HomeComponent implements OnInit {
+export default class HomeComponent implements OnInit {
   featureProject: Project = {} as Project;
   years: number;
 

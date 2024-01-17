@@ -6,17 +6,17 @@
     <div class="col-lg shadow border m-1">
 
       <div class="text-center">
-        <h2>{{ 'ABOUT_ME' | translate }}</h2>
-        <img src="assets/imgs/home/profile.jpg" alt="profile picture" width="256" height="256" class="rounded-circle">
-        <p style="text-align: left; margin-top: 10px;">
+        <h2 class="mt-2">{{ 'ABOUT_ME' | translate }}</h2>
+        <img src="assets/imgs/home/profile.jpg" alt="profile picture" width="256" height="256" class="rounded-circle mt-2">
+        <p style="text-align: left; margin-top: 18px;">
           {{ 'ABOUT_ME_TEXT_1' | translate:{ years: years.toString() } }}
         </p>
         <p style="text-align: left; margin-top: 10px;">
           {{ 'ABOUT_ME_TEXT_2' | translate }}
         </p>
-        <p style="text-align: left; margin-top: 10px;">
+        <!-- <p style="text-align: left; margin-top: 10px;">
           {{ 'ABOUT_ME_TEXT_3' | translate }}
-        </p>
+        </p> -->
       </div>
 
     </div>
@@ -24,7 +24,7 @@
     <!--Featured Project-->
     <div class="col-lg shadow border m-1">
 
-      <div class="text-center">
+      <div class="text-center mt-2">
         <h2>{{ 'FEATURED_PROJECT' | translate }}</h2>
         <h4>{{ featureProject.name }}</h4>
       </div>

@@ -11,6 +11,6 @@ import { FooterComponent } from './../../../shared/components/footer/footer.comp
   imports: [RouterModule, HeaderComponent, NavbarComponent, FooterComponent],
   templateUrl: './layout.component.html'
 })
-export class LayoutComponent {
+export default class LayoutComponent {
 
 }

@@ -1,15 +1,15 @@
 import { Component} from '@angular/core';
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 
-import { Project } from '../../../shared/models/project';
+import { Project } from '../../../shared/classes/project';
 
 @Component({
   selector: 'app-project-modal',
   standalone: true,
-  imports: [CommonModule, CarouselModule, NgFor],
+  imports: [CommonModule, CarouselModule],
   templateUrl: './project-modal.component.html'
 })
 export class ProjectModalComponent {

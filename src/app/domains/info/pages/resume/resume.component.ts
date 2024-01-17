@@ -1,8 +1,11 @@
 import { Component, Renderer2, signal } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-import { TranslationService } from '../../../shared/services/translation.service';
-import { MenuItemResume } from '../../../shared/interfaces/menu-item';
+import { TranslationService } from 'app/domains/shared/services/translation.service';
+import { MenuItemResume } from 'app/domains/shared/interfaces/menu-item';
+import { CommonModule } from '@angular/common';
+import { TranslationModule } from 'app/domains/shared/modules/translation.module';
+import { NgxBootstrapModule } from 'app/domains/shared/modules/ngx-bootstrap.module';
 
 interface Objective {
   id: number;
@@ -10,11 +13,12 @@ interface Objective {
 }
 
 @Component({
-  selector: 'app-resume',
+  standalone: true,
+  imports: [CommonModule, TranslationModule, NgxBootstrapModule],
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.css'],
 })
-export class ResumeComponent {
+export default class ResumeComponent {
   isWorkExperienceOpen: boolean = false;
   isSectorExperienceOpen: boolean = false;
   isEducationOpen: boolean = false;

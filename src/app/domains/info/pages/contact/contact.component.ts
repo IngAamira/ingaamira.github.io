@@ -1,14 +1,18 @@
 import { Component, signal } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 import { TranslationService } from '../../../shared/services/translation.service';
 import { MenuItemContact } from '../../../shared/interfaces/menu-item';
+import { TranslationModule } from 'app/domains/shared/modules/translation.module';
 
 @Component({
+  standalone: true,
+  imports: [CommonModule, TranslationModule],
   selector: 'app-contact',
   templateUrl: './contact.component.html'
 })
-export class ContactComponent {
+export default class ContactComponent {
 
   constructor(
     private titleService: Title,

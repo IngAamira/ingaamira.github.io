@@ -1,18 +1,32 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LayoutComponent } from './domains/shared/components/layout/layout.component';
-import { NotFoundComponent } from './domains/info/pages/not-found/not-found.component';
-
 const routes: Routes = [
   {
     path: '',
-    component: LayoutComponent,
-    loadChildren: () => import('./domains/info/info.module').then( m => m.InfoModule )
+    loadComponent: () => import('../app/domains/shared/components/layout/layout.component'),
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('../app/domains/info/pages/home/home.component'),
+      },
+      {
+        path: 'portfolio',
+        loadComponent: () => import('../app/domains/info/pages/portfolio/portfolio.component'),
+      },
+      {
+        path: 'resume',
+        loadComponent: () => import('../app/domains/info/pages/resume/resume.component'),
+      },
+      {
+        path: 'contact',
+        loadComponent: () => import('../app/domains/info/pages/contact/contact.component'),
+      },
+    ]
   },
   {
     path: '**',
-    component: NotFoundComponent,
+    loadComponent: () => import('../app/domains/info/pages/not-found/not-found.component'),
     pathMatch: 'full'
   }
 

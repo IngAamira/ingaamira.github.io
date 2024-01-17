@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { Tag } from '../models/tag';
-import { Project } from '../models/project';
+import { Tag } from '../classes/tag';
+import { Project } from '../classes/project';
 
 @Injectable({
   providedIn: 'root'
