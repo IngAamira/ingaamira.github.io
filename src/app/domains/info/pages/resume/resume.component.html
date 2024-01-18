@@ -16,15 +16,12 @@
           <div class="btn-link">
             <div class="text-truncate">{{ 'WORK' | translate }}</div>
           </div>
-
           <div style="width: 10.95px;">
             <div *ngIf="!isWorkExperienceOpen" style="color: white;">></div>
             <div *ngIf="isWorkExperienceOpen" style="color: white;">v</div>
           </div>
         </button>
-
         <app-work-experience />
-
       </accordion-group>
 
       <accordion-group [(isOpen)]="isSectorExperienceOpen" class="d-flex flex-column">
@@ -33,24 +30,12 @@
           <div class="btn-link">
             <div class="text-truncate">{{ 'SECTOR' | translate }}</div>
           </div>
-
           <div style="width: 10.95px;">
             <div *ngIf="!isSectorExperienceOpen" style="color: white;">></div>
             <div *ngIf="isSectorExperienceOpen" style="color: white;">v</div>
           </div>
         </button>
-
-        <div style="text-align: left;">
-          <ul>
-            <li>{{ 'SECTOR_INFO_1' | translate }}</li>
-            <li>{{ 'SECTOR_INFO_2' | translate }}</li>
-            <li>{{ 'SECTOR_INFO_3' | translate }}</li>
-            <li>{{ 'SECTOR_INFO_4' | translate }}</li>
-            <li>{{ 'SECTOR_INFO_5' | translate }}</li>
-            <li>{{ 'SECTOR_INFO_6' | translate }}</li>
-          </ul>
-        </div>
-
+        <app-work-sector />
       </accordion-group>
 
       <accordion-group [(isOpen)]="isSkillsDeOpen" class="d-flex flex-column">
@@ -59,15 +44,12 @@
           <div class="btn-link">
             <div class="text-truncate">{{ 'SKILLS_DATA' | translate }}</div>
           </div>
-
           <div style="width: 10.95px;">
             <div *ngIf="!isSkillsDeOpen" style="color: white;">></div>
             <div *ngIf="isSkillsDeOpen" style="color: white;">v</div>
           </div>
         </button>
-
         <app-work-data />
-
       </accordion-group>
 
       <accordion-group [(isOpen)]="isSkillsSdOpen" class="d-flex flex-column">
@@ -76,15 +58,12 @@
           <div class="btn-link">
             <div class="text-truncate">{{ 'SKILLS_DEV' | translate }}</div>
           </div>
-
           <div style="width: 10.95px;">
             <div *ngIf="!isSkillsSdOpen" style="color: white;">></div>
             <div *ngIf="isSkillsSdOpen" style="color: white;">v</div>
           </div>
         </button>
-
         <app-work-dev />
-
       </accordion-group>
 
       <accordion-group [(isOpen)]="isEducationOpen" class="d-flex flex-column">
@@ -93,27 +72,12 @@
           <div class="btn-link">
             <div class="text-truncate">{{ 'EDUCATION' | translate }}</div>
           </div>
-
           <div style="width: 10.95px;">
             <div *ngIf="!isEducationOpen" style="color: white;">></div>
             <div *ngIf="isEducationOpen" style="color: white;">v</div>
           </div>
         </button>
-
-        <div style="text-align: left;">
-          <div class="text-primary">{{ 'UNIVERSITY_TITLE_1' | translate }}</div>
-          <div class="mb-0">{{ 'UNIVERSITY_NAME' | translate }}</div>
-          <div class="text-secondary">{{ 'DATE' | translate }}: 07/2018 - 08/2019</div>
-        </div>
-
-        <hr/>
-
-        <div style="text-align: left;">
-          <div class="text-primary">{{ 'UNIVERSITY_TITLE_2' | translate }}</div>
-          <div class="mb-0">{{ 'UNIVERSITY_NAME' | translate }}</div>
-          <div class="text-secondary">{{ 'DATE' | translate }}: 12/2014 - 11/2017</div>
-        </div>
-
+        <app-education />
       </accordion-group>
 
       <accordion-group [(isOpen)]="isLanguagesOpen" class="d-flex flex-column">
@@ -122,20 +86,12 @@
           <div class="btn-link">
             <div class="text-truncate">{{ 'LANGUAGES' | translate }}</div>
           </div>
-
           <div style="width: 10.95px;">
             <div *ngIf="!isLanguagesOpen" style="color: white;">></div>
             <div *ngIf="isLanguagesOpen" style="color: white;">v</div>
           </div>
         </button>
-
-        <div style="text-align: left;">
-          <ul>
-            <li><strong>{{ 'SPANISH' | translate }}:</strong> {{ 'SPANISH_PROFICIENCY' | translate }}</li>
-            <li><strong>{{ 'ENGLISH' | translate }}:</strong> {{ 'ENGLISH_PROFICIENCY' | translate }}</li>
-          </ul>
-        </div>
-
+        <app-languages />
       </accordion-group>
 
     </accordion>
