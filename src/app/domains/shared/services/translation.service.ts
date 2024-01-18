@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
@@ -7,6 +7,9 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class TranslationService {
+
+  private translate = inject ( TranslateService )
+
   private currentLanguageSubject: BehaviorSubject<string> = new BehaviorSubject<string>('en');
   currentLanguage$ = this.currentLanguageSubject.asObservable();
 
@@ -20,7 +23,7 @@ export class TranslationService {
     es: 'assets/docs/CV_Data_es.pdf'
   };
 
-  constructor(private translate: TranslateService) {
+  constructor() {
     this.initializeTranslation();
   }
 

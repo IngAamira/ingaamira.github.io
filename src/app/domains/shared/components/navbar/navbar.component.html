@@ -1,43 +1,18 @@
-<div class="nav-box">
-
-  <div class="nav-item" tabindex="0">
-    <a
-      [routerLink]="'/'"
+<!-- Menu Nav-->
+<hr>
+  <div class="d-flex justify-content-center">
+    <a *ngFor="let item of menuItemsHome()"
+      [routerLink]="[item.route]"
       [routerLinkActive]="'active-link'"
       [routerLinkActiveOptions]="{ exact: true }"
-      class="block navigation-link"
-      aria-current="page"
-    >{{ 'HOME' | translate }}</a>
+      class="navigation-link m-2 text-center"
+      aria-current="page">
+      <div>
+        <i class="{{ item.img }}"></i>
+        <p class="d-none d-md-block mt-1 mb-0">{{ item.name | translate }}</p>
+      </div>
+    </a>
   </div>
+<hr>
 
-  <div class="nav-item" tabindex="0">
-    <a
-      [routerLink]="'/portfolio'"
-      [routerLinkActive]="'active-link'"
-      [routerLinkActiveOptions]="{ exact: true }"
-      class="block navigation-link"
-      aria-current="page"
-    >{{ 'PORTFOLIO' | translate }}</a>
-  </div>
 
-  <div class="nav-item" tabindex="0">
-    <a
-      [routerLink]="'/resume'"
-      [routerLinkActive]="'active-link'"
-      [routerLinkActiveOptions]="{ exact: true }"
-      class="block navigation-link"
-      aria-current="page"
-    >{{ 'RESUME' | translate }}</a>
-  </div>
-
-  <div class="nav-item" tabindex="0">
-    <a
-      [routerLink]="'/contact'"
-      [routerLinkActive]="'active-link'"
-      [routerLinkActiveOptions]="{ exact: true }"
-      class="block navigation-link"
-      aria-current="page"
-    >{{ 'CONTACT' | translate }}</a>
-  </div>
-
-</div>

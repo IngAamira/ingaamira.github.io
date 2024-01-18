@@ -8,7 +8,7 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  margin: 10px; /* Ajusta según sea necesario */
+  margin: 10px;
 }
 
 .language-selector button {
@@ -30,7 +30,7 @@
   transition: transform 0.3s;
 }
 
-.language-selector a:hover img {
+.language-selector button:hover img {
   transform: scale(1.2);
 }
 
@@ -47,10 +47,8 @@
 
 .header h1 {
   font-size: 40px;
-}
-
-.header h2 {
-  text-transform: capitalize;
+  color: #fff;
+  text-decoration: none;
 }
 
 .header h3 {
@@ -59,3 +57,26 @@
   text-decoration: none;
   transition: text-decoration 0.3s;
 }
+
+/* Estilo para pantallas grandes */
+@media (min-width: 768px) {
+  .header h1 {
+    font-size: 40px;
+  }
+
+  .header h3 {
+    font-size: 20px;
+  }
+}
+
+/* Estilo para pantallas pequeñas */
+@media (max-width: 767px) {
+  .header h1 {
+    font-size: 25px;
+  }
+
+  .header h3 {
+    font-size: 15px;
+  }
+}
+

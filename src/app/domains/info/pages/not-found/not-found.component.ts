@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { RouterLinkWithHref } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-not-found',
   standalone: true,
-  imports: [RouterLinkWithHref],
+  imports: [RouterLink],
+  selector: 'app-not-found',
   templateUrl: './not-found.component.html',
-  styleUrl: './not-found.component.css'
+  styleUrls: ['./not-found.component.css'],
 })
-export class NotFoundComponent {
+export default class NotFoundComponent {
 
   constructor (private titleService: Title) {
     this.titleService.setTitle('404')

@@ -1,9 +1,14 @@
-<div class="card shadow text-center" style="max-width: 350px; min-width: 350px;">
+<div class="card">
+
+  <div class="card-header text-center">
+    <h5>{{ project.name }}</h5>
+  </div>
 
   <div class="card-body">
-    <h5 class="card-title">{{ project.name }}</h5>
     <p class="card-text">{{ project.summary }}</p>
-    <button class="btn btn-primary" (click)="OpenProjectModal()" >View More</button>
+    <button type="button" class="btn btn-outline-primary mb-2 me-2" (click)="OpenProjectModal()" >
+      <i class="bi bi-three-dots"></i>
+    </button>
   </div>
 
   <div class="card-footer">

@@ -1,4 +1,4 @@
-import { Tag } from "./tag";
+import { Tag } from "../classes/tag";
 
 export interface Project {
   id: number;

@@ -1,25 +1,22 @@
-.nav-box {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin-top: 35px;
-}
-
-.nav-item {
-  margin-right: 15px;
-  margin-bottom: 25px;
-}
-
 .navigation-link {
   text-decoration: none;
   color: #794999;
-  padding: 3px 8px;
+  padding: 3px 10px;
   border-radius: 16px;
   cursor: pointer;
   transition: all ease .2s;
-  font-size: 24px;
+  font-size: 25px;
+
+  /* Estilo para pantallas grandes */
+  @media (min-width: 768px) {
+    font-size: 25px;
+  }
+
+  /* Estilo para pantallas pequeñas */
+  @media (max-width: 767px) {
+    font-size: 50px;
+  }
+
 }
 
 .navigation-link:hover,

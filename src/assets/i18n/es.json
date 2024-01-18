@@ -1,6 +1,8 @@
 {
   "NAME": "Andrés Alfonso Mira Mejía",
-  "TITLE": "Ingeniero de Datos | Especialista en Inteligencia de Negocios | Desarrollador de Software",
+
+  "SOFTWARE_DEVELOPER": "Desarrollador de Software",
+  "DATA_ENGINEER": "Ingeniero de Datos",
 
   "HOME": "Principal",
   "PORTFOLIO": "Portafolio",
@@ -8,17 +10,13 @@
   "CONTACT": "Contacto",
 
   "ABOUT_ME": "¿Quién Soy?",
-  "ABOUT_ME_TEXT_1": "Con más de {{years}} años en el mundo de la tecnología, he perfeccionado mi capacidad para crear soluciones eficientes y escalables. Mi enfoque se centra en el desarrollo tanto de aplicaciones frontend con tecnologías como Angular, HTML y CSS, como de robustas soluciones backend utilizando Java y Spring Boot. Mi experiencia abarca también la implementación de servicios API REST, asegurando estándares de calidad y modularidad.",
+  "ABOUT_ME_TEXT_1": "Con más de {{years}} años en el mundo de la tecnología, he perfeccionado mi capacidad para crear soluciones eficientes y escalables. Mi enfoque se centra en el desarrollo tanto de aplicaciones frontend con tecnologías como Angular, adicionalmente, robustas soluciones backend utilizando Java y Spring Boot. Mi experiencia abarca también la implementación de servicios API REST, asegurando estándares de calidad y modularidad.",
   "ABOUT_ME_TEXT_2": "Como especialista en inteligencia de negocios, he explorado la automatización de procesos mediante Web Scraping con Python y he diseñado modelos de Bodegas de Datos para ofrecer estadísticas detalladas en proyectos BI. Mi habilidad para colaborar en entornos ágiles, como Scrum, y aplicar principios sólidos de desarrollo, me permite abordar desafíos complejos con un enfoque eficiente y centrado en la calidad.",
-  "ABOUT_ME_TEXT_3": "Mi filosofía de trabajo se basa en la creación de soluciones tecnológicas que no solo sean efectivas desde el punto de vista técnico, sino que también generen un impacto positivo en la toma de decisiones y la eficiencia operativa. Estoy entusiasmado por seguir explorando nuevas tecnologías y contribuir al éxito de proyectos innovadores.",
   "FEATURED_PROJECT": "Proyecto Destacado",
   "FEATURED_PROJECT_SUMMARY": "Este es un proyecto de comercio electrónico desarrollado en Java utilizando Spring Boot. La aplicación implementa funcionalidades clave para la gestión de productos, pedidos, usuarios y el proceso de compra online.",
   "FEATURED_PROJECT_INFO": "¡Visita la sección para conocer más!",
 
-  "DOWNLOAD_PDF_RESUME_DEV": "Descargar Currículum Desarrollador de Software en PDF",
-  "DOWNLOAD_PDF_RESUME_DATA": "Descargar Currículum Ingeniero de Datos en PDF",
   "WORK": "Experiencia Laboral",
-  "IAS_JOB_1": "Desarrollador de Software",
   "IAS_SD_OBJECTIVE_1": "Desarrollo y mantenimiento de aplicaciones backend utilizando Java y Spring Boot.",
   "IAS_SD_OBJECTIVE_2": "Competencias sólidas en la inyección de dependencias para garantizar la modularidad y la facilidad de mantenimiento.",
   "IAS_SD_OBJECTIVE_3": "Desarrollo y mantenimiento de aplicaciones frontend utilizando Html, CSS y Angular.",
@@ -64,7 +62,7 @@
   "UNIVERSITY_NAME": "Universidad Católica del Norte",
   "UNIVERSITY_TITLE_1": "Especialista en Inteligencia de Negocios",
   "UNIVERSITY_TITLE_2": "Ingeniero Informático",
-  "SKILLS_DATA": "Habilidades Técnicas como Ingeniero de Datos",
+  "SKILLS_DATA": "Habilidades Ingeniero de Datos",
   "DATA_EXTRACTION_TOOLS": "Extracción de Datos",
   "DATA_TRANSFORMATION_TOOLS": "Transformación de Datos",
   "DATA_LOADING_TOOLS": "Carga de Datos",
@@ -80,7 +78,7 @@
   "BI_TOOLS": "Herramientas de BI",
   "OLAP": "Cubos OLAP",
   "AGILE": "Metodologías Ágiles",
-  "SKILLS_DEV": "Habilidades Técnicas como Desarrollador de software",
+  "SKILLS_DEV": "Habilidades Desarrollador de software",
   "CLEAN_ARCHITECTURE": "Arquitecturas Limpias",
   "CLEAN_CODE": "Código Limpio",
   "DOM": "DOM y Motor del Navegador",
@@ -103,8 +101,6 @@
   "CONTACT_ME": "Contáctame",
   "CONTACT_DESCRIPTION": "No dudes en contactarme para cualquier consulta u oportunidad de colaboración",
 
-  "FOOTER_TEXT_1": "Estoy comprometido a construir soluciones que no solo superen expectativas, sino que también transformen posibilidades en realidades tangibles.",
-  "FOOTER_TEXT_2": "¡Vamos más allá de los límites convencionales y creemos el futuro de la tecnología!",
-  "FOOTER_TEXT_3": "¡Impulsemos el Futuro Juntos!"
+  "FOOTER_TEXT": "¡Impulsemos el Futuro Juntos!"
 
 }

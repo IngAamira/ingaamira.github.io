@@ -1,23 +1,44 @@
-<div class="modal-header">
-  <h2>{{project.name}}</h2>
-  <button class="btn-close" (click)="bsModalRef.hide()" ></button>
-</div>
+<div class="card">
 
-<div class="modal-body">
-  <carousel>
-    <div *ngFor="let picture of project.pictures">
-      <slide><img src={{picture}} alt="slide" style="display: block; width: 100%;"></slide>
-    </div>
-  </carousel>
+  <div class="modal-header">
+    <h2 class="modal-title" >{{project.name}}</h2>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()" ></button>
+  </div>
 
-  <h3 class="mt-2">Description</h3>
-  <p>{{project.summary}}</p>
-  <p>You can find this project on Github <a href={{project.projectLink}} target="_blank">here</a></p>
+  <div class="modal-body">
+    <carousel class="d-block carousel carousel-dark slide">
+      <div *ngFor="let picture of project.pictures">
+        <slide>
+          <div class="text-center py-2">
+            <img
+              [src]="picture"
+              alt="slide"
+              [ngStyle]="{'width.px': getWidth(), 'height.px': getHeight()}"
+              [ngClass]="{'img-fluid': isResponsive()}"
+              class="img-fluid"
+            >
+          </div>
+        </slide>
+      </div>
+    </carousel>
+    <hr>
+    <h3 class="mt-2">Description:</h3>
+    <p>{{project.summary}}</p>
+    <p>
+      You can find this project on Github/Website
+      <a
+        href={{project.projectLink}} target="_blank" >
+        <i class="bi bi-globe"></i>
+      </a>
+    </p>
+  </div>
 
-  <hr>
-  <div class="d-flex flex-wrap">
-    <div *ngFor="let tag of project.tags">
-      <div class="tag me-2 mb-1" [style.background-color]="tag.color">{{ tag }}</div>
+  <div class="card-footer">
+    <div class="d-flex flex-wrap justify-content-center">
+      <div *ngFor="let tag of project.tags">
+        <div class="tag me-2 mb-1" [style.background-color]="tag.color">{{ tag }}</div>
+      </div>
     </div>
   </div>
+
 </div>

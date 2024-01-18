@@ -3,23 +3,20 @@ import { Component, Input } from '@angular/core';
 
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 
-import { Project } from '../../../shared/models/project';
+import { Project } from '../../../shared/interfaces/project';
 import { ProjectModalComponent } from '../project-modal/project-modal.component';
 
 @Component({
   selector: 'app-project-card',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './project-card.component.html',
-  styleUrl: './project-card.component.css',
+  templateUrl: './project-card.component.html'
 })
 export class ProjectCardComponent {
   @Input() project = {} as Project;
   bsModalRef?: BsModalRef;
 
-  constructor(private modalService: BsModalService) {
-
-  }
+  constructor(private modalService: BsModalService) { }
 
   OpenProjectModal() {
     const modalOptions:ModalOptions = {
