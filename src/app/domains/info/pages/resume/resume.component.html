@@ -23,87 +23,7 @@
           </div>
         </button>
 
-        <div style="text-align: left;">
-          <div class="text-primary">{{ 'SOFTWARE_DEVELOPER' | translate }}</div>
-          <div class="mb-0">IAS Software</div>
-          <div class="text-secondary">{{ 'DATE' | translate }}: 07/2023 - ({{ 'PRESENT' | translate }})</div>
-          <ul>
-            <li *ngFor="let objective of objectives">
-              {{ objective.translationKey | translate }}
-            </li>
-          </ul>
-        </div>
-
-        <hr/>
-
-        <div style="text-align: left;">
-          <div class="text-primary">{{ 'IAS_JOB_2' | translate }}</div>
-          <div class="mb-0">IAS Software</div>
-          <div class="text-secondary">{{ 'DATE' | translate }}: 12/2022 - 06/2023</div>
-          <ul>
-            <li>{{ 'IAS_DWH_OBJECTIVE_1' | translate }}</li>
-            <li>{{ 'IAS_DWH_OBJECTIVE_2' | translate }}</li>
-            <li>{{ 'IAS_DWH_OBJECTIVE_3' | translate }}</li>
-            <li>{{ 'IAS_DWH_OBJECTIVE_4' | translate }}</li>
-          </ul>
-        </div>
-
-        <hr/>
-
-        <div style="text-align: left;">
-          <div class="text-primary">{{ 'AVALON_JOB' | translate }}</div>
-          <div class="mb-0">Avalon Group</div>
-          <div class="text-secondary">{{ 'DATE' | translate }}: 06/2022 - 11/2022</div>
-          <ul>
-            <li>{{ 'AVALON_OBJECTIVE_1' | translate }}</li>
-            <li>{{ 'AVALON_OBJECTIVE_2' | translate }}</li>
-            <li>{{ 'AVALON_OBJECTIVE_3' | translate }}</li>
-            <li>{{ 'AVALON_OBJECTIVE_4' | translate }}</li>
-          </ul>
-        </div>
-
-        <hr/>
-
-        <div style="text-align: left;">
-          <div class="text-primary">{{ 'EMTELCO_JOB_1' | translate }}</div>
-          <div class="mb-0">Emtelco CX & BPO</div>
-          <div class="text-secondary">{{ 'DATE' | translate }}: 03/2021 - 06/2022</div>
-          <ul>
-            <li>{{ 'EMTELCO_BI_OBJECTIVE_1' | translate }}</li>
-            <li>{{ 'EMTELCO_BI_OBJECTIVE_2' | translate }}</li>
-            <li>{{ 'EMTELCO_BI_OBJECTIVE_3' | translate }}</li>
-            <li>{{ 'EMTELCO_BI_OBJECTIVE_4' | translate }}</li>
-          </ul>
-        </div>
-
-        <hr/>
-
-        <div style="text-align: left;">
-          <div class="text-primary">{{ 'ULTRACOM_JOB' | translate }}</div>
-          <div class="mb-0">Ultracom IT S.A.S</div>
-          <div class="text-secondary">{{ 'DATE' | translate }}: 12/2019 - 03/2021</div>
-          <ul>
-            <li>{{ 'ULTRACOM_OBJECTIVE_1' | translate }}</li>
-            <li>{{ 'ULTRACOM_OBJECTIVE_2' | translate }}</li>
-            <li>{{ 'ULTRACOM_OBJECTIVE_3' | translate }}</li>
-            <li>{{ 'ULTRACOM_OBJECTIVE_4' | translate }}</li>
-          </ul>
-        </div>
-
-        <hr/>
-
-        <div style="text-align: left;">
-          <div class="text-primary">{{ 'EMTELCO_JOB_2' | translate }}</div>
-          <div class="mb-0">Emtelco CX & BPO</div>
-          <div class="text-secondary">{{ 'DATE' | translate }}: 12/2011 - 11/2019</div>
-          <ul>
-            <li>{{ 'EMTELCO_PyC_OBJECTIVE_1' | translate }}</li>
-            <li>{{ 'EMTELCO_PyC_OBJECTIVE_2' | translate }}</li>
-            <li>{{ 'EMTELCO_PyC_OBJECTIVE_3' | translate }}</li>
-            <li>{{ 'EMTELCO_PyC_OBJECTIVE_4' | translate }}</li>
-            <li>{{ 'EMTELCO_PyC_OBJECTIVE_5' | translate }}</li>
-          </ul>
-        </div>
+        <app-work-experience />
 
       </accordion-group>
 
@@ -130,6 +50,7 @@
             <li>{{ 'SECTOR_INFO_6' | translate }}</li>
           </ul>
         </div>
+
       </accordion-group>
 
       <accordion-group [(isOpen)]="isSkillsDeOpen" class="d-flex flex-column">
@@ -145,81 +66,8 @@
           </div>
         </button>
 
-        <div class="row" style="text-align: left">
-          <div class="col">
-            <h3>{{ 'DATA_EXTRACTION_TOOLS' | translate }}:</h3>
-            <ul>
-              <li>APIs</li>
-              <li>{{ 'WEB_PAGES' | translate }}</li>
-              <li>{{ 'FILES' | translate }}</li>
-              <li>{{ 'DATABASES' | translate }}</li>
-            </ul>
-          </div>
+        <app-work-data />
 
-          <div class="col">
-            <h3>{{ 'DATA_TRANSFORMATION_TOOLS' | translate }}:</h3>
-            <ul>
-              <li>Python</li>
-              <li>R</li>
-              <li>Java</li>
-              <li>SQL</li>
-              <li>SQL Server Integration Services (SSIS)</li>
-            </ul>
-          </div>
-
-          <div class="col">
-            <h3>{{ 'DATA_LOADING_TOOLS' | translate }}:</h3>
-            <ul>
-              <li>{{ 'DATA_WAREHOUSE' | translate }}</li>
-              <li>Data Mart</li>
-              <li>{{ 'DATA_LAKE' | translate }}</li>
-              <li>Amazon Redshift</li>
-              <li>{{ 'SQL_NOSQL' | translate }}</li>
-            </ul>
-          </div>
-
-          <div class="col">
-            <h3>{{ 'DATA_ANALYSIS_TOOLS' | translate }}:</h3>
-            <ul>
-              <li>SQL Server Analysis Services (SSAS)</li>
-            </ul>
-          </div>
-
-          <div class="col">
-            <h3>{{ 'DATA_VISUALIZATION_TOOLS' | translate }}:</h3>
-            <ul>
-              <li>Power BI</li>
-              <li>Excel</li>
-              <li>Matplotlib</li>
-              <li>Html</li>
-              <li>CSS</li>
-            </ul>
-          </div>
-
-          <div class="col">
-            <h3>{{ 'DATA_REPORTING_TOOLS' | translate }}:</h3>
-            <ul>
-              <li>Power BI</li>
-              <li>SQL Server Reporting Services (SSRS)</li>
-            </ul>
-          </div>
-
-          <div class="col">
-            <h3>{{ 'OTHER_SKILLS' | translate }}:</h3>
-            <ul>
-              <li>{{ 'BI_TOOLS' | translate }}</li>
-              <li>Git</li>
-              <li>DevOps</li>
-              <li>DataOps</li>
-              <li>ETL</li>
-              <li>KPI</li>
-              <li>PL/SQL</li>
-              <li>{{ 'OLAP' | translate }}</li>
-              <li>{{ 'AGILE' | translate }}</li>
-            </ul>
-          </div>
-
-        </div>
       </accordion-group>
 
       <accordion-group [(isOpen)]="isSkillsSdOpen" class="d-flex flex-column">
@@ -235,69 +83,8 @@
           </div>
         </button>
 
-        <div class="row" style="text-align: left">
-          <div class="col">
-            <h3>{{ 'PROGRAMING_LANGUAGES' | translate }}:</h3>
-            <ul>
-              <li>Java</li>
-              <li>Python</li>
-              <li>JavaScript</li>
-              <li>TypeScript</li>
-            </ul>
-          </div>
+        <app-work-dev />
 
-          <div class="col">
-            <h3>Frameworks:</h3>
-            <ul>
-              <li>Spring</li>
-              <li>Angular</li>
-            </ul>
-          </div>
-
-          <div class="col">
-            <h3>{{ 'DATABASE' | translate }}:</h3>
-            <ul>
-              <li>PostgreSQL</li>
-              <li>SQL Server</li>
-              <li>Oracle</li>
-              <li>MySQL</li>
-            </ul>
-          </div>
-
-          <div class="col">
-            <h3>{{ 'CLOUD_COMPUTING' | translate }}:</h3>
-            <ul>
-              <li>Azure</li>
-              <li>AWS</li>
-            </ul>
-          </div>
-
-          <div class="col">
-            <h3>{{ 'TESTING' | translate }}:</h3>
-            <ul>
-              <li>{{ 'UNIT_TEST' | translate }}</li>
-              <li>{{ 'INTEGRATION_TEST' | translate }}</li>
-              <li>{{ 'PERFORMANCE_TEST' | translate }}</li>
-            </ul>
-          </div>
-
-          <div class="col">
-            <h3>{{ 'OTHER_SKILLS' | translate }}:</h3>
-            <ul>
-              <li>Git</li>
-              <li>{{ 'CLEAN_ARCHITECTURE' | translate }}</li>
-              <li>{{ 'CLEAN_CODE' | translate }}</li>
-              <li>SOLID</li>
-              <li>API Rest</li>
-              <li>Gradle</li>
-              <li>Maven</li>
-              <li>{{ 'DOM' | translate }}</li>
-              <li>DevOps</li>
-              <li>{{ 'AGILE' | translate }}</li>
-            </ul>
-          </div>
-
-        </div>
       </accordion-group>
 
       <accordion-group [(isOpen)]="isEducationOpen" class="d-flex flex-column">

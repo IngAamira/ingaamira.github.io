@@ -6,15 +6,13 @@ import { MenuItemResume } from 'app/domains/shared/interfaces/menu-item';
 import { NgxBootstrapModule } from 'app/domains/shared/modules/ngx-bootstrap.module';
 import { TranslationModule } from 'app/domains/shared/modules/translation.module';
 import { TranslationService } from 'app/domains/shared/services/translation.service';
-
-interface Objective {
-  id: number;
-  translationKey: string;
-}
+import { WorkExperienceComponent } from '../../components/work-experience/work-experience.component';
+import { WorkDataComponent } from '../../components/work-data/work-data.component';
+import { WorkDevComponent } from '../../components/work-dev/work-dev.component';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, TranslationModule, NgxBootstrapModule],
+  imports: [CommonModule, TranslationModule, NgxBootstrapModule, WorkExperienceComponent, WorkDataComponent, WorkDevComponent],
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.css'],
 })
@@ -38,17 +36,6 @@ export default class ResumeComponent {
     { name: 'SOFTWARE_DEVELOPER',  event: () => this.DownloadFileDev()  },
     { name: 'DATA_ENGINEER', event: () => this.DownloadFileData() },
   ]);
-
-  public objectives: Objective[] = [
-    { id: 1, translationKey: 'IAS_SD_OBJECTIVE_1' },
-    { id: 2, translationKey: 'IAS_SD_OBJECTIVE_2' },
-    { id: 3, translationKey: 'IAS_SD_OBJECTIVE_3' },
-    { id: 4, translationKey: 'IAS_SD_OBJECTIVE_4' },
-    { id: 5, translationKey: 'IAS_SD_OBJECTIVE_5' },
-    { id: 6, translationKey: 'IAS_SD_OBJECTIVE_6' },
-    { id: 7, translationKey: 'IAS_SD_OBJECTIVE_7' },
-    { id: 8, translationKey: 'IAS_SD_OBJECTIVE_8' }
-  ];
 
   DownloadFileDev() {
     const link = this.renderer.createElement('a');

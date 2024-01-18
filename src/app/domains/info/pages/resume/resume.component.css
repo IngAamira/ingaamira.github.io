@@ -5,3 +5,19 @@ accordion-group::ng-deep .btn-link {
 accordion-group::ng-deep .card-header {
   background-color: #007bff;
 }
+
+/* Estilo para pantallas grandes */
+@media (min-width: 768px) {
+  .text-truncate {
+    font-size: 30px;
+  }
+
+}
+
+/* Estilo para pantallas pequeñas */
+@media (max-width: 767px) {
+  .text-truncate {
+    font-size: 15px;
+  }
+
+}
