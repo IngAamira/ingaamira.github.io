@@ -1,10 +1,10 @@
-import { Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component} from '@angular/core';
 
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 
-import { Project } from '../../../shared/classes/project';
+import { Project } from '../../../shared/interfaces/project';
 
 @Component({
   selector: 'app-project-modal',

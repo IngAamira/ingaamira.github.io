@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { TranslationModule } from '../../../shared/modules/translation.module';
 import { TranslationService } from '../../../shared/services/translation.service';
-import { MenuItemHeader } from '../../../shared/interfaces/menu-item';
+import { MenuItemHeader, ItemTitle } from '../../../shared/interfaces/menu-item';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +13,6 @@ import { MenuItemHeader } from '../../../shared/interfaces/menu-item';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  getUsa: string = '';
-  getSpain: string = '';
 
   constructor( private translationService: TranslationService ) {}
 
@@ -22,6 +20,13 @@ export class HeaderComponent {
     { flag: 'USA Flag',   img: '../../../../../assets/icons/usa.png',   event: () => this.changeLanguage('en') },
     { flag: 'Spain Flag', img: '../../../../../assets/icons/spain.png', event: () => this.changeLanguage('es') },
   ]);
+
+  public itemsTitle: ItemTitle[] = [
+    { name: 'NAME'               },
+    { name: 'UNIVERSITY_TITLE_1' },
+    { name: 'SOFTWARE_DEVELOPER' },
+    { name: 'DATA_ENGINEER'      },
+  ];
 
   changeLanguage(lang: string): void {
     this.translationService.changeLanguage(lang);

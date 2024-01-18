@@ -3,31 +3,25 @@
   <div class="row">
 
     <!--About Me-->
-    <div class="col-lg shadow border m-1">
-
+    <div class="col-lg col-12 mx-auto shadow border m-1">
       <div class="text-center">
-        <h2 class="mt-2">{{ 'ABOUT_ME' | translate }}</h2>
-        <img src="assets/imgs/home/profile.jpg" alt="profile picture" width="256" height="256" class="rounded-circle mt-2">
-        <p style="text-align: left; margin-top: 18px;">
+        <h2 class="mt-4">{{ 'ABOUT_ME' | translate }}</h2>
+        <img src="assets/imgs/home/profile.jpg" alt="Profile picture" width="250" height="250" class="rounded-circle mt-4">
+      </div>
+      <div class="text-justify" style="text-align: justify;">
+        <p class="mt-4">
           {{ 'ABOUT_ME_TEXT_1' | translate:{ years: years.toString() } }}
         </p>
-        <p style="text-align: left; margin-top: 10px;">
+        <p class="mt-2">
           {{ 'ABOUT_ME_TEXT_2' | translate }}
         </p>
-        <!-- <p style="text-align: left; margin-top: 10px;">
-          {{ 'ABOUT_ME_TEXT_3' | translate }}
-        </p> -->
       </div>
-
     </div>
 
     <!--Featured Project-->
-    <div class="col-lg shadow border m-1">
-
-      <div class="text-center mt-2">
-        <h2>{{ 'FEATURED_PROJECT' | translate }}</h2>
-        <h4>{{ featureProject.name }}</h4>
-      </div>
+    <div class="col-lg col-12 mx-auto shadow border m-1 text-center">
+      <h2 class="mt-4">{{ 'FEATURED_PROJECT' | translate }}</h2>
+      <h4>{{ featureProject.name }}</h4>
 
       <carousel class="d-block carousel carousel-dark slide">
         <div *ngFor="let picture of featureProject.pictures">
@@ -38,14 +32,15 @@
                 alt="slide"
                 [ngStyle]="{'width.px': getWidth(), 'height.px': getHeight()}"
                 [ngClass]="{'img-fluid': isResponsive()}"
+                class="img-fluid"
               >
             </div>
           </slide>
         </div>
       </carousel>
 
-      <p class="mt-2">{{ 'FEATURED_PROJECT_SUMMARY' | translate }}</p>
-      <p>
+      <p class="mt-4">{{ 'FEATURED_PROJECT_SUMMARY' | translate }}</p>
+      <p class="mt-2">
         {{ 'FEATURED_PROJECT_INFO' | translate }}
         <a
           [routerLink]="'/portfolio'"
@@ -55,7 +50,6 @@
       </p>
 
     </div>
-
   </div>
 
 </div>

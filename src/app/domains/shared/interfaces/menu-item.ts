@@ -5,6 +5,11 @@ export  interface MenuItemHeader {
   event: () => void;
 }
 
+/*Title*/
+export  interface ItemTitle {
+  name : string;
+}
+
 /*Menu Navbar*/
 export  interface MenuItemNav {
   route: string;

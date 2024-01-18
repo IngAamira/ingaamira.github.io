@@ -1,7 +1,15 @@
 <div class="header">
 
-  <h1> {{ 'NAME' | translate }} </h1>
-  <h3> {{ 'TITLE' | translate }} </h3>
+  <div class="row">
+    <ng-container *ngFor="let item of itemsTitle; let first = first" class="col-lg">
+      <ng-container *ngIf="first; else h3Template">
+        <h1>{{ item.name | translate }}</h1>
+      </ng-container>
+      <ng-template #h3Template>
+        <h3>{{ item.name | translate }}</h3>
+      </ng-template>
+    </ng-container>
+  </div>
 
   <div class="language-selector bottom-right">
     <button *ngFor="let item of menuItemsHeader()"

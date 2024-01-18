@@ -2,9 +2,9 @@ import { Component, signal } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
-import { TranslationService } from '../../../shared/services/translation.service';
 import { MenuItemContact } from '../../../shared/interfaces/menu-item';
 import { TranslationModule } from 'app/domains/shared/modules/translation.module';
+import { TranslationService } from '../../../shared/services/translation.service';
 
 @Component({
   standalone: true,

@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Title } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
-
-import { Project } from '../../../shared/classes/project';
+import { NgxBootstrapModule } from 'app/domains/shared/modules/ngx-bootstrap.module';
+import { Project } from '../../../shared/interfaces/project';
 import { ProjectCardComponent } from '../project-card/project-card.component';
 import { ProjectsService } from '../../../shared/services/projects.service';
 import { Tag } from '../../../shared/classes/tag';
-import { NgxBootstrapModule } from 'app/domains/shared/modules/ngx-bootstrap.module';
 
 @Component({
   selector: 'app-portfolio',

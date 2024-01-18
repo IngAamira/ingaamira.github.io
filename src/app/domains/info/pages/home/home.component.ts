@@ -3,11 +3,11 @@ import { Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
-import { Project } from '../../../shared/classes/project';
-import { ProjectsService } from '../../../shared/services/projects.service';
 import { NgxBootstrapModule } from '../../../shared/modules/ngx-bootstrap.module';
-import { TranslationService } from '../../../shared/services/translation.service';
+import { Project } from '../../../shared/interfaces/project';
+import { ProjectsService } from '../../../shared/services/projects.service';
 import { TranslationModule } from 'app/domains/shared/modules/translation.module';
+import { TranslationService } from '../../../shared/services/translation.service';
 
 @Component({
   standalone: true,

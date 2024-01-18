@@ -1,11 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, Renderer2, signal } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-import { TranslationService } from 'app/domains/shared/services/translation.service';
 import { MenuItemResume } from 'app/domains/shared/interfaces/menu-item';
-import { CommonModule } from '@angular/common';
-import { TranslationModule } from 'app/domains/shared/modules/translation.module';
 import { NgxBootstrapModule } from 'app/domains/shared/modules/ngx-bootstrap.module';
+import { TranslationModule } from 'app/domains/shared/modules/translation.module';
+import { TranslationService } from 'app/domains/shared/services/translation.service';
 
 interface Objective {
   id: number;
@@ -35,8 +35,8 @@ export default class ResumeComponent {
   }
 
   public menuItemsResume = signal<MenuItemResume[]> ([
-    { name: 'DOWNLOAD_PDF_RESUME_DEV',  event: () => this.DownloadFileDev()  },
-    { name: 'DOWNLOAD_PDF_RESUME_DATA', event: () => this.DownloadFileData() },
+    { name: 'SOFTWARE_DEVELOPER',  event: () => this.DownloadFileDev()  },
+    { name: 'DATA_ENGINEER', event: () => this.DownloadFileData() },
   ]);
 
   public objectives: Objective[] = [

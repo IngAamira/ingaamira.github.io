@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 
-import { Project } from '../../../shared/classes/project';
+import { Project } from '../../../shared/interfaces/project';
 import { ProjectModalComponent } from '../project-modal/project-modal.component';
 
 @Component({

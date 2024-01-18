@@ -1,6 +1,8 @@
 {
   "NAME": "Andres Alfonso Mira Mejia",
-  "TITLE": "Data Engineer | Business Intelligence Specialist | Software Developer",
+
+  "SOFTWARE_DEVELOPER": "Software Developer",
+  "DATA_ENGINEER": "Data Engineer",
 
   "HOME": "Home",
   "PORTFOLIO": "Portfolio",
@@ -10,14 +12,11 @@
   "ABOUT_ME": "About Me",
   "ABOUT_ME_TEXT_1": "With over {{years}} years in the technology industry, I have honed my ability to create efficient and scalable solutions. My focus extends to the development of both frontend applications using technologies like Angular, and robust backend solutions using Java and Spring Boot. My experience also includes the implementation of REST API services, ensuring quality standards and modularity.",
   "ABOUT_ME_TEXT_2": "As a Business Intelligence specialist, I have delved into process automation through Web Scraping with Python and designed Data Warehouse models to provide detailed statistics in BI projects. My ability to collaborate in agile environments, such as Scrum, and apply solid development principles enables me to tackle complex challenges with an efficient and quality-focused approach.",
-  "ABOUT_ME_TEXT_3": "My work philosophy is grounded in creating technological solutions that are not only effective from a technical standpoint but also have a positive impact on decision-making and operational efficiency. I am eager to continue exploring new technologies and contribute to the success of innovative projects.",
   "FEATURED_PROJECT": "Featured Project",
   "FEATURED_PROJECT_SUMMARY": "This is an e-commerce project developed in Java using Spring Boot. The application implements key functionalities for managing products, orders, users, and the online purchasing process.",
   "FEATURED_PROJECT_INFO": "Visit the section to learn more!",
-  "DOWNLOAD_PDF_RESUME_DEV": "Software Developer",
-  "DOWNLOAD_PDF_RESUME_DATA": "Data Engineer",
+
   "WORK": "Wor Experience",
-  "IAS_JOB_1": "Software Developer",
   "IAS_SD_OBJECTIVE_1": "Development and maintenance of backend applications using Java and Spring Boot.",
   "IAS_SD_OBJECTIVE_2": "Strong skills in dependency injection to ensure modularity and ease of maintenance.",
   "IAS_SD_OBJECTIVE_3": "Development and maintenance of frontend applications using HTML, CSS, and Angular.",
