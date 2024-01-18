@@ -1,6 +1,8 @@
 {
   "NAME": "Andrés Alfonso Mira Mejía",
-  "TITLE": "Ingeniero de Datos | Especialista en Inteligencia de Negocios | Desarrollador de Software",
+
+  "SOFTWARE_DEVELOPER": "Desarrollador de Software",
+  "DATA_ENGINEER": "Ingeniero de Datos",
 
   "HOME": "Principal",
   "PORTFOLIO": "Portafolio",
@@ -10,15 +12,11 @@
   "ABOUT_ME": "¿Quién Soy?",
   "ABOUT_ME_TEXT_1": "Con más de {{years}} años en el mundo de la tecnología, he perfeccionado mi capacidad para crear soluciones eficientes y escalables. Mi enfoque se centra en el desarrollo tanto de aplicaciones frontend con tecnologías como Angular, adicionalmente, robustas soluciones backend utilizando Java y Spring Boot. Mi experiencia abarca también la implementación de servicios API REST, asegurando estándares de calidad y modularidad.",
   "ABOUT_ME_TEXT_2": "Como especialista en inteligencia de negocios, he explorado la automatización de procesos mediante Web Scraping con Python y he diseñado modelos de Bodegas de Datos para ofrecer estadísticas detalladas en proyectos BI. Mi habilidad para colaborar en entornos ágiles, como Scrum, y aplicar principios sólidos de desarrollo, me permite abordar desafíos complejos con un enfoque eficiente y centrado en la calidad.",
-  "ABOUT_ME_TEXT_3": "Mi filosofía de trabajo se basa en la creación de soluciones tecnológicas que no solo sean efectivas desde el punto de vista técnico, sino que también generen un impacto positivo en la toma de decisiones y la eficiencia operativa. Estoy entusiasmado por seguir explorando nuevas tecnologías y contribuir al éxito de proyectos innovadores.",
   "FEATURED_PROJECT": "Proyecto Destacado",
   "FEATURED_PROJECT_SUMMARY": "Este es un proyecto de comercio electrónico desarrollado en Java utilizando Spring Boot. La aplicación implementa funcionalidades clave para la gestión de productos, pedidos, usuarios y el proceso de compra online.",
   "FEATURED_PROJECT_INFO": "¡Visita la sección para conocer más!",
 
-  "DOWNLOAD_PDF_RESUME_DEV": "Desarrollador de Software",
-  "DOWNLOAD_PDF_RESUME_DATA": "Ingeniero de Datos",
   "WORK": "Experiencia Laboral",
-  "IAS_JOB_1": "Desarrollador de Software",
   "IAS_SD_OBJECTIVE_1": "Desarrollo y mantenimiento de aplicaciones backend utilizando Java y Spring Boot.",
   "IAS_SD_OBJECTIVE_2": "Competencias sólidas en la inyección de dependencias para garantizar la modularidad y la facilidad de mantenimiento.",
   "IAS_SD_OBJECTIVE_3": "Desarrollo y mantenimiento de aplicaciones frontend utilizando Html, CSS y Angular.",
