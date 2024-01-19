@@ -3,8 +3,8 @@
   <div class="mb-0">IAS Software</div>
   <div class="text-secondary">{{ 'DATE' | translate }}: 07/2023 - ({{ 'PRESENT' | translate }})</div>
   <ul>
-    <li *ngFor="let objective of objectives">
-      {{ objective.translationKey | translate }}
+    <li *ngFor="let item of objectives">
+      {{ item.translationKey | translate }}
     </li>
   </ul>
 </div>

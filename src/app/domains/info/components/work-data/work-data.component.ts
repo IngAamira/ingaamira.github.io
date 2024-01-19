@@ -9,7 +9,6 @@ import { TranslationService } from 'app/domains/shared/services/translation.serv
   standalone: true,
   imports: [CommonModule, TranslationModule],
   templateUrl: './work-data.component.html',
-  styles: ``
 })
 export class WorkDataComponent {
 
@@ -18,5 +17,5 @@ export class WorkDataComponent {
   changeLanguage(lang: string): void {
     this.translationService.changeLanguage(lang);
   }
-  
+
 }

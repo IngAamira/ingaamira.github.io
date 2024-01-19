@@ -15,11 +15,11 @@ export interface ItemEducation {
   standalone: true,
   imports: [CommonModule, TranslationModule],
   template: `
-    <div *ngFor="let ItemEducation of itemsEducation; let last = last">
+    <div *ngFor="let item of itemsEducation; let last = last">
       <div style="text-align: left;">
-        <div class="text-primary">{{ ItemEducation.title | translate }}</div>
-        <div class="mb-0">{{ ItemEducation.name | translate }}</div>
-        <div class="text-secondary">{{ 'DATE' | translate }}: {{ ItemEducation.dateRange }} </div>
+        <div class="text-primary">{{ item.title | translate }}</div>
+        <div class="mb-0">{{ item.name | translate }}</div>
+        <div class="text-secondary">{{ 'DATE' | translate }}: {{ item.dateRange }} </div>
         <hr *ngIf="!last" />
       </div>
     </div>

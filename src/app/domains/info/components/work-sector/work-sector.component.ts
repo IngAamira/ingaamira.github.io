@@ -16,8 +16,8 @@ export interface ItemWorkSector {
   template: `
     <div class="container">
       <ul style="text-align: left;">
-        <li *ngFor="let ItemWorkSector of itemsWorkSector">
-          {{ ItemWorkSector.translationKey | translate }}
+        <li *ngFor="let item of itemsWorkSector">
+          {{ item.translationKey | translate }}
         </li>
       </ul>
     </div>

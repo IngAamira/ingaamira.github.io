@@ -16,11 +16,11 @@ export interface ItemLanguage {
   template: `
     <div style="text-align: left;">
       <ul>
-        <li *ngFor="let ItemLanguage of itemsLanguage; let last = last">
+        <li *ngFor="let item of itemsLanguage; let last = last">
           <strong>
-            {{ ItemLanguage.name | translate }}:
+            {{ item.name | translate }}:
           </strong>
-            {{ ItemLanguage.title | translate }}
+            {{ item.title | translate }}
         </li>
       </ul>
     </div>

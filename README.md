@@ -146,6 +146,7 @@ A continuación, se presentan algunos ejemplos de cómo interactuar con las func
 - [ngx-translate/core en GitHub](https://github.com/ngx-translate/core)
 - [ngx-translate/http-loader en npm](https://www.npmjs.com/package/@ngx-translate/http-loader)
 - [Bootstrap](https://getbootstrap.com/)
+- [Dynamic Component](https://github.com/funOfheuristic/dynamic-component/blob/main/src/app/dynamic-wrapper/dynamic-wrapper.component.html)
 
 ## Contribuciones
 ¡Las Contribuciones son bienvenidas!
