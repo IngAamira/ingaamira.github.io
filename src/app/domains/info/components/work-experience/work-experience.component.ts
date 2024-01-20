@@ -7,34 +7,58 @@ import { TranslationModule } from 'app/domains/shared/modules/translation.module
 import { TranslationService } from 'app/domains/shared/services/translation.service';
 import { WorkExperienceService } from '../../services/work-experience';
 
+interface ItemExperience {
+  position: string;
+  name: string;
+  objective: string;
+  dateRange: string;
+  objectives: string[];
+}
+
+interface WorkExperienceObjectives {
+  [key: string]: string[];
+}
+
 @Component({
   selector: 'app-work-experience',
   standalone: true,
   imports: [CommonModule, TranslationModule],
-  templateUrl: './work-experience.component.html',
+  template: `
+    <div style="text-align: left;" *ngFor="let item of itemsSelector; let last = last">
+      <div class="text-primary">{{ item.position | translate }}</div>
+      <div class="mb-0">{{ item.name }}</div>
+      <div class="text-secondary">{{ 'DATE' | translate }}: {{ item.dateRange }} </div>
+      <ul *ngIf="item.objectives">
+        <li *ngFor="let objective of item.objectives">
+          {{ objective | translate }}
+        </li>
+      </ul>
+      <hr *ngIf="!last" />
+    </div>
+  `,
 })
 
 export class WorkExperienceComponent implements OnInit, OnDestroy {
 
-  iasDevObjectivePattern: string = 'IAS_SD_OBJECTIVE_';
-  iasDevObjectiveKeys: string[] = [];
-
-  iasDataObjectivePattern: string = 'IAS_DWH_OBJECTIVE_';
-  iasDataObjectiveKeys: string[] = [];
-
-  avalonObjectivePattern: string = 'AVALON_OBJECTIVE_';
-  avalonObjectiveKeys: string[] = [];
-
-  emtelcoBiObjectivePattern: string = 'EMTELCO_BI_OBJECTIVE_';
-  emtelcoBiObjectiveKeys: string[] = [];
-
-  ultracomObjectivePattern: string = 'ULTRACOM_OBJECTIVE_';
-  ultracomObjectiveKeys: string[] = [];
-
-  emtelcoPcObjectivePattern: string = 'EMTELCO_PyC_OBJECTIVE_';
-  emtelcoPcObjectiveKeys: string[] = [];
+  public itemsSelector: ItemExperience[] = [
+    { position: 'SOFTWARE_DEVELOPER', name: 'IAS Software',      objective: 'IAS_SD_OBJECTIVE_',      dateRange: '07/2023 - PRESENT', objectives: [] },
+    { position: 'IAS_JOB_2',          name: 'IAS Software',      objective: 'IAS_DWH_OBJECTIVE_',     dateRange: '12/2022 - 06/2023', objectives: [] },
+    { position: 'AVALON_JOB',         name: 'Avalon Group',      objective: 'AVALON_OBJECTIVE_',      dateRange: '06/2022 - 11/2022', objectives: [] },
+    { position: 'EMTELCO_JOB_1',      name: 'Emtelco CX & BPO',  objective: 'EMTELCO_BI_OBJECTIVE_',  dateRange: '03/2021 - 06/2022', objectives: [] },
+    { position: 'ULTRACOM_JOB',       name: 'Ultracom IT S.A.S', objective: 'ULTRACOM_OBJECTIVE_',    dateRange: '12/2019 - 03/2021', objectives: [] },
+    { position: 'EMTELCO_JOB_2',      name: 'Emtelco CX & BPO',  objective: 'EMTELCO_PyC_OBJECTIVE_', dateRange: '12/2011 - 11/2019', objectives: [] },
+  ];
 
   private destroy$: Subject<void> = new Subject<void>();
+
+  objectives: WorkExperienceObjectives = {
+    iasDev: [],
+    iasData: [],
+    avalon: [],
+    emtelcoBi: [],
+    ultracom: [],
+    emtelcoPc: [],
+  };
 
   constructor(
     private translationService: TranslationService,
@@ -42,12 +66,9 @@ export class WorkExperienceComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.getAndSubscribe(this.iasDevObjectivePattern, this.iasDevObjectiveKeys);
-    this.getAndSubscribe(this.iasDataObjectivePattern, this.iasDataObjectiveKeys);
-    this.getAndSubscribe(this.avalonObjectivePattern, this.avalonObjectiveKeys);
-    this.getAndSubscribe(this.emtelcoBiObjectivePattern, this.emtelcoBiObjectiveKeys);
-    this.getAndSubscribe(this.ultracomObjectivePattern, this.ultracomObjectiveKeys);
-    this.getAndSubscribe(this.emtelcoPcObjectivePattern, this.emtelcoPcObjectiveKeys);
+    for (const item of this.itemsSelector) {
+      this.getAndSubscribe(item);
+    }
   }
 
   ngOnDestroy() {
@@ -55,11 +76,12 @@ export class WorkExperienceComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  private getAndSubscribe(pattern: string, keysArray: string[]) {
-    this.getObjetive(pattern)
+  private getAndSubscribe(item: ItemExperience) {
+    this.getObjetive(item.objective)
       .pipe(takeUntil(this.destroy$))
       .subscribe(keys => {
-        this.clearAndPush(keysArray, ...keys);
+        this.clearAndPush(item.objectives, ...keys);
+        //console.log('Objetivos actualizados:', item.objectives);
       });
   }
 
@@ -82,8 +104,10 @@ export class WorkExperienceComponent implements OnInit, OnDestroy {
   }
 
   private clearAndPush(array: string[], ...elements: string[]) {
-    array.length = 0;
-    array.push(...elements);
+    if (array) {
+      array.length = 0;
+      array.push(...elements);
+    }
   }
 
   changeLanguage(lang: string): void {
