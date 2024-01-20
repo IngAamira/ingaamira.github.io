@@ -25,6 +25,15 @@ export class WorkExperienceComponent implements OnInit, OnDestroy {
   avalonObjectivePattern: string = 'AVALON_OBJECTIVE_';
   avalonObjectiveKeys: string[] = [];
 
+  emtelcoBiObjectivePattern: string = 'EMTELCO_BI_OBJECTIVE_';
+  emtelcoBiObjectiveKeys: string[] = [];
+
+  ultracomObjectivePattern: string = 'ULTRACOM_OBJECTIVE_';
+  ultracomObjectiveKeys: string[] = [];
+
+  emtelcoPcObjectivePattern: string = 'EMTELCO_PyC_OBJECTIVE_';
+  emtelcoPcObjectiveKeys: string[] = [];
+
   private destroy$: Subject<void> = new Subject<void>();
 
   constructor(
@@ -36,6 +45,9 @@ export class WorkExperienceComponent implements OnInit, OnDestroy {
     this.getAndSubscribe(this.iasDevObjectivePattern, this.iasDevObjectiveKeys);
     this.getAndSubscribe(this.iasDataObjectivePattern, this.iasDataObjectiveKeys);
     this.getAndSubscribe(this.avalonObjectivePattern, this.avalonObjectiveKeys);
+    this.getAndSubscribe(this.emtelcoBiObjectivePattern, this.emtelcoBiObjectiveKeys);
+    this.getAndSubscribe(this.ultracomObjectivePattern, this.ultracomObjectiveKeys);
+    this.getAndSubscribe(this.emtelcoPcObjectivePattern, this.emtelcoPcObjectiveKeys);
   }
 
   ngOnDestroy() {

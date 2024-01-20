@@ -42,10 +42,9 @@
   <div class="mb-0">Emtelco CX & BPO</div>
   <div class="text-secondary">{{ 'DATE' | translate }}: 03/2021 - 06/2022</div>
   <ul>
-    <li>{{ 'EMTELCO_BI_OBJECTIVE_1' | translate }}</li>
-    <li>{{ 'EMTELCO_BI_OBJECTIVE_2' | translate }}</li>
-    <li>{{ 'EMTELCO_BI_OBJECTIVE_3' | translate }}</li>
-    <li>{{ 'EMTELCO_BI_OBJECTIVE_4' | translate }}</li>
+    <li *ngFor="let item of emtelcoBiObjectiveKeys" >
+      {{ item | translate }}
+    </li>
   </ul>
 </div>
 
@@ -56,10 +55,9 @@
   <div class="mb-0">Ultracom IT S.A.S</div>
   <div class="text-secondary">{{ 'DATE' | translate }}: 12/2019 - 03/2021</div>
   <ul>
-    <li>{{ 'ULTRACOM_OBJECTIVE_1' | translate }}</li>
-    <li>{{ 'ULTRACOM_OBJECTIVE_2' | translate }}</li>
-    <li>{{ 'ULTRACOM_OBJECTIVE_3' | translate }}</li>
-    <li>{{ 'ULTRACOM_OBJECTIVE_4' | translate }}</li>
+    <li *ngFor="let item of ultracomObjectiveKeys" >
+      {{ item | translate }}
+    </li>
   </ul>
 </div>
 
@@ -70,10 +68,8 @@
   <div class="mb-0">Emtelco CX & BPO</div>
   <div class="text-secondary">{{ 'DATE' | translate }}: 12/2011 - 11/2019</div>
   <ul>
-    <li>{{ 'EMTELCO_PyC_OBJECTIVE_1' | translate }}</li>
-    <li>{{ 'EMTELCO_PyC_OBJECTIVE_2' | translate }}</li>
-    <li>{{ 'EMTELCO_PyC_OBJECTIVE_3' | translate }}</li>
-    <li>{{ 'EMTELCO_PyC_OBJECTIVE_4' | translate }}</li>
-    <li>{{ 'EMTELCO_PyC_OBJECTIVE_5' | translate }}</li>
+    <li *ngFor="let item of emtelcoPcObjectiveKeys" >
+      {{ item | translate }}
+    </li>
   </ul>
 </div>

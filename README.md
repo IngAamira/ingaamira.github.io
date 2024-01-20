@@ -112,9 +112,6 @@ A continuación, se presentan algunos ejemplos de cómo interactuar con las func
 - `ng g c domains/info/components/education --standalone --inline-template --inline-style --skip-tests`
 - `ng g c domains/info/components/languages --standalone --inline-template --inline-style --skip-tests`
 
-#### Interfaces
-- `ng g i domains/info/interfaces/itemExperience`
-
 #### Services
 - `ng g i domains/info/services/workExperience --flat`
 
