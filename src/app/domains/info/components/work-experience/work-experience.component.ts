@@ -1,13 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { catchError, map, takeUntil } from 'rxjs/operators';
+import { of, Subject } from 'rxjs';
 
 import { TranslationModule } from 'app/domains/shared/modules/translation.module';
 import { TranslationService } from 'app/domains/shared/services/translation.service';
-
-interface Objective {
-  id: number;
-  translationKey: string;
-}
+import { WorkExperienceService } from '../../services/work-experience';
 
 @Component({
   selector: 'app-work-experience',
@@ -16,24 +14,68 @@ interface Objective {
   templateUrl: './work-experience.component.html',
 })
 
-export class WorkExperienceComponent {
+export class WorkExperienceComponent implements OnInit, OnDestroy {
 
-  constructor( private translationService: TranslationService ) { }
+  iasDevObjectivePattern: string = 'IAS_SD_OBJECTIVE_';
+  iasDevObjectiveKeys: string[] = [];
 
-  public objectives: Objective[] = [
-    { id: 1, translationKey: 'IAS_SD_OBJECTIVE_1' },
-    { id: 2, translationKey: 'IAS_SD_OBJECTIVE_2' },
-    { id: 3, translationKey: 'IAS_SD_OBJECTIVE_3' },
-    { id: 4, translationKey: 'IAS_SD_OBJECTIVE_4' },
-    { id: 5, translationKey: 'IAS_SD_OBJECTIVE_5' },
-    { id: 6, translationKey: 'IAS_SD_OBJECTIVE_6' },
-    { id: 7, translationKey: 'IAS_SD_OBJECTIVE_7' },
-    { id: 8, translationKey: 'IAS_SD_OBJECTIVE_8' }
-  ];
+  iasDataObjectivePattern: string = 'IAS_DWH_OBJECTIVE_';
+  iasDataObjectiveKeys: string[] = [];
+
+  avalonObjectivePattern: string = 'AVALON_OBJECTIVE_';
+  avalonObjectiveKeys: string[] = [];
+
+  private destroy$: Subject<void> = new Subject<void>();
+
+  constructor(
+    private translationService: TranslationService,
+    private workExperienceService: WorkExperienceService
+  ) {}
+
+  ngOnInit() {
+    this.getAndSubscribe(this.iasDevObjectivePattern, this.iasDevObjectiveKeys);
+    this.getAndSubscribe(this.iasDataObjectivePattern, this.iasDataObjectiveKeys);
+    this.getAndSubscribe(this.avalonObjectivePattern, this.avalonObjectiveKeys);
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  private getAndSubscribe(pattern: string, keysArray: string[]) {
+    this.getObjetive(pattern)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(keys => {
+        this.clearAndPush(keysArray, ...keys);
+      });
+  }
+
+  private handleError(error: any) {
+    if (error.status === 0) {
+      console.error('Error de red:', error);
+    } else if (error.status >= 500) {
+      console.error('Error del servidor:', error);
+    } else {
+      console.error('Error desconocido:', error);
+    }
+    return of([]);
+  }
+
+  private getObjetive(pattern: string) {
+    return this.workExperienceService.getWorkExperienceData().pipe(
+      map(data => Object.keys(data).filter(key => key.startsWith(pattern))),
+      catchError(this.handleError)
+    );
+  }
+
+  private clearAndPush(array: string[], ...elements: string[]) {
+    array.length = 0;
+    array.push(...elements);
+  }
 
   changeLanguage(lang: string): void {
     this.translationService.changeLanguage(lang);
   }
-
 
 }
