@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { catchError, map, takeUntil } from 'rxjs/operators';
-import { of, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 import { TranslationModule } from 'app/domains/shared/modules/translation.module';
 import { TranslationService } from 'app/domains/shared/services/translation.service';
@@ -41,7 +41,7 @@ interface WorkExperienceObjectives {
 export class WorkExperienceComponent implements OnInit, OnDestroy {
 
   public itemsSelector: ItemExperience[] = [
-    { position: 'SOFTWARE_DEVELOPER', name: 'IAS Software',      objective: 'IAS_SD_OBJECTIVE_',      dateRange: '07/2023 - PRESENT', objectives: [] },
+    { position: 'SOFTWARE_DEVELOPER', name: 'IAS Software',      objective: 'IAS_SD_OBJECTIVE_',      dateRange: '07/2023 - Present', objectives: [] },
     { position: 'IAS_JOB_2',          name: 'IAS Software',      objective: 'IAS_DWH_OBJECTIVE_',     dateRange: '12/2022 - 06/2023', objectives: [] },
     { position: 'AVALON_JOB',         name: 'Avalon Group',      objective: 'AVALON_OBJECTIVE_',      dateRange: '06/2022 - 11/2022', objectives: [] },
     { position: 'EMTELCO_JOB_1',      name: 'Emtelco CX & BPO',  objective: 'EMTELCO_BI_OBJECTIVE_',  dateRange: '03/2021 - 06/2022', objectives: [] },
@@ -77,37 +77,11 @@ export class WorkExperienceComponent implements OnInit, OnDestroy {
   }
 
   private getAndSubscribe(item: ItemExperience) {
-    this.getObjetive(item.objective)
+    this.workExperienceService.getObjetive(item.objective)
       .pipe(takeUntil(this.destroy$))
       .subscribe(keys => {
-        this.clearAndPush(item.objectives, ...keys);
-        //console.log('Objetivos actualizados:', item.objectives);
+        this.workExperienceService.clearAndPush(item.objectives, ...keys);
       });
-  }
-
-  private handleError(error: any) {
-    if (error.status === 0) {
-      console.error('Error de red:', error);
-    } else if (error.status >= 500) {
-      console.error('Error del servidor:', error);
-    } else {
-      console.error('Error desconocido:', error);
-    }
-    return of([]);
-  }
-
-  private getObjetive(pattern: string) {
-    return this.workExperienceService.getWorkExperienceData().pipe(
-      map(data => Object.keys(data).filter(key => key.startsWith(pattern))),
-      catchError(this.handleError)
-    );
-  }
-
-  private clearAndPush(array: string[], ...elements: string[]) {
-    if (array) {
-      array.length = 0;
-      array.push(...elements);
-    }
   }
 
   changeLanguage(lang: string): void {
