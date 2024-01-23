@@ -17,7 +17,6 @@ export class ProjectsService {
       projectLink: 'https://github.com/IngAamira/TechSolutions',
       pictures: [
         "assets/imgs/projects/techsolutions/home.png",
-        "assets/imgs/projects/techsolutions/folder.png",
         "assets/imgs/projects/techsolutions/db.png",
         "assets/imgs/projects/techsolutions/intro.png",
         "assets/imgs/projects/techsolutions/register.png",
@@ -29,6 +28,20 @@ export class ProjectsService {
       tags: [Tag.JAVA, Tag.SPRING]
     },
     { id: 1,
+      name: 'Inventory Backend',
+      summary: 'Is an inventory management application developed in Spring Boot. It provides functionalities for managing inventories, product tracking, and other operations related to inventory management.',
+      description: '',
+      projectLink: 'https://github.com/IngAamira/inventory-bk',
+      pictures: [
+        "assets/imgs/projects/inventory-bk/folder.png",
+        "assets/imgs/projects/inventory-bk/endpoints_categories.png",
+        "assets/imgs/projects/inventory-bk/endpoints_products.png",
+        "assets/imgs/projects/inventory-bk/product_by_id.png",
+        "assets/imgs/projects/inventory-bk/delete_product_by_id.png",
+      ],
+      tags: [Tag.JAVA, Tag.SPRING]
+    },
+    { id: 2,
       name: 'World Demographics API',
       summary: 'WorldDemographicsAPI provides global demographic data for countries and continents. Access population statistics with ease. Ideal for developers and analysts. Explore demographics.',
       description: '',
@@ -43,7 +56,7 @@ export class ProjectsService {
         Tag.HTML
       ]
     },
-    { id: 2,
+    { id: 3,
       name: 'To-Do App',
       summary: 'This is a simple To-Do application project developed in Angular.',
       description: '',
@@ -61,7 +74,7 @@ export class ProjectsService {
         Tag.BOOTSTRAP
       ]
     },
-    { id: 3,
+    { id: 4,
       name: 'Gifs App',
       summary: 'This is an Angular application that allows users to search and view gifs using the Giphy API.',
       description: '',
