@@ -16,7 +16,9 @@ import { TranslationService } from '../../../shared/services/translation.service
   templateUrl: './home.component.html',
 })
 export default class HomeComponent implements OnInit {
-  featureProject: Project = {} as Project;
+
+  featureProjects: Project = {} as Project;
+
   years: number;
 
   private startDate: Date = new Date(2011, 11, 28);
@@ -34,8 +36,9 @@ export default class HomeComponent implements OnInit {
     this.titleService.setTitle('Home');
     this.years = this.calculateYears(new Date(this.startDate));
   }
+
   ngOnInit(): void {
-    this.featureProject = this.projectService.GetProjectById(0);
+    this.featureProjects = this.projectService.GetProjectById(0);
   }
 
   changeLanguage(lang: string): void {

@@ -14,19 +14,19 @@ import { MenuItemHeader, ItemTitle } from '../../../shared/interfaces/menu-item'
 })
 export class HeaderComponent {
 
-  constructor( private translationService: TranslationService ) {}
+  public itemsTitle: ItemTitle[] = [
+    { title: 'NAME'               },
+    { title: 'UNIVERSITY_TITLE_1' },
+    { title: 'SOFTWARE_DEVELOPER' },
+    { title: 'DATA_ENGINEER'      },
+  ];
 
   public menuItemsHeader = signal<MenuItemHeader[]> ([
     { flag: 'USA Flag',   img: '../../../../../assets/icons/usa.png',   event: () => this.changeLanguage('en') },
     { flag: 'Spain Flag', img: '../../../../../assets/icons/spain.png', event: () => this.changeLanguage('es') },
   ]);
 
-  public itemsTitle: ItemTitle[] = [
-    { name: 'NAME'               },
-    { name: 'UNIVERSITY_TITLE_1' },
-    { name: 'SOFTWARE_DEVELOPER' },
-    { name: 'DATA_ENGINEER'      },
-  ];
+  constructor( private translationService: TranslationService ) {}
 
   changeLanguage(lang: string): void {
     this.translationService.changeLanguage(lang);

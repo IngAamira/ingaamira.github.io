@@ -22,10 +22,10 @@ export class ProjectsService {
         "assets/imgs/projects/eshop/put.png",
         "assets/imgs/projects/eshop/delete.png",
       ],
-      tags: [Tag.JAVA, Tag.SPRING]
+      tags: [ Tag.JAVA, Tag.SPRING ]
     },
     { id: 1,
-      name: 'Tech-Solutions (Backend)',
+      name: 'Tech-Solutions (Backend/Frontend)',
       summary: 'This is an e-commerce project developed in Java using Spring Boot. The application implements key functionalities for managing products, orders, users, and the online purchasing process.',
       description: '',
       projectLink: 'https://github.com/IngAamira/TechSolutions',
@@ -39,7 +39,7 @@ export class ProjectsService {
         "assets/imgs/projects/techsolutions/options_admin.png",
         "assets/imgs/projects/techsolutions/options_user.png"
       ],
-      tags: [Tag.JAVA, Tag.SPRING]
+      tags: [ Tag.JAVA, Tag.SPRING, Tag.HTML, Tag.CSS, Tag.THYMELEAF ]
     },
     { id: 2,
       name: 'Inventory (Backend)',
@@ -53,7 +53,7 @@ export class ProjectsService {
         "assets/imgs/projects/inventory-bk/product_by_id.png",
         "assets/imgs/projects/inventory-bk/delete_product_by_id.png",
       ],
-      tags: [Tag.JAVA, Tag.SPRING]
+      tags: [ Tag.JAVA, Tag.SPRING ]
     },
     { id: 3,
       name: 'World Demographics API',
@@ -65,10 +65,7 @@ export class ProjectsService {
         "assets/imgs/projects/worlddemographicsapi/populations.png",
         "assets/imgs/projects/worlddemographicsapi/world-populations.png"
       ],
-      tags: [
-        Tag.PYTHON,
-        Tag.HTML
-      ]
+      tags: [ Tag.PYTHON, Tag.HTML ]
     },
     { id: 4,
       name: 'To-Do App',
@@ -80,13 +77,7 @@ export class ProjectsService {
         "assets/imgs/projects/todo-app/task.png",
         "assets/imgs/projects/todo-app/filter.png"
       ],
-      tags: [
-        Tag.TYPESCRIPT,
-        Tag.ANGULAR,
-        Tag.HTML,
-        Tag.CSS,
-        Tag.BOOTSTRAP
-      ]
+      tags: [ Tag.TYPESCRIPT, Tag.ANGULAR, Tag.NODEJS, Tag.BOOTSTRAP ]
     },
     { id: 5,
       name: 'Gifs App',
@@ -98,13 +89,7 @@ export class ProjectsService {
         "assets/imgs/projects/gifs-app/search.png",
         "assets/imgs/projects/gifs-app/filter.png"
       ],
-      tags: [
-        Tag.TYPESCRIPT,
-        Tag.ANGULAR,
-        Tag.HTML,
-        Tag.CSS,
-        Tag.BOOTSTRAP
-      ]
+      tags: [ Tag.TYPESCRIPT, Tag.ANGULAR, Tag.NODEJS, Tag.BOOTSTRAP ]
     },
 
   ];

@@ -28,11 +28,13 @@ export default class PortfolioComponent implements OnInit {
   java: boolean = false;
   typescript: boolean = false;
   python: boolean = false;
+  nodejs: boolean = false;
 
 
   /*Add Framewors*/
   spring: boolean = false;
   angular: boolean = false;
+  bootstrap: boolean = false;
 
   /*Other Skills*/
   html: boolean = false;
@@ -42,6 +44,7 @@ export default class PortfolioComponent implements OnInit {
   constructor (private titleService: Title, private projectService: ProjectsService) {
     this.titleService.setTitle('Portfolio')
   }
+  
   ngOnInit(): void {
     this.projects = this.projectService.GetProjects();
   }
@@ -60,6 +63,9 @@ export default class PortfolioComponent implements OnInit {
     if (this.python) {
       filterTags.push(Tag.PYTHON);
     }
+    if (this.nodejs) {
+      filterTags.push(Tag.NODEJS);
+    }
 
 
     /*Add Framewors*/
@@ -68,6 +74,9 @@ export default class PortfolioComponent implements OnInit {
     }
     if (this.angular) {
       filterTags.push(Tag.ANGULAR);
+    }
+    if (this.bootstrap) {
+      filterTags.push(Tag.BOOTSTRAP);
     }
 
 
@@ -81,7 +90,7 @@ export default class PortfolioComponent implements OnInit {
 
 
     /*Add filtering*/
-    if ( this.java || this.typescript || this.python || this.spring || this.angular || this.html || this.css) {
+    if ( this.java || this.typescript || this.python || this.nodejs || this.spring || this.angular || this.bootstrap || this.html || this.css) {
       this.filtering = true;
     }
     else {
@@ -99,10 +108,12 @@ export default class PortfolioComponent implements OnInit {
     this.java = false;
     this.typescript = false;
     this.python = false;
+    this.nodejs = false;
 
     /*Add Framewors*/
     this.spring = false;
     this.angular = false;
+    this.bootstrap = false;
 
     /*Other Skills*/
     this.html = false;

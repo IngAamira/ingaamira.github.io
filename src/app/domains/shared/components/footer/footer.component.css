@@ -9,7 +9,7 @@
 }
 
 .footer p {
-  font-size: 19px;
+  font-size: 25px;
   color: #fff;
   text-decoration: none;
   text-align: center;
@@ -33,4 +33,23 @@
 
 .footer p:last-child {
   margin-top: 15px;
+}
+
+
+/* Estilo para pantallas grandes */
+@media (min-width: 768px) {
+
+  .footer p {
+    font-size: 25px;
+  }
+
+}
+
+/* Estilo para pantallas pequeñas */
+@media (max-width: 767px) {
+
+  .footer p {
+    font-size: 15px;
+  }
+
 }

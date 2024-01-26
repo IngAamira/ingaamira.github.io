@@ -65,8 +65,12 @@
   }
 
   .header h3 {
-    font-size: 20px;
+    font-size: 22px;
+    display: contents;
+    white-space: nowrap;
+    margin-right: 10px;
   }
+
 }
 
 /* Estilo para pantallas pequeñas */
@@ -76,7 +80,8 @@
   }
 
   .header h3 {
-    font-size: 15px;
+    font-size: 18px;
   }
+
 }
 

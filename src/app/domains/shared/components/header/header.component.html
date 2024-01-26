@@ -1,12 +1,12 @@
 <div class="header">
 
-  <div class="row">
-    <ng-container *ngFor="let item of itemsTitle; let first = first" class="col-lg">
-      <ng-container *ngIf="first; else h3Template">
-        <h1>{{ item.name | translate }}</h1>
+  <div class="row justify-content-center">
+    <ng-container *ngFor="let item of itemsTitle; let isFirst = first; let isLast = last; let index = index" class="col-lg">
+      <ng-container *ngIf="isFirst; else h3Template">
+        <h1>{{ item.title | translate }}</h1>
       </ng-container>
       <ng-template #h3Template>
-        <h3>{{ item.name | translate }}</h3>
+        <h3>{{ item.title | translate }} <span class="d-none d-md-block" *ngIf="!isLast"> &nbsp;|&nbsp; </span> </h3>
       </ng-template>
     </ng-container>
   </div>
