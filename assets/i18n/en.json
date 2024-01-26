@@ -13,7 +13,7 @@
   "ABOUT_ME_TEXT_1": "With over {{years}} years in the technology industry, I have honed my ability to create efficient and scalable solutions. My focus extends to the development of both frontend applications using technologies like Angular, and robust backend solutions using Java and Spring Boot. My experience also includes the implementation of REST API services, ensuring quality standards and modularity.",
   "ABOUT_ME_TEXT_2": "As a Business Intelligence specialist, I have delved into process automation through Web Scraping with Python and designed Data Warehouse models to provide detailed statistics in BI projects. My ability to collaborate in agile environments, such as Scrum, and apply solid development principles enables me to tackle complex challenges with an efficient and quality-focused approach.",
   "FEATURED_PROJECT": "Featured Project",
-  "FEATURED_PROJECT_SUMMARY": "This is an e-commerce project developed in Java using Spring Boot. The application implements key functionalities for managing products, orders, users, and the online purchasing process.",
+  "FEATURED_PROJECT_SUMMARY": "This is an e-commerce application developed in Java with the Spring Boot framework with Spring WebFlux. The application allows users to browse and purchase products online, organized into categories.",
   "FEATURED_PROJECT_INFO": "Visit the section to learn more!",
 
   "WORK": "Wor Experience",
