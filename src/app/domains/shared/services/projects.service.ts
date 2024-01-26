@@ -9,9 +9,23 @@ import { Project } from '../interfaces/project';
 export class ProjectsService {
 
   projects: Project[] = [
-
     { id: 0,
-      name: 'Tech-Solutions',
+      name: 'E-Shop (Backend)',
+      summary: 'This is an e-commerce application developed in Java with the Spring Boot framework with Spring WebFlux. The application allows users to browse and purchase products online, organized into categories.',
+      description: '',
+      projectLink: 'https://github.com/IngAamira/eshop',
+      pictures: [
+        "assets/imgs/projects/eshop/folder.png",
+        "assets/imgs/projects/eshop/rest.png",
+        "assets/imgs/projects/eshop/get.png",
+        "assets/imgs/projects/eshop/post.png",
+        "assets/imgs/projects/eshop/put.png",
+        "assets/imgs/projects/eshop/delete.png",
+      ],
+      tags: [Tag.JAVA, Tag.SPRING]
+    },
+    { id: 1,
+      name: 'Tech-Solutions (Backend)',
       summary: 'This is an e-commerce project developed in Java using Spring Boot. The application implements key functionalities for managing products, orders, users, and the online purchasing process.',
       description: '',
       projectLink: 'https://github.com/IngAamira/TechSolutions',
@@ -27,9 +41,9 @@ export class ProjectsService {
       ],
       tags: [Tag.JAVA, Tag.SPRING]
     },
-    { id: 1,
-      name: 'Inventory Backend',
-      summary: 'Is an inventory management application developed in Spring Boot. It provides functionalities for managing inventories, product tracking, and other operations related to inventory management.',
+    { id: 2,
+      name: 'Inventory (Backend)',
+      summary: 'This is an inventory management application developed in Spring Boot. It provides functionalities for managing inventories, product tracking, and other operations related to inventory management.',
       description: '',
       projectLink: 'https://github.com/IngAamira/inventory-bk',
       pictures: [
@@ -41,9 +55,9 @@ export class ProjectsService {
       ],
       tags: [Tag.JAVA, Tag.SPRING]
     },
-    { id: 2,
+    { id: 3,
       name: 'World Demographics API',
-      summary: 'WorldDemographicsAPI provides global demographic data for countries and continents. Access population statistics with ease. Ideal for developers and analysts. Explore demographics.',
+      summary: 'Provides global demographic data for countries and continents. Access population statistics with ease. Ideal for developers and analysts. Explore demographics.',
       description: '',
       projectLink: 'https://github.com/IngAamira/WorldDemographicsAPI',
       pictures: [
@@ -56,7 +70,7 @@ export class ProjectsService {
         Tag.HTML
       ]
     },
-    { id: 3,
+    { id: 4,
       name: 'To-Do App',
       summary: 'This is a simple To-Do application project developed in Angular.',
       description: '',
@@ -74,7 +88,7 @@ export class ProjectsService {
         Tag.BOOTSTRAP
       ]
     },
-    { id: 4,
+    { id: 5,
       name: 'Gifs App',
       summary: 'This is an Angular application that allows users to search and view gifs using the Giphy API.',
       description: '',
