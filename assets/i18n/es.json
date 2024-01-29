@@ -13,7 +13,7 @@
   "ABOUT_ME_TEXT_1": "Con más de {{years}} años en el mundo de la tecnología, he perfeccionado mi capacidad para crear soluciones eficientes y escalables. Mi enfoque se centra en el desarrollo tanto de aplicaciones frontend con tecnologías como Angular, adicionalmente, robustas soluciones backend utilizando Java y Spring Boot. Mi experiencia abarca también la implementación de servicios API REST, asegurando estándares de calidad y modularidad.",
   "ABOUT_ME_TEXT_2": "Como especialista en inteligencia de negocios, he explorado la automatización de procesos mediante Web Scraping con Python y he diseñado modelos de Bodegas de Datos para ofrecer estadísticas detalladas en proyectos BI. Mi habilidad para colaborar en entornos ágiles, como Scrum, y aplicar principios sólidos de desarrollo, me permite abordar desafíos complejos con un enfoque eficiente y centrado en la calidad.",
   "FEATURED_PROJECT": "Proyecto Destacado",
-  "FEATURED_PROJECT_SUMMARY": "Esta es una aplicación de comercio electrónico desarrollada en Java con el framework Spring Boot y aplicando Spring WebFlux. La aplicación permite a los usuarios buscar y comprar productos en línea, organizados en categorías.",
+  "FEATURED_PROJECT_SUMMARY": "Esta es una aplicación de comercio electrónico desarrollada en Java con el framework Spring Boot y usando Spring WebFlux como programación reactiva. La aplicación permite a los usuarios buscar y comprar productos en línea, organizados en categorías.",
   "FEATURED_PROJECT_INFO": "¡Visita la sección para conocer más!",
 
   "WORK": "Experiencia Laboral",
