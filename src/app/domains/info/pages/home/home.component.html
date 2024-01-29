@@ -36,11 +36,17 @@
           <h2>{{ 'FEATURED_PROJECT' | translate }}</h2>
         </div>
         <div class="card-body">
-          <div class="text-center">
-            <img src="assets/imgs/projects/eshop/rest.png" alt="Project introduction" width="310" height="310" class="img-fluid rounded mt-4" >
-          </div>
+          <carousel class="d-block carousel carousel-dark slide">
+            <div *ngFor="let picture of project.pictures">
+              <slide>
+                <div class="text-center py-2">
+                  <img [src]="picture" alt="Project introduction" width="300" height="300" class="img-fluid" >
+                </div>
+              </slide>
+            </div>
+          </carousel>
           <div class="card-title mt-5">
-            <h5> E-Shop (Backend) </h5>
+            <h5> {{ project.name }} </h5>
           </div>
           <div class="card-text mt-2" style="text-align: justify;" >
             <p> {{ 'FEATURED_PROJECT_SUMMARY' | translate }} </p>

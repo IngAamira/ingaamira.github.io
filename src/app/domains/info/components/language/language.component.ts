@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
-import { TranslationModule } from 'app/domains/shared/modules/translation.module';
-import { TranslationService } from 'app/domains/shared/services/translation.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 export interface ItemLanguage {
   title: string;
@@ -12,7 +11,7 @@ export interface ItemLanguage {
 @Component({
   selector: 'app-languages',
   standalone: true,
-  imports: [ CommonModule, TranslationModule ],
+  imports: [ CommonModule, TranslateModule ],
   template: `
     <div style="text-align: left;">
       <ul>
@@ -28,15 +27,11 @@ export interface ItemLanguage {
 })
 export class LanguageComponent {
 
-  constructor( private translationService: TranslationService ) { }
+  constructor( ) { }
 
   public itemsLanguage: ItemLanguage[] = [
     { name: 'SPANISH', title: 'SPANISH_PROFICIENCY' },
     { name: 'ENGLISH', title: 'ENGLISH_PROFICIENCY' },
   ];
-
-  changeLanguage(lang: string): void {
-    this.translationService.changeLanguage(lang);
-  }
 
 }

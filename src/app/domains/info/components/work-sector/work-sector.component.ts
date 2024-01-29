@@ -2,8 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 
-import { TranslationModule } from 'app/domains/shared/modules/translation.module';
-import { TranslationService } from 'app/domains/shared/services/translation.service';
+import { TranslateModule } from '@ngx-translate/core';
 import { WorkExperienceService } from '../../services/work-experience';
 
 export interface ItemWorkSector {
@@ -17,7 +16,7 @@ interface ItemsObjective {
 @Component({
   selector: 'app-work-sector',
   standalone: true,
-  imports: [CommonModule, TranslationModule],
+  imports: [CommonModule, TranslateModule],
   template: `
     <div class="container" *ngFor="let item of itemsWorkSector">
       <ul style="text-align: left;" *ngIf="item.items">
@@ -36,10 +35,7 @@ export class WorkSectorComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
 
-  constructor(
-    private translationService: TranslationService,
-    private workExperienceService: WorkExperienceService
-    ) { }
+  constructor( private workExperienceService: WorkExperienceService ) { }
 
   items: ItemsObjective = {
     sectorInfo: [],
@@ -62,10 +58,6 @@ export class WorkSectorComponent implements OnInit, OnDestroy {
       .subscribe(keys => {
         this.workExperienceService.clearAndPush(item.items, ...keys);
       });
-  }
-
-  changeLanguage(lang: string): void {
-    this.translationService.changeLanguage(lang);
   }
 
 }

@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, Renderer2, signal } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 import { EducationComponent } from '../../components/education/education.component';
 import { LanguageComponent } from '../../components/language/language.component';
 import { MenuItemResume } from 'app/domains/shared/interfaces/menu-item';
 import { NgxBootstrapModule } from 'app/domains/shared/modules/ngx-bootstrap.module';
-import { TranslationModule } from 'app/domains/shared/modules/translation.module';
 import { TranslationService } from 'app/domains/shared/services/translation.service';
 import { WorkDataComponent } from '../../components/work-data/work-data.component';
 import { WorkDevComponent } from '../../components/work-dev/work-dev.component';
@@ -17,7 +18,7 @@ import { WorkSectorComponent } from '../../components/work-sector/work-sector.co
   standalone: true,
   imports: [
     CommonModule,
-    TranslationModule,
+    TranslateModule,
     NgxBootstrapModule,
 
     WorkExperienceComponent,
@@ -65,10 +66,6 @@ export default class ResumeComponent {
     link.setAttribute('href', this.translationService.getPdfPathData());
     link.click();
     link.remove();
-  }
-
-  changeLanguage(lang: string): void {
-    this.translationService.changeLanguage(lang);
   }
 
 }

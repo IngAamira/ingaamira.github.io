@@ -11,11 +11,10 @@ export class ProjectsService {
   projects: Project[] = [
     { id: 0,
       name: 'E-Shop (Backend)',
-      summary: 'This is an e-commerce application developed in Java with the Spring Boot framework with Spring WebFlux. The application allows users to browse and purchase products online, organized into categories.',
-      description: '',
+      summary: 'This is an e-commerce application developed in Java with the Spring Boot framework and using Spring WebFlux for reactive programming. The application allows users to search for and purchase products online, organized into categories.',
+      description: 'Esta es una aplicación de comercio electrónico desarrollada en Java con el framework Spring Boot y usando Spring WebFlux como programación reactiva. La aplicación permite a los usuarios buscar y comprar productos en línea, organizados en categorías.',
       projectLink: 'https://github.com/IngAamira/eshop',
       pictures: [
-        "assets/imgs/projects/eshop/folder.png",
         "assets/imgs/projects/eshop/rest.png",
         "assets/imgs/projects/eshop/get.png",
         "assets/imgs/projects/eshop/post.png",

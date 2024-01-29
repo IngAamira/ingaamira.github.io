@@ -1,21 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-
-import { TranslationModule } from 'app/domains/shared/modules/translation.module';
-import { TranslationService } from 'app/domains/shared/services/translation.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-work-data',
   standalone: true,
-  imports: [CommonModule, TranslationModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './work-data.component.html',
 })
 export class WorkDataComponent {
 
-  constructor( private translationService: TranslationService ) { }
-
-  changeLanguage(lang: string): void {
-    this.translationService.changeLanguage(lang);
-  }
+  constructor( ) { }
 
 }

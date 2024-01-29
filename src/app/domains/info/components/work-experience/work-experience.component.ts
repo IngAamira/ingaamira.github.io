@@ -3,8 +3,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
-import { TranslationModule } from 'app/domains/shared/modules/translation.module';
-import { TranslationService } from 'app/domains/shared/services/translation.service';
+import { TranslateModule } from '@ngx-translate/core';
+
 import { WorkExperienceService } from '../../services/work-experience';
 
 interface ItemExperience {
@@ -22,7 +22,7 @@ interface WorkExperienceObjectives {
 @Component({
   selector: 'app-work-experience',
   standalone: true,
-  imports: [CommonModule, TranslationModule],
+  imports: [CommonModule, TranslateModule],
   template: `
     <div style="text-align: left;" *ngFor="let item of itemsSelector; let last = last">
       <div class="text-primary">{{ item.position | translate }}</div>
@@ -60,10 +60,7 @@ export class WorkExperienceComponent implements OnInit, OnDestroy {
     emtelcoPc: [],
   };
 
-  constructor(
-    private translationService: TranslationService,
-    private workExperienceService: WorkExperienceService
-  ) {}
+  constructor( private workExperienceService: WorkExperienceService ) {}
 
   ngOnInit() {
     for (const item of this.itemsSelector) {
@@ -82,10 +79,6 @@ export class WorkExperienceComponent implements OnInit, OnDestroy {
       .subscribe(keys => {
         this.workExperienceService.clearAndPush(item.objectives, ...keys);
       });
-  }
-
-  changeLanguage(lang: string): void {
-    this.translationService.changeLanguage(lang);
   }
 
 }

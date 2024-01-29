@@ -1,14 +1,14 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TranslationModule } from '../../../shared/modules/translation.module';
-import { TranslationService } from '../../../shared/services/translation.service';
+import { TranslateModule } from '@ngx-translate/core';
+
 import { MenuItemContact } from '../../../shared/interfaces/menu-item';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [ TranslationModule, CommonModule ],
+  imports: [ CommonModule, TranslateModule ],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css',]
 })
@@ -16,7 +16,7 @@ export class FooterComponent {
 
   currentYear: number;
 
-  constructor(private translationService: TranslationService) {
+  constructor( ) {
     this.currentYear = new Date().getFullYear();
   }
 
@@ -28,9 +28,5 @@ export class FooterComponent {
     { url: 'https://twitter.com/Ingaamira/',          img: 'assets/icons/twitter.png',  flag: 'Twitter'  },
     { url: 'mailto:andres.mira@outlook.com/',         img: 'assets/icons/e-mail.png',   flag: 'Email'    },
   ]);
-
-  changeLanguage(lang: string): void {
-    this.translationService.changeLanguage(lang);
-  }
 
 }

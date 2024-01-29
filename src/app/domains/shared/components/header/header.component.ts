@@ -1,14 +1,15 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TranslationModule } from '../../../shared/modules/translation.module';
+import { TranslateModule } from '@ngx-translate/core';
+
 import { TranslationService } from '../../../shared/services/translation.service';
 import { MenuItemHeader, ItemTitle } from '../../../shared/interfaces/menu-item';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, TranslationModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })

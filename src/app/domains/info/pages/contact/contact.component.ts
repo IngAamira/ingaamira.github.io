@@ -2,13 +2,14 @@ import { Component, signal } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 import { MenuItemContact } from '../../../shared/interfaces/menu-item';
-import { TranslationModule } from 'app/domains/shared/modules/translation.module';
-import { TranslationService } from '../../../shared/services/translation.service';
+
 
 @Component({
   standalone: true,
-  imports: [CommonModule, TranslationModule],
+  imports: [CommonModule, TranslateModule],
   selector: 'app-contact',
   template: `
     <div class="container" style="padding-bottom: 12px;">
@@ -29,9 +30,7 @@ import { TranslationService } from '../../../shared/services/translation.service
 })
 export default class ContactComponent {
 
-  constructor(
-    private titleService: Title,
-    private translationService: TranslationService) {
+  constructor( private titleService: Title,) {
     this.titleService.setTitle('Contact Me');
   }
 
@@ -43,9 +42,5 @@ export default class ContactComponent {
     { url: 'https://twitter.com/Ingaamira/',          img: 'assets/icons/twitter.png',  flag: 'Twitter'  },
     { url: 'mailto:andres.mira@outlook.com/',         img: 'assets/icons/e-mail.png',   flag: 'Email'    },
   ]);
-
-  changeLanguage(lang: string): void {
-    this.translationService.changeLanguage(lang);
-  }
 
 }
