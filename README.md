@@ -1,95 +1,97 @@
 # Website Ingaamira
 
-## Table de Contenido
+## Table of Contents
 
-- [Descripción del Proyecto](#descripción-del-proyecto)
-- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Project Description](#project-description)
+- [Project Structure](#project-structure)
   - [Pages](#pages)
   - [Components](#components)
-- [Folder Shared](#folder-shared)
+- [Shared Folder](#shared-folder)
   - [Classes](#classes)
   - [Components](#components-1)
   - [Interfaces](#interfaces)
   - [Modules](#modules)
   - [Services](#services)
-- [Comandos NPM Utilizados](#comandos-npm-utilizados)
-  - [Nombre del Proyecto](#nombre-del-proyecto)
+- [NPM Commands Used](#npm-commands-used)
+  - [Project Name](#project-name)
   - [Folder Info](#folder-info)
     - [Pages](#pages-1)
     - [Components](#components-2)
-  - [Folder Shared](#folder-shared-1)
+  - [Shared Folder](#shared-folder-1)
     - [Classes](#classes-1)
     - [Components](#components-3)
     - [Interfaces](#interfaces-1)
     - [Modules](#modules-1)
     - [Services](#services-1)
-- [Instalación de Bibliotecas](#instalación-de-bibliotecas)
-- [Recursos Adicionales](#recursos-adicionales)
+- [Library Installation](#library-installation)
+- [Additional Resources](#additional-resources)
+- [Contributions](#contributions)
+- [Project Status](#project-status)
 
-## Descripción del Proyecto
-Este proyecto, denominado "Website Ingaamira" es una aplicación web desarrollada utilizando Angular. El propósito de la aplicación es proporcionar información sobre Ingaamira, incluyendo detalles sobre proyectos, experiencia laboral y datos de contacto. La estructura del proyecto se organiza en carpetas específicas para facilitar la gestión y mantenimiento del código.
+## Project Description
+This project, named "Website Ingaamira," is a web application developed using Angular. The purpose of the application is to provide information about Ingaamira, including details about projects, work experience, and contact information. The project's structure is organized into specific folders to facilitate code management and maintenance.
 
-## Requisitos de Sistema
-- Node.js (v10.0.0 o superior)
-- Angular CLI (v15.0.0 o superior)
+## System Requirements
+- Node.js (v18.0.0 or higher)
+- Angular CLI (v15.0.0 or higher)
 
-## Instrucciones de Ejecución
-1. Clona este repositorio: `git clone https://github.com/IngAamira/ingaamira.github.io.git`
-2. Navega al directorio del proyecto: `cd ingaamira.github.io`
-3. Instala las dependencias: `npm i`
-4. Ejecuta la aplicación localmente: `ng serve`
+## Execution Instructions
+1. Clone this repository: `git clone https://github.com/IngAamira/ingaamira.github.io.git`
+2. Navigate to the project directory: `cd ingaamira.github.io`
+3. Install dependencies: `npm i`
+4. Run the application locally: `ng serve`
 
-## Ejemplos de Uso
-A continuación, se presentan algunos ejemplos de cómo interactuar con las funciones clave de la aplicación:
+## Usage Examples
+Below are some examples of how to interact with key features of the application:
 
-- **Ver Proyectos:**
-  - Accede a la página de portafolio para ver la lista de proyectos.
+- **View Projects:**
+  - Access the portfolio page to view the list of projects.
 
-- **Contacto:**
-  - Visita la página de contacto para obtener información de contacto y enviar mensajes.
+- **Contact:**
+  - Visit the contact page to obtain contact information and send messages.
 
-## Estructura del Proyecto
+## Project Structure
 
 ### Pages
-- `contact`: Página de contacto.
-- `home`: Página de inicio.
-- `not-found`: Página de error 404.
-- `portfolio`: Página de portafolio.
-- `project-card`: Componente para mostrar tarjetas de proyectos.
-- `project-modal`: Componente para mostrar detalles de proyectos en un modal.
-- `resume`: Página de currículum.
+- `contact`: Contact page.
+- `home`: Home page.
+- `not-found`: Error 404 page.
+- `portfolio`: Portfolio page.
+- `project-card`: Component to display project cards.
+- `project-modal`: Component to display project details in a modal.
+- `resume`: Resume page.
 
 ### Components
-- `workExperience`: Componente para mostrar experiencia laboral.
-- `workDev`: Componente para mostrar información como desarrollador de software.
-- `workData`: Componente para mostrar información como Integeniero de datos.
+- `workExperience`: Component to display work experience.
+- `workDev`: Component to display information as a software developer.
+- `workData`: Component to display information as a data engineer.
 
-## Folder Shared
+## Shared Folder
 
 ### Classes
-- `project`: Clase para representar un proyecto.
-- `tag`: Clase para representar una etiqueta asociada a un proyecto.
+- `project`: Class to represent a project.
+- `tag`: Class to represent a tag associated with a project.
 
 ### Components
-- `footer`: Componente del pie de página.
-- `header`: Componente del encabezado.
-- `layout`: Componente para el diseño general.
-- `navbar`: Componente de la barra de navegación.
+- `footer`: Footer component.
+- `header`: Header component.
+- `layout`: Component for the overall layout.
+- `navbar`: Navigation bar component.
 
 ### Interfaces
-- `menu-item`: Interfaz para definir elementos de menú.
+- `menu-item`: Interface to define menu items.
 
 ### Modules
-- `ngx-bootstrap`: Módulo para integrar ngx-bootstrap.
-- `translation`: Módulo para la internacionalización y traducción.
+- `ngx-bootstrap`: Module to integrate ngx-bootstrap.
+- `translation`: Module for internationalization and translation.
 
 ### Services
-- `projects`: Servicio para gestionar la información de proyectos.
-- `translation`: Servicio para gestionar la traducción de la aplicación.
+- `projects`: Service to manage project information.
+- `translation`: Service to manage application translation.
 
-## Comandos NPM Utilizados
+## NPM Commands Used
 
-### Nombre del Proyecto
+### Project Name
 `ng new ingaamira.github.io --skip-tests`
 
 ### Folder Info
@@ -115,7 +117,7 @@ A continuación, se presentan algunos ejemplos de cómo interactuar con las func
 #### Services
 - `ng g i domains/info/services/workExperience --flat`
 
-## Folder Shared
+## Shared Folder
 
 #### Classes
 - `ng g cl domains/shared/classes/tag --flat`
@@ -139,20 +141,20 @@ A continuación, se presentan algunos ejemplos de cómo interactuar con las func
 - `ng g s domains/shared/services/projects --flat`
 - `ng g s domains/shared/services/translation --flat`
 
-## Instalación de Bibliotecas
-- Ejecutar `ng add ngx-bootstrap` para agregar ngx-bootstrap.
-- Ejecutar `npm i @ngx-translate/core --save` para instalar ngx-translate/core.
-- Ejecutar `npm i @ngx-translate/http-loader --save` para instalar ngx-translate/http-loader.
+## Library Installation
+- Run `ng add ngx-bootstrap` to add ngx-bootstrap.
+- Run `npm i @ngx-translate/core --save` to install ngx-translate/core.
+- Run `npm i @ngx-translate/http-loader --save` to install ngx-translate/http-loader.
 
-## Recursos Adicionales
-- [Documentación ngx-bootstrap](https://valor-software.com/ngx-bootstrap/#/documentation)
-- [ngx-translate/core en GitHub](https://github.com/ngx-translate/core)
-- [ngx-translate/http-loader en npm](https://www.npmjs.com/package/@ngx-translate/http-loader)
+## Additional Resources
+- [ngx-bootstrap Documentation](https://valor-software.com/ngx-bootstrap/#/documentation)
+- [ngx-translate/core on GitHub](https://github.com/ngx-translate/core)
+- [ngx-translate/http-loader on npm](https://www.npmjs.com/package/@ngx-translate/http-loader)
 - [Bootstrap](https://getbootstrap.com/)
 - [Dynamic Component](https://github.com/funOfheuristic/dynamic-component/blob/main/src/app/dynamic-wrapper/dynamic-wrapper.component.html)
 
-## Contribuciones
-¡Las Contribuciones son bienvenidas!
+## Contributions
+Contributions are welcome!
 
-## Estado del Proyecto
-Este proyecto está en desarrollo activo.
+## Project Status
+This project is actively under development.
