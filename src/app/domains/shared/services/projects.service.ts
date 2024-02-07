@@ -67,6 +67,16 @@ export class ProjectsService {
       tags: [ Tag.PYTHON, Tag.HTML ]
     },
     { id: 4,
+      name: 'Inventory App',
+      summary: 'This is a product management system built using Angular. It allows users to manage product data, including creating new products, updating existing ones, and deleting products. The system includes features such as form validation, error handling, and feedback messages.',
+      description: '',
+      projectLink: 'https://github.com/IngAamira/inventory-app',
+      pictures: [
+        "assets/icons/construction.png",
+      ],
+      tags: [ Tag.TYPESCRIPT, Tag.ANGULAR, Tag.NODEJS, Tag.BOOTSTRAP ]
+    },
+    { id: 5,
       name: 'To-Do App',
       summary: 'This is a simple To-Do application project developed in Angular.',
       description: '',
@@ -78,7 +88,7 @@ export class ProjectsService {
       ],
       tags: [ Tag.TYPESCRIPT, Tag.ANGULAR, Tag.NODEJS, Tag.BOOTSTRAP ]
     },
-    { id: 5,
+    { id: 6,
       name: 'Gifs App',
       summary: 'This is an Angular application that allows users to search and view gifs using the Giphy API.',
       description: '',
@@ -93,9 +103,7 @@ export class ProjectsService {
 
   ];
 
-  constructor() {
-
-  }
+  constructor() { }
 
   GetProjects() {
     return this.projects;
