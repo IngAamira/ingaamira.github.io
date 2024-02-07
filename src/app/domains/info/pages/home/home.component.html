@@ -2,54 +2,66 @@
 
   <div class="row">
 
-    <!--About Me-->
-    <div class="col-lg col-12 mx-auto shadow border m-1">
-      <div class="text-center">
-        <h2 class="mt-4">{{ 'ABOUT_ME' | translate }}</h2>
-        <img src="assets/imgs/home/profile.jpg" alt="Profile picture" width="250" height="250" class="rounded-circle mt-4">
-      </div>
-      <div class="text-justify" style="text-align: justify;">
-        <p class="mt-4">
-          {{ 'ABOUT_ME_TEXT_1' | translate:{ years: years.toString() } }}
-        </p>
-        <p class="mt-2">
-          {{ 'ABOUT_ME_TEXT_2' | translate }}
-        </p>
-      </div>
-    </div>
-
-    <!--Featured Project-->
-    <div class="col-lg col-12 mx-auto shadow border m-1 text-center">
-      <h2 class="mt-4">{{ 'FEATURED_PROJECT' | translate }}</h2>
-      <h4>{{ featureProject.name }}</h4>
-
-      <carousel class="d-block carousel carousel-dark slide">
-        <div *ngFor="let picture of featureProject.pictures">
-          <slide>
-            <div class="text-center py-2">
-              <img
-                [src]="picture"
-                alt="slide"
-                [ngStyle]="{'width.px': getWidth(), 'height.px': getHeight()}"
-                [ngClass]="{'img-fluid': isResponsive()}"
-                class="img-fluid"
-              >
+    <!-- About Me -->
+    <div class="col-sm-6">
+        <div class="card h-100">
+          <div class="card-header text-center">
+            <h2>{{ 'ABOUT_ME' | translate }}</h2>
+          </div>
+          <div class="text-center mx-auto d-none d-md-block">
+            <img src="assets/imgs/home/profile.jpg" alt="Profile picture" width="250" height="250" class="img-fluid rounded-circle mt-4">
+          </div>
+          <div class="card-body">
+            <div class="card-text mt-3" style="text-align: justify;" >
+              <p> {{ 'ABOUT_ME_TEXT_1' | translate:{ years: years.toString() } }} </p>
+              <p> {{ 'ABOUT_ME_TEXT_2' | translate }} </p>
+              <div class="mx-auto d-md-none">
+                <p> {{ 'FEATURED_PROJECT_INFO' | translate }}
+                  <a
+                    [routerLink]="'/portfolio'"
+                    aria-current="page" >
+                    <i class="bi bi-briefcase-fill"></i>
+                  </a>
+                </p>
+              </div>
             </div>
-          </slide>
+          </div>
         </div>
-      </carousel>
-
-      <p class="mt-4">{{ 'FEATURED_PROJECT_SUMMARY' | translate }}</p>
-      <p class="mt-2">
-        {{ 'FEATURED_PROJECT_INFO' | translate }}
-        <a
-          [routerLink]="'/portfolio'"
-          aria-current="page" >
-          <i class="bi bi-briefcase-fill"></i>
-        </a>
-      </p>
-
     </div>
+
+    <!-- Featured Project -->
+    <div class="col-sm-6 mx-auto d-none d-md-block">
+      <div class="card h-100">
+        <div class="card-header text-center">
+          <h2>{{ 'FEATURED_PROJECT' | translate }}</h2>
+        </div>
+        <div class="card-body">
+          <carousel class="d-block carousel carousel-dark slide">
+            <div *ngFor="let picture of project.pictures">
+              <slide>
+                <div class="text-center py-2">
+                  <img [src]="picture" alt="Project introduction" width="300" height="300" class="img-fluid" >
+                </div>
+              </slide>
+            </div>
+          </carousel>
+          <div class="card-title mt-5">
+            <h5> {{ project.name }} </h5>
+          </div>
+          <div class="card-text mt-2" style="text-align: justify;" >
+            <p> {{ 'FEATURED_PROJECT_SUMMARY' | translate }} </p>
+            <p> {{ 'FEATURED_PROJECT_INFO' | translate }}
+              <a
+                [routerLink]="'/portfolio'"
+                aria-current="page" >
+                <i class="bi bi-briefcase-fill"></i>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </div>

@@ -7,7 +7,7 @@ export  interface MenuItemHeader {
 
 /*Title*/
 export  interface ItemTitle {
-  name : string;
+  title : string;
 }
 
 /*Menu Navbar*/

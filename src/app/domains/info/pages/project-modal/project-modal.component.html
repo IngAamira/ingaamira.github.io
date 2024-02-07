@@ -10,13 +10,7 @@
       <div *ngFor="let picture of project.pictures">
         <slide>
           <div class="text-center py-2">
-            <img
-              [src]="picture"
-              alt="slide"
-              [ngStyle]="{'width.px': getWidth(), 'height.px': getHeight()}"
-              [ngClass]="{'img-fluid': isResponsive()}"
-              class="img-fluid"
-            >
+            <img [src]="picture" alt="slide" class="img-fluid" >
           </div>
         </slide>
       </div>

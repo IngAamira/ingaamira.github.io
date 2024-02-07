@@ -104,24 +104,32 @@ A continuación, se presentan algunos ejemplos de cómo interactuar con las func
 - `ng g c domains/info/pages/resume --skip-selector --skip-tests`
 
 #### Components
-- `ng g c domains/info/components/workExperience --skip-selector --inline-style --skip-tests`
-- `ng g c domains/info/components/workDev --skip-selector --inline-style --skip-tests`
-- `ng g c domains/info/components/workData --skip-selector --inline-style --skip-tests`
+- `ng g c domains/info/components/workExperience --standalone --skip-tests`
+- `ng g c domains/info/components/workDev --standalone --skip-tests`
+- `ng g c domains/info/components/workData --standalone --skip-tests`
+- `ng g c domains/info/components/workData --standalone --skip-tests`
+- `ng g c domains/info/components/workSector --standalone --inline-template --inline-style --skip-tests`
+- `ng g c domains/info/components/education --standalone --inline-template --inline-style --skip-tests`
+- `ng g c domains/info/components/languages --standalone --inline-template --inline-style --skip-tests`
+
+#### Services
+- `ng g i domains/info/services/workExperience --flat`
 
 ## Folder Shared
 
 #### Classes
-- `ng g cl domains/shared/classes/project --flat`
 - `ng g cl domains/shared/classes/tag --flat`
 
 #### Components
-- `ng g c domains/shared/components/footer --skip-selector --skip-tests`
-- `ng g c domains/shared/components/header --skip-selector --skip-tests`
-- `ng g c domains/shared/components/layout --skip-selector --inline-style --skip-tests`
-- `ng g c domains/shared/components/navbar --skip-selector --skip-tests`
+- `ng g c domains/shared/components/footer --skip-tests`
+- `ng g c domains/shared/components/header --skip-tests`
+- `ng g c domains/shared/components/layout --inline-style --skip-tests`
+- `ng g c domains/shared/components/navbar --skip-tests`
 
 #### Interfaces
-- `ng g i domains/shared/interfaces/menu-item --flat`
+- `ng g i domains/shared/classes/project`
+- `ng g i domains/shared/interfaces/menu-item`
+- `ng g i domains/shared/interfaces/work`
 
 #### Modules
 - `ng g m domains/shared/modules/ngx-bootstrap --flat`
@@ -141,6 +149,7 @@ A continuación, se presentan algunos ejemplos de cómo interactuar con las func
 - [ngx-translate/core en GitHub](https://github.com/ngx-translate/core)
 - [ngx-translate/http-loader en npm](https://www.npmjs.com/package/@ngx-translate/http-loader)
 - [Bootstrap](https://getbootstrap.com/)
+- [Dynamic Component](https://github.com/funOfheuristic/dynamic-component/blob/main/src/app/dynamic-wrapper/dynamic-wrapper.component.html)
 
 ## Contribuciones
 ¡Las Contribuciones son bienvenidas!
