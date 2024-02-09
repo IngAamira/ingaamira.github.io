@@ -16,7 +16,7 @@
   "FEATURED_PROJECT_SUMMARY": "This is an e-commerce application developed in Java with the Spring Boot framework and using Spring WebFlux for reactive programming. The application allows users to search for and purchase products online, organized into categories.",
   "FEATURED_PROJECT_INFO": "Visit the section to learn more!",
 
-  "WORK": "Wor Experience",
+  "WORK": "Work Experience",
   "IAS_SD_OBJECTIVE_1": "Development and maintenance of backend applications using Java and Spring Boot.",
   "IAS_SD_OBJECTIVE_2": "Strong skills in dependency injection to ensure modularity and ease of maintenance.",
   "IAS_SD_OBJECTIVE_3": "Development and maintenance of frontend applications using HTML, CSS, and Angular.",
