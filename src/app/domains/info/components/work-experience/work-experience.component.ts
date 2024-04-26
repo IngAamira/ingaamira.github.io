@@ -46,7 +46,7 @@ export class WorkExperienceComponent implements OnInit, OnDestroy {
     { position: 'AVALON_JOB',         name: 'Avalon Group',      objective: 'AVALON_OBJECTIVE_',      dateRange: '06/2022 - 11/2022', objectives: [] },
     { position: 'EMTELCO_JOB_1',      name: 'Emtelco CX & BPO',  objective: 'EMTELCO_BI_OBJECTIVE_',  dateRange: '03/2021 - 06/2022', objectives: [] },
     { position: 'ULTRACOM_JOB',       name: 'Ultracom IT S.A.S', objective: 'ULTRACOM_OBJECTIVE_',    dateRange: '12/2019 - 03/2021', objectives: [] },
-    { position: 'EMTELCO_JOB_2',      name: 'Emtelco CX & BPO',  objective: 'EMTELCO_PyC_OBJECTIVE_', dateRange: '12/2011 - 11/2019', objectives: [] },
+    { position: 'EMTELCO_JOB_2',      name: 'Emtelco CX & BPO',  objective: 'EMTELCO_PyC_OBJECTIVE_', dateRange: '12/2012 - 11/2019', objectives: [] },
   ];
 
   private destroy$: Subject<void> = new Subject<void>();
