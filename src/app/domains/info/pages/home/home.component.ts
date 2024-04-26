@@ -20,9 +20,9 @@ export default class HomeComponent implements OnInit {
 
   project = {} as Project;
   years: number;
-  private startDate: Date = new Date(2011, 11, 28);
+  private startDate: Date = new Date(2012, 11, 16);
   //En JavaScript, los meses se indexan desde 0 (enero es 0, febrero es 1, etc.).
-  //Fecha de incio de labores (28 de diciembre del 2011).
+  //Fecha de incio de labores (16 de diciembre del 2012).
 
   constructor(
     private titleService: Title,
