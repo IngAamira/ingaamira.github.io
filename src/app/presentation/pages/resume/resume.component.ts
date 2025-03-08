@@ -6,9 +6,9 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { EducationComponent } from '../../components/education/education.component';
 import { LanguageComponent } from '../../components/language/language.component';
-import { MenuItemResume } from 'app/domains/shared/interfaces/menu-item';
+import { MenuItemResume } from 'app/domain/models/menu-item';
 import { NgxBootstrapModule } from 'app/domains/shared/modules/ngx-bootstrap.module';
-import { TranslationService } from 'app/domains/shared/services/translation.service';
+import { TranslationService } from 'app/infrastructure/driven-adapters/translation.service';
 import { WorkDataComponent } from '../../components/work-data/work-data.component';
 import { WorkDevComponent } from '../../components/work-dev/work-dev.component';
 import { WorkExperienceComponent } from '../../components/work-experience/work-experience.component';
