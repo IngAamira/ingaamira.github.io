@@ -6,15 +6,16 @@
     <div class="col-sm-6">
         <div class="card h-100">
           <div class="card-header text-center">
-            <h2>{{ 'ABOUT_ME' | translate }}</h2>
+            <h2>{{ 'ABOUT_ME.TITLE' | translate }}</h2>
           </div>
           <div class="text-center mx-auto d-none d-md-block">
             <img src="assets/imgs/home/profile.jpg" alt="Profile picture" width="250" height="250" class="img-fluid rounded-circle mt-4">
           </div>
           <div class="card-body">
             <div class="card-text mt-3" style="text-align: justify;" >
-              <p> {{ 'ABOUT_ME_TEXT_1' | translate:{ years: years.toString() } }} </p>
-              <p> {{ 'ABOUT_ME_TEXT_2' | translate }} </p>
+              <div *ngFor="let aboutMeText of ('ABOUT_ME.TEXT' | translate)">
+                <p>{{ aboutMeText }}</p>
+              </div>
               <div class="mx-auto d-md-none">
                 <p> {{ 'FEATURED_PROJECT_INFO' | translate }}
                   <a
@@ -33,7 +34,7 @@
     <div class="col-sm-6 mx-auto d-none d-md-block">
       <div class="card h-100">
         <div class="card-header text-center">
-          <h2>{{ 'FEATURED_PROJECT' | translate }}</h2>
+          <h2>{{ 'FEATURED_PROJECT.TITLE' | translate }}</h2>
         </div>
         <div class="card-body">
           <carousel class="d-block carousel carousel-dark slide">
@@ -49,8 +50,8 @@
             <h5> {{ project.name }} </h5>
           </div>
           <div class="card-text mt-2" style="text-align: justify;" >
-            <p> {{ 'FEATURED_PROJECT_SUMMARY' | translate }} </p>
-            <p> {{ 'FEATURED_PROJECT_INFO' | translate }}
+            <p> {{ 'FEATURED_PROJECT.SUMMARY' | translate }} </p>
+            <p> {{ 'FEATURED_PROJECT.INFO' | translate }}
               <a
                 [routerLink]="'/portfolio'"
                 aria-current="page" >
