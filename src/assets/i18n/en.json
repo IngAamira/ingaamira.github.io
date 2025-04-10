@@ -1,20 +1,33 @@
 {
-  "NAME": "Andres Alfonso Mira Mejia",
+  "PROFILE": {
+    "NAME": "Andres Alfonso Mira Mejia",
+    "SOFTWARE_ENGINEER": "Software Engineer",
+    "FULLSTACK": "Fullstack Developer"
+  },
 
-  "SOFTWARE_DEVELOPER": "Software Developer",
-  "DATA_ENGINEER": "Data Engineer",
+  "NAVIGATION": {
+    "HOME": "Home",
+    "PORTFOLIO": "Portfolio",
+    "RESUME": "Resume",
+    "CONTACT": "Contact"
+  },
 
-  "HOME": "Home",
-  "PORTFOLIO": "Portfolio",
-  "RESUME": "Resume",
-  "CONTACT": "Contact",
+  "ABOUT_ME": {
+    "TITLE": "About Me",
+    "TEXT": [
+      "I'm a Fullstack Developer with experience designing and developing scalable web applications using Java + Spring Boot, NestJS, and Angular. I’ve contributed to chatbot and AI-driven platforms powered by Natural Language Processing (NLP) and Machine Learning, integrating backend, frontend, and event-driven microservices.",
+      "I'm passionate about clean code, automation, and delivering real business value. I work with CI/CD pipelines in Azure DevOps and deploy services on AWS (Lambda, S3, ECS and DynamoDB). I follow clean architecture principles (Hexagonal, Onion) and design patterns like MVC to build robust and maintainable systems.",
+      "I also have experience with automated testing, secure development practices, and collaborating with cross-functional teams in agile environments.",
+      "Currently, I’m deepening my frontend skills to provide fully integrated end-to-end solutions.",
+      "Let’s connect if you’re working on anything related to fullstack development, backend architecture, or conversational AI!"
+    ]
+  },
 
-  "ABOUT_ME": "About Me",
-  "ABOUT_ME_TEXT_1": "With over {{years}} years in the technology industry, I have honed my ability to create efficient and scalable solutions. My focus extends to the development of both frontend applications using technologies like Angular, and robust backend solutions using Java and Spring Boot. My experience also includes the implementation of REST API services, ensuring quality standards and modularity.",
-  "ABOUT_ME_TEXT_2": "As a Business Intelligence specialist, I have delved into process automation through Web Scraping with Python and designed Data Warehouse models to provide detailed statistics in BI projects. My ability to collaborate in agile environments, such as Scrum, and apply solid development principles enables me to tackle complex challenges with an efficient and quality-focused approach.",
-  "FEATURED_PROJECT": "Featured Project",
-  "FEATURED_PROJECT_SUMMARY": "This is an e-commerce application developed in Java with the Spring Boot framework and using Spring WebFlux for reactive programming. The application allows users to search for and purchase products online, organized into categories.",
-  "FEATURED_PROJECT_INFO": "Visit the section to learn more!",
+  "FEATURED_PROJECT": {
+    "TITLE": "Featured Project",
+    "SUMMARY": "This is an e-commerce application developed in Java with the Spring Boot framework and using Spring WebFlux for reactive programming. The application allows users to search for and purchase products online, organized into categories.",
+    "INFO": "Visit the section to learn more!"
+  },
 
   "WORK": "Work Experience",
   "IAS_SD_OBJECTIVE_1": "Development and maintenance of backend applications using Java and Spring Boot.",
@@ -102,6 +115,8 @@
   "CONTACT_ME": "Contact Me",
   "CONTACT_DESCRIPTION": "Feel free to reach out to me for any inquiries or collaboration opportunities",
 
-  "FOOTER_TEXT": "Let's drive the future together!"
+  "FOOTER": {
+    "TEXT": "Let's drive the future together!"
+  }
 
 }

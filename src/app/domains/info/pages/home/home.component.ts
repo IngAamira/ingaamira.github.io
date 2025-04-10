@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { TranslateModule } from '@ngx-translate/core';
@@ -24,10 +25,19 @@ export default class HomeComponent implements OnInit {
   //En JavaScript, los meses se indexan desde 0 (enero es 0, febrero es 1, etc.).
   //Fecha de incio de labores (16 de diciembre del 2012).
 
+  aboutMeTexts = [
+    'ABOUT_ME.TEXT[0]',
+    'ABOUT_ME.TEXT[1]',
+    'ABOUT_ME.TEXT[2]',
+    'ABOUT_ME.TEXT[3]',
+    'ABOUT_ME.TEXT[4]'
+  ];
+
   constructor(
     private titleService: Title,
     private projectService: ProjectsService,
     public ngxBootstrapModule: NgxBootstrapModule,
+    private translate: TranslateService
   ) {
     this.titleService.setTitle('Home');
     this.years = this.calculateYears(new Date(this.startDate));
@@ -35,6 +45,9 @@ export default class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.project = this.projectService.GetProjectById(0);
+    this.translate.get('ABOUT_ME.TEXT').subscribe((texts: string[]) => {
+      this.aboutMeTexts = texts;
+    });
   }
 
   private calculateYears(startDate: Date): number {
