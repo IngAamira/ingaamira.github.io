@@ -2,7 +2,7 @@
   "PROFILE": {
     "NAME": "Andres Alfonso Mira Mejia",
     "SOFTWARE_ENGINEER": "Software Engineer",
-    "FULLSTACK": "Fullstack Developer"
+    "DATA_ENGINEER": "Data Engineer"
   },
 
   "NAVIGATION": {
@@ -15,7 +15,7 @@
   "ABOUT_ME": {
     "TITLE": "About Me",
     "TEXT": [
-      "I'm a Fullstack Developer with experience designing and developing scalable web applications using Java + Spring Boot, NestJS, and Angular. I’ve contributed to chatbot and AI-driven platforms powered by Natural Language Processing (NLP) and Machine Learning, integrating backend, frontend, and event-driven microservices.",
+      "I'm a Software Engineer with experience designing and developing scalable web applications using Java + Spring Boot, NestJS, and Angular. I’ve contributed to chatbot and AI-driven platforms powered by Natural Language Processing (NLP) and Machine Learning, integrating backend, frontend, and event-driven microservices.",
       "I'm passionate about clean code, automation, and delivering real business value. I work with CI/CD pipelines in Azure DevOps and deploy services on AWS (Lambda, S3, ECS and DynamoDB). I follow clean architecture principles (Hexagonal, Onion) and design patterns like MVC to build robust and maintainable systems.",
       "I also have experience with automated testing, secure development practices, and collaborating with cross-functional teams in agile environments.",
       "Currently, I’m deepening my frontend skills to provide fully integrated end-to-end solutions.",
@@ -29,91 +29,291 @@
     "INFO": "Visit the section to learn more!"
   },
 
-  "WORK": "Work Experience",
-  "IAS_SD_OBJECTIVE_1": "Development and maintenance of backend applications using Java and Spring Boot.",
-  "IAS_SD_OBJECTIVE_2": "Strong skills in dependency injection to ensure modularity and ease of maintenance.",
-  "IAS_SD_OBJECTIVE_3": "Development and maintenance of frontend applications using HTML, CSS, and Angular.",
-  "IAS_SD_OBJECTIVE_4": "Strong skills in adhering to the Single Responsibility Principle.",
-  "IAS_SD_OBJECTIVE_5": "Implementation of REST API services to expose key functionalities, following design standards and best practices.",
-  "IAS_SD_OBJECTIVE_6": "Efficient access to databases using technologies like JDBC and JPA to ensure data integrity and management.",
-  "IAS_SD_OBJECTIVE_7": "Active collaboration in the exposure and consumption of web services, facilitating the integration of external systems and improving operational efficiency.",
-  "IAS_SD_OBJECTIVE_8": "Strong skills in object-oriented programming (OOP) and familiarity with functional and reactive programming concepts.",
-  "IAS_JOB_2": "Data Warehouse Developer",
-  "IAS_DWH_OBJECTIVE_1": "Designed and developed Data Warehouse (DWH) models.",
-  "IAS_DWH_OBJECTIVE_2": "Implemented ETL processes and created dashboards and KPIs.",
-  "IAS_DWH_OBJECTIVE_3": "Utilized Microsoft BI Suite (SQL, SSIS, SSAS, SSRS, and Power BI) for statistics and financial analysis.",
-  "IAS_DWH_OBJECTIVE_4": "Participated in Scrum projects.",
-  "AVALON_JOB": "Developer Analyst",
-  "AVALON_OBJECTIVE_1": "Automated processes through Python-based Web Scraping.",
-  "AVALON_OBJECTIVE_2": "Designed and developed Data Warehouse and Tabular Cube models.",
-  "AVALON_OBJECTIVE_3": "Created ETL processes and dashboards.",
-  "AVALON_OBJECTIVE_4": "Generated BI reports in the cloud.",
-  "EMTELCO_JOB_1": "BI Engineer",
-  "EMTELCO_BI_OBJECTIVE_1": "Designed and continuously improved databases and ETL processes.",
-  "EMTELCO_BI_OBJECTIVE_2": "Researched and adopted best practices in business intelligence and data mining.",
-  "EMTELCO_BI_OBJECTIVE_3": "Automated processes using integration tools and file capture.",
-  "EMTELCO_BI_OBJECTIVE_4": "Developed reports and dashboards for business monitoring and control.",
-  "EMTELCO_JOB_2": "Programming and Control Analyst",
-  "EMTELCO_PyC_OBJECTIVE_1": "Data analysis to support operations and report generation.",
-  "EMTELCO_PyC_OBJECTIVE_2": "Agent and workforce planning and sizing.",
-  "EMTELCO_PyC_OBJECTIVE_3": "Database management and indicator development.",
-  "EMTELCO_PyC_OBJECTIVE_4": "Process automation using RPA.",
-  "EMTELCO_PyC_OBJECTIVE_5": "Report and dashboard development in Power BI and Zendesk.",
-  "ULTRACOM_JOB": "BI Engineer",
-  "ULTRACOM_OBJECTIVE_1": "Researched and adopted best practices in business intelligence and data mining.",
-  "ULTRACOM_OBJECTIVE_2": "Designed and developed Data Warehouse and Tabular Cube models.",
-  "ULTRACOM_OBJECTIVE_3": "Implemented ETL processes and created dashboards.",
-  "ULTRACOM_OBJECTIVE_4": "Generated BI reports in the cloud.",
-  "SECTOR": "Work Experience Sectors",
-  "SECTOR_INFO_1": "Financial",
-  "SECTOR_INFO_2": "Sales",
-  "SECTOR_INFO_3": "Transportation",
-  "SECTOR_INFO_4": "Telecommunications",
-  "SECTOR_INFO_5": "Technology",
-  "SECTOR_INFO_6": "Tourism",
-  "SECTOR_INFO_7": "Insurances",
-  "EDUCATION": "Education",
-  "UNIVERSITY_NAME": "Catholic University of the North",
-  "UNIVERSITY_TITLE_1": "Business Intelligence Specialist",
-  "UNIVERSITY_TITLE_2": "Bachelor's Degree in Computer Engineer",
-  "SKILLS_DATA": "Skills as a Data Engineer",
-  "DATA_EXTRACTION_TOOLS": "Extraction",
-  "DATA_TRANSFORMATION_TOOLS": "Transformation",
-  "DATA_LOADING_TOOLS": "Loading",
-  "DATA_ANALYSIS_TOOLS": "Analysis",
-  "DATA_VISUALIZATION_TOOLS": "Visualization",
-  "DATA_REPORTING_TOOLS": "Reporting",
-  "WEB_PAGES": "Web pages",
-  "FILES": "Files",
-  "DATABASES": "Databases",
-  "DATA_WAREHOUSE": "Data Warehouse",
-  "DATA_LAKE": "Data Lake",
-  "SQL_NOSQL": "SQL/NoSQL Database",
-  "BI_TOOLS": "BI Tools",
-  "OLAP": "OLAP Cubes",
-  "AGILE": "Agile Methodologies",
-  "SKILLS_DEV": "Skills as a Software Developer",
-  "CLEAN_ARCHITECTURE": "Clean Architecture",
-  "CLEAN_CODE": "Clean Code",
-  "DOM": "DOM y Browser Engine",
-  "PROGRAMING_LANGUAGES": "Programing",
-  "DATABASE": "Database",
-  "CLOUD_COMPUTING": "Cloud",
-  "TESTING": "Testing",
-  "UNIT_TEST": "Unit Test",
-  "INTEGRATION_TEST": "Integration Test",
-  "E2E_TEST": "End-to-End Tests",
-  "OTHER_SKILLS": "Other Skills",
-  "LANGUAGES": "Languages",
-  "SPANISH": "Spanish",
-  "ENGLISH": "English",
-  "SPANISH_PROFICIENCY": "Native speaker",
-  "ENGLISH_PROFICIENCY": "Intermediate speaker (A2/B1)",
-  "PRESENT": "Present",
-  "DATE": "Date",
+  "WORK": {
+    "TITLE": "Work Experience",
+    "COMPANIES": [
+      {
+        "NAME": "IAS Software",
+        "JOBS": [
+          {
+            "TITLE": "Software Engineer",
+            "DATE": "02/2025 – Present",
+            "OBJECTIVES": [
+              "Development and maintenance of backend and frontend applications using NestJS and Angular, designed for functional users to create conversational experiences through the bot-engine microservice.",
+              "Actively involved in defining conversation flows, building responses and interaction paths that users can follow when interacting with a chatbot.",
+              "Contributed to Generative Systems and Artificial Intelligence teams, focusing on the design, development, and maintenance of chatbot platforms leveraging Natural Language Processing (NLP) and Machine Learning solutions.",
+              "Implemented microservices using event-driven messaging architectures.",
+              "Developed CI/CD pipelines in Azure DevOps for deployments across DEV, QA, and PROD environments, integrating with AWS services.",
+              "Managed microservice security, addressing critical and high vulnerabilities through regulatory scans, security configuration, and secure header management to mitigate risks.",
+              "Designed and executed comprehensive test plans, including unit, modular, end-to-end (E2E), and performance tests using tools like JMeter, Karate, and PyTest.",
+              "Maintained up-to-date technical documentation, ensuring efficient support and continuous operation of developed solutions."
+            ]
+          },
+          {
+            "TITLE": "Data Warehouse Developer",
+            "DATE": "05/2024 – 01/2025",
+            "OBJECTIVES": [
+              "Turned data into insights that drove informed decisions.",
+              "Architected, enhanced, and nurtured Data Warehouse models.",
+              "Shaped, evolved, and tended Tabular and Multidimensional Cubes.",
+              "Crafted, nurtured, and ensured robust ETL processes.",
+              "Sculpted, energized, and championed control panels (Dashboards and KPIs)."
+            ]
+          },
+          {
+            "TITLE": "Software Developer",
+            "DATE": "07/2023 - 04/2024",
+            "OBJECTIVES": [
+              "Development and maintenance of backend applications using Java and Spring Boot.",
+              "Strong skills in dependency injection to ensure modularity and ease of maintenance.",
+              "Development and maintenance of frontend applications using HTML, CSS, and Angular.",
+              "Strong skills in adhering to the Single Responsibility Principle.",
+              "Implementation of REST API services to expose key functionalities, following design standards and best practices.",
+              "Efficient access to databases using technologies like JDBC and JPA to ensure data integrity and management.",
+              "Active collaboration in the exposure and consumption of web services, facilitating the integration of external systems and improving operational efficiency.",
+              "Strong skills in object-oriented programming (OOP) and familiarity with functional and reactive programming concepts."
+            ]
+          },
+          {
+            "TITLE": "Data Warehouse Developer",
+            "DATE": "12/2022 - 06/2023",
+            "OBJECTIVES": [
+              "Designed and developed Data Warehouse (DWH) models.",
+              "Implemented ETL processes and created dashboards and KPIs.",
+              "Utilized Microsoft BI Suite (SQL, SSIS, SSAS, SSRS, and Power BI) for statistics and financial analysis.",
+              "Participated in Scrum projects."
+            ]
+          }
+        ]
+      },
+      {
+        "NAME": "Avalon Group",
+        "JOBS": [
+          {
+            "TITLE": "Developer Analyst",
+            "DATE": "06/2022 - 11/2022",
+            "OBJECTIVES": [
+              "Automated processes through Python-based Web Scraping.",
+              "Designed and developed Data Warehouse and Tabular Cube models.",
+              "Created ETL processes and dashboards.",
+              "Generated BI reports in the cloud."
+            ]
+          }
+        ]
+      },
+      {
+        "NAME": "Emtelco CX & BPO",
+        "JOBS": [
+          {
+            "TITLE": "BI Engineer",
+            "DATE": "03/2021 - 06/2022",
+            "OBJECTIVES": [
+              "Designed and continuously improved databases and ETL processes.",
+              "Researched and adopted best practices in business intelligence and data mining.",
+              "Automated processes using integration tools and file capture.",
+              "Developed reports and dashboards for business monitoring and control."
+            ]
+          },
+          {
+            "TITLE": "Programming and Control Analyst",
+            "DATE": "12/2012 - 11/2019",
+            "OBJECTIVES": [
+              "Data analysis to support operations and report generation.",
+              "Agent and workforce planning and sizing.",
+              "Database management and indicator development.",
+              "Process automation using RPA.",
+              "Report and dashboard development in Power BI and Zendesk."
+            ]
+          }
+        ]
+      },
+      {
+        "NAME": "Ultracom IT S.A.S",
+        "JOBS": [
+          {
+            "TITLE": "BI Engineer",
+            "DATE": "12/2019 - 03/2021",
+            "OBJECTIVES": [
+              "Researched and adopted best practices in business intelligence and data mining.",
+              "Designed and developed Data Warehouse and Tabular Cube models.",
+              "Implemented ETL processes and created dashboards.",
+              "Generated BI reports in the cloud."
+            ]
+          }
+        ]
+      }
+    ]
+  },
 
-  "CONTACT_ME": "Contact Me",
-  "CONTACT_DESCRIPTION": "Feel free to reach out to me for any inquiries or collaboration opportunities",
+  "SECTOR": {
+    "TITLE": "Work Experience Sectors",
+    "SECTORS": [
+      "Financial",
+      "Sales",
+      "Transportation",
+      "Telecommunications",
+      "Technology",
+      "Tourism",
+      "Insurances"
+    ]
+  },
+
+  "TECHNICAL_SKILLS_DATA": {
+    "TITLE": "Skills as a Data Engineer",
+    "TOOLS": [
+      {
+        "CATEGORY": "Extraction",
+        "ITEMS": [
+          "APIs",
+          "Web pages",
+          "Files",
+          "Databases"
+        ]
+      },
+      {
+        "CATEGORY": "Transformation",
+        "ITEMS": [
+          "Python",
+          "Java",
+          "SQL",
+          "SQL Server Integration Services (SSIS)"
+        ]
+      },
+      {
+        "CATEGORY": "Loading",
+        "ITEMS": [
+          "Data Warehouse",
+          "Data Mart",
+          "Data Lake",
+          "Amazon Redshift",
+          "SQL/NoSQL Database "
+        ]
+      },
+      {
+        "CATEGORY": "Analysis",
+        "ITEMS": [
+          "SQL Server Analysis Services (SSAS)"
+        ]
+      },
+      {
+        "CATEGORY": "Visualization",
+        "ITEMS": [
+          "Power BI",
+          "Reporting Services",
+          "Qlik View",
+          "Tableau"
+        ]
+      },
+      {
+        "CATEGORY": "Other Tools",
+        "ITEMS": [
+          "BI Tools",
+          "Git",
+          "DevOps",
+          "DataOps",
+          "ETL",
+          "KPI",
+          "PL/SQL",
+          "OLAP Cubes",
+          "Agile Methodologies"
+        ]
+      }
+    ]
+  },
+
+  "TECHNICAL_SKILLS_DEV": {
+    "TITLE": "Technical Skills Developer",
+    "TOOLS": [
+      {
+        "CATEGORY": "Languages",
+        "ITEMS": [
+          "Java",
+          "Python",
+          "JavaScript",
+          "TypeScript"
+        ]
+      },
+      {
+        "CATEGORY": "Frameworks",
+        "ITEMS": [
+          "Spring Boot",
+          "Angular",
+          "NestJS"
+        ]
+      },
+      {
+        "CATEGORY": "Nube y DevOps",
+        "ITEMS": [
+          {
+            "NAME": "AWS",
+            "SUBITEMS": ["Lambda", "S3", "ECS", "DynamoDB", "Step Functions"]
+          },
+          {
+            "NAME": "Azure",
+            "SUBITEMS": ["DevOps", "Synapse", "Data Factory"]
+          }
+        ]
+      },
+      {
+        "CATEGORY": "Database",
+        "ITEMS": [
+          "SQL Server",
+          "PostgreSQL",
+          "MySQL"
+        ]
+      },
+      {
+        "CATEGORY": "Other Tools",
+        "ITEMS": [
+          "REST APIs",
+          "Clean Architecture",
+          "Agile Methodologies"
+        ]
+      }
+    ]
+  },
+
+  "EDUCATION": {
+    "TITLE": "Education",
+    "UNIVERSITIES": [
+      {
+        "NAME": "Catholic University of the North",
+        "DEGREES": [
+          {
+            "TITLE": "Business Intelligence Specialist",
+            "DATE_RANGE": "07/2018 - 08/2019"
+          },
+          {
+            "TITLE": "Bachelor's Degree in Computer Engineer",
+            "DATE_RANGE": "12/2014 - 11/2017"
+          }
+        ]
+      }
+    ]
+  },
+
+  "LANGUAGES": {
+    "TITLE": "Languages",
+    "DETAILS": [
+      {
+        "NAME": "Spanish",
+        "PROFICIENCY": "Native speaker"
+      },
+      {
+        "NAME": "English",
+        "PROFICIENCY": "Intermediate (B1-B2 CEFR)"
+      }
+    ]
+  },
+
+  "TIME": {
+    "DATE": "Date"
+  },
+
+  "CONTACT": {
+    "TITLE": "Contact Me",
+    "DESCRIPTION": "Feel free to reach out to me for any inquiries or collaboration opportunities"
+  },
 
   "FOOTER": {
     "TEXT": "Let's drive the future together!"
