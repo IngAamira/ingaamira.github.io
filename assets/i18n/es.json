@@ -158,8 +158,61 @@
     ]
   },
 
+  "TECHNICAL_SKILLS_DEV": {
+    "TITLE": "Habilidades Técnicas como Ingeniero de Software",
+    "TOOLS": [
+      {
+        "CATEGORY": "Lenguajes",
+        "ITEMS": [
+          "Java",
+          "Python",
+          "JavaScript",
+          "TypeScript"
+        ]
+      },
+      {
+        "CATEGORY": "Frameworks",
+        "ITEMS": [
+          "Spring Boot",
+          "Angular",
+          "NestJS"
+        ]
+      },
+      {
+        "CATEGORY": "Nube y DevOps",
+        "ITEMS": [
+          {
+            "NAME": "AWS",
+            "SUBITEMS": ["Lambda", "S3", "ECS", "DynamoDB", "Step Functions"]
+          },
+          {
+            "NAME": "Azure",
+            "SUBITEMS": ["DevOps", "Synapse", "Data Factory"]
+          }
+        ]
+      },
+      {
+        "CATEGORY": "Bases de Datos",
+        "ITEMS": [
+          "SQL Server",
+          "PostgreSQL",
+          "MySQL",
+          "PL/SQL"
+        ]
+      },
+      {
+        "CATEGORY": "Otras Habilidades",
+        "ITEMS": [
+          "REST APIs",
+          "Arquitectura Limpia",
+          "Metodologías Ágiles"
+        ]
+      }
+    ]
+  },
+
    "TECHNICAL_SKILLS_DATA": {
-    "TITLE": "Habilidades Ingeniero de Datos",
+    "TITLE": "Habilidades Técnicas como Ingeniero de Datos",
     "TOOLS": [
       {
         "CATEGORY": "Extracción",
@@ -216,59 +269,6 @@
           "PL/SQL",
           "Cubos OLAP",
           "Medologías Ágiles"
-        ]
-      }
-    ]
-  },
-
-  "TECHNICAL_SKILLS_DEV": {
-    "TITLE": "Habilidades Técnicas como Desarrollador",
-    "TOOLS": [
-      {
-        "CATEGORY": "Lenguajes",
-        "ITEMS": [
-          "Java",
-          "Python",
-          "JavaScript",
-          "TypeScript"
-        ]
-      },
-      {
-        "CATEGORY": "Frameworks",
-        "ITEMS": [
-          "Spring Boot",
-          "Angular",
-          "NestJS"
-        ]
-      },
-      {
-        "CATEGORY": "Nube y DevOps",
-        "ITEMS": [
-          {
-            "NAME": "AWS",
-            "SUBITEMS": ["Lambda", "S3", "ECS", "DynamoDB", "Step Functions"]
-          },
-          {
-            "NAME": "Azure",
-            "SUBITEMS": ["DevOps", "Synapse", "Data Factory"]
-          }
-        ]
-      },
-      {
-        "CATEGORY": "Bases de Datos",
-        "ITEMS": [
-          "SQL Server",
-          "PostgreSQL",
-          "MySQL",
-          "PL/SQL"
-        ]
-      },
-      {
-        "CATEGORY": "Otras Habilidades",
-        "ITEMS": [
-          "REST APIs",
-          "Arquitectura Limpia",
-          "Metodologías Ágiles"
         ]
       }
     ]

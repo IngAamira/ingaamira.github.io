@@ -158,8 +158,60 @@
     ]
   },
 
+  "TECHNICAL_SKILLS_DEV": {
+    "TITLE": "Technical Skills as a Software Engineer",
+    "TOOLS": [
+      {
+        "CATEGORY": "Languages",
+        "ITEMS": [
+          "Java",
+          "Python",
+          "JavaScript",
+          "TypeScript"
+        ]
+      },
+      {
+        "CATEGORY": "Frameworks",
+        "ITEMS": [
+          "Spring Boot",
+          "Angular",
+          "NestJS"
+        ]
+      },
+      {
+        "CATEGORY": "Nube y DevOps",
+        "ITEMS": [
+          {
+            "NAME": "AWS",
+            "SUBITEMS": ["Lambda", "S3", "ECS", "DynamoDB", "Step Functions"]
+          },
+          {
+            "NAME": "Azure",
+            "SUBITEMS": ["DevOps", "Synapse", "Data Factory"]
+          }
+        ]
+      },
+      {
+        "CATEGORY": "Database",
+        "ITEMS": [
+          "SQL Server",
+          "PostgreSQL",
+          "MySQL"
+        ]
+      },
+      {
+        "CATEGORY": "Other Tools",
+        "ITEMS": [
+          "REST APIs",
+          "Clean Architecture",
+          "Agile Methodologies"
+        ]
+      }
+    ]
+  },
+
   "TECHNICAL_SKILLS_DATA": {
-    "TITLE": "Skills as a Data Engineer",
+    "TITLE": "Technical Skills as a Data Engineer",
     "TOOLS": [
       {
         "CATEGORY": "Extraction",
@@ -215,58 +267,6 @@
           "KPI",
           "PL/SQL",
           "OLAP Cubes",
-          "Agile Methodologies"
-        ]
-      }
-    ]
-  },
-
-  "TECHNICAL_SKILLS_DEV": {
-    "TITLE": "Technical Skills Developer",
-    "TOOLS": [
-      {
-        "CATEGORY": "Languages",
-        "ITEMS": [
-          "Java",
-          "Python",
-          "JavaScript",
-          "TypeScript"
-        ]
-      },
-      {
-        "CATEGORY": "Frameworks",
-        "ITEMS": [
-          "Spring Boot",
-          "Angular",
-          "NestJS"
-        ]
-      },
-      {
-        "CATEGORY": "Nube y DevOps",
-        "ITEMS": [
-          {
-            "NAME": "AWS",
-            "SUBITEMS": ["Lambda", "S3", "ECS", "DynamoDB", "Step Functions"]
-          },
-          {
-            "NAME": "Azure",
-            "SUBITEMS": ["DevOps", "Synapse", "Data Factory"]
-          }
-        ]
-      },
-      {
-        "CATEGORY": "Database",
-        "ITEMS": [
-          "SQL Server",
-          "PostgreSQL",
-          "MySQL"
-        ]
-      },
-      {
-        "CATEGORY": "Other Tools",
-        "ITEMS": [
-          "REST APIs",
-          "Clean Architecture",
           "Agile Methodologies"
         ]
       }
