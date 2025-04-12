@@ -1,12 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
-import { TranslateModule } from '@ngx-translate/core';
-
-export interface ItemEducation {
-  name: string;
+interface Degree {
   title: string;
   dateRange: string;
+}
+
+interface University {
+  name: string;
+  degrees: Degree[];
 }
 
 @Component({
@@ -14,23 +18,49 @@ export interface ItemEducation {
   standalone: true,
   imports: [CommonModule, TranslateModule],
   template: `
-    <div *ngFor="let item of itemsEducation; let last = last">
-      <div style="text-align: left;">
-        <div class="text-primary">{{ item.title | translate }}</div>
-        <div class="mb-0">{{ item.name | translate }}</div>
-        <div class="text-secondary">{{ 'DATE' | translate }}: {{ item.dateRange }} </div>
-        <hr *ngIf="!last" />
+    <div class="container">
+      <div *ngFor="let university of universities">
+        <div style="text-align: left;">
+          <div class="text-primary">{{ university.name | translate }}</div>
+          <ul>
+            <li *ngFor="let degree of university.degrees">
+              <div>{{ degree.title | translate }}</div>
+              <div class="text-secondary">{{ degree.dateRange }}</div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   `,
 })
-export class EducationComponent {
+export class EducationComponent implements OnInit, OnDestroy {
+  universities: University[] = [];
+  private langChangeSubscription!: Subscription;
 
-  constructor( ) { }
+  constructor(private translate: TranslateService) {}
 
-  public itemsEducation: ItemEducation[] = [
-    { name: 'UNIVERSITY_NAME', title: 'UNIVERSITY_TITLE_1', dateRange: '07/2018 - 08/2019' },
-    { name: 'UNIVERSITY_NAME', title: 'UNIVERSITY_TITLE_2', dateRange: '12/2014 - 11/2017' },
-  ];
+  ngOnInit(): void {
+    this.loadEducationData();
+    this.langChangeSubscription = this.translate.onLangChange.subscribe(() => {
+      this.loadEducationData();
+    });
+  }
 
+  private loadEducationData(): void {
+    this.translate.get('EDUCATION.UNIVERSITIES').subscribe((data: any[]) => {
+      this.universities = data.map(university => ({
+        name: university.NAME,
+        degrees: university.DEGREES.map((degree: { TITLE: any; DATE_RANGE: any; }) => ({
+          title: degree.TITLE,
+          dateRange: degree.DATE_RANGE,
+        })),
+      }));
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.langChangeSubscription) {
+      this.langChangeSubscription.unsubscribe();
+    }
+  }
 }

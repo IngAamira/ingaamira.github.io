@@ -16,9 +16,9 @@ import { MenuItemHeader, ItemTitle } from '../../../shared/interfaces/menu-item'
 export class HeaderComponent {
 
   public itemsTitle: ItemTitle[] = [
-    { title: 'PROFILE.NAME'               },
+    { title: 'PROFILE.NAME'              },
     { title: 'PROFILE.SOFTWARE_ENGINEER' },
-    { title: 'PROFILE.FULLSTACK'      },
+    { title: 'PROFILE.DATA_ENGINEER'     },
   ];
 
   public menuItemsHeader = signal<MenuItemHeader[]> ([

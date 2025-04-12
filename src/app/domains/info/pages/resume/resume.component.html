@@ -14,7 +14,7 @@
         <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
           <div style="visibility: hidden;">></div>
           <div class="btn-link">
-            <div class="text-truncate">{{ 'WORK' | translate }}</div>
+            <div class="text-truncate">{{ 'WORK.TITLE' | translate }}</div>
           </div>
           <div style="width: 10.95px;">
             <div *ngIf="!isWorkExperienceOpen" style="color: white;">></div>
@@ -28,7 +28,7 @@
         <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
           <div style="visibility: hidden;">></div>
           <div class="btn-link">
-            <div class="text-truncate">{{ 'SECTOR' | translate }}</div>
+            <div class="text-truncate">{{ 'SECTOR.TITLE' | translate }}</div>
           </div>
           <div style="width: 10.95px;">
             <div *ngIf="!isSectorExperienceOpen" style="color: white;">></div>
@@ -38,25 +38,11 @@
         <app-work-sector />
       </accordion-group>
 
-      <accordion-group [(isOpen)]="isSkillsDeOpen" class="d-flex flex-column">
-        <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
-          <div style="visibility: hidden;">></div>
-          <div class="btn-link">
-            <div class="text-truncate">{{ 'SKILLS_DATA' | translate }}</div>
-          </div>
-          <div style="width: 10.95px;">
-            <div *ngIf="!isSkillsDeOpen" style="color: white;">></div>
-            <div *ngIf="isSkillsDeOpen" style="color: white;">v</div>
-          </div>
-        </button>
-        <app-work-data />
-      </accordion-group>
-
       <accordion-group [(isOpen)]="isSkillsSdOpen" class="d-flex flex-column">
         <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
           <div style="visibility: hidden;">></div>
           <div class="btn-link">
-            <div class="text-truncate">{{ 'SKILLS_DEV' | translate }}</div>
+            <div class="text-truncate">{{ 'TECHNICAL_SKILLS_DEV.TITLE' | translate }}</div>
           </div>
           <div style="width: 10.95px;">
             <div *ngIf="!isSkillsSdOpen" style="color: white;">></div>
@@ -66,11 +52,25 @@
         <app-work-dev />
       </accordion-group>
 
+      <accordion-group [(isOpen)]="isSkillsDeOpen" class="d-flex flex-column">
+        <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
+          <div style="visibility: hidden;">></div>
+          <div class="btn-link">
+            <div class="text-truncate">{{ 'TECHNICAL_SKILLS_DATA.TITLE' | translate }}</div>
+          </div>
+          <div style="width: 10.95px;">
+            <div *ngIf="!isSkillsDeOpen" style="color: white;">></div>
+            <div *ngIf="isSkillsDeOpen" style="color: white;">v</div>
+          </div>
+        </button>
+        <app-work-data />
+      </accordion-group>
+
       <accordion-group [(isOpen)]="isEducationOpen" class="d-flex flex-column">
         <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
           <div style="visibility: hidden;">></div>
           <div class="btn-link">
-            <div class="text-truncate">{{ 'EDUCATION' | translate }}</div>
+            <div class="text-truncate">{{ 'EDUCATION.TITLE' | translate }}</div>
           </div>
           <div style="width: 10.95px;">
             <div *ngIf="!isEducationOpen" style="color: white;">></div>
@@ -84,7 +84,7 @@
         <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
           <div style="visibility: hidden;">></div>
           <div class="btn-link">
-            <div class="text-truncate">{{ 'LANGUAGES' | translate }}</div>
+            <div class="text-truncate">{{ 'LANGUAGES.TITLE' | translate }}</div>
           </div>
           <div style="width: 10.95px;">
             <div *ngIf="!isLanguagesOpen" style="color: white;">></div>

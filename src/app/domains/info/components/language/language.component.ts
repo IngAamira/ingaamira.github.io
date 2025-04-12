@@ -1,37 +1,53 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-
-import { TranslateModule } from '@ngx-translate/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 export interface ItemLanguage {
-  title: string;
   name: string;
+  proficiency: string;
 }
 
 @Component({
   selector: 'app-languages',
   standalone: true,
-  imports: [ CommonModule, TranslateModule ],
+  imports: [CommonModule, TranslateModule],
   template: `
     <div style="text-align: left;">
       <ul>
-        <li *ngFor="let item of itemsLanguage; let last = last">
-          <strong>
-            {{ item.name | translate }}:
-          </strong>
-            {{ item.title | translate }}
+        <li *ngFor="let item of itemsLanguage">
+          <strong>{{ item.name | translate }}:</strong>
+          {{ item.proficiency | translate }}
         </li>
       </ul>
     </div>
   `,
 })
-export class LanguageComponent {
+export class LanguageComponent implements OnInit, OnDestroy {
+  itemsLanguage: ItemLanguage[] = [];
+  private langChangeSubscription!: Subscription;
 
-  constructor( ) { }
+  constructor(private translate: TranslateService) {}
 
-  public itemsLanguage: ItemLanguage[] = [
-    { name: 'SPANISH', title: 'SPANISH_PROFICIENCY' },
-    { name: 'ENGLISH', title: 'ENGLISH_PROFICIENCY' },
-  ];
+  ngOnInit(): void {
+    this.loadLanguages();
+    this.langChangeSubscription = this.translate.onLangChange.subscribe(() => {
+      this.loadLanguages();
+    });
+  }
 
+  private loadLanguages(): void {
+    this.translate.get('LANGUAGES.DETAILS').subscribe((data: any[]) => {
+      this.itemsLanguage = data.map(item => ({
+        name: item.NAME,
+        proficiency: item.PROFICIENCY,
+      }));
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.langChangeSubscription) {
+      this.langChangeSubscription.unsubscribe();
+    }
+  }
 }

@@ -14,8 +14,8 @@ import { MenuItemContact } from '../../../shared/interfaces/menu-item';
   template: `
     <div class="container" style="padding-bottom: 12px;">
       <div class="text-center border mb-5 shadow rounded">
-        <h1>{{ 'CONTACT_ME' | translate }}</h1>
-        <p>{{ 'CONTACT_DESCRIPTION' | translate }}:</p>
+        <h1>{{ 'CONTACT.TITLE' | translate }}</h1>
+        <p>{{ 'CONTACT.DESCRIPTION' | translate }}:</p>
       </div>
       <div class="list-group shadow">
         <a *ngFor="let item of menuItemsContact()"

@@ -48,8 +48,8 @@ export default class ResumeComponent {
   }
 
   public menuItemsResume = signal<MenuItemResume[]> ([
-    { name: 'SOFTWARE_DEVELOPER',  event: () => this.DownloadFileDev()  },
-    { name: 'DATA_ENGINEER', event: () => this.DownloadFileData() },
+    { name: 'PROFILE.SOFTWARE_ENGINEER', event: () => this.DownloadFileDev() },
+    { name: 'PROFILE.DATA_ENGINEER', event: () => this.DownloadFileData() },
   ]);
 
   DownloadFileDev() {
@@ -67,5 +67,4 @@ export default class ResumeComponent {
     link.click();
     link.remove();
   }
-
 }

@@ -1,74 +1,9 @@
 <div class="row" style="text-align: left">
-  <div class="col">
-    <h3>{{ 'DATA_EXTRACTION_TOOLS' | translate }}:</h3>
-    <ul>
-      <li>APIs</li>
-      <li>{{ 'WEB_PAGES' | translate }}</li>
-      <li>{{ 'FILES' | translate }}</li>
-      <li>{{ 'DATABASES' | translate }}</li>
-    </ul>
-  </div>
 
-  <div class="col">
-    <h3>{{ 'DATA_TRANSFORMATION_TOOLS' | translate }}:</h3>
+  <div class="col" *ngFor="let tool of tools">
+    <h3>{{ tool.CATEGORY | translate }}:</h3>
     <ul>
-      <li>Python</li>
-      <li>R</li>
-      <li>Java</li>
-      <li>SQL</li>
-      <li>SQL Server Integration Services (SSIS)</li>
-    </ul>
-  </div>
-
-  <div class="col">
-    <h3>{{ 'DATA_LOADING_TOOLS' | translate }}:</h3>
-    <ul>
-      <li>{{ 'DATA_WAREHOUSE' | translate }}</li>
-      <li>Data Mart</li>
-      <li>{{ 'DATA_LAKE' | translate }}</li>
-      <li>Amazon Redshift</li>
-      <li>{{ 'SQL_NOSQL' | translate }}</li>
-    </ul>
-  </div>
-
-  <div class="col">
-    <h3>{{ 'DATA_ANALYSIS_TOOLS' | translate }}:</h3>
-    <ul>
-      <li>SQL Server Analysis Services (SSAS)</li>
-    </ul>
-  </div>
-
-  <div class="col">
-    <h3>{{ 'DATA_VISUALIZATION_TOOLS' | translate }}:</h3>
-    <ul>
-      <li>Power BI</li>
-      <li>Excel</li>
-      <li>Matplotlib</li>
-      <li>Html</li>
-      <li>CSS</li>
-    </ul>
-  </div>
-
-  <div class="col">
-    <h3>{{ 'DATA_REPORTING_TOOLS' | translate }}:</h3>
-    <ul>
-      <li>Power BI</li>
-      <li>SQL Server Reporting Services (SSRS)</li>
-    </ul>
-  </div>
-
-  <div class="col">
-    <h3>{{ 'OTHER_SKILLS' | translate }}:</h3>
-    <ul>
-      <li>{{ 'BI_TOOLS' | translate }}</li>
-      <li>Git</li>
-      <li>DevOps</li>
-      <li>DataOps</li>
-      <li>ETL</li>
-      <li>KPI</li>
-      <li>PL/SQL</li>
-      <li>{{ 'OLAP' | translate }}</li>
-      <li>{{ 'AGILE' | translate }}</li>
+      <li *ngFor="let item of tool.ITEMS">{{ item | translate }}</li>
     </ul>
   </div>
 
