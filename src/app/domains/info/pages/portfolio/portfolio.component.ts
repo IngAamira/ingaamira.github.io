@@ -9,6 +9,8 @@ import { ProjectCardComponent } from '../project-card/project-card.component';
 import { ProjectsService } from '../../../shared/services/projects.service';
 import { Tag } from '../../../shared/classes/tag';
 
+type FilterKey = 'java' | 'python' | 'javascript' | 'typescript' | 'spring' | 'angular' | 'nodejs';
+
 @Component({
   selector: 'app-portfolio',
   standalone: true,
@@ -19,109 +21,57 @@ export default class PortfolioComponent implements OnInit {
 
   projects = {} as Project[];
 
-  /*Processes*/
+  /* Processes */
   isCollapsed: boolean = true;
   filtering: boolean = false;
 
-
-  /*Add Programing Languages*/
+  /* Filters */
   java: boolean = false;
-  typescript: boolean = false;
   python: boolean = false;
-  nodejs: boolean = false;
-
-
-  /*Add Framewors*/
+  javascript: boolean = false;
+  typescript: boolean = false;
   spring: boolean = false;
   angular: boolean = false;
-  bootstrap: boolean = false;
+  nodejs: boolean = false;
 
-  /*Other Skills*/
-  html: boolean = false;
-  css: boolean = false;
-
-
-  constructor (private titleService: Title, private projectService: ProjectsService) {
-    this.titleService.setTitle('Portfolio')
+  constructor(private titleService: Title, private projectService: ProjectsService) {
+    this.titleService.setTitle('Portfolio');
   }
-  
+
   ngOnInit(): void {
     this.projects = this.projectService.GetProjects();
   }
 
-  /*Add languages or framewors here*/
   Filter() {
-    let filterTags: Tag[] = [];
+    const filterTags: Tag[] = [];
+    const filters: Record<FilterKey, Tag> = {
+      java: Tag.JAVA,
+      python: Tag.PYTHON,
+      javascript: Tag.JAVASCRIPT,
+      typescript: Tag.TYPESCRIPT,
+      spring: Tag.SPRING,
+      angular: Tag.ANGULAR,
+      nodejs: Tag.NODEJS
+    };
 
-    /*Add Programing Languages*/
-    if (this.java) {
-      filterTags.push(Tag.JAVA);
-    }
-    if (this.typescript) {
-      filterTags.push(Tag.TYPESCRIPT);
-    }
-    if (this.python) {
-      filterTags.push(Tag.PYTHON);
-    }
-    if (this.nodejs) {
-      filterTags.push(Tag.NODEJS);
-    }
-
-
-    /*Add Framewors*/
-    if (this.spring) {
-      filterTags.push(Tag.SPRING);
-    }
-    if (this.angular) {
-      filterTags.push(Tag.ANGULAR);
-    }
-    if (this.bootstrap) {
-      filterTags.push(Tag.BOOTSTRAP);
+    for (const key in filters) {
+      if (this[key as FilterKey]) {
+        filterTags.push(filters[key as FilterKey]);
+      }
     }
 
-
-    /*Other Skills*/
-    if (this.html) {
-      filterTags.push(Tag.HTML);
-    }
-    if (this.css) {
-      filterTags.push(Tag.CSS);
-    }
-
-
-    /*Add filtering*/
-    if ( this.java || this.typescript || this.python || this.nodejs || this.spring || this.angular || this.bootstrap || this.html || this.css) {
-      this.filtering = true;
-    }
-    else {
-      this.filtering = false;
-    }
-
+    this.filtering = filterTags.length > 0;
     this.projects = this.projectService.GetProjectsByFilter(filterTags);
-
   }
 
-  /*Add reset filters here*/
   ResetFilters() {
+    const filters: FilterKey[] = ['java', 'python', 'javascript', 'typescript', 'spring', 'angular', 'nodejs'];
 
-    /*Add Programing Languages*/
-    this.java = false;
-    this.typescript = false;
-    this.python = false;
-    this.nodejs = false;
+    filters.forEach(filter => {
+      this[filter] = false;
+    });
 
-    /*Add Framewors*/
-    this.spring = false;
-    this.angular = false;
-    this.bootstrap = false;
-
-    /*Other Skills*/
-    this.html = false;
-    this.css = false;
-
-    /*Processes*/
     this.filtering = false;
     this.projects = this.projectService.GetProjects();
   }
-
 }

@@ -2,16 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-
-interface Degree {
-  title: string;
-  dateRange: string;
-}
-
-interface University {
-  name: string;
-  degrees: Degree[];
-}
+import { University } from '../../interfaces/i18n-item';
 
 @Component({
   selector: 'app-education',

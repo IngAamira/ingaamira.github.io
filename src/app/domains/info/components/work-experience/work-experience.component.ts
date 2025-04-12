@@ -2,17 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-
-interface Job {
-  title: string;
-  date: string;
-  objectives: string[];
-}
-
-interface Company {
-  name: string;
-  jobs: Job[];
-}
+import { Company } from '../../interfaces/i18n-item';
 
 @Component({
   selector: 'app-work-experience',
