@@ -2,7 +2,7 @@
   "PROFILE": {
     "NAME": "Andrés Alfonso Mira Mejía",
     "SOFTWARE_ENGINEER": "Ingeniero de Software",
-    "FULLSTACK": "Desarrollador Fullstack"
+    "DATA_ENGINEER": "Ingeniero de Datos"
   },
 
   "NAVIGATION": {
@@ -15,7 +15,7 @@
   "ABOUT_ME": {
     "TITLE": "¿Quién Soy?",
     "TEXT": [
-      "Soy Desarrollador Fullstack con experiencia en el diseño y desarrollo de aplicaciones web escalables utilizando Java + Spring Boot, NestJS y Angular. He participado en plataformas conversacionales impulsadas por Procesamiento de Lenguaje Natural (NLP) e Inteligencia Artificial, integrando backend, frontend y microservicios orientados a eventos.",
+      "Soy Ingeniero de software con experiencia en el diseño y desarrollo de aplicaciones web escalables utilizando Java + Spring Boot, NestJS y Angular. He participado en plataformas conversacionales impulsadas por Procesamiento de Lenguaje Natural (NLP) e Inteligencia Artificial, integrando backend, frontend y microservicios orientados a eventos.",
       "Me apasiona escribir código limpio, automatizar procesos y entregar valor real al negocio. Trabajo con pipelines de CI/CD en Azure DevOps y despliego servicios en AWS (Lambda, S3, ECS y DynamoDB). Aplico principios de arquitectura limpia (Hexagonal, Onion) y patrones como MVC para construir sistemas robustos y mantenibles.",
       "También tengo experiencia en pruebas automatizadas, buenas prácticas de seguridad y colaboración en equipos multidisciplinarios bajo metodologías ágiles.",
       "Actualmente, sigo fortaleciendo mis habilidades en frontend para ofrecer soluciones integrales de extremo a extremo.",
@@ -29,92 +29,295 @@
     "INFO": "¡Visita la sección para conocer más!"
   },
 
-  "WORK": "Experiencia Laboral",
-  "IAS_SD_OBJECTIVE_1": "Desarrollo y mantenimiento de aplicaciones backend utilizando Java y Spring Boot.",
-  "IAS_SD_OBJECTIVE_2": "Competencias sólidas en la inyección de dependencias para garantizar la modularidad y la facilidad de mantenimiento.",
-  "IAS_SD_OBJECTIVE_3": "Desarrollo y mantenimiento de aplicaciones frontend utilizando Html, CSS y Angular.",
-  "IAS_SD_OBJECTIVE_4": "Competencias sólidas en cumplir con el principio de una sola responsabilidad.",
-  "IAS_SD_OBJECTIVE_5": "Implementación de servicios API REST para la exposición de funcionalidades clave, siguiendo los estándares de diseño y buenas prácticas.",
-  "IAS_SD_OBJECTIVE_6": "Acceso eficiente a bases de datos utilizando tecnologías como JDBC y JPA para garantizar la integridad y la gestión de datos.",
-  "IAS_SD_OBJECTIVE_7": "Colaboración activa en la exposición y consumo de servicios web, facilitando la integración de sistemas externos y mejorando la eficiencia operativa.",
-  "IAS_SD_OBJECTIVE_8": "Competencias sólidas en programación orientada a objetos (POO) y familiaridad con conceptos de programación funcional y reactiva.",
-  "IAS_JOB_2": "Desarrollador Data Warehouse",
-  "IAS_DWH_OBJECTIVE_1": "Diseño y desarrollo de modelos de Bodegas de Datos (DWH).",
-  "IAS_DWH_OBJECTIVE_2": "Implementación de procesos ETL y creación de cuadros de mando (dashboards y KPIs).",
-  "IAS_DWH_OBJECTIVE_3": "Uso de Microsoft BI Suite (SQL, SSIS, SSAS, SSRS y Power BI) para estadísticas y análisis financiero.",
-  "IAS_DWH_OBJECTIVE_4": "Participación en proyectos Scrum.",
-  "AVALON_JOB": "Analista Programador",
-  "AVALON_OBJECTIVE_1": "Automatización de procesos mediante Web Scraping con Python.",
-  "AVALON_OBJECTIVE_2": "Diseño y desarrollo de modelos de Bodegas de Datos y Cubos Tabulares.",
-  "AVALON_OBJECTIVE_3": "Creación de procesos ETL y cuadros de mando.",
-  "AVALON_OBJECTIVE_4": "Generación de informes de BI en la nube.",
-  "EMTELCO_JOB_1": "Ingeniero BI",
-  "EMTELCO_BI_OBJECTIVE_1": "Diseño y mejora continua de bases de datos y procesos ETL.",
-  "EMTELCO_BI_OBJECTIVE_2": "Investigación y adopción de mejores prácticas en inteligencia de negocios y minería de datos.",
-  "EMTELCO_BI_OBJECTIVE_3": "Automatización de procesos mediante herramientas de integración y captura de archivos.",
-  "EMTELCO_BI_OBJECTIVE_4": "Desarrollo de informes y dashboards para seguimiento y control del negocio.",
-  "EMTELCO_JOB_2": "Analista de Programación y Control",
-  "EMTELCO_PyC_OBJECTIVE_1": "Análisis de datos para soporte operativo y elaboración de informes y dashboards.",
-  "EMTELCO_PyC_OBJECTIVE_2": "Planificación y dimensionamiento de agentes y puestos de trabajo.",
-  "EMTELCO_PyC_OBJECTIVE_3": "Gestión de bases de datos y elaboración de indicadores.",
-  "EMTELCO_PyC_OBJECTIVE_4": "Automatización de procesos mediante RPA.",
-  "EMTELCO_PyC_OBJECTIVE_5": "Desarrollo de informes y dashboards en Power BI y Zendesk.",
-  "ULTRACOM_JOB": "Ingeniero BI",
-  "ULTRACOM_OBJECTIVE_1": "Investigación y adopción de mejores prácticas en inteligencia de negocios y minería de datos.",
-  "ULTRACOM_OBJECTIVE_2": "Diseño y desarrollo de modelos de Bodegas de Datos y Cubos Tabulares.",
-  "ULTRACOM_OBJECTIVE_3": "Implementación de procesos ETL y creación de cuadros de mando.",
-  "ULTRACOM_OBJECTIVE_4": "Generación de informes de BI en la nube.",
-  "SECTOR": "Sectores de Experiencia Laboral",
-  "SECTOR_INFO_1": "Financiero",
-  "SECTOR_INFO_2": "Ventas",
-  "SECTOR_INFO_3": "Transporte",
-  "SECTOR_INFO_4": "Telecomunicaiones",
-  "SECTOR_INFO_5": "Tecnológico",
-  "SECTOR_INFO_6": "Turismo",
-  "SECTOR_INFO_7": "Seguros",
-  "EDUCATION": "Educación",
-  "UNIVERSITY_NAME": "Universidad Católica del Norte",
-  "UNIVERSITY_TITLE_1": "Especialista en Inteligencia de Negocios",
-  "UNIVERSITY_TITLE_2": "Ingeniero Informático",
-  "SKILLS_DATA": "Habilidades Ingeniero de Datos",
-  "DATA_EXTRACTION_TOOLS": "Extracción",
-  "DATA_TRANSFORMATION_TOOLS": "Transformación",
-  "DATA_LOADING_TOOLS": "Carga",
-  "DATA_ANALYSIS_TOOLS": "Análisis",
-  "DATA_VISUALIZATION_TOOLS": "Visualización",
-  "DATA_REPORTING_TOOLS": "Reportería",
-  "WEB_PAGES": "Páginas Web",
-  "FILES": "Archivos",
-  "DATABASES": "Bases de Datos",
-  "DATA_WAREHOUSE": "Bodega de Datos",
-  "DATA_LAKE": "Lagos de Datos",
-  "SQL_NOSQL": "Bases de Datos SQL/NoSQL",
-  "BI_TOOLS": "Herramientas de BI",
-  "OLAP": "Cubos OLAP",
-  "AGILE": "Metodologías Ágiles",
-  "SKILLS_DEV": "Habilidades Desarrollador de software",
-  "CLEAN_ARCHITECTURE": "Arquitecturas Limpias",
-  "CLEAN_CODE": "Código Limpio",
-  "DOM": "DOM y Motor del Navegador",
-  "PROGRAMING_LANGUAGES": "Lenguajes de Programación",
-  "DATABASE": "Bases de Datos",
-  "CLOUD_COMPUTING": "Nube",
-  "TESTING": "Pruebas",
-  "UNIT_TEST": "Pruebas Unitarias",
-  "INTEGRATION_TEST": "Pruebas de Integración",
-  "E2E_TEST": "Pruebas de extremo a extremo",
-  "OTHER_SKILLS": "Otras Habilidades",
-  "LANGUAGES": "Idiomas",
-  "SPANISH": "Español",
-  "ENGLISH": "Inglés",
-  "SPANISH_PROFICIENCY": "Hablante Nativo",
-  "ENGLISH_PROFICIENCY": "Hablante Intermedio (A2/B1)",
-  "PRESENT": "Actual",
-  "DATE": "Periodo",
+  "WORK": {
+    "TITLE": "Experiencia Laboral",
+    "COMPANIES": [
+      {
+        "NAME": "IAS Software",
+        "JOBS": [
+          {
+            "TITLE": "Ingeniero de Software",
+            "DATE": "02/2025 – Actual",
+            "OBJECTIVES": [
+              "Desarrollo y mantenimiento de aplicaciones backend y frontend utilizando NestJS y Angular, orientadas a usuarios funcionales para diseñar experiencias conversacionales a través del microservicio bot-engine.",
+              "Participación activa en la definición de flujos conversacionales, construyendo las respuestas y rutas de interacción disponibles para los usuarios al comunicarse con un chatbot.",
+              "Participación en las células de Sistemas Generativos e Inteligencia Artificial, con foco en el diseño, construcción y mantenimiento de plataformas de chatbots mediante Procesamiento de Lenguaje Natural (NLP) y soluciones de Machine Learning.",
+              "Implementación de microservicios con arquitectura basada en mensajería orientada a eventos.",
+              "Desarrollo de pipelines de CI/CD en Azure DevOps para despliegues en entornos DEV, QA y PDN, integrando servicios de AWS.",
+              "Gestión de la seguridad de microservicios, incluyendo mitigación de vulnerabilidades críticas y altas mediante escaneos regulatorios, configuración de cabeceras de seguridad y aplicación de buenas prácticas de ciberseguridad.",
+              "Elaboración de planes de prueba integrales, abarcando pruebas unitarias, modulares, E2E y de rendimiento con herramientas como JMeter, Karate y PyTest.",
+              "Mantenimiento de documentación técnica actualizada, asegurando un soporte eficiente y la continuidad operativa de las soluciones desarrolladas."
+            ]
+          },
+          {
+            "TITLE": "Data Warehouse Developer",
+            "DATE": "05/2024 – 01/2025",
+            "OBJECTIVES": [
+              "Se transformaron los datos en información que impulsó la toma de decisiones informadas.",
+              "Se diseñaron, mejoraron y consolidaron modelos de almacén de datos.",
+              "Se moldearon, desarrollaron y gestionaron cubos tabulares y multidimensionales.",
+              "Se diseñaron, consolidaron y garantizaron procesos ETL robustos.",
+              "Se diseñaron, impulsaron y promovieron paneles de control (paneles de control e indicadores clave de rendimiento)."
+            ]
+          },
+          {
+            "TITLE": "Software Developer",
+            "DATE": "07/2023 - 04/2024",
+            "OBJECTIVES": [
+              "Desarrollo y mantenimiento de aplicaciones backend utilizando Java y Spring Boot.",
+              "Competencias sólidas en la inyección de dependencias para garantizar la modularidad y la facilidad de mantenimiento.",
+              "Desarrollo y mantenimiento de aplicaciones frontend utilizando Html, CSS y Angular.",
+              "Competencias sólidas en cumplir con el principio de una sola responsabilidad.",
+              "Implementación de servicios API REST para la exposición de funcionalidades clave, siguiendo los estándares de diseño y buenas prácticas.",
+              "Acceso eficiente a bases de datos utilizando tecnologías como JDBC y JPA para garantizar la integridad y la gestión de datos.",
+              "Colaboración activa en la exposición y consumo de servicios web, facilitando la integración de sistemas externos y mejorando la eficiencia operativa.",
+              "Competencias sólidas en programación orientada a objetos (POO) y familiaridad con conceptos de programación funcional y reactiva."
+            ]
+          },
+          {
+            "TITLE": "Data Warehouse Developer",
+            "DATE": "12/2022 - 06/2023",
+            "OBJECTIVES": [
+              "Diseño y desarrollo de modelos de Bodegas de Datos (DWH).",
+              "Implementación de procesos ETL y creación de cuadros de mando (dashboards y KPIs).",
+              "Uso de Microsoft BI Suite (SQL, SSIS, SSAS, SSRS y Power BI) para estadísticas y análisis financiero.",
+              "Participación en proyectos Scrum."
+            ]
+          }
+        ]
+      },
+      {
+        "NAME": "Grupo Avalon",
+        "JOBS": [
+          {
+            "TITLE": "Analista Programador",
+            "DATE": "06/2022 - 11/2022",
+            "OBJECTIVES": [
+              "Automatización de procesos mediante Web Scraping con Python.",
+              "Diseño y desarrollo de modelos de Bodegas de Datos y Cubos Tabulares.",
+              "Creación de procesos ETL y cuadros de mando.",
+              "Generación de informes de BI en la nube."
+            ]
+          }
+        ]
+      },
+      {
+        "NAME": "Emtelco CX & BPO",
+        "JOBS": [
+          {
+            "TITLE": "Ingeniero BI",
+            "DATE": "03/2021 - 06/2022",
+            "OBJECTIVES": [
+              "Diseño y mejora continua de bases de datos y procesos ETL.",
+              "Investigación y adopción de mejores prácticas en inteligencia de negocios y minería de datos.",
+              "Automatización de procesos mediante herramientas de integración y captura de archivos.",
+              "Desarrollo de informes y dashboards para seguimiento y control del negocio."
+            ]
+          },
+          {
+            "TITLE": "Analista de Programación y Control",
+            "DATE": "12/2012 - 11/2019",
+            "OBJECTIVES": [
+              "Análisis de datos para soporte operativo y elaboración de informes y dashboards.",
+              "Planificación y dimensionamiento de agentes y puestos de trabajo.",
+              "Gestión de bases de datos y elaboración de indicadores.",
+              "Automatización de procesos mediante RPA.",
+              "Desarrollo de informes y dashboards en Power BI y Zendesk."
+            ]
+          }
+        ]
+      },
+      {
+        "NAME": "Ultracom IT S.A.S",
+        "JOBS": [
+          {
+            "TITLE": "Ingeniero BI",
+            "DATE": "12/2019 - 03/2021",
+            "OBJECTIVES": [
+              "Investigación y adopción de mejores prácticas en inteligencia de negocios y minería de datos.",
+              "Diseño y desarrollo de modelos de Bodegas de Datos y Cubos Tabulares.",
+              "Implementación de procesos ETL y creación de cuadros de mando.",
+              "Generación de informes de BI en la nube."
+            ]
+          }
+        ]
+      }
+    ]
+  },
 
-  "CONTACT_ME": "Contáctame",
-  "CONTACT_DESCRIPTION": "No dudes en contactarme para cualquier consulta u oportunidad de colaboración",
+  "SECTOR": {
+    "TITLE": "Sectores de Experiencia Laboral",
+    "SECTORS": [
+      "Financiero",
+      "Ventas",
+      "Transporte",
+      "Telecomunicaciones",
+      "Tecnológico",
+      "Turismo",
+      "Seguros"
+    ]
+  },
 
-  "FOOTER_TEXT": "¡Impulsemos el Futuro Juntos!"
+  "TECHNICAL_SKILLS_DEV": {
+    "TITLE": "Habilidades Técnicas como Ingeniero de Software",
+    "TOOLS": [
+      {
+        "CATEGORY": "Lenguajes",
+        "ITEMS": [
+          "Java",
+          "Python",
+          "JavaScript",
+          "TypeScript"
+        ]
+      },
+      {
+        "CATEGORY": "Frameworks",
+        "ITEMS": [
+          "Spring Boot",
+          "Angular",
+          "NestJS"
+        ]
+      },
+      {
+        "CATEGORY": "Nube y DevOps",
+        "ITEMS": [
+          {
+            "NAME": "AWS",
+            "SUBITEMS": ["Lambda", "S3", "ECS", "DynamoDB", "Step Functions"]
+          },
+          {
+            "NAME": "Azure",
+            "SUBITEMS": ["DevOps", "Synapse", "Data Factory"]
+          }
+        ]
+      },
+      {
+        "CATEGORY": "Bases de Datos",
+        "ITEMS": [
+          "SQL Server",
+          "PostgreSQL",
+          "MySQL",
+          "PL/SQL"
+        ]
+      },
+      {
+        "CATEGORY": "Otras Habilidades",
+        "ITEMS": [
+          "REST APIs",
+          "Arquitectura Limpia",
+          "Metodologías Ágiles"
+        ]
+      }
+    ]
+  },
+
+   "TECHNICAL_SKILLS_DATA": {
+    "TITLE": "Habilidades Técnicas como Ingeniero de Datos",
+    "TOOLS": [
+      {
+        "CATEGORY": "Extracción",
+        "ITEMS": [
+          "APIs",
+          "Páginas Web",
+          "Archivos",
+          "Bases de Datos"
+        ]
+      },
+      {
+        "CATEGORY": "Transformación",
+        "ITEMS": [
+          "Python",
+          "Java",
+          "SQL",
+          "SQL Server Integration Services (SSIS)"
+        ]
+      },
+      {
+        "CATEGORY": "Carga",
+        "ITEMS": [
+          "Bodega de Datos",
+          "Data Mart",
+          "Lagos de Datos",
+          "Amazon Redshift",
+          "Bases de Datos SQL/NoSQL"
+        ]
+      },
+      {
+        "CATEGORY": "Análisis",
+        "ITEMS": [
+          "SQL Server Analysis Services (SSAS)"
+        ]
+      },
+      {
+        "CATEGORY": "Visualization",
+        "ITEMS": [
+          "Power BI",
+          "Reporting Services",
+          "Qlik View",
+          "Tableau"
+        ]
+      },
+      {
+        "CATEGORY": "Other Tools",
+        "ITEMS": [
+          "BI Tools",
+          "Git",
+          "DevOps",
+          "DataOps",
+          "ETL",
+          "KPI",
+          "PL/SQL",
+          "Cubos OLAP",
+          "Medologías Ágiles"
+        ]
+      }
+    ]
+  },
+
+  "EDUCATION": {
+    "TITLE": "Education",
+    "UNIVERSITIES": [
+      {
+        "NAME": "Universidad Católica del Norte",
+        "DEGREES": [
+          {
+            "TITLE": "Especialización en Inteligencia de Negocios",
+            "DATE_RANGE": "07/2018 - 08/2019"
+          },
+          {
+            "TITLE": "Ingeniería Informática",
+            "DATE_RANGE": "12/2014 - 11/2017"
+          }
+        ]
+      }
+    ]
+  },
+
+  "LANGUAGES": {
+    "TITLE": "Idiomas",
+    "DETAILS": [
+      {
+        "NAME": "Español",
+        "PROFICIENCY": "Hablante Nativo"
+      },
+      {
+        "NAME": "Inglés",
+        "PROFICIENCY": "Intermedio (B1-B2 CEFR)"
+      }
+    ]
+  },
+
+  "TIME": {
+    "DATE": "Periodo"
+  },
+
+  "CONTACT": {
+    "TITLE": "Contáctame",
+    "DESCRIPTION": "No dudes en contactarme para cualquier consulta u oportunidad de colaboración"
+  },
+
+  "FOOTER": {
+    "TEXT": "¡Impulsemos el Futuro Juntos!"
+  }
 
 }
