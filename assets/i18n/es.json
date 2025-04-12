@@ -233,6 +233,19 @@
         ]
       },
       {
+        "CATEGORY": "Nube y DevOps",
+        "ITEMS": [
+          {
+            "NAME": "AWS",
+            "SUBITEMS": ["Lambda", "S3", "ECS", "DynamoDB", "Step Functions"]
+          },
+          {
+            "NAME": "Azure",
+            "SUBITEMS": ["DevOps", "Synapse", "Data Factory"]
+          }
+        ]
+      },
+      {
         "CATEGORY": "Carga",
         "ITEMS": [
           "Bodega de Datos",
@@ -243,32 +256,12 @@
         ]
       },
       {
-        "CATEGORY": "Análisis",
-        "ITEMS": [
-          "SQL Server Analysis Services (SSAS)"
-        ]
-      },
-      {
         "CATEGORY": "Visualization",
         "ITEMS": [
           "Power BI",
           "Reporting Services",
           "Qlik View",
           "Tableau"
-        ]
-      },
-      {
-        "CATEGORY": "Other Tools",
-        "ITEMS": [
-          "BI Tools",
-          "Git",
-          "DevOps",
-          "DataOps",
-          "ETL",
-          "KPI",
-          "PL/SQL",
-          "Cubos OLAP",
-          "Medologías Ágiles"
         ]
       }
     ]
