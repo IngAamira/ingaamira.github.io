@@ -10,6 +10,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NgxBootstrapModule } from '../../../shared/modules/ngx-bootstrap.module';
 import { Project } from '../../../shared/interfaces/project';
 import { ProjectsService } from '../../../shared/services/projects.service';
+import { AboutMeTexts } from '../../interfaces/i18n-item';
 
 @Component({
   standalone: true,
@@ -25,13 +26,7 @@ export default class HomeComponent implements OnInit {
   //En JavaScript, los meses se indexan desde 0 (enero es 0, febrero es 1, etc.).
   //Fecha de incio de labores (16 de diciembre del 2012).
 
-  aboutMeTexts = [
-    'ABOUT_ME.TEXT[0]',
-    'ABOUT_ME.TEXT[1]',
-    'ABOUT_ME.TEXT[2]',
-    'ABOUT_ME.TEXT[3]',
-    'ABOUT_ME.TEXT[4]'
-  ];
+  aboutMeTexts: AboutMeTexts = { texts: [] };
 
   constructor(
     private titleService: Title,
@@ -46,7 +41,7 @@ export default class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.project = this.projectService.GetProjectById(0);
     this.translate.get('ABOUT_ME.TEXT').subscribe((texts: string[]) => {
-      this.aboutMeTexts = texts;
+      this.aboutMeTexts.texts = texts;
     });
   }
 

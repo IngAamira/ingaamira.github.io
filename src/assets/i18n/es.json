@@ -50,7 +50,7 @@
             ]
           },
           {
-            "TITLE": "Data Warehouse Developer",
+            "TITLE": "Desarrollador Data Warehouse",
             "DATE": "05/2024 – 01/2025",
             "OBJECTIVES": [
               "Se transformaron los datos en información que impulsó la toma de decisiones informadas.",
@@ -61,7 +61,7 @@
             ]
           },
           {
-            "TITLE": "Software Developer",
+            "TITLE": "Desarrollador de Software",
             "DATE": "07/2023 - 04/2024",
             "OBJECTIVES": [
               "Desarrollo y mantenimiento de aplicaciones backend utilizando Java y Spring Boot.",
@@ -75,7 +75,7 @@
             ]
           },
           {
-            "TITLE": "Data Warehouse Developer",
+            "TITLE": "Desarrollador Data Warehouse",
             "DATE": "12/2022 - 06/2023",
             "OBJECTIVES": [
               "Diseño y desarrollo de modelos de Bodegas de Datos (DWH).",
@@ -233,6 +233,19 @@
         ]
       },
       {
+        "CATEGORY": "Nube y DevOps",
+        "ITEMS": [
+          {
+            "NAME": "AWS",
+            "SUBITEMS": ["Lambda", "S3", "ECS", "DynamoDB", "Step Functions"]
+          },
+          {
+            "NAME": "Azure",
+            "SUBITEMS": ["DevOps", "Synapse", "Data Factory"]
+          }
+        ]
+      },
+      {
         "CATEGORY": "Carga",
         "ITEMS": [
           "Bodega de Datos",
@@ -243,32 +256,12 @@
         ]
       },
       {
-        "CATEGORY": "Análisis",
-        "ITEMS": [
-          "SQL Server Analysis Services (SSAS)"
-        ]
-      },
-      {
         "CATEGORY": "Visualization",
         "ITEMS": [
           "Power BI",
           "Reporting Services",
           "Qlik View",
           "Tableau"
-        ]
-      },
-      {
-        "CATEGORY": "Other Tools",
-        "ITEMS": [
-          "BI Tools",
-          "Git",
-          "DevOps",
-          "DataOps",
-          "ETL",
-          "KPI",
-          "PL/SQL",
-          "Cubos OLAP",
-          "Medologías Ágiles"
         ]
       }
     ]

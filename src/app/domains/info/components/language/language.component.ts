@@ -2,11 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-
-export interface ItemLanguage {
-  name: string;
-  proficiency: string;
-}
+import { ItemLanguage } from '../../interfaces/i18n-item';
 
 @Component({
   selector: 'app-languages',
