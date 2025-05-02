@@ -1,6 +1,7 @@
 {
   "PROFILE": {
     "NAME": "Andrés Alfonso Mira Mejía",
+    "BUSINESS_INTELLIGENCE": "Especialista en Inteligencia de Negocios",
     "SOFTWARE_ENGINEER": "Ingeniero de Software",
     "DATA_ENGINEER": "Ingeniero de Datos"
   },
@@ -15,7 +16,7 @@
   "ABOUT_ME": {
     "TITLE": "¿Quién Soy?",
     "TEXT": [
-      "Soy Ingeniero de software con experiencia en el diseño y desarrollo de aplicaciones web escalables utilizando Java + Spring Boot, NestJS y Angular. He participado en plataformas conversacionales impulsadas por Procesamiento de Lenguaje Natural (NLP) e Inteligencia Artificial, integrando backend, frontend y microservicios orientados a eventos.",
+      "Soy Ingeniero de software con experiencia en el diseño y desarrollo de aplicaciones web escalables utilizando Java + Spring Boot, NestJS y Angular. He participado en plataformas conversacionales impulsadas por procesamiento de Lenguaje Natural (NLP) e Inteligencia Artificial, integrando backend, frontend y microservicios orientados a eventos.",
       "Me apasiona escribir código limpio, automatizar procesos y entregar valor real al negocio. Trabajo con pipelines de CI/CD en Azure DevOps y despliego servicios en AWS (Lambda, S3, ECS y DynamoDB). Aplico principios de arquitectura limpia (Hexagonal, Onion) y patrones como MVC para construir sistemas robustos y mantenibles.",
       "También tengo experiencia en pruebas automatizadas, buenas prácticas de seguridad y colaboración en equipos multidisciplinarios bajo metodologías ágiles.",
       "Actualmente, sigo fortaleciendo mis habilidades en frontend para ofrecer soluciones integrales de extremo a extremo.",

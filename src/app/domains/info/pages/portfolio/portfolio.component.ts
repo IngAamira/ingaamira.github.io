@@ -19,6 +19,19 @@ type FilterKey = 'java' | 'python' | 'javascript' | 'typescript' | 'spring' | 'a
 })
 export default class PortfolioComponent implements OnInit {
 
+  languages: { name: string; binding: FilterKey }[] = [
+    { name: 'Java', binding: 'java' },
+    { name: 'JavaScript', binding: 'javascript' },
+    { name: 'TypeScript', binding: 'typescript' },
+    { name: 'Python', binding: 'python' }
+  ];
+
+  frameworks: { name: string; binding: FilterKey }[] = [
+    { name: 'Spring Boot', binding: 'spring' },
+    { name: 'Angular', binding: 'angular' },
+    { name: 'Node Js', binding: 'nodejs' }
+  ];
+
   projects = {} as Project[];
 
   /* Processes */
@@ -26,13 +39,15 @@ export default class PortfolioComponent implements OnInit {
   filtering: boolean = false;
 
   /* Filters */
-  java: boolean = false;
-  python: boolean = false;
-  javascript: boolean = false;
-  typescript: boolean = false;
-  spring: boolean = false;
-  angular: boolean = false;
-  nodejs: boolean = false;
+  filters: Record<FilterKey, boolean> = {
+    java: false,
+    python: false,
+    javascript: false,
+    typescript: false,
+    spring: false,
+    angular: false,
+    nodejs: false
+  };
 
   constructor(private titleService: Title, private projectService: ProjectsService) {
     this.titleService.setTitle('Portfolio');
@@ -55,7 +70,7 @@ export default class PortfolioComponent implements OnInit {
     };
 
     for (const key in filters) {
-      if (this[key as FilterKey]) {
+      if (this.filters[key as FilterKey]) {
         filterTags.push(filters[key as FilterKey]);
       }
     }
@@ -65,11 +80,9 @@ export default class PortfolioComponent implements OnInit {
   }
 
   ResetFilters() {
-    const filters: FilterKey[] = ['java', 'python', 'javascript', 'typescript', 'spring', 'angular', 'nodejs'];
-
-    filters.forEach(filter => {
-      this[filter] = false;
-    });
+    for (const key in this.filters) {
+      this.filters[key as FilterKey] = false;
+    }
 
     this.filtering = false;
     this.projects = this.projectService.GetProjects();
