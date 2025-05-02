@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TranslateModule, TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { ItemTechnicalSkill } from "../../interfaces/i18n-item";
+import { ItemTechnicalSkill } from '../../interfaces/i18n-item';
 
 @Component({
   selector: 'app-work-data',

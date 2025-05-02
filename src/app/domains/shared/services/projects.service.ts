@@ -9,78 +9,63 @@ import { Project } from '../interfaces/project';
 export class ProjectsService {
 
   projects: Project[] = [
-    { id: 0,
-      name: 'E-Shop (Backend)',
-      summary: 'This is an e-commerce application developed in Java with the Spring Boot framework and using Spring WebFlux for reactive programming. The application allows users to search for and purchase products online, organized into categories.',
-      description: 'Esta es una aplicación de comercio electrónico desarrollada en Java con el framework Spring Boot y usando Spring WebFlux como programación reactiva. La aplicación permite a los usuarios buscar y comprar productos en línea, organizados en categorías.',
-      projectLink: 'https://github.com/IngAamira/eshop',
+    {
+      name: 'Stock Flow App',
+      summary: 'StockFlow is an Inventory Management System that allows users to manage categories, products, and view dashboards with charts. It is built with Spring Boot for the backend and Angular for the frontend. The application integrates with Keycloak for authentication and supports exporting data to Excel.',
+      projectLink: 'https://github.com/IngAamira/StockFlow',
       pictures: [
-        "assets/imgs/projects/eshop/rest.png",
-        "assets/imgs/projects/eshop/get.png",
-        "assets/imgs/projects/eshop/post.png",
-        "assets/imgs/projects/eshop/put.png",
-        "assets/imgs/projects/eshop/delete.png",
+        "assets/imgs/projects/stock-flow/folder.png",
+        "assets/imgs/projects/stock-flow/endpoints_categories.png",
+        "assets/imgs/projects/stock-flow/endpoints_products.png",
+        "assets/imgs/projects/stock-flow/product_by_id.png",
+        "assets/imgs/projects/stock-flow/delete_product_by_id.png",
       ],
-      tags: [ Tag.JAVA, Tag.SPRING ]
+      tags: [ Tag.JAVA, Tag.SPRING, Tag.ANGULAR, Tag.POSTGRESQL ]
     },
-    { id: 1,
-      name: 'Tech-Solutions (Backend/Frontend)',
+    {
+      name: 'Neo Shop App',
+      summary: 'This is an e-commerce application developed in Java with the Spring Boot framework and using Spring WebFlux for reactive programming. The application allows users to search for and purchase products online, organized into categories.',
+      projectLink: 'https://github.com/IngAamira/NeoShop',
+      pictures: [
+        "assets/imgs/projects/neo-shop/rest.png",
+        "assets/imgs/projects/neo-shop/get.png",
+        "assets/imgs/projects/neo-shop/post.png",
+        "assets/imgs/projects/neo-shop/put.png",
+        "assets/imgs/projects/neo-shop/delete.png",
+      ],
+      tags: [ Tag.JAVA, Tag.SPRING, Tag.ANGULAR, Tag.POSTGRESQL ]
+    },
+    {
+      name: 'Eye Care Hub',
+      summary: 'This is a web-app product management system designed for managing an optician\'s office. It allows users to handle clients, products, sales, and appointments efficiently. The project consists of two main components: a backend built with Java and Spring Boot, and a frontend developed using Angular.',
+      projectLink: 'https://github.com/IngAamira/EyeCareHub',
+      pictures: [
+        "assets/imgs/projects/eye-care-hub/tech-used.png",
+        "assets/imgs/projects/eye-care-hub/feature.png",
+        "assets/imgs/projects/eye-care-hub/endpoints.png",
+      ],
+      tags: [ Tag.JAVA, Tag.SPRING, Tag.ANGULAR, Tag.POSTGRESQL ]
+    },
+    {
+      name: 'Tech-Solutions',
       summary: 'This is an e-commerce project developed in Java using Spring Boot. The application implements key functionalities for managing products, orders, users, and the online purchasing process.',
-      description: '',
       projectLink: 'https://github.com/IngAamira/TechSolutions',
       pictures: [
-        "assets/imgs/projects/techsolutions/home.png",
-        "assets/imgs/projects/techsolutions/db.png",
-        "assets/imgs/projects/techsolutions/intro.png",
-        "assets/imgs/projects/techsolutions/register.png",
-        "assets/imgs/projects/techsolutions/products.png",
-        "assets/imgs/projects/techsolutions/inventory.png",
-        "assets/imgs/projects/techsolutions/options_admin.png",
-        "assets/imgs/projects/techsolutions/options_user.png"
+        "assets/imgs/projects/tech-solutions/home.png",
+        "assets/imgs/projects/tech-solutions/db.png",
+        "assets/imgs/projects/tech-solutions/intro.png",
+        "assets/imgs/projects/tech-solutions/register.png",
+        "assets/imgs/projects/tech-solutions/products.png",
+        "assets/imgs/projects/tech-solutions/inventory.png",
+        "assets/imgs/projects/tech-solutions/options-admin.png",
+        "assets/imgs/projects/tech-solutions/options-user.png"
       ],
       tags: [ Tag.JAVA, Tag.SPRING, Tag.HTML, Tag.CSS, Tag.THYMELEAF ]
     },
-    { id: 2,
-      name: 'Inventory (Backend)',
-      summary: 'This is an inventory management application developed in Spring Boot. It provides functionalities for managing inventories, product tracking, and other operations related to inventory management.',
-      description: '',
-      projectLink: 'https://github.com/IngAamira/inventory-bk',
-      pictures: [
-        "assets/imgs/projects/inventory-bk/folder.png",
-        "assets/imgs/projects/inventory-bk/endpoints_categories.png",
-        "assets/imgs/projects/inventory-bk/endpoints_products.png",
-        "assets/imgs/projects/inventory-bk/product_by_id.png",
-        "assets/imgs/projects/inventory-bk/delete_product_by_id.png",
-      ],
-      tags: [ Tag.JAVA, Tag.SPRING ]
-    },
-    { id: 3,
-      name: 'World Demographics API',
-      summary: 'Provides global demographic data for countries and continents. Access population statistics with ease. Ideal for developers and analysts. Explore demographics.',
-      description: '',
-      projectLink: 'https://github.com/IngAamira/WorldDemographicsAPI',
-      pictures: [
-        "assets/imgs/projects/worlddemographicsapi/folder.png",
-        "assets/imgs/projects/worlddemographicsapi/populations.png",
-        "assets/imgs/projects/worlddemographicsapi/world-populations.png"
-      ],
-      tags: [ Tag.PYTHON, Tag.HTML ]
-    },
-    { id: 4,
-      name: 'Inventory App',
-      summary: 'This is a product management system built using Angular. It allows users to manage product data, including creating new products, updating existing ones, and deleting products. The system includes features such as form validation, error handling, and feedback messages.',
-      description: '',
-      projectLink: 'https://github.com/IngAamira/inventory-app',
-      pictures: [
-        "assets/icons/construction.png",
-      ],
-      tags: [ Tag.TYPESCRIPT, Tag.ANGULAR, Tag.NODEJS, Tag.BOOTSTRAP ]
-    },
-    { id: 5,
+    {
       name: 'To-Do App',
       summary: 'This is a simple To-Do application project developed in Angular.',
-      description: '',
-      projectLink: 'https://ingaamira.github.io/todo-app/',
+      projectLink: 'https://ingaamira.github.io/To-doApp/',
       pictures: [
         "assets/imgs/projects/todo-app/home.png",
         "assets/imgs/projects/todo-app/task.png",
@@ -88,20 +73,49 @@ export class ProjectsService {
       ],
       tags: [ Tag.TYPESCRIPT, Tag.ANGULAR, Tag.NODEJS, Tag.BOOTSTRAP ]
     },
-    { id: 6,
+    {
       name: 'Gifs App',
       summary: 'This is an Angular application that allows users to search and view gifs using the Giphy API.',
-      description: '',
-      projectLink: 'https://ingaamira.github.io/gifs-app/',
+      projectLink: 'https://ingaamira.github.io/GifsApp/',
       pictures: [
         "assets/imgs/projects/gifs-app/home.png",
         "assets/imgs/projects/gifs-app/search.png",
         "assets/imgs/projects/gifs-app/filter.png"
       ],
+      tags: [ Tag.TYPESCRIPT, Tag.ANGULAR, Tag.NODEJS, Tag.BOOTSTRAP, Tag.GIPHY ]
+    },
+    {
+      name: 'Dragon Ball Z App',
+      summary: 'This is a simple Angular application for managing Dragon Ball Z characters.',
+      projectLink: 'https://ingaamira.github.io/DbzApp/',
+      pictures: [
+        "assets/imgs/projects/dbz-app/home.png",
+      ],
       tags: [ Tag.TYPESCRIPT, Tag.ANGULAR, Tag.NODEJS, Tag.BOOTSTRAP ]
     },
+    {
+      name: 'World Demographics API',
+      summary: 'Provides global demographic data for countries and continents. Access population statistics with ease. Ideal for developers and analysts. Explore demographics.',
+      projectLink: 'https://github.com/IngAamira/WorldDemographicsAPI',
+      pictures: [
+        "assets/imgs/projects/world-demo-graphics-api/folder.png",
+        "assets/imgs/projects/world-demo-graphics-api/populations.png",
+        "assets/imgs/projects/world-demo-graphics-api/world-populations.png"
+      ],
+      tags: [ Tag.PYTHON, Tag.FASTAPI, Tag.HTML ]
+    },
+    {
+      name: 'Chatbot Whatsapp API',
+      summary: 'MedPet is an online pet store chatbot service that integrates with WhatsApp to provide users with assistance, appointment scheduling, and other functionalities. It also integrates with Google Sheets for storing appointment data and OpenAI for answering user queries.',
+      projectLink: 'https://github.com/IngAamira/ChatbotWhatsappAPI',
+      pictures: [
+        "assets/imgs/projects/chatbot-wa-api/config.png",
+        "assets/imgs/projects/chatbot-wa-api/chat.png",
+      ],
+      tags: [ Tag.NODEJS, Tag.JAVASCRIPT, Tag.WHATSAPP, Tag.OPENAI ]
+    },
 
-  ];
+  ].map((project, index) => ({ id: index, ...project }));
 
   constructor() { }
 
