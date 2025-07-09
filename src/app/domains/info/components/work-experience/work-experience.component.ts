@@ -15,8 +15,14 @@ import { Company } from '../../interfaces/i18n-item';
         <div class="mb-0">{{ job.title | translate }}</div>
         <div class="text-secondary">{{ 'TIME.DATE' | translate }}: {{ job.date }}</div>
         <ul>
-          <li *ngFor="let objective of job.objectives">
-            {{ objective | translate }}
+          <li *ngFor="let achievement of job.achievements">
+            {{ achievement | translate }}
+          </li>
+        </ul>
+        <p>🔧 Technical Contributions</p>
+        <ul>
+          <li *ngFor="let contribution of job.contributions">
+            {{ contribution | translate }}
           </li>
         </ul>
       </div>
@@ -44,7 +50,8 @@ export class WorkExperienceComponent implements OnInit, OnDestroy {
         jobs: company.JOBS.map((job: any) => ({
           title: job.TITLE,
           date: job.DATE,
-          objectives: job.OBJECTIVES,
+          achievements: job.ACHIEVEMENTS,
+          contributions: job.CONTRIBUTIONS,
         })),
       }));
     });

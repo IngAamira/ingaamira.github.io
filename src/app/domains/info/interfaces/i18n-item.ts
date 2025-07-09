@@ -26,7 +26,10 @@ export interface ItemTechnicalSkill {
 export interface Job {
   title: string;
   date: string;
-  objectives: string[];
+  title_achievements: string;
+  achievements: string[];
+  title_contributions: string
+  contributions: string[];
 }
 
 export interface Company {

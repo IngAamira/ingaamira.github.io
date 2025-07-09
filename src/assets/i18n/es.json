@@ -39,50 +39,73 @@
           {
             "TITLE": "Ingeniero de Software",
             "DATE": "02/2025 – Actual",
-            "OBJECTIVES": [
-              "Desarrollo y mantenimiento de aplicaciones backend y frontend utilizando NestJS y Angular, orientadas a usuarios funcionales para diseñar experiencias conversacionales a través del microservicio bot-engine.",
-              "Participación activa en la definición de flujos conversacionales, construyendo las respuestas y rutas de interacción disponibles para los usuarios al comunicarse con un chatbot.",
-              "Participación en las células de Sistemas Generativos e Inteligencia Artificial, con foco en el diseño, construcción y mantenimiento de plataformas de chatbots mediante Procesamiento de Lenguaje Natural (NLP) y soluciones de Machine Learning.",
-              "Implementación de microservicios con arquitectura basada en mensajería orientada a eventos.",
-              "Desarrollo de pipelines de CI/CD en Azure DevOps para despliegues en entornos DEV, QA y PDN, integrando servicios de AWS.",
-              "Gestión de la seguridad de microservicios, incluyendo mitigación de vulnerabilidades críticas y altas mediante escaneos regulatorios, configuración de cabeceras de seguridad y aplicación de buenas prácticas de ciberseguridad.",
-              "Elaboración de planes de prueba integrales, abarcando pruebas unitarias, modulares, E2E y de rendimiento con herramientas como JMeter, Karate y PyTest.",
-              "Mantenimiento de documentación técnica actualizada, asegurando un soporte eficiente y la continuidad operativa de las soluciones desarrolladas."
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "",
+              "",
+              ""
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              "",
+              "",
+              "",
+              "",
+              ""
             ]
           },
           {
             "TITLE": "Desarrollador Data Warehouse",
             "DATE": "05/2024 – 01/2025",
-            "OBJECTIVES": [
-              "Se transformaron los datos en información que impulsó la toma de decisiones informadas.",
-              "Se diseñaron, mejoraron y consolidaron modelos de almacén de datos.",
-              "Se moldearon, desarrollaron y gestionaron cubos tabulares y multidimensionales.",
-              "Se diseñaron, consolidaron y garantizaron procesos ETL robustos.",
-              "Se diseñaron, impulsaron y promovieron paneles de control (paneles de control e indicadores clave de rendimiento)."
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "",
+              "",
+              ""
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              "",
+              "",
+              "",
+              "",
+              ""
             ]
           },
           {
             "TITLE": "Desarrollador de Software",
             "DATE": "07/2023 - 04/2024",
-            "OBJECTIVES": [
-              "Desarrollo y mantenimiento de aplicaciones backend utilizando Java y Spring Boot.",
-              "Competencias sólidas en la inyección de dependencias para garantizar la modularidad y la facilidad de mantenimiento.",
-              "Desarrollo y mantenimiento de aplicaciones frontend utilizando Html, CSS y Angular.",
-              "Competencias sólidas en cumplir con el principio de una sola responsabilidad.",
-              "Implementación de servicios API REST para la exposición de funcionalidades clave, siguiendo los estándares de diseño y buenas prácticas.",
-              "Acceso eficiente a bases de datos utilizando tecnologías como JDBC y JPA para garantizar la integridad y la gestión de datos.",
-              "Colaboración activa en la exposición y consumo de servicios web, facilitando la integración de sistemas externos y mejorando la eficiencia operativa.",
-              "Competencias sólidas en programación orientada a objetos (POO) y familiaridad con conceptos de programación funcional y reactiva."
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "",
+              "",
+              ""
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              "",
+              "",
+              "",
+              "",
+              ""
             ]
           },
           {
             "TITLE": "Desarrollador Data Warehouse",
             "DATE": "12/2022 - 06/2023",
-            "OBJECTIVES": [
-              "Diseño y desarrollo de modelos de Bodegas de Datos (DWH).",
-              "Implementación de procesos ETL y creación de cuadros de mando (dashboards y KPIs).",
-              "Uso de Microsoft BI Suite (SQL, SSIS, SSAS, SSRS y Power BI) para estadísticas y análisis financiero.",
-              "Participación en proyectos Scrum."
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "",
+              "",
+              ""
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              "",
+              "",
+              "",
+              "",
+              ""
             ]
           }
         ]
@@ -93,11 +116,19 @@
           {
             "TITLE": "Analista Programador",
             "DATE": "06/2022 - 11/2022",
-            "OBJECTIVES": [
-              "Automatización de procesos mediante Web Scraping con Python.",
-              "Diseño y desarrollo de modelos de Bodegas de Datos y Cubos Tabulares.",
-              "Creación de procesos ETL y cuadros de mando.",
-              "Generación de informes de BI en la nube."
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "",
+              "",
+              ""
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              "",
+              "",
+              "",
+              "",
+              ""
             ]
           }
         ]
@@ -108,22 +139,37 @@
           {
             "TITLE": "Ingeniero BI",
             "DATE": "03/2021 - 06/2022",
-            "OBJECTIVES": [
-              "Diseño y mejora continua de bases de datos y procesos ETL.",
-              "Investigación y adopción de mejores prácticas en inteligencia de negocios y minería de datos.",
-              "Automatización de procesos mediante herramientas de integración y captura de archivos.",
-              "Desarrollo de informes y dashboards para seguimiento y control del negocio."
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "",
+              "",
+              ""
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              "",
+              "",
+              "",
+              "",
+              ""
             ]
           },
           {
             "TITLE": "Analista de Programación y Control",
             "DATE": "12/2012 - 11/2019",
-            "OBJECTIVES": [
-              "Análisis de datos para soporte operativo y elaboración de informes y dashboards.",
-              "Planificación y dimensionamiento de agentes y puestos de trabajo.",
-              "Gestión de bases de datos y elaboración de indicadores.",
-              "Automatización de procesos mediante RPA.",
-              "Desarrollo de informes y dashboards en Power BI y Zendesk."
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "",
+              "",
+              ""
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              "",
+              "",
+              "",
+              "",
+              ""
             ]
           }
         ]
@@ -134,11 +180,19 @@
           {
             "TITLE": "Ingeniero BI",
             "DATE": "12/2019 - 03/2021",
-            "OBJECTIVES": [
-              "Investigación y adopción de mejores prácticas en inteligencia de negocios y minería de datos.",
-              "Diseño y desarrollo de modelos de Bodegas de Datos y Cubos Tabulares.",
-              "Implementación de procesos ETL y creación de cuadros de mando.",
-              "Generación de informes de BI en la nube."
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "",
+              "",
+              ""
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              "",
+              "",
+              "",
+              "",
+              ""
             ]
           }
         ]

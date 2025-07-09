@@ -39,50 +39,61 @@
           {
             "TITLE": "Software Engineer",
             "DATE": "02/2025 – Present",
-            "OBJECTIVES": [
-              "Development and maintenance of backend and frontend applications using NestJS and Angular, designed for functional users to create conversational experiences through the bot-engine microservice.",
-              "Actively involved in defining conversation flows, building responses and interaction paths that users can follow when interacting with a chatbot.",
-              "Contributed to Generative Systems and Artificial Intelligence teams, focusing on the design, development, and maintenance of chatbot platforms leveraging Natural Language Processing (NLP) and Machine Learning solutions.",
-              "Implemented microservices using event-driven messaging architectures.",
-              "Developed CI/CD pipelines in Azure DevOps for deployments across DEV, QA, and PROD environments, integrating with AWS services.",
-              "Managed microservice security, addressing critical and high vulnerabilities through regulatory scans, security configuration, and secure header management to mitigate risks.",
-              "Designed and executed comprehensive test plans, including unit, modular, end-to-end (E2E), and performance tests using tools like JMeter, Karate, and PyTest.",
-              "Maintained up-to-date technical documentation, ensuring efficient support and continuous operation of developed solutions."
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "⚡ 60% chatbot performance boost │ Optimized backend architecture and component reuse in NestJS.",
+              "⏱\uFE0F 30% faster development │ Standardized modules using Hexagonal/Onion patterns and SOLID principles.",
+              "\uD83D\uDD12 -20% technical debt │ Applied SOLID principles and design patterns in systematic refactoring."
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              "Backend & Cloud Architecture",
+              "AI/Conversational Systems",
+              "Frontend Engineering",
+              "DevOps Excellence",
+              "Security Leadership"
             ]
           },
           {
             "TITLE": "Data Warehouse Developer",
             "DATE": "05/2024 – 01/2025",
-            "OBJECTIVES": [
-              "Turned data into insights that drove informed decisions.",
-              "Architected, enhanced, and nurtured Data Warehouse models.",
-              "Shaped, evolved, and tended Tabular and Multidimensional Cubes.",
-              "Crafted, nurtured, and ensured robust ETL processes.",
-              "Sculpted, energized, and championed control panels (Dashboards and KPIs)."
+            "ACHIEVEMENTS": [
+              "",
+              "",
+              ""
+            ],
+            "CONTRIBUTIONS": [
+              "",
+              "",
+              ""
             ]
           },
           {
             "TITLE": "Software Developer",
             "DATE": "07/2023 - 04/2024",
-            "OBJECTIVES": [
-              "Development and maintenance of backend applications using Java and Spring Boot.",
-              "Strong skills in dependency injection to ensure modularity and ease of maintenance.",
-              "Development and maintenance of frontend applications using HTML, CSS, and Angular.",
-              "Strong skills in adhering to the Single Responsibility Principle.",
-              "Implementation of REST API services to expose key functionalities, following design standards and best practices.",
-              "Efficient access to databases using technologies like JDBC and JPA to ensure data integrity and management.",
-              "Active collaboration in the exposure and consumption of web services, facilitating the integration of external systems and improving operational efficiency.",
-              "Strong skills in object-oriented programming (OOP) and familiarity with functional and reactive programming concepts."
+            "ACHIEVEMENTS": [
+              "",
+              "",
+              ""
+            ],
+            "CONTRIBUTIONS": [
+              "",
+              "",
+              ""
             ]
           },
           {
             "TITLE": "Data Warehouse Developer",
             "DATE": "12/2022 - 06/2023",
-            "OBJECTIVES": [
-              "Designed and developed Data Warehouse (DWH) models.",
-              "Implemented ETL processes and created dashboards and KPIs.",
-              "Utilized Microsoft BI Suite (SQL, SSIS, SSAS, SSRS, and Power BI) for statistics and financial analysis.",
-              "Participated in Scrum projects."
+            "ACHIEVEMENTS": [
+              "",
+              "",
+              ""
+            ],
+            "CONTRIBUTIONS": [
+              "",
+              "",
+              ""
             ]
           }
         ]
@@ -93,11 +104,15 @@
           {
             "TITLE": "Developer Analyst",
             "DATE": "06/2022 - 11/2022",
-            "OBJECTIVES": [
-              "Automated processes through Python-based Web Scraping.",
-              "Designed and developed Data Warehouse and Tabular Cube models.",
-              "Created ETL processes and dashboards.",
-              "Generated BI reports in the cloud."
+            "ACHIEVEMENTS": [
+              "",
+              "",
+              ""
+            ],
+            "CONTRIBUTIONS": [
+              "",
+              "",
+              ""
             ]
           }
         ]
@@ -108,22 +123,29 @@
           {
             "TITLE": "BI Engineer",
             "DATE": "03/2021 - 06/2022",
-            "OBJECTIVES": [
-              "Designed and continuously improved databases and ETL processes.",
-              "Researched and adopted best practices in business intelligence and data mining.",
-              "Automated processes using integration tools and file capture.",
-              "Developed reports and dashboards for business monitoring and control."
+            "ACHIEVEMENTS": [
+              "",
+              "",
+              ""
+            ],
+            "CONTRIBUTIONS": [
+              "",
+              "",
+              ""
             ]
           },
           {
             "TITLE": "Programming and Control Analyst",
             "DATE": "12/2012 - 11/2019",
-            "OBJECTIVES": [
-              "Data analysis to support operations and report generation.",
-              "Agent and workforce planning and sizing.",
-              "Database management and indicator development.",
-              "Process automation using RPA.",
-              "Report and dashboard development in Power BI and Zendesk."
+            "ACHIEVEMENTS": [
+              "",
+              "",
+              ""
+            ],
+            "CONTRIBUTIONS": [
+              "",
+              "",
+              ""
             ]
           }
         ]
@@ -134,11 +156,15 @@
           {
             "TITLE": "BI Engineer",
             "DATE": "12/2019 - 03/2021",
-            "OBJECTIVES": [
-              "Researched and adopted best practices in business intelligence and data mining.",
-              "Designed and developed Data Warehouse and Tabular Cube models.",
-              "Implemented ETL processes and created dashboards.",
-              "Generated BI reports in the cloud."
+            "ACHIEVEMENTS": [
+              "",
+              "",
+              ""
+            ],
+            "CONTRIBUTIONS": [
+              "",
+              "",
+              ""
             ]
           }
         ]
