@@ -1,9 +1,7 @@
 {
   "PROFILE": {
     "NAME": "Andrés Alfonso Mira Mejía",
-    "BUSINESS_INTELLIGENCE": "Especialista en Inteligencia de Negocios",
-    "SOFTWARE_ENGINEER": "Ingeniero de Software",
-    "DATA_ENGINEER": "Ingeniero de Datos"
+    "HEADLINE": "Ingeniero Software, Datos e IA | Transformo datos en soluciones (+60% eficiencia)"
   },
 
   "NAVIGATION": {
@@ -39,73 +37,162 @@
           {
             "TITLE": "Ingeniero de Software",
             "DATE": "02/2025 – Actual",
-            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "TITLE_ACHIEVEMENTS": "Logros Clave",
             "ACHIEVEMENTS": [
-              "",
-              "",
-              ""
+              "⚡ +60% rendimiento en chatbots │ Optimicé arquitectura backend con NestJS y reutilización de componentes.",
+              "⏱️-30% tiempo de desarrollo │ Estandaricé módulos usando patrones (Hexagonal, Onion) y principios SOLID.",
+              "🔒-20% deuda técnica │ Aplicación de principios SOLID y patrones de diseño en refactorizaciones."
             ],
-            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "TITLE_CONTRIBUTIONS": "Contribuciones Técnicas",
             "CONTRIBUTIONS": [
-              "",
-              "",
-              "",
-              "",
-              ""
+              {
+                "category": "Backend & Cloud",
+                "details": [
+                  "APIs escalables con Spring Boot/NestJS.",
+                  "Microservicios en AWS (Lambda, S3, DynamoDB) con arquitectura orientada a eventos."
+                ]
+              },
+              {
+                "category": "IA/Conversacional",
+                "details": [
+                  "Integración de LLMs (NLP) y flujos de ML para chatbots.",
+                  "Precisión del 85% en reconocimiento de intenciones."
+                ]
+              },
+              {
+                "category": "Frontend",
+                "details": [
+                  "Desarrollo con Angular (diseño responsive mobile-first).",
+                  "Gestión de estado complejo con NgRx."
+                ]
+              },
+              {
+                "category": "DevOps",
+                "details": [
+                  "Pipelines CI/CD en Azure DevOps (50+ despliegues automáticos/semana).",
+                  "Suite de pruebas: PyTest, JMeter, Karate."
+                ]
+              },
+              {
+                "category": "Seguridad",
+                "details": [
+                  "Hardening de APIs con estándares OWASP.",
+                  "Escaneo de vulnerabilidades redujo incidentes en 40%."
+                ]
+              }
             ]
           },
           {
             "TITLE": "Desarrollador Data Warehouse",
             "DATE": "05/2024 – 01/2025",
-            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "TITLE_ACHIEVEMENTS": "Logros Clave",
             "ACHIEVEMENTS": [
-              "",
-              "",
-              ""
+              "📊 -50% tiempo de generación de reportes │ Automatización de transformaciones ETL y reutilización de visualizaciones en Power BI.",
+              "⚡ +40% eficiencia en actualización de dashboards │ Optimización de flujos de datos con particiones y estrategias de carga incremental."
             ],
-            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "TITLE_CONTRIBUTIONS": "Contribuciones Técnicas",
             "CONTRIBUTIONS": [
-              "",
-              "",
-              "",
-              "",
-              ""
+              {
+                "category": "Modelado & Arquitectura de Datos",
+                "details": [
+                  "Diseño de modelos dimensionales (Star Schema) para análisis financiero y toma de decisiones ejecutivas.",
+                  "Estructuras de datos optimizadas para consultas OLAP (agregaciones, jerarquías)."
+                ]
+              },
+              {
+                "category": "ETL & Integración de Datos",
+                "details": [
+                  "Desarrollo de procesos ETL escalables en SSIS (paquetes con validaciones, logging y manejo de errores).",
+                  "Carga incremental y limpieza de datos (SQL Server, T-SQL)."
+                ]
+              },
+              {
+                "category": "Business Intelligence & Visualización",
+                "details": [
+                  "Dashboards ejecutivos en Power BI con KPIs financieros/operativos.",
+                  "Programación de actualizaciones automatizadas (Gateway, refrescos programados)."
+                ]
+              },
+              {
+                "category": "Optimización de Rendimiento",
+                "details": [
+                  "Particionamiento de tablas y optimización de consultas (SQL Server).",
+                  "Reducción de tiempos de procesamiento con estrategias de carga delta."
+                ]
+              }
             ]
           },
           {
             "TITLE": "Desarrollador de Software",
             "DATE": "07/2023 - 04/2024",
-            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "TITLE_ACHIEVEMENTS": "Logros Clave",
             "ACHIEVEMENTS": [
-              "",
-              "",
-              ""
+              "⏱️ -30% tiempo de desarrollo de features │ Estandarización de componentes reutilizables y aplicación de principios DRY/KISS.",
+              "⚙️ Mejora de mantenibilidad del código │ Implementación de arquitecturas limpias (Hexagonal/Onion) y patrones (MVC, Singleton, Adapter)."
             ],
-            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "TITLE_CONTRIBUTIONS": "Contribuciones Técnicas",
             "CONTRIBUTIONS": [
-              "",
-              "",
-              "",
-              "",
-              ""
+              {
+                "category": "Backend",
+                "details": [
+                  "Desarrollo de APIs REST con Java 11/17 + Spring Boot (arquitectura limpia, JPA/Hibernate).",
+                  "Patrones de diseño: Singleton (thread-safe), Adapter (integración de sistemas legacy), MVC."
+                ]
+              },
+              {
+                "category": "Frontend",
+                "details": [
+                  "Desarrollo colaborativo con Angular (componentes, servicios, RxJS).",
+                  "Implementación de interfaces con HTML/CSS (diseño responsive)."
+                ]
+              },
+              {
+                "category": "Procesos y Colaboración",
+                "details": [
+                  "Revisiones de código enfocadas en principios SOLID y optimización de rendimiento.",
+                  "Metodologías ágiles (Scrum/Kanban) con prácticas CI/CD."
+                ]
+              }
             ]
           },
           {
             "TITLE": "Desarrollador Data Warehouse",
             "DATE": "12/2022 - 06/2023",
-            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "TITLE_ACHIEVEMENTS": "Logros Clave",
             "ACHIEVEMENTS": [
-              "",
-              "",
-              ""
+              "⚡ -40% tiempo de actualización de reportes │ Automatización de cargas ETL, limpieza de datos e implementación de particiones estratégicas.",
+              "📊 +50% eficiencia en generación de reportes │ Optimización de transformaciones y reutilización de componentes visuales en Power BI."
             ],
-            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "TITLE_CONTRIBUTIONS": "Contribuciones Técnicas",
             "CONTRIBUTIONS": [
-              "",
-              "",
-              "",
-              "",
-              ""
+              {
+                "category": "Modelado & Arquitectura de Datos",
+                "details": [
+                  "Diseño de estructuras dimensionales para Data Warehouse (modelo estrella, cubos OLAP).",
+                  "Normalización de datos para análisis financiero y toma de decisiones ejecutivas."
+                ]
+              },
+              {
+                "category": "ETL & Integración",
+                "details": [
+                  "Desarrollo de flujos ETL robustos con SQL Server Integration Services (SSIS).",
+                  "Implementación de mecanismos de validación de datos y manejo de errores."
+                ]
+              },
+              {
+                "category": "Business Intelligence",
+                "details": [
+                  "Construcción de dashboards ejecutivos en Power BI con KPIs financieros.",
+                  "Automatización de actualizaciones mediante Power BI Service y Gateway."
+                ]
+              },
+              {
+                "category": "Optimización",
+                "details": [
+                  "Particionamiento de tablas para consultas eficientes en grandes volúmenes de datos.",
+                  "Estrategias de carga incremental para reducir tiempos de procesamiento."
+                ]
+              }
             ]
           }
         ]
@@ -116,19 +203,33 @@
           {
             "TITLE": "Analista Programador",
             "DATE": "06/2022 - 11/2022",
-            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "TITLE_ACHIEVEMENTS": "Logros Clave",
             "ACHIEVEMENTS": [
-              "",
-              "",
-              ""
+              "📊 +60% disponibilidad de datos estratégicos │ Implementé estrategias para la recolección y transformación de datos.",
+              "⏱️ -50% tiempo en tareas manuales │ Automaticé procesos con scripts en Python y ETLs personalizados."
             ],
-            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "TITLE_CONTRIBUTIONS": "Contribuciones Técnicas",
             "CONTRIBUTIONS": [
-              "",
-              "",
-              "",
-              "",
-              ""
+              {
+                "category": "Automatización",
+                "details": [
+                  "Web Scraping con Python (BeautifulSoup, Scrapy) para captura de datos en tiempo real.",
+                  "ETLs personalizados para limpieza y estandarización de datasets."
+                ]
+              },
+              {
+                "category": "Business Intelligence",
+                "details": [
+                  "Modelado de cubos tabulares para análisis multidimensional.",
+                  "Dashboards en Power BI con KPI comerciales para toma de decisiones."
+                ]
+              },
+              {
+                "category": "Optimización",
+                "details": [
+                  "Rediseño de flujos de datos para reducir redundancias y mejorar calidad."
+                ]
+              }
             ]
           }
         ]
@@ -139,37 +240,83 @@
           {
             "TITLE": "Ingeniero BI",
             "DATE": "03/2021 - 06/2022",
-            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "TITLE_ACHIEVEMENTS": "Logros Clave",
             "ACHIEVEMENTS": [
-              "",
-              "",
-              ""
+              "⚡ -50% tiempo de entrega de reportes │ Automatización de ETL y generación de dashboards en Power BI.",
+              "🤝 +40% eficiencia del equipo BI │ Implementé Git Flow y estandarización de procesos."
             ],
-            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "TITLE_CONTRIBUTIONS": "Contribuciones Técnicas",
             "CONTRIBUTIONS": [
-              "",
-              "",
-              "",
-              "",
-              ""
+              {
+                "category": "ETL & Data Warehousing",
+                "details": [
+                  "Diseño e implementación de datamarts con SSIS (paquetes complejos, manejo de errores).",
+                  "Automatización de reportes ejecutivos con SSRS (subscriptions, parámetros dinámicos)."
+                ]
+              },
+              {
+                "category": "Business Intelligence",
+                "details": [
+                  "Desarrollo de 10+ dashboards interactivos en Power BI (DAX, row-level security).",
+                  "Modelado de datos para análisis operacional y estratégico."
+                ]
+              },
+              {
+                "category": "DevOps para BI",
+                "details": [
+                  "Implementación de Git Flow para control de versiones en entornos productivos."
+                ]
+              },
+              {
+                "category": "Liderazgo Técnico",
+                "details": [
+                  "Reducción de errores en producción en 35% mediante revisiones de código.",
+                  "Documentación y capacitación del equipo en estándares ETL y Power BI."
+                ]
+              }
             ]
           },
           {
             "TITLE": "Analista de Programación y Control",
             "DATE": "12/2012 - 11/2019",
-            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "TITLE_ACHIEVEMENTS": "Logros Claves",
             "ACHIEVEMENTS": [
-              "",
-              "",
-              ""
+              "✅ +40% eficiencia en reporting │ Automatización de 15+ reportes de nómina/operación (Power BI + Excel VBA), reduciendo tiempo de generación de 8h → 30min.",
+              "✅ Dashboards unificados con alertas tempranas para incumplimiento de KPIs.",
+              "✅ +95% precisión en planificación │ Modelado de mallas de turnos basado en históricos y forecast, optimizando asignación de recursos.",
+              "✅ Reducción de 20% en sobrecostos por sub/sobredimensionamiento de personal.",
+              "✅ +30% velocidad en facturación │ Consolidación automática de datos de servicios (SQL + Power Query).",
+              "✅ Eliminación de errores manuales en reportes financieros."
             ],
-            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "TITLE_CONTRIBUTIONS": "Contribuciones Técnicas",
             "CONTRIBUTIONS": [
-              "",
-              "",
-              "",
-              "",
-              ""
+              {
+                "category": "Automatización",
+                "details": [
+                  "Scripts VBA para consolidación de novedades de nómina (integración SAP → Excel)."
+                ]
+              },
+              {
+                "category": "Power BI con DAX para visualización",
+                "details": [
+                  "Cumplimiento de SLAs (contact center/BPO).",
+                  "Tracking de eficiencia por agente/turno."
+                ]
+              },
+              {
+                "category": "Modelado de Datos",
+                "details": [
+                  "Volumen de llamadas vs. recursos.",
+                  "Patrones de demanda horaria/semanal."
+                ]
+              },
+              {
+                "category": "Optimización Procesos",
+                "details": [
+                  "Sistema de alertas tempranas para indicadores críticos (Abandono, AHT).",
+                  "Estandarización de plantillas para reportes gerenciales."
+                ]
+              }
             ]
           }
         ]
@@ -180,19 +327,34 @@
           {
             "TITLE": "Ingeniero BI",
             "DATE": "12/2019 - 03/2021",
-            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "TITLE_ACHIEVEMENTS": "Logro Clave",
             "ACHIEVEMENTS": [
-              "",
-              "",
-              ""
+              "⚡ -70% tiempo de consultas OLAP │ Rediseñé arquitectura de cubos SSAS y centralicé 50+ métricas estratégicas.",
+              "⏱️ -30% tiempo de desarrollo mediante plantillas ETL reutilizables."
             ],
-            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "TITLE_CONTRIBUTIONS": "Contribuciones Técnicas",
             "CONTRIBUTIONS": [
-              "",
-              "",
-              "",
-              "",
-              ""
+              {
+                "category": "Arquitectura de Datos",
+                "details": [
+                  "Modelado de DWH para análisis multidimensional (star schema, MDX).",
+                  "Optimización de cubos SSAS (aggregations, partitioning) para datasets de 10M+ registros."
+                ]
+              },
+              {
+                "category": "ETL & Automatización",
+                "details": [
+                  "Desarrollo de pipelines SSIS con carga incremental y manejo de errores.",
+                  "Integración de 15+ fuentes de datos heterogéneas."
+                ]
+              },
+              {
+                "category": "Business Intelligence",
+                "details": [
+                  "Dashboards ejecutivos en Power BI con drill-through y segmentación temporal.",
+                  "Implementación de KPI estratégicos para toma de decisiones en tiempo real."
+                ]
+              }
             ]
           }
         ]

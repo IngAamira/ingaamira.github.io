@@ -1,9 +1,7 @@
 {
   "PROFILE": {
-    "NAME": "Andres Alfonso Mira Mejia",
-    "BUSINESS_INTELLIGENCE": "Business Intelligence Specialist",
-    "SOFTWARE_ENGINEER": "Software Engineer",
-    "DATA_ENGINEER": "Data Engineer"
+    "NAME": "Andrés Alfonso Mira Mejía",
+    "HEADLINE": "Software, Data and IA Engineer | 60% Efficiency Boost in Data-Driven Solutions"
   },
 
   "NAVIGATION": {
@@ -42,129 +40,166 @@
             "TITLE_ACHIEVEMENTS": "Key Achievements",
             "ACHIEVEMENTS": [
               "⚡ 60% chatbot performance boost │ Optimized backend architecture and component reuse in NestJS.",
-              "⏱\uFE0F 30% faster development │ Standardized modules using Hexagonal/Onion patterns and SOLID principles.",
-              "\uD83D\uDD12 -20% technical debt │ Applied SOLID principles and design patterns in systematic refactoring."
+              "⏱️ 30% faster development │ Standardized modules using Hexagonal/Onion patterns and SOLID principles.",
+              "🔒 -20% technical debt │ Applied SOLID principles and design patterns in systematic refactoring."
             ],
             "TITLE_CONTRIBUTIONS": "Technical Contributions",
             "CONTRIBUTIONS": [
-              "Backend & Cloud Architecture",
-              "AI/Conversational Systems",
-              "Frontend Engineering",
-              "DevOps Excellence",
-              "Security Leadership"
+              {
+                "category": "Backend & Cloud Architecture",
+                "details": [
+                  "Built scalable APIs with Spring Boot/NestJS.",
+                  "Implemented event-driven microservices on AWS (Lambda, S3, DynamoDB)."
+                ]
+              },
+              {
+                "category": "AI/Conversational Systems",
+                "details": [
+                  "Integrated LLMs (NLP) and ML workflows for chatbot intelligence.",
+                  "Developed contextual conversation flows with 85% intent recognition accuracy."
+                ]
+              },
+              {
+                "category": "Frontend",
+                "details": [
+                  "Angular development with mobile-first responsive design.",
+                  "Implemented state management (NgRx) for complex chat interfaces."
+                ]
+              },
+              {
+                "category": "DevOps",
+                "details": [
+                  "CI/CD pipelines with Azure DevOps (50+ automated builds/week).",
+                  "Comprehensive testing suite (PyTest, JMeter, Karate)."
+                ]
+              },
+              {
+                "category": "Security",
+                "details": [
+                  "API hardening with OWASP standards.",
+                  "Vulnerability scanning reduced security incidents by 40%."
+                ]
+              }
             ]
           },
           {
             "TITLE": "Data Warehouse Developer",
             "DATE": "05/2024 – 01/2025",
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
             "ACHIEVEMENTS": [
-              "",
-              "",
-              ""
+              "🚀 50% faster report generation │ Automated ETL transformations and reused Power BI visualizations.",
+              "⚡ 40% improvement in dashboard refresh times │ Optimized data flows with partitioning and incremental load strategies."
             ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
             "CONTRIBUTIONS": [
-              "",
-              "",
-              ""
+              {
+                "category": "Data Modeling & Architecture",
+                "details": [
+                  "Designed dimensional models (Star Schema) for financial analysis and executive decision-making.",
+                  "Built OLAP-optimized structures (aggregations, hierarchies) for high-performance analytics."
+                ]
+              },
+              {
+                "category": "ETL & Data Integration",
+                "details": [
+                  "Developed scalable ETL pipelines using SSIS (error handling, logging, and validation frameworks).",
+                  "Implemented incremental data loading and cleansing (SQL Server, T-SQL)."
+                ]
+              },
+              {
+                "category": "Business Intelligence & Visualization",
+                "details": [
+                  "Delivered executive dashboards in Power BI with financial/operational KPIs.",
+                  "Automated report updates (Power BI Gateway, scheduled refreshes)."
+                ]
+              },
+              {
+                "category": "Performance Optimization",
+                "details": [
+                  "Reduced query latency via table partitioning and SQL tuning.",
+                  "Cut processing time with delta-load strategies and parallel execution."
+                ]
+              }
             ]
           },
           {
             "TITLE": "Software Developer",
-            "DATE": "07/2023 - 04/2024",
+            "DATE": "07/2023 – 04/2024",
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
             "ACHIEVEMENTS": [
-              "",
-              "",
-              ""
+              "⏱️ -30% feature development time │ Standardized reusable components and enforced DRY/KISS principles.",
+              "⚙️ Improved code maintainability │ Applied Hexagonal/Onion architectures and patterns (MVC, Singleton, Adapter)."
             ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
             "CONTRIBUTIONS": [
-              "",
-              "",
-              ""
+              {
+                "category": "Backend Development",
+                "details": [
+                  "REST APIs with Java 11/17 + Spring Boot (clean architecture, JPA/Hibernate).",
+                  "Design patterns: Singleton (thread-safe), Adapter (legacy system integration), MVC."
+                ]
+              },
+              {
+                "category": "Frontend Development",
+                "details": [
+                  "Collaborative work with Angular (components, services, RxJS).",
+                  "UI implementation using HTML/CSS (responsive design)."
+                ]
+              },
+              {
+                "category": "Process & Collaboration",
+                "details": [
+                  "Code reviews focused on SOLID principles and performance optimization.",
+                  "Agile methodologies (Scrum/Kanban) with CI/CD practices."
+                ]
+              }
             ]
           },
           {
             "TITLE": "Data Warehouse Developer",
-            "DATE": "12/2022 - 06/2023",
+            "DATE": "12/2022 – 06/2023",
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
             "ACHIEVEMENTS": [
-              "",
-              "",
-              ""
+              "⚡ 40% faster report updates │ Automated ETL loads, data cleansing, and strategic partitioning.",
+              "📊 50% more efficient report generation │ Optimized transformations and reusable Power BI components."
             ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
             "CONTRIBUTIONS": [
-              "",
-              "",
-              ""
-            ]
-          }
-        ]
-      },
-      {
-        "NAME": "Avalon Group",
-        "JOBS": [
-          {
-            "TITLE": "Developer Analyst",
-            "DATE": "06/2022 - 11/2022",
-            "ACHIEVEMENTS": [
-              "",
-              "",
-              ""
-            ],
-            "CONTRIBUTIONS": [
-              "",
-              "",
-              ""
-            ]
-          }
-        ]
-      },
-      {
-        "NAME": "Emtelco CX & BPO",
-        "JOBS": [
-          {
-            "TITLE": "BI Engineer",
-            "DATE": "03/2021 - 06/2022",
-            "ACHIEVEMENTS": [
-              "",
-              "",
-              ""
-            ],
-            "CONTRIBUTIONS": [
-              "",
-              "",
-              ""
-            ]
-          },
-          {
-            "TITLE": "Programming and Control Analyst",
-            "DATE": "12/2012 - 11/2019",
-            "ACHIEVEMENTS": [
-              "",
-              "",
-              ""
-            ],
-            "CONTRIBUTIONS": [
-              "",
-              "",
-              ""
-            ]
-          }
-        ]
-      },
-      {
-        "NAME": "Ultracom IT S.A.S",
-        "JOBS": [
-          {
-            "TITLE": "BI Engineer",
-            "DATE": "12/2019 - 03/2021",
-            "ACHIEVEMENTS": [
-              "",
-              "",
-              ""
-            ],
-            "CONTRIBUTIONS": [
-              "",
-              "",
-              ""
+              {
+                "category": "Data Modeling & Architecture",
+                "details": [
+                  "Designed dimensional structures for DWH (star schema, OLAP cubes).",
+                  "Data normalization for financial analysis and executive decision-making."
+                ]
+              },
+              {
+                "category": "ETL & Integration",
+                "details": [
+                  "Built robust ETL pipelines using SQL Server Integration Services (SSIS).",
+                  "Implemented data validation frameworks and error handling mechanisms."
+                ]
+              },
+              {
+                "category": "Business Intelligence",
+                "details": [
+                  "Developed executive dashboards in Power BI with financial KPIs.",
+                  "Automated refreshes using Power BI Service & Gateway."
+                ]
+              },
+              {
+                "category": "Performance Optimization",
+                "details": [
+                  "Table partitioning for efficient large-volume data queries.",
+                  "Incremental load strategies to reduce processing time."
+                ]
+              },
+              {
+                "category": "Data Governance",
+                "details": [
+                  "Implemented data quality checks (DQ rules, anomaly detection).",
+                  "Documented metadata and lineage for compliance."
+                ]
+              }
             ]
           }
         ]
@@ -338,5 +373,4 @@
   "FOOTER": {
     "TEXT": "Let's drive the future together!"
   }
-
 }

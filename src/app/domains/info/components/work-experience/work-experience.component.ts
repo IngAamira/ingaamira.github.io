@@ -10,19 +10,29 @@ import { Company } from '../../interfaces/i18n-item';
   imports: [CommonModule, TranslateModule],
   template: `
     <div *ngFor="let company of companies" style="text-align: left;">
-      <div class="text-primary">{{ company.name | translate }}</div>
+      <div
+         class="text-primary">{{ company.name | translate }}
+      </div>
       <div *ngFor="let job of company.jobs">
         <div class="mb-0">{{ job.title | translate }}</div>
         <div class="text-secondary">{{ 'TIME.DATE' | translate }}: {{ job.date }}</div>
+        <p>🚀 {{ job.title_achievements | translate }}:</p>
         <ul>
           <li *ngFor="let achievement of job.achievements">
             {{ achievement | translate }}
           </li>
         </ul>
-        <p>🔧 Technical Contributions</p>
+        <p class="font-weight-bold">
+          🔧 {{ job.title_contributions | translate }}:
+        </p>
         <ul>
           <li *ngFor="let contribution of job.contributions">
-            {{ contribution | translate }}
+            {{ contribution.category | translate }}
+            <ul>
+              <li *ngFor="let detail of contribution.details">
+                {{ detail | translate }}
+              </li>
+            </ul>
           </li>
         </ul>
       </div>
@@ -50,8 +60,13 @@ export class WorkExperienceComponent implements OnInit, OnDestroy {
         jobs: company.JOBS.map((job: any) => ({
           title: job.TITLE,
           date: job.DATE,
+          title_achievements: job.TITLE_ACHIEVEMENTS,
           achievements: job.ACHIEVEMENTS,
-          contributions: job.CONTRIBUTIONS,
+          title_contributions: job.TITLE_CONTRIBUTIONS,
+          contributions: job.CONTRIBUTIONS.map((contribution: any) => ({
+            category: contribution.category,
+            details: contribution.details,
+          })),
         })),
       }));
     });
