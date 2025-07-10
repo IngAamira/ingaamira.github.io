@@ -19,7 +19,8 @@
       "I also have experience with automated testing, secure development practices, and collaborating with cross-functional teams in agile environments.",
       "Currently, I’m deepening my frontend skills to provide fully integrated end-to-end solutions.",
       "Let’s connect if you’re working on anything related to fullstack development, backend architecture, or conversational AI!"
-    ]
+    ],
+    "CV": "Download CV"
   },
 
   "FEATURED_PROJECT": {
@@ -198,6 +199,170 @@
                 "details": [
                   "Implemented data quality checks (DQ rules, anomaly detection).",
                   "Documented metadata and lineage for compliance."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "NAME": "Avalon Group",
+        "JOBS": [
+          {
+            "TITLE": "Developer Analyst",
+            "DATE": "06/2022 - 11/2022",
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "📊 60% increase in data availability │ Implemented robust data collection and transformation frameworks.",
+              "⏱️ 50% reduction in manual tasks │ Automated processes via Python scripts and custom ETL pipelines."
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              {
+                "category": "Automation Engineering",
+                "details": [
+                  "Developed real-time data capture systems using Python (BeautifulSoup, Scrapy).",
+                  "Built custom ETL workflows for data cleansing and standardization."
+                ]
+              },
+              {
+                "category": "Advanced Business Intelligence",
+                "details": [
+                  "Designed tabular models for multidimensional analysis.",
+                  "Created Power BI dashboards with commercial KPIs for executive decision-making."
+                ]
+              },
+              {
+                "category": "Process Optimization",
+                "details": [
+                  "Streamlined data flows to eliminate redundancies (+40% data quality improvement).",
+                  "Implemented data validation protocols reducing errors by 35%."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "NAME": "Emtelco CX & BPO",
+        "JOBS": [
+          {
+            "TITLE": "BI Engineer",
+            "DATE": "03/2021 - 06/2022",
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "⚡ 50% faster report delivery │ Automated ETL pipelines and Power BI dashboard generation.",
+              "🤝 40% team efficiency gain │ Implemented Git Flow and BI process standardization."
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              {
+                "category": "ETL & Data Warehousing",
+                "details": [
+                  "Designed SSIS datamarts (complex packages with error handling).",
+                  "Automated executive reports with SSRS (dynamic parameters, subscriptions)."
+                ]
+              },
+              {
+                "category": "Business Intelligence",
+                "details": [
+                  "Built 10+ interactive Power BI dashboards (DAX, RLS).",
+                  "Data modeling for operational/strategic analysis."
+                ]
+              },
+              {
+                "category": "BI DevOps",
+                "details": [
+                  "Established Git Flow for production version control.",
+                  "Configured CI/CD pipelines for automated BI deployments."
+                ]
+              },
+              {
+                "category": "Technical Leadership",
+                "details": [
+                  "Reduced production errors by 35% through code reviews.",
+                  "Trained team on ETL/Power BI best practices (+ documentation)."
+                ]
+              }
+            ]
+          },
+          {
+            "TITLE": "Programming and Control Analyst",
+            "DATE": "12/2012 - 11/2019",
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "✅ +40% reporting efficiency │ Automated 15+ payroll/operations reports (Power BI + Excel VBA), reducing generation time from 8h → 30min.",
+              "✅ Unified dashboards with early-warning alerts for KPI non-compliance.",
+              "✅ +95% planning accuracy │ Shift schedule modeling based on historical data and forecasting, optimizing resource allocation.",
+              "✅ Achieved 20% cost reduction by eliminating over/understaffing.",
+              "✅ +30% billing speed │ Implemented automated service data consolidation (SQL + Power Query).",
+              "✅ Eliminated manual errors in financial reporting."
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              {
+                "category": "Automation",
+                "details": [
+                  "Developed VBA scripts for payroll data consolidation (SAP → Excel integration)."
+                ]
+              },
+              {
+                "category": "Power BI Dashboards with DAX",
+                "details": [
+                  "SLA compliance tracking (contact center/BPO).",
+                  "Per-agent/shift efficiency monitoring."
+                ]
+              },
+              {
+                "category": "Data Modeling",
+                "details": [
+                  "Call volume vs. resource allocation.",
+                  "Hourly/weekly demand patterns."
+                ]
+              },
+              {
+                "category": "Process Optimization",
+                "details": [
+                  "Implemented early-alert system for critical metrics (Abandonment Rate, AHT).",
+                  "Standardized executive reporting templates."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "NAME": "Ultracom IT S.A.S",
+        "JOBS": [
+          {
+            "TITLE": "BI Engineer",
+            "DATE": "12/2019 - 03/2021",
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "⚡ 70% faster OLAP queries │ Redesigned SSAS cube architecture & centralized 50+ strategic metrics.",
+              "⏱️ 30% faster development using reusable ETL templates."
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              {
+                "category": "Data Architecture",
+                "details": [
+                  "Multidimensional DWH modeling (star schema, MDX).",
+                  "SSAS cube optimization (aggregations, partitioning) for 10M+ record datasets."
+                ]
+              },
+              {
+                "category": "ETL & Automation",
+                "details": [
+                  "SSIS pipelines with incremental loading and error handling.",
+                  "Integration of 15+ heterogeneous data sources."
+                ]
+              },
+              {
+                "category": "Business Intelligence",
+                "details": [
+                  "Executive Power BI dashboards with drill-through and time slicing.",
+                  "Real-time strategic KPI implementation for decision making."
                 ]
               }
             ]

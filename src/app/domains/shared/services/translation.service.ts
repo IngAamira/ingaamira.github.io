@@ -1,5 +1,4 @@
 import { Injectable, inject } from '@angular/core';
-
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -8,19 +7,14 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class TranslationService {
 
-  private translate = inject ( TranslateService )
+  private translate = inject(TranslateService);
 
   private currentLanguageSubject: BehaviorSubject<string> = new BehaviorSubject<string>('en');
   currentLanguage$ = this.currentLanguageSubject.asObservable();
 
-  private pdfPathsDev: Record<string, string> = {
+  private pdfPaths: Record<string, string> = {
     en: 'assets/docs/CV_Dev_en.pdf',
     es: 'assets/docs/CV_Dev_es.pdf'
-  };
-
-  private pdfPathsData: Record<string, string> = {
-    en: 'assets/docs/CV_Data_en.pdf',
-    es: 'assets/docs/CV_Data_es.pdf'
   };
 
   constructor() {
@@ -33,6 +27,10 @@ export class TranslationService {
   }
 
   changeLanguage(lang: string): void {
+    if (!this.pdfPaths[lang]) {
+      console.error(`Unsupported language: ${lang}`);
+      return;
+    }
     try {
       this.translate.use(lang);
       this.currentLanguageSubject.next(lang);
@@ -45,14 +43,9 @@ export class TranslationService {
     return this.translate.instant(key);
   }
 
-  getPdfPathDev(): string {
+  getPdfPath(): string {
     const currentLanguage = this.currentLanguageSubject.getValue();
-    return this.pdfPathsDev[currentLanguage];
-  }
-
-  getPdfPathData(): string {
-    const currentLanguage = this.currentLanguageSubject.getValue();
-    return this.pdfPathsData[currentLanguage];
+    return this.pdfPaths[currentLanguage] || this.pdfPaths['en'];
   }
 
 }

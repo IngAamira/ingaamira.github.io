@@ -19,7 +19,8 @@
       "También tengo experiencia en pruebas automatizadas, buenas prácticas de seguridad y colaboración en equipos multidisciplinarios bajo metodologías ágiles.",
       "Actualmente, sigo fortaleciendo mis habilidades en frontend para ofrecer soluciones integrales de extremo a extremo.",
       "¡Conectemos si estás trabajando en desarrollo fullstack, arquitectura backend o soluciones basadas en IA!"
-    ]
+    ],
+    "CV": "Descargar CV"
   },
 
   "FEATURED_PROJECT": {
@@ -180,7 +181,7 @@
                 ]
               },
               {
-                "category": "Business Intelligence",
+                "category": "Inteligencia de Negocios",
                 "details": [
                   "Construcción de dashboards ejecutivos en Power BI con KPIs financieros.",
                   "Automatización de actualizaciones mediante Power BI Service y Gateway."
@@ -191,6 +192,13 @@
                 "details": [
                   "Particionamiento de tablas para consultas eficientes en grandes volúmenes de datos.",
                   "Estrategias de carga incremental para reducir tiempos de procesamiento."
+                ]
+              },
+              {
+                "category": "Governanza de Datos",
+                "details": [
+                  "Implementé controles de calidad de datos (reglas DQ, detección de anomalías).",
+                  "Documenté metadatos y linaje para cumplimiento."
                 ]
               }
             ]

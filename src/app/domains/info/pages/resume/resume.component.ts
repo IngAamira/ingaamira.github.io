@@ -48,22 +48,13 @@ export default class ResumeComponent {
   }
 
   public menuItemsResume = signal<MenuItemResume[]> ([
-    { name: 'PROFILE.SOFTWARE_ENGINEER', event: () => this.DownloadFileDev() },
-    { name: 'PROFILE.DATA_ENGINEER', event: () => this.DownloadFileData() },
+    { name: 'ABOUT_ME.CV', event: () => this.DownloadFile() },
   ]);
 
-  DownloadFileDev() {
+  DownloadFile() {
     const link = this.renderer.createElement('a');
     link.setAttribute('target', '_blank');
-    link.setAttribute('href', this.translationService.getPdfPathDev());
-    link.click();
-    link.remove();
-  }
-
-  DownloadFileData() {
-    const link = this.renderer.createElement('a');
-    link.setAttribute('target', '_blank');
-    link.setAttribute('href', this.translationService.getPdfPathData());
+    link.setAttribute('href', this.translationService.getPdfPath());
     link.click();
     link.remove();
   }
