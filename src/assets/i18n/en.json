@@ -385,6 +385,72 @@
     ]
   },
 
+  "TECHNICAL_SKILLS_AI": {
+    "TITLE": "Technical Skills as an AI Engineer",
+    "TOOLS": [
+      {
+        "CATEGORY": "Languages",
+        "ITEMS": [
+          "Python (Primary for AI/ML)",
+          "Java (Spring Boot)",
+          "JavaScript/TypeScript (NestJS)",
+          "SQL (T-SQL, Data Processing)"
+        ]
+      },
+      {
+        "CATEGORY": "AI/ML/LLMs",
+        "ITEMS": [
+          "NLP/LLM Integration",
+          "OpenAI/GPT Models",
+          "Chatbot Development",
+          "Intent Recognition Systems",
+          "Contextual Conversation Flows"
+        ]
+      },
+      {
+        "CATEGORY": "Cloud/DevOps",
+        "ITEMS": [
+          {
+            "NAME": "AWS",
+            "SUBITEMS": [
+              "Lambda (Serverless AI)",
+              "S3 (Model Storage)",
+              "DynamoDB (Chatbot Sessions)",
+              "Step Functions (ML Workflows)"
+            ]
+          },
+          {
+            "NAME": "Azure AI",
+            "SUBITEMS": [
+              "Cognitive Services",
+              "Azure DevOps (CI/CD)"
+            ]
+          }
+        ]
+      },
+      {
+        "CATEGORY": "Data",
+        "ITEMS": [
+          "ETL Pipelines",
+          "Data Cleansing",
+          "Incremental Loading",
+          "Power BI (AI Visualization)"
+        ]
+      },
+      {
+        "CATEGORY": "Other Tools",
+        "ITEMS": [
+          "Docker (Containerization)",
+          "Serverless Architecture",
+          "Git/Azure DevOps",
+          "REST APIs (AI Services)",
+          "OWASP Security Standards",
+          "SOLID Principles (Clean AI Code)"
+        ]
+      }
+    ]
+  },
+
   "TECHNICAL_SKILLS_DEV": {
     "TITLE": "Technical Skills as a Software Engineer",
     "TOOLS": [
@@ -406,7 +472,7 @@
         ]
       },
       {
-        "CATEGORY": "Cloud and DevOps",
+        "CATEGORY": "Cloud/DevOps",
         "ITEMS": [
           {
             "NAME": "AWS",
@@ -459,7 +525,7 @@
         ]
       },
       {
-        "CATEGORY": "Cloud and DevOps",
+        "CATEGORY": "Cloud/DevOps",
         "ITEMS": [
           {
             "NAME": "AWS",
