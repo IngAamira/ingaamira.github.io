@@ -1,7 +1,7 @@
 {
   "PROFILE": {
     "NAME": "Andrés Alfonso Mira Mejía",
-    "HEADLINE": "Ingeniero Software, Datos e IA | Transformo datos en soluciones (+60% eficiencia)"
+    "HEADLINE": "Ingeniero de Software, Datos e IA | Transformo datos en soluciones (+60% eficiencia)"
   },
 
   "NAVIGATION": {
@@ -380,6 +380,72 @@
       "Tecnológico",
       "Turismo",
       "Seguros"
+    ]
+  },
+
+  "TECHNICAL_SKILLS_AI": {
+    "TITLE": "Habilidades Técnicas como Ingeniero de IA",
+    "TOOLS": [
+      {
+        "CATEGORY": "Lenguajes",
+        "ITEMS": [
+          "Python (Primary for AI/ML)",
+          "Java (Spring Boot)",
+          "JavaScript/TypeScript (NestJS)",
+          "SQL (T-SQL, Data Processing)"
+        ]
+      },
+      {
+        "CATEGORY": "AI/ML/LLMs",
+        "ITEMS": [
+          "NLP/LLM Integration",
+          "OpenAI/GPT Models",
+          "Chatbot Development",
+          "Intent Recognition Systems",
+          "Contextual Conversation Flows"
+        ]
+      },
+      {
+        "CATEGORY": "Nube y DevOps",
+        "ITEMS": [
+          {
+            "NAME": "AWS",
+            "SUBITEMS": [
+              "Lambda (Serverless AI)",
+              "S3 (Model Storage)",
+              "DynamoDB (Chatbot Sessions)",
+              "Step Functions (ML Workflows)"
+            ]
+          },
+          {
+            "NAME": "Azure AI",
+            "SUBITEMS": [
+              "Cognitive Services",
+              "Azure DevOps (CI/CD)"
+            ]
+          }
+        ]
+      },
+      {
+        "CATEGORY": "Datos",
+        "ITEMS": [
+          "ETL Pipelines",
+          "Data Cleansing",
+          "Incremental Loading",
+          "Power BI (AI Visualization)"
+        ]
+      },
+      {
+        "CATEGORY": "Otras Habilidades",
+        "ITEMS": [
+          "Docker (Containerization)",
+          "Serverless Architecture",
+          "Git/Azure DevOps",
+          "REST APIs (AI Services)",
+          "OWASP Security Standards",
+          "SOLID Principles (Clean AI Code)"
+        ]
+      }
     ]
   },
 

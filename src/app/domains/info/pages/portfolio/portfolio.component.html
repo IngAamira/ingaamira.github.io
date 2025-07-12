@@ -19,32 +19,17 @@
         <form>
           <div class="row mx-0">
 
-            <div class="col">
-              <small><b>Languages:</b></small>
-              <div class="form-group" *ngFor="let language of languages">
+            <div class="col" *ngFor="let category of categories">
+              <small><b>{{ category.title }}:</b></small>
+              <div class="form-group" *ngFor="let item of category.items">
                 <div class="form-check">
                   <input
                     type="checkbox"
                     class="form-check-input position-static me-2"
-                    [(ngModel)]="filters[language.binding]"
+                    [(ngModel)]="filters[item.binding]"
                     (change)="Filter()"
-                    [name]="language.name">
-                  <label class="form-check-label small">{{ language.name }}</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <small><b>Frameworks:</b></small>
-              <div class="form-group" *ngFor="let framework of frameworks">
-                <div class="form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input position-static me-2"
-                    [(ngModel)]="filters[framework.binding]"
-                    (change)="Filter()"
-                    [name]="framework.name">
-                  <label class="form-check-label small">{{ framework.name }}</label>
+                    [name]="item.name">
+                  <label class="form-check-label small">{{ item.name }}</label>
                 </div>
               </div>
             </div>
