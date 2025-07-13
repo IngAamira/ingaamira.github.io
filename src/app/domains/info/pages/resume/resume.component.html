@@ -1,5 +1,4 @@
 <div class="container text-center">
-
   <div class="d-flex flex-wrap justify-content-center pb-4">
     <button *ngFor="let item of menuItemsResume()" class="btn btn-outline-primary mb-2 me-2" (click)="item.event()">
       <i class="bi bi-file-earmark-pdf-fill"></i>
@@ -9,91 +8,19 @@
 
   <div class="pb-2">
     <accordion [isAnimated]="true" class="shadow">
-
-      <accordion-group [(isOpen)]="isWorkExperienceOpen" class="d-flex flex-column">
+      <accordion-group *ngFor="let group of accordionGroups" [(isOpen)]="isOpenState[group.isOpen]" class="d-flex flex-column">
         <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
           <div style="visibility: hidden;">></div>
           <div class="btn-link">
-            <div class="text-truncate">{{ 'WORK.TITLE' | translate }}</div>
+            <div class="text-truncate">{{ group.title | translate }}</div>
           </div>
           <div style="width: 10.95px;">
-            <div *ngIf="!isWorkExperienceOpen" style="color: white;">></div>
-            <div *ngIf="isWorkExperienceOpen" style="color: white;">v</div>
+            <div *ngIf="!isOpenState[group.isOpen]" style="color: white;">></div>
+            <div *ngIf="isOpenState[group.isOpen]" style="color: white;">v</div>
           </div>
         </button>
-        <app-work-experience />
+        <ng-container *ngComponentOutlet="group.component"></ng-container>
       </accordion-group>
-
-      <accordion-group [(isOpen)]="isSectorExperienceOpen" class="d-flex flex-column">
-        <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
-          <div style="visibility: hidden;">></div>
-          <div class="btn-link">
-            <div class="text-truncate">{{ 'SECTOR.TITLE' | translate }}</div>
-          </div>
-          <div style="width: 10.95px;">
-            <div *ngIf="!isSectorExperienceOpen" style="color: white;">></div>
-            <div *ngIf="isSectorExperienceOpen" style="color: white;">v</div>
-          </div>
-        </button>
-        <app-work-sector />
-      </accordion-group>
-
-      <accordion-group [(isOpen)]="isSkillsSdOpen" class="d-flex flex-column">
-        <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
-          <div style="visibility: hidden;">></div>
-          <div class="btn-link">
-            <div class="text-truncate">{{ 'TECHNICAL_SKILLS_DEV.TITLE' | translate }}</div>
-          </div>
-          <div style="width: 10.95px;">
-            <div *ngIf="!isSkillsSdOpen" style="color: white;">></div>
-            <div *ngIf="isSkillsSdOpen" style="color: white;">v</div>
-          </div>
-        </button>
-        <app-work-dev />
-      </accordion-group>
-
-      <accordion-group [(isOpen)]="isSkillsDeOpen" class="d-flex flex-column">
-        <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
-          <div style="visibility: hidden;">></div>
-          <div class="btn-link">
-            <div class="text-truncate">{{ 'TECHNICAL_SKILLS_DATA.TITLE' | translate }}</div>
-          </div>
-          <div style="width: 10.95px;">
-            <div *ngIf="!isSkillsDeOpen" style="color: white;">></div>
-            <div *ngIf="isSkillsDeOpen" style="color: white;">v</div>
-          </div>
-        </button>
-        <app-work-data />
-      </accordion-group>
-
-      <accordion-group [(isOpen)]="isEducationOpen" class="d-flex flex-column">
-        <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
-          <div style="visibility: hidden;">></div>
-          <div class="btn-link">
-            <div class="text-truncate">{{ 'EDUCATION.TITLE' | translate }}</div>
-          </div>
-          <div style="width: 10.95px;">
-            <div *ngIf="!isEducationOpen" style="color: white;">></div>
-            <div *ngIf="isEducationOpen" style="color: white;">v</div>
-          </div>
-        </button>
-        <app-education />
-      </accordion-group>
-
-      <accordion-group [(isOpen)]="isLanguagesOpen" class="d-flex flex-column">
-        <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
-          <div style="visibility: hidden;">></div>
-          <div class="btn-link">
-            <div class="text-truncate">{{ 'LANGUAGES.TITLE' | translate }}</div>
-          </div>
-          <div style="width: 10.95px;">
-            <div *ngIf="!isLanguagesOpen" style="color: white;">></div>
-            <div *ngIf="isLanguagesOpen" style="color: white;">v</div>
-          </div>
-        </button>
-        <app-languages />
-      </accordion-group>
-
     </accordion>
   </div>
 </div>

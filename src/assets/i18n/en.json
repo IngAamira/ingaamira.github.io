@@ -1,9 +1,7 @@
 {
   "PROFILE": {
     "NAME": "Andres Alfonso Mira Mejia",
-    "BUSINESS_INTELLIGENCE": "Business Intelligence Specialist",
-    "SOFTWARE_ENGINEER": "Software Engineer",
-    "DATA_ENGINEER": "Data Engineer"
+    "HEADLINE": "Software, Data and IA Engineer | 60% Efficiency Boost in Data-Driven Solutions"
   },
 
   "NAVIGATION": {
@@ -21,7 +19,8 @@
       "I also have experience with automated testing, secure development practices, and collaborating with cross-functional teams in agile environments.",
       "Currently, I’m deepening my frontend skills to provide fully integrated end-to-end solutions.",
       "Let’s connect if you’re working on anything related to fullstack development, backend architecture, or conversational AI!"
-    ]
+    ],
+    "CV": "Download CV"
   },
 
   "FEATURED_PROJECT": {
@@ -39,50 +38,169 @@
           {
             "TITLE": "Software Engineer",
             "DATE": "02/2025 – Present",
-            "OBJECTIVES": [
-              "Development and maintenance of backend and frontend applications using NestJS and Angular, designed for functional users to create conversational experiences through the bot-engine microservice.",
-              "Actively involved in defining conversation flows, building responses and interaction paths that users can follow when interacting with a chatbot.",
-              "Contributed to Generative Systems and Artificial Intelligence teams, focusing on the design, development, and maintenance of chatbot platforms leveraging Natural Language Processing (NLP) and Machine Learning solutions.",
-              "Implemented microservices using event-driven messaging architectures.",
-              "Developed CI/CD pipelines in Azure DevOps for deployments across DEV, QA, and PROD environments, integrating with AWS services.",
-              "Managed microservice security, addressing critical and high vulnerabilities through regulatory scans, security configuration, and secure header management to mitigate risks.",
-              "Designed and executed comprehensive test plans, including unit, modular, end-to-end (E2E), and performance tests using tools like JMeter, Karate, and PyTest.",
-              "Maintained up-to-date technical documentation, ensuring efficient support and continuous operation of developed solutions."
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "⚡ 60% chatbot performance boost │ Optimized backend architecture and component reuse in NestJS.",
+              "⏱️ 30% faster development │ Standardized modules using Hexagonal/Onion patterns and SOLID principles.",
+              "🔒 -20% technical debt │ Applied SOLID principles and design patterns in systematic refactoring."
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              {
+                "category": "Backend & Cloud Architecture",
+                "details": [
+                  "Built scalable APIs with Spring Boot/NestJS.",
+                  "Implemented event-driven microservices on AWS (Lambda, S3, DynamoDB)."
+                ]
+              },
+              {
+                "category": "AI/Conversational Systems",
+                "details": [
+                  "Integrated LLMs (NLP) and ML workflows for chatbot intelligence.",
+                  "Developed contextual conversation flows with 85% intent recognition accuracy."
+                ]
+              },
+              {
+                "category": "Frontend",
+                "details": [
+                  "Angular development with mobile-first responsive design.",
+                  "Implemented state management (NgRx) for complex chat interfaces."
+                ]
+              },
+              {
+                "category": "DevOps",
+                "details": [
+                  "CI/CD pipelines with Azure DevOps (50+ automated builds/week).",
+                  "Comprehensive testing suite (PyTest, JMeter, Karate)."
+                ]
+              },
+              {
+                "category": "Security",
+                "details": [
+                  "API hardening with OWASP standards.",
+                  "Vulnerability scanning reduced security incidents by 40%."
+                ]
+              }
             ]
           },
           {
             "TITLE": "Data Warehouse Developer",
             "DATE": "05/2024 – 01/2025",
-            "OBJECTIVES": [
-              "Turned data into insights that drove informed decisions.",
-              "Architected, enhanced, and nurtured Data Warehouse models.",
-              "Shaped, evolved, and tended Tabular and Multidimensional Cubes.",
-              "Crafted, nurtured, and ensured robust ETL processes.",
-              "Sculpted, energized, and championed control panels (Dashboards and KPIs)."
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "🚀 50% faster report generation │ Automated ETL transformations and reused Power BI visualizations.",
+              "⚡ 40% improvement in dashboard refresh times │ Optimized data flows with partitioning and incremental load strategies."
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              {
+                "category": "Data Modeling & Architecture",
+                "details": [
+                  "Designed dimensional models (Star Schema) for financial analysis and executive decision-making.",
+                  "Built OLAP-optimized structures (aggregations, hierarchies) for high-performance analytics."
+                ]
+              },
+              {
+                "category": "ETL & Data Integration",
+                "details": [
+                  "Developed scalable ETL pipelines using SSIS (error handling, logging, and validation frameworks).",
+                  "Implemented incremental data loading and cleansing (SQL Server, T-SQL)."
+                ]
+              },
+              {
+                "category": "Business Intelligence & Visualization",
+                "details": [
+                  "Delivered executive dashboards in Power BI with financial/operational KPIs.",
+                  "Automated report updates (Power BI Gateway, scheduled refreshes)."
+                ]
+              },
+              {
+                "category": "Performance Optimization",
+                "details": [
+                  "Reduced query latency via table partitioning and SQL tuning.",
+                  "Cut processing time with delta-load strategies and parallel execution."
+                ]
+              }
             ]
           },
           {
             "TITLE": "Software Developer",
-            "DATE": "07/2023 - 04/2024",
-            "OBJECTIVES": [
-              "Development and maintenance of backend applications using Java and Spring Boot.",
-              "Strong skills in dependency injection to ensure modularity and ease of maintenance.",
-              "Development and maintenance of frontend applications using HTML, CSS, and Angular.",
-              "Strong skills in adhering to the Single Responsibility Principle.",
-              "Implementation of REST API services to expose key functionalities, following design standards and best practices.",
-              "Efficient access to databases using technologies like JDBC and JPA to ensure data integrity and management.",
-              "Active collaboration in the exposure and consumption of web services, facilitating the integration of external systems and improving operational efficiency.",
-              "Strong skills in object-oriented programming (OOP) and familiarity with functional and reactive programming concepts."
+            "DATE": "07/2023 – 04/2024",
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "⏱️ -30% feature development time │ Standardized reusable components and enforced DRY/KISS principles.",
+              "⚙️ Improved code maintainability │ Applied Hexagonal/Onion architectures and patterns (MVC, Singleton, Adapter)."
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              {
+                "category": "Backend Development",
+                "details": [
+                  "REST APIs with Java 11/17 + Spring Boot (clean architecture, JPA/Hibernate).",
+                  "Design patterns: Singleton (thread-safe), Adapter (legacy system integration), MVC."
+                ]
+              },
+              {
+                "category": "Frontend Development",
+                "details": [
+                  "Collaborative work with Angular (components, services, RxJS).",
+                  "UI implementation using HTML/CSS (responsive design)."
+                ]
+              },
+              {
+                "category": "Process & Collaboration",
+                "details": [
+                  "Code reviews focused on SOLID principles and performance optimization.",
+                  "Agile methodologies (Scrum/Kanban) with CI/CD practices."
+                ]
+              }
             ]
           },
           {
             "TITLE": "Data Warehouse Developer",
-            "DATE": "12/2022 - 06/2023",
-            "OBJECTIVES": [
-              "Designed and developed Data Warehouse (DWH) models.",
-              "Implemented ETL processes and created dashboards and KPIs.",
-              "Utilized Microsoft BI Suite (SQL, SSIS, SSAS, SSRS, and Power BI) for statistics and financial analysis.",
-              "Participated in Scrum projects."
+            "DATE": "12/2022 – 06/2023",
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "⚡ 40% faster report updates │ Automated ETL loads, data cleansing, and strategic partitioning.",
+              "📊 50% more efficient report generation │ Optimized transformations and reusable Power BI components."
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              {
+                "category": "Data Modeling & Architecture",
+                "details": [
+                  "Designed dimensional structures for DWH (star schema, OLAP cubes).",
+                  "Data normalization for financial analysis and executive decision-making."
+                ]
+              },
+              {
+                "category": "ETL & Integration",
+                "details": [
+                  "Built robust ETL pipelines using SQL Server Integration Services (SSIS).",
+                  "Implemented data validation frameworks and error handling mechanisms."
+                ]
+              },
+              {
+                "category": "Business Intelligence",
+                "details": [
+                  "Developed executive dashboards in Power BI with financial KPIs.",
+                  "Automated refreshes using Power BI Service & Gateway."
+                ]
+              },
+              {
+                "category": "Performance Optimization",
+                "details": [
+                  "Table partitioning for efficient large-volume data queries.",
+                  "Incremental load strategies to reduce processing time."
+                ]
+              },
+              {
+                "category": "Data Governance",
+                "details": [
+                  "Implemented data quality checks (DQ rules, anomaly detection).",
+                  "Documented metadata and lineage for compliance."
+                ]
+              }
             ]
           }
         ]
@@ -93,11 +211,34 @@
           {
             "TITLE": "Developer Analyst",
             "DATE": "06/2022 - 11/2022",
-            "OBJECTIVES": [
-              "Automated processes through Python-based Web Scraping.",
-              "Designed and developed Data Warehouse and Tabular Cube models.",
-              "Created ETL processes and dashboards.",
-              "Generated BI reports in the cloud."
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "📊 60% increase in data availability │ Implemented robust data collection and transformation frameworks.",
+              "⏱️ 50% reduction in manual tasks │ Automated processes via Python scripts and custom ETL pipelines."
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              {
+                "category": "Automation Engineering",
+                "details": [
+                  "Developed real-time data capture systems using Python (BeautifulSoup, Scrapy).",
+                  "Built custom ETL workflows for data cleansing and standardization."
+                ]
+              },
+              {
+                "category": "Advanced Business Intelligence",
+                "details": [
+                  "Designed tabular models for multidimensional analysis.",
+                  "Created Power BI dashboards with commercial KPIs for executive decision-making."
+                ]
+              },
+              {
+                "category": "Process Optimization",
+                "details": [
+                  "Streamlined data flows to eliminate redundancies (+40% data quality improvement).",
+                  "Implemented data validation protocols reducing errors by 35%."
+                ]
+              }
             ]
           }
         ]
@@ -108,22 +249,84 @@
           {
             "TITLE": "BI Engineer",
             "DATE": "03/2021 - 06/2022",
-            "OBJECTIVES": [
-              "Designed and continuously improved databases and ETL processes.",
-              "Researched and adopted best practices in business intelligence and data mining.",
-              "Automated processes using integration tools and file capture.",
-              "Developed reports and dashboards for business monitoring and control."
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "⚡ 50% faster report delivery │ Automated ETL pipelines and Power BI dashboard generation.",
+              "🤝 40% team efficiency gain │ Implemented Git Flow and BI process standardization."
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              {
+                "category": "ETL & Data Warehousing",
+                "details": [
+                  "Designed SSIS datamarts (complex packages with error handling).",
+                  "Automated executive reports with SSRS (dynamic parameters, subscriptions)."
+                ]
+              },
+              {
+                "category": "Business Intelligence",
+                "details": [
+                  "Built 10+ interactive Power BI dashboards (DAX, RLS).",
+                  "Data modeling for operational/strategic analysis."
+                ]
+              },
+              {
+                "category": "BI DevOps",
+                "details": [
+                  "Established Git Flow for production version control.",
+                  "Configured CI/CD pipelines for automated BI deployments."
+                ]
+              },
+              {
+                "category": "Technical Leadership",
+                "details": [
+                  "Reduced production errors by 35% through code reviews.",
+                  "Trained team on ETL/Power BI best practices (+ documentation)."
+                ]
+              }
             ]
           },
           {
             "TITLE": "Programming and Control Analyst",
             "DATE": "12/2012 - 11/2019",
-            "OBJECTIVES": [
-              "Data analysis to support operations and report generation.",
-              "Agent and workforce planning and sizing.",
-              "Database management and indicator development.",
-              "Process automation using RPA.",
-              "Report and dashboard development in Power BI and Zendesk."
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "✅ +40% reporting efficiency │ Automated 15+ payroll/operations reports (Power BI + Excel VBA), reducing generation time from 8h → 30min.",
+              "✅ Unified dashboards with early-warning alerts for KPI non-compliance.",
+              "✅ +95% planning accuracy │ Shift schedule modeling based on historical data and forecasting, optimizing resource allocation.",
+              "✅ Achieved 20% cost reduction by eliminating over/understaffing.",
+              "✅ +30% billing speed │ Implemented automated service data consolidation (SQL + Power Query).",
+              "✅ Eliminated manual errors in financial reporting."
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              {
+                "category": "Automation",
+                "details": [
+                  "Developed VBA scripts for payroll data consolidation (SAP → Excel integration)."
+                ]
+              },
+              {
+                "category": "Power BI Dashboards with DAX",
+                "details": [
+                  "SLA compliance tracking (contact center/BPO).",
+                  "Per-agent/shift efficiency monitoring."
+                ]
+              },
+              {
+                "category": "Data Modeling",
+                "details": [
+                  "Call volume vs. resource allocation.",
+                  "Hourly/weekly demand patterns."
+                ]
+              },
+              {
+                "category": "Process Optimization",
+                "details": [
+                  "Implemented early-alert system for critical metrics (Abandonment Rate, AHT).",
+                  "Standardized executive reporting templates."
+                ]
+              }
             ]
           }
         ]
@@ -134,11 +337,34 @@
           {
             "TITLE": "BI Engineer",
             "DATE": "12/2019 - 03/2021",
-            "OBJECTIVES": [
-              "Researched and adopted best practices in business intelligence and data mining.",
-              "Designed and developed Data Warehouse and Tabular Cube models.",
-              "Implemented ETL processes and created dashboards.",
-              "Generated BI reports in the cloud."
+            "TITLE_ACHIEVEMENTS": "Key Achievements",
+            "ACHIEVEMENTS": [
+              "⚡ 70% faster OLAP queries │ Redesigned SSAS cube architecture & centralized 50+ strategic metrics.",
+              "⏱️ 30% faster development using reusable ETL templates."
+            ],
+            "TITLE_CONTRIBUTIONS": "Technical Contributions",
+            "CONTRIBUTIONS": [
+              {
+                "category": "Data Architecture",
+                "details": [
+                  "Multidimensional DWH modeling (star schema, MDX).",
+                  "SSAS cube optimization (aggregations, partitioning) for 10M+ record datasets."
+                ]
+              },
+              {
+                "category": "ETL & Automation",
+                "details": [
+                  "SSIS pipelines with incremental loading and error handling.",
+                  "Integration of 15+ heterogeneous data sources."
+                ]
+              },
+              {
+                "category": "Business Intelligence",
+                "details": [
+                  "Executive Power BI dashboards with drill-through and time slicing.",
+                  "Real-time strategic KPI implementation for decision making."
+                ]
+              }
             ]
           }
         ]
@@ -156,6 +382,72 @@
       "Technology",
       "Tourism",
       "Insurances"
+    ]
+  },
+
+  "TECHNICAL_SKILLS_AI": {
+    "TITLE": "Technical Skills as an AI Engineer",
+    "TOOLS": [
+      {
+        "CATEGORY": "Languages",
+        "ITEMS": [
+          "Python (Primary for AI/ML)",
+          "Java (Spring Boot)",
+          "JavaScript/TypeScript (NestJS)",
+          "SQL (T-SQL, Data Processing)"
+        ]
+      },
+      {
+        "CATEGORY": "AI/ML/LLMs",
+        "ITEMS": [
+          "NLP/LLM Integration",
+          "OpenAI/GPT Models",
+          "Chatbot Development",
+          "Intent Recognition Systems",
+          "Contextual Conversation Flows"
+        ]
+      },
+      {
+        "CATEGORY": "Cloud/DevOps",
+        "ITEMS": [
+          {
+            "NAME": "AWS",
+            "SUBITEMS": [
+              "Lambda (Serverless AI)",
+              "S3 (Model Storage)",
+              "DynamoDB (Chatbot Sessions)",
+              "Step Functions (ML Workflows)"
+            ]
+          },
+          {
+            "NAME": "Azure AI",
+            "SUBITEMS": [
+              "Cognitive Services",
+              "Azure DevOps (CI/CD)"
+            ]
+          }
+        ]
+      },
+      {
+        "CATEGORY": "Data",
+        "ITEMS": [
+          "ETL Pipelines",
+          "Data Cleansing",
+          "Incremental Loading",
+          "Power BI (AI Visualization)"
+        ]
+      },
+      {
+        "CATEGORY": "Other Tools",
+        "ITEMS": [
+          "Docker (Containerization)",
+          "Serverless Architecture",
+          "Git/Azure DevOps",
+          "REST APIs (AI Services)",
+          "OWASP Security Standards",
+          "SOLID Principles (Clean AI Code)"
+        ]
+      }
     ]
   },
 
@@ -180,7 +472,7 @@
         ]
       },
       {
-        "CATEGORY": "Cloud and DevOps",
+        "CATEGORY": "Cloud/DevOps",
         "ITEMS": [
           {
             "NAME": "AWS",
@@ -233,7 +525,7 @@
         ]
       },
       {
-        "CATEGORY": "Cloud and DevOps",
+        "CATEGORY": "Cloud/DevOps",
         "ITEMS": [
           {
             "NAME": "AWS",
@@ -312,5 +604,4 @@
   "FOOTER": {
     "TEXT": "Let's drive the future together!"
   }
-
 }

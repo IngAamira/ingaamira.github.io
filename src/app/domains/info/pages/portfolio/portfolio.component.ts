@@ -32,6 +32,11 @@ export default class PortfolioComponent implements OnInit {
     { name: 'Node Js', binding: 'nodejs' }
   ];
 
+  categories = [
+    { title: 'Languages', items: this.languages },
+    { title: 'Frameworks', items: this.frameworks }
+  ];
+
   projects = {} as Project[];
 
   /* Processes */
