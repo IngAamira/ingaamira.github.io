@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { NgxBootstrapModule } from '../../../shared/modules/ngx-bootstrap.module';
-import { Project } from '../../../shared/interfaces/project';
+import { Project, FeaturedProject } from '../../../shared/interfaces/project';
 import { ProjectsService } from '../../../shared/services/projects.service';
-import { AboutMeTexts } from '../../interfaces/i18n-item';
+import { Observable, map, startWith, switchMap } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -15,15 +15,13 @@ import { AboutMeTexts } from '../../interfaces/i18n-item';
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
-export default class HomeComponent implements OnInit {
-
-  project = {} as Project;
+export default class HomeComponent {
+  project: Project;
   years: number;
-  private readonly startDate: Date = new Date(2012, 11, 16);
-  //En JavaScript, los meses se indexan desde 0 (enero es 0, febrero es 1, etc.).
-  //Fecha de inicio de labores (16 de diciembre del 2012).
+  aboutMeTexts$: Observable<string[]>;
+  featuredProject$: Observable<FeaturedProject>;
 
-  aboutMeTexts: AboutMeTexts = { texts: [] };
+  private readonly startDate: Date = new Date(2012, 11, 16);
 
   constructor(
     private readonly titleService: Title,
@@ -32,14 +30,19 @@ export default class HomeComponent implements OnInit {
     private readonly translate: TranslateService
   ) {
     this.titleService.setTitle('Home');
-    this.years = this.calculateYears(new Date(this.startDate));
-  }
-
-  ngOnInit(): void {
     this.project = this.projectService.GetProjectById(0);
-    this.translate.get('ABOUT_ME.TEXT').subscribe((texts: string[]) => {
-      this.aboutMeTexts.texts = texts;
-    });
+    this.years = this.calculateYears(this.startDate);
+
+    this.aboutMeTexts$ = this.translate.onLangChange.pipe(
+      startWith(null),
+      switchMap(() => this.translate.get('ABOUT_ME.TEXT')),
+      map(texts => Array.isArray(texts) ? texts : [String(texts)])
+    );
+
+    this.featuredProject$ = this.translate.onLangChange.pipe(
+      startWith(null),
+      switchMap(() => this.translate.get('FEATURED_PROJECT'))
+    );
   }
 
   private calculateYears(startDate: Date): number {

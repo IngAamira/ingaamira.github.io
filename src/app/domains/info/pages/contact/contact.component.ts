@@ -1,11 +1,8 @@
 import { Component, signal } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-
 import { TranslateModule } from '@ngx-translate/core';
-
 import { MenuItemContact } from '../../../shared/interfaces/menu-item';
-
 
 @Component({
   standalone: true,
@@ -22,18 +19,14 @@ import { MenuItemContact } from '../../../shared/interfaces/menu-item';
           [href]="item.url" target="_blank"
           class="list-group-item list-group-item-action d-flex gap-3 py-3" >
           <img [src]="item.img" width="32" height="32" class="rounded-circle flex-shrink-0 me-5">
-          <h3 class="mb-0">{{ item.flag }}</h3>
+          <h3 class="mb-0">{{ item.flag | translate }}</h3>
         </a>
       </div>
     </div>
   `,
 })
 export default class ContactComponent {
-
-  constructor( private readonly titleService: Title,) {
-    this.titleService.setTitle('Contact Me');
-  }
-
+  
   public menuItemsContact = signal<MenuItemContact[]> ([
     { url: 'https://linkedin.com/in/ingaamira/',      img: 'assets/icons/linkedin.png', flag: 'Linkedin' },
     { url: 'https://github.com/IngAamira/',           img: 'assets/icons/github.png',   flag: 'GitHub'   },
@@ -42,5 +35,9 @@ export default class ContactComponent {
     { url: 'https://twitter.com/Ingaamira/',          img: 'assets/icons/twitter.png',  flag: 'Twitter'  },
     { url: 'mailto:andres.mira@outlook.com/',         img: 'assets/icons/e-mail.png',   flag: 'Email'    },
   ]);
+
+  constructor(private readonly titleService: Title) {
+    this.titleService.setTitle('Contact Me');
+  }
 
 }

@@ -8,3 +8,9 @@ export interface Project {
   pictures: string[];
   tags: Tag[];
 }
+
+export interface FeaturedProject {
+  TITLE: string;
+  SUMMARY: string;
+  INFO: string;
+}
