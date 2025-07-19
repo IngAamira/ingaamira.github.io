@@ -23,9 +23,9 @@ export interface ItemTechnicalSkill {
 }
 
 /*Work Experience*/
-export interface Contribution {
-  category: string;
-  details: string[];
+export interface Company {
+  name: string;
+  jobs: Job[];
 }
 
 export interface Job {
@@ -37,9 +37,9 @@ export interface Job {
   contributions: Contribution[];
 }
 
-export interface Company {
-  name: string;
-  jobs: Job[];
+export interface Contribution {
+  category: string;
+  details: string[];
 }
 
 /*Work Sector*/

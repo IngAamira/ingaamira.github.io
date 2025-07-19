@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+import { Observable, map, startWith, switchMap } from 'rxjs';
 import { ItemLanguage } from '../../interfaces/i18n-item';
 
 @Component({
@@ -11,7 +11,7 @@ import { ItemLanguage } from '../../interfaces/i18n-item';
   template: `
     <div style="text-align: left;">
       <ul>
-        <li *ngFor="let item of itemsLanguage">
+        <li *ngFor="let item of itemsLanguage$ | async">
           <strong>{{ item.name | translate }}:</strong>
           {{ item.proficiency | translate }}
         </li>
@@ -19,31 +19,20 @@ import { ItemLanguage } from '../../interfaces/i18n-item';
     </div>
   `,
 })
-export class LanguageComponent implements OnInit, OnDestroy {
-  itemsLanguage: ItemLanguage[] = [];
-  private langChangeSubscription!: Subscription;
+export class LanguageComponent {
+  itemsLanguage$: Observable<ItemLanguage[]>;
 
-  constructor(private readonly translate: TranslateService) {}
-
-  ngOnInit(): void {
-    this.loadLanguages();
-    this.langChangeSubscription = this.translate.onLangChange.subscribe(() => {
-      this.loadLanguages();
-    });
+  constructor(private readonly translate: TranslateService) {
+    this.itemsLanguage$ = this.translate.onLangChange.pipe(
+      startWith(null),
+      switchMap(() => this.translate.get('LANGUAGES.DETAILS')),
+      map((data: any[]) =>
+        (data || []).map(item => ({
+          name: item.NAME,
+          proficiency: item.PROFICIENCY,
+        }))
+      )
+    );
   }
-
-  private loadLanguages(): void {
-    this.translate.get('LANGUAGES.DETAILS').subscribe((data: any[]) => {
-      this.itemsLanguage = data.map(item => ({
-        name: item.NAME,
-        proficiency: item.PROFICIENCY,
-      }));
-    });
-  }
-
-  ngOnDestroy(): void {
-    if (this.langChangeSubscription) {
-      this.langChangeSubscription.unsubscribe();
-    }
-  }
+  
 }

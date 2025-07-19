@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+import { Observable, map, startWith, switchMap } from 'rxjs';
 import { ItemSector } from '../../interfaces/i18n-item';
 
 @Component({
@@ -9,42 +9,29 @@ import { ItemSector } from '../../interfaces/i18n-item';
   standalone: true,
   imports: [CommonModule, TranslateModule],
   template: `
-      <div class="container">
-        <ul style="text-align: left;">
-          <li *ngFor="let sector of itemsSector[0]?.sectors">
-            {{ sector | translate }}
-          </li>
-        </ul>
-      </div>
-    `,
+    <div class="container">
+      <ul style="text-align: left;">
+        <li *ngFor="let sector of (itemsSector$ | async)?.[0]?.sectors">
+          {{ sector | translate }}
+        </li>
+      </ul>
+    </div>
+  `,
 })
-export class WorkSectorComponent implements OnInit, OnDestroy {
-  itemsSector: ItemSector[] = [];
-  private langChangeSubscription!: Subscription;
+export class WorkSectorComponent {
+  itemsSector$: Observable<ItemSector[]>;
 
-  constructor(private readonly translate: TranslateService) {}
-
-  ngOnInit(): void {
-    this.loadSectors();
-    this.langChangeSubscription = this.translate.onLangChange.subscribe(() => {
-      this.loadSectors();
-    });
-  }
-
-  private loadSectors(): void {
-    this.translate.get('SECTOR').subscribe((data: any) => {
-      this.itemsSector = [
+  constructor(private readonly translate: TranslateService) {
+    this.itemsSector$ = this.translate.onLangChange.pipe(
+      startWith(null),
+      switchMap(() => this.translate.get('SECTOR')),
+      map((data: any) => [
         {
           title: data.TITLE,
           sectors: data.SECTORS,
         },
-      ];
-    });
+      ])
+    );
   }
-
-  ngOnDestroy(): void {
-    if (this.langChangeSubscription) {
-      this.langChangeSubscription.unsubscribe();
-    }
-  }
+  
 }

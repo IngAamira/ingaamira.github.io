@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+import { Observable, map, startWith, switchMap } from 'rxjs';
 import { University } from '../../interfaces/i18n-item';
 
 @Component({
@@ -10,7 +10,7 @@ import { University } from '../../interfaces/i18n-item';
   imports: [CommonModule, TranslateModule],
   template: `
     <div class="container">
-      <div *ngFor="let university of universities">
+      <div *ngFor="let university of universities$ | async">
         <div style="text-align: left;">
           <div class="text-primary">{{ university.name | translate }}</div>
           <ul>
@@ -24,34 +24,23 @@ import { University } from '../../interfaces/i18n-item';
     </div>
   `,
 })
-export class EducationComponent implements OnInit, OnDestroy {
-  universities: University[] = [];
-  private langChangeSubscription!: Subscription;
+export class EducationComponent {
+  universities$: Observable<University[]>;
 
-  constructor(private readonly translate: TranslateService) {}
-
-  ngOnInit(): void {
-    this.loadEducationData();
-    this.langChangeSubscription = this.translate.onLangChange.subscribe(() => {
-      this.loadEducationData();
-    });
+  constructor(private readonly translate: TranslateService) {
+    this.universities$ = this.translate.onLangChange.pipe(
+      startWith(null),
+      switchMap(() => this.translate.get('EDUCATION.UNIVERSITIES')),
+      map((data: any[]) =>
+        (data || []).map(university => ({
+          name: university.NAME,
+          degrees: (university.DEGREES || []).map((degree: any) => ({
+            title: degree.TITLE,
+            dateRange: degree.DATE_RANGE,
+          })),
+        }))
+      )
+    );
   }
-
-  private loadEducationData(): void {
-    this.translate.get('EDUCATION.UNIVERSITIES').subscribe((data: any[]) => {
-      this.universities = data.map(university => ({
-        name: university.NAME,
-        degrees: university.DEGREES.map((degree: { TITLE: any; DATE_RANGE: any; }) => ({
-          title: degree.TITLE,
-          dateRange: degree.DATE_RANGE,
-        })),
-      }));
-    });
-  }
-
-  ngOnDestroy(): void {
-    if (this.langChangeSubscription) {
-      this.langChangeSubscription.unsubscribe();
-    }
-  }
+  
 }
