@@ -28,7 +28,7 @@ export class EducationComponent implements OnInit, OnDestroy {
   universities: University[] = [];
   private langChangeSubscription!: Subscription;
 
-  constructor(private translate: TranslateService) {}
+  constructor(private readonly translate: TranslateService) {}
 
   ngOnInit(): void {
     this.loadEducationData();

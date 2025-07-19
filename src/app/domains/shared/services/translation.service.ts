@@ -8,17 +8,17 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class TranslationService {
 
-  private translate = inject ( TranslateService )
+  private readonly translate = inject ( TranslateService )
 
-  private currentLanguageSubject: BehaviorSubject<string> = new BehaviorSubject<string>('en');
+  private readonly currentLanguageSubject: BehaviorSubject<string> = new BehaviorSubject<string>('en');
   currentLanguage$ = this.currentLanguageSubject.asObservable();
 
-  private pdfPathsDev: Record<string, string> = {
+  private readonly pdfPathsDev: Record<string, string> = {
     en: 'assets/docs/CV_Dev_en.pdf',
     es: 'assets/docs/CV_Dev_es.pdf'
   };
 
-  private pdfPathsData: Record<string, string> = {
+  private readonly pdfPathsData: Record<string, string> = {
     en: 'assets/docs/CV_Data_en.pdf',
     es: 'assets/docs/CV_Data_es.pdf'
   };

@@ -30,7 +30,7 @@ import { MenuItemContact } from '../../../shared/interfaces/menu-item';
 })
 export default class ContactComponent {
 
-  constructor( private titleService: Title,) {
+  constructor( private readonly titleService: Title,) {
     this.titleService.setTitle('Contact Me');
   }
 

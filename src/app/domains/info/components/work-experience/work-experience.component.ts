@@ -44,7 +44,7 @@ export class WorkExperienceComponent implements OnInit, OnDestroy {
   companies: Company[] = [];
   private langChangeSubscription!: Subscription;
 
-  constructor(private translate: TranslateService) {}
+  constructor(private readonly translate: TranslateService) {}
 
   ngOnInit(): void {
     this.loadWorkExperience();
@@ -55,21 +55,33 @@ export class WorkExperienceComponent implements OnInit, OnDestroy {
 
   private loadWorkExperience(): void {
     this.translate.get('WORK.COMPANIES').subscribe((data: any[]) => {
-      this.companies = data.map(company => ({
-        name: company.NAME,
-        jobs: company.JOBS.map((job: any) => ({
-          title: job.TITLE,
-          date: job.DATE,
-          title_achievements: job.TITLE_ACHIEVEMENTS,
-          achievements: job.ACHIEVEMENTS,
-          title_contributions: job.TITLE_CONTRIBUTIONS,
-          contributions: job.CONTRIBUTIONS.map((contribution: any) => ({
-            category: contribution.category,
-            details: contribution.details,
-          })),
-        })),
-      }));
+      this.companies = data.map(this.mapCompany);
     });
+  }
+
+  private mapCompany(company: any): Company {
+    return {
+      name: company.NAME,
+      jobs: company.JOBS.map(this.mapJob),
+    };
+  }
+
+  private mapJob(job: any): any {
+    return {
+      title: job.TITLE,
+      date: job.DATE,
+      title_achievements: job.TITLE_ACHIEVEMENTS,
+      achievements: job.ACHIEVEMENTS,
+      title_contributions: job.TITLE_CONTRIBUTIONS,
+      contributions: job.CONTRIBUTIONS.map(this.mapContribution),
+    };
+  }
+
+  private mapContribution(contribution: any): any {
+    return {
+      category: contribution.category,
+      details: contribution.details,
+    };
   }
 
   ngOnDestroy(): void {

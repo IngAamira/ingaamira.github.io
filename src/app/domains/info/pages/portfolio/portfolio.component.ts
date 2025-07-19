@@ -49,7 +49,7 @@ export default class PortfolioComponent implements OnInit {
     nodejs: false
   };
 
-  constructor(private titleService: Title, private projectService: ProjectsService) {
+  constructor(private readonly titleService: Title, private readonly projectService: ProjectsService) {
     this.titleService.setTitle('Portfolio');
   }
 

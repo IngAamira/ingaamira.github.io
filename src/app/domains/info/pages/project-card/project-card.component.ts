@@ -16,7 +16,7 @@ export class ProjectCardComponent {
   @Input() project = {} as Project;
   bsModalRef?: BsModalRef;
 
-  constructor(private modalService: BsModalService) { }
+  constructor(private readonly modalService: BsModalService) { }
 
   OpenProjectModal() {
     const modalOptions:ModalOptions = {

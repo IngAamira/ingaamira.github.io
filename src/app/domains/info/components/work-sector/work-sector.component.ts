@@ -22,7 +22,7 @@ export class WorkSectorComponent implements OnInit, OnDestroy {
   itemsSector: ItemSector[] = [];
   private langChangeSubscription!: Subscription;
 
-  constructor(private translate: TranslateService) {}
+  constructor(private readonly translate: TranslateService) {}
 
   ngOnInit(): void {
     this.loadSectors();

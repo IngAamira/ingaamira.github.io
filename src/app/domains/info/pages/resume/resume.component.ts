@@ -20,7 +20,6 @@ import { WorkSectorComponent } from '../../components/work-sector/work-sector.co
     CommonModule,
     TranslateModule,
     NgxBootstrapModule,
-
     WorkExperienceComponent,
     WorkDataComponent,
     WorkDevComponent,
@@ -40,9 +39,9 @@ export default class ResumeComponent {
   isLanguagesOpen: boolean = false;
 
   constructor(
-    private titleService: Title,
-    private renderer: Renderer2,
-    private translationService: TranslationService
+    private readonly titleService: Title,
+    private readonly renderer: Renderer2,
+    private readonly translationService: TranslationService
   ) {
     this.titleService.setTitle('Resume');
   }
