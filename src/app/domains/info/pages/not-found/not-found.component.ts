@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
 })
 export default class NotFoundComponent {
 
-  constructor (private readonly titleService: Title) {
+  constructor (private titleService: Title) {
     this.titleService.setTitle('404')
   }
 

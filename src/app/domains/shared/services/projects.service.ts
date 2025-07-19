@@ -141,7 +141,7 @@ export class ProjectsService {
       let foundAll = true;
 
       filterTags.forEach(function (filterTag) {
-        if (!project.tags.includes(filterTag)) {
+        if (project.tags.includes(filterTag) == false) {
           foundAll = false;
         }
       });

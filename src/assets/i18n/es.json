@@ -1,7 +1,7 @@
 {
   "PROFILE": {
     "NAME": "Andrés Alfonso Mira Mejía",
-    "HEADLINE": "Ingeniero Software, Datos e IA | Transformo datos en soluciones (+60% eficiencia)"
+    "HEADLINE": "Ingeniero de Software, Datos e IA | Transformo datos en soluciones (+60% eficiencia)"
   },
 
   "NAVIGATION": {
@@ -19,7 +19,8 @@
       "También tengo experiencia en pruebas automatizadas, buenas prácticas de seguridad y colaboración en equipos multidisciplinarios bajo metodologías ágiles.",
       "Actualmente, sigo fortaleciendo mis habilidades en frontend para ofrecer soluciones integrales de extremo a extremo.",
       "¡Conectemos si estás trabajando en desarrollo fullstack, arquitectura backend o soluciones basadas en IA!"
-    ]
+    ],
+    "CV": "Descargar CV"
   },
 
   "FEATURED_PROJECT": {
@@ -180,7 +181,7 @@
                 ]
               },
               {
-                "category": "Business Intelligence",
+                "category": "Inteligencia de Negocios",
                 "details": [
                   "Construcción de dashboards ejecutivos en Power BI con KPIs financieros.",
                   "Automatización de actualizaciones mediante Power BI Service y Gateway."
@@ -191,6 +192,13 @@
                 "details": [
                   "Particionamiento de tablas para consultas eficientes en grandes volúmenes de datos.",
                   "Estrategias de carga incremental para reducir tiempos de procesamiento."
+                ]
+              },
+              {
+                "category": "Governanza de Datos",
+                "details": [
+                  "Implementé controles de calidad de datos (reglas DQ, detección de anomalías).",
+                  "Documenté metadatos y linaje para cumplimiento."
                 ]
               }
             ]
@@ -375,6 +383,72 @@
     ]
   },
 
+  "TECHNICAL_SKILLS_AI": {
+    "TITLE": "Habilidades Técnicas como Ingeniero de IA",
+    "TOOLS": [
+      {
+        "CATEGORY": "Lenguajes",
+        "ITEMS": [
+          "Python (Primary for AI/ML)",
+          "Java (Spring Boot)",
+          "JavaScript/TypeScript (NestJS)",
+          "SQL (T-SQL, Data Processing)"
+        ]
+      },
+      {
+        "CATEGORY": "AI/ML/LLMs",
+        "ITEMS": [
+          "NLP/LLM Integration",
+          "OpenAI/GPT Models",
+          "Chatbot Development",
+          "Intent Recognition Systems",
+          "Contextual Conversation Flows"
+        ]
+      },
+      {
+        "CATEGORY": "Nube y DevOps",
+        "ITEMS": [
+          {
+            "NAME": "AWS",
+            "SUBITEMS": [
+              "Lambda (Serverless AI)",
+              "S3 (Model Storage)",
+              "DynamoDB (Chatbot Sessions)",
+              "Step Functions (ML Workflows)"
+            ]
+          },
+          {
+            "NAME": "Azure AI",
+            "SUBITEMS": [
+              "Cognitive Services",
+              "Azure DevOps (CI/CD)"
+            ]
+          }
+        ]
+      },
+      {
+        "CATEGORY": "Datos",
+        "ITEMS": [
+          "ETL Pipelines",
+          "Data Cleansing",
+          "Incremental Loading",
+          "Power BI (AI Visualization)"
+        ]
+      },
+      {
+        "CATEGORY": "Otras Habilidades",
+        "ITEMS": [
+          "Docker (Containerization)",
+          "Serverless Architecture",
+          "Git/Azure DevOps",
+          "REST APIs (AI Services)",
+          "OWASP Security Standards",
+          "SOLID Principles (Clean AI Code)"
+        ]
+      }
+    ]
+  },
+
   "TECHNICAL_SKILLS_DEV": {
     "TITLE": "Habilidades Técnicas como Ingeniero de Software",
     "TOOLS": [
@@ -485,7 +559,7 @@
   },
 
   "EDUCATION": {
-    "TITLE": "Education",
+    "TITLE": "Educación",
     "UNIVERSITIES": [
       {
         "NAME": "Universidad Católica del Norte",

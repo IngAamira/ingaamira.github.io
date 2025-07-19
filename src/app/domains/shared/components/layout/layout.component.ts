@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { HeaderComponent } from '../header/header.component';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { FooterComponent } from '../footer/footer.component';
+import { HeaderComponent } from './../../../shared/components/header/header.component';
+import { NavbarComponent } from './../../../shared/components/navbar/navbar.component';
+import { FooterComponent } from './../../../shared/components/footer/footer.component';
 
 @Component({
   selector: 'app-layout',

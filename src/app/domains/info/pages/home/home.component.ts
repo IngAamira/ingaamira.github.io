@@ -22,17 +22,17 @@ export default class HomeComponent implements OnInit {
 
   project = {} as Project;
   years: number;
-  private readonly startDate: Date = new Date(2012, 11, 16);
+  private startDate: Date = new Date(2012, 11, 16);
   //En JavaScript, los meses se indexan desde 0 (enero es 0, febrero es 1, etc.).
-  //Fecha de inicio de labores (16 de diciembre del 2012).
+  //Fecha de incio de labores (16 de diciembre del 2012).
 
   aboutMeTexts: AboutMeTexts = { texts: [] };
 
   constructor(
-    private readonly titleService: Title,
-    private readonly projectService: ProjectsService,
+    private titleService: Title,
+    private projectService: ProjectsService,
     public ngxBootstrapModule: NgxBootstrapModule,
-    private readonly translate: TranslateService
+    private translate: TranslateService
   ) {
     this.titleService.setTitle('Home');
     this.years = this.calculateYears(new Date(this.startDate));

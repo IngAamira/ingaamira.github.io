@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { ItemTechnicalSkill } from '../../interfaces/i18n-item';
 
 @Component({
-  selector: 'app-work-data',
+  selector: 'app-work-ai',
   standalone: true,
   imports: [CommonModule, TranslateModule],
   template: `
@@ -29,7 +29,7 @@ import { ItemTechnicalSkill } from '../../interfaces/i18n-item';
     </div>
   `,
 })
-export class WorkDataComponent implements OnInit, OnDestroy {
+export class WorkAiComponent implements OnInit, OnDestroy {
   itemTechnicalSkills: ItemTechnicalSkill[] = [];
   private langChangeSubscription!: Subscription;
 
@@ -47,7 +47,7 @@ export class WorkDataComponent implements OnInit, OnDestroy {
   }
 
   private loadTechnicalSkills(): void {
-    this.translate.get('TECHNICAL_SKILLS_DATA.TOOLS').subscribe((data: any[]) => {
+    this.translate.get('TECHNICAL_SKILLS_AI.TOOLS').subscribe((data: any[]) => {
       this.itemTechnicalSkills = data.map(item => ({
         category: item.CATEGORY,
         items: item.ITEMS.map((subItem: any) => {

@@ -10,10 +10,8 @@ import { Company } from '../../interfaces/i18n-item';
   imports: [CommonModule, TranslateModule],
   template: `
     <div *ngFor="let company of companies" style="text-align: left;">
-      <div
-         class="text-primary">{{ company.name | translate }}
-      </div>
-      <div *ngFor="let job of company.jobs">
+      <div class="text-primary">{{ company.name | translate }}</div>
+      <ng-container *ngFor="let job of company.jobs">
         <div class="mb-0">{{ job.title | translate }}</div>
         <div class="text-secondary">{{ 'TIME.DATE' | translate }}: {{ job.date }}</div>
         <p>🚀 {{ job.title_achievements | translate }}:</p>
@@ -22,9 +20,7 @@ import { Company } from '../../interfaces/i18n-item';
             {{ achievement | translate }}
           </li>
         </ul>
-        <p class="font-weight-bold">
-          🔧 {{ job.title_contributions | translate }}:
-        </p>
+        <p class="font-weight-bold">🔧 {{ job.title_contributions | translate }}:</p>
         <ul>
           <li *ngFor="let contribution of job.contributions">
             {{ contribution.category | translate }}
@@ -35,7 +31,7 @@ import { Company } from '../../interfaces/i18n-item';
             </ul>
           </li>
         </ul>
-      </div>
+      </ng-container>
       <hr />
     </div>
   `,
@@ -44,7 +40,7 @@ export class WorkExperienceComponent implements OnInit, OnDestroy {
   companies: Company[] = [];
   private langChangeSubscription!: Subscription;
 
-  constructor(private readonly translate: TranslateService) {}
+  constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
     this.loadWorkExperience();
@@ -54,39 +50,30 @@ export class WorkExperienceComponent implements OnInit, OnDestroy {
   }
 
   private loadWorkExperience(): void {
-    this.translate.get('WORK.COMPANIES').subscribe((data: any[]) => {
-      this.companies = data.map(this.mapCompany);
+    this.translate.get('WORK.COMPANIES').subscribe({
+      next: (data: any[]) => {
+        this.companies = data.map(company => ({
+          name: company.NAME,
+          jobs: company.JOBS.map((job: any) => ({
+            title: job.TITLE,
+            date: job.DATE,
+            title_achievements: job.TITLE_ACHIEVEMENTS,
+            achievements: job.ACHIEVEMENTS,
+            title_contributions: job.TITLE_CONTRIBUTIONS,
+            contributions: job.CONTRIBUTIONS.map((contribution: any) => ({
+              category: contribution.category,
+              details: contribution.details,
+            })),
+          })),
+        }));
+      },
+      error: (err) => {
+        console.error('Error loading work experience data:', err);
+      }
     });
   }
 
-  private mapCompany(company: any): Company {
-    return {
-      name: company.NAME,
-      jobs: company.JOBS.map(this.mapJob),
-    };
-  }
-
-  private mapJob(job: any): any {
-    return {
-      title: job.TITLE,
-      date: job.DATE,
-      title_achievements: job.TITLE_ACHIEVEMENTS,
-      achievements: job.ACHIEVEMENTS,
-      title_contributions: job.TITLE_CONTRIBUTIONS,
-      contributions: job.CONTRIBUTIONS.map(this.mapContribution),
-    };
-  }
-
-  private mapContribution(contribution: any): any {
-    return {
-      category: contribution.category,
-      details: contribution.details,
-    };
-  }
-
   ngOnDestroy(): void {
-    if (this.langChangeSubscription) {
-      this.langChangeSubscription.unsubscribe();
-    }
+    this.langChangeSubscription?.unsubscribe();
   }
 }
