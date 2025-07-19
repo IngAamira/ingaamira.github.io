@@ -33,7 +33,7 @@ export class WorkDevComponent implements OnInit, OnDestroy {
   itemTechnicalSkills: ItemTechnicalSkill[] = [];
   private langChangeSubscription!: Subscription;
 
-  constructor(private translate: TranslateService) {}
+  constructor(private readonly translate: TranslateService) {}
 
   isSkillItemObject(item: string | { name: string; subitems?: string[] }): item is { name: string; subitems?: string[] } {
     return typeof item === 'object' && 'name' in item;

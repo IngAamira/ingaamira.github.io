@@ -23,7 +23,7 @@ export class LanguageComponent implements OnInit, OnDestroy {
   itemsLanguage: ItemLanguage[] = [];
   private langChangeSubscription!: Subscription;
 
-  constructor(private translate: TranslateService) {}
+  constructor(private readonly translate: TranslateService) {}
 
   ngOnInit(): void {
     this.loadLanguages();

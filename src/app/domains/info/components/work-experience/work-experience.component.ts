@@ -40,7 +40,7 @@ export class WorkExperienceComponent implements OnInit, OnDestroy {
   companies: Company[] = [];
   private langChangeSubscription!: Subscription;
 
-  constructor(private translate: TranslateService) {}
+  constructor(private readonly translate: TranslateService) {}
 
   ngOnInit(): void {
     this.loadWorkExperience();

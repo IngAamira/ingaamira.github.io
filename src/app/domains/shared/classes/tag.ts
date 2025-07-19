@@ -1,6 +1,6 @@
 export class Tag {
 
-  /* Languajes */
+  /* Languages */
   static readonly JAVA = new Tag('Java', '#708090');              // SlateGray
   static readonly PYTHON = new Tag('Python', '#4682B4');          // SteelBlue
   static readonly JAVASCRIPT = new Tag('JavaScript', '#e0e010');  // Yellow

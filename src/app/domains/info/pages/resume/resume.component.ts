@@ -47,9 +47,9 @@ export default class ResumeComponent {
   ];
 
   constructor(
-    private titleService: Title,
-    private renderer: Renderer2,
-    private translationService: TranslationService
+    private readonly titleService: Title,
+    private readonly renderer: Renderer2,
+    private readonly translationService: TranslationService
   ) {
     this.titleService.setTitle('Resume');
   }
