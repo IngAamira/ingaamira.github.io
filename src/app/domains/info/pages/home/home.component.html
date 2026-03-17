@@ -16,12 +16,12 @@
               <div *ngFor="let aboutMeText of ('ABOUT_ME.TEXT' | translate)">
                 <p>{{ aboutMeText }}</p>
               </div>
-              <div class="mx-auto d-md-none">
-                <p> {{ 'FEATURED_PROJECT.INFO' | translate }}
+              <div class="card-text mt-2" style="text-align: justify;" >
+                <p> {{ 'ABOUT_ME.SCHEDULE' | translate }}
                   <a
-                    [routerLink]="'/portfolio'"
+                    (click)="openContactPage()"
                     aria-current="page" >
-                    <i class="bi bi-briefcase-fill"></i>
+                    <i class="bi bi-calendar3"></i>
                   </a>
                 </p>
               </div>
