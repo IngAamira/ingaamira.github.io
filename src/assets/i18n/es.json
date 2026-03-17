@@ -20,7 +20,8 @@
       "Actualmente, sigo fortaleciendo mis habilidades en frontend para ofrecer soluciones integrales de extremo a extremo.",
       "¡Conectemos si estás trabajando en desarrollo fullstack, arquitectura backend o soluciones basadas en IA!"
     ],
-    "CV": "Descargar CV"
+    "CV": "Descargar CV",
+    "SCHEDULE": "For more information about my services, please visit this link:"
   },
 
   "FEATURED_PROJECT": {
@@ -37,7 +38,7 @@
         "JOBS": [
           {
             "TITLE": "Ingeniero de Software",
-            "DATE": "02/2025 – Actual",
+            "DATE": "02/2025 – 02/2026",
             "TITLE_ACHIEVEMENTS": "Logros Clave",
             "ACHIEVEMENTS": [
               "⚡ +60% rendimiento en chatbots │ Optimicé arquitectura backend con NestJS y reutilización de componentes.",
