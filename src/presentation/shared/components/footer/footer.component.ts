@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { TranslateModule } from '@ngx-translate/core';
 
-import { MenuItemContact } from '../../../shared/interfaces/menu-item';
+import { MenuItemContact } from '@presentation/shared/interfaces/menu-item';
 
 @Component({
+  standalone: true,
   selector: 'app-footer',
   imports: [ CommonModule, TranslateModule ],
   templateUrl: './footer.component.html',

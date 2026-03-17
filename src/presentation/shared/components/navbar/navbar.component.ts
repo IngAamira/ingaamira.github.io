@@ -1,14 +1,17 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MenuItemNav } from '../../../shared/interfaces/menu-item';
+
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
+
+import { MenuItemNav } from '@presentation/shared/interfaces/menu-item';
 
 @Component({
+  standalone: true,
   selector: 'app-navbar',
+  imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
-  imports: [CommonModule, RouterModule, TranslateModule],
 })
 
 export class NavbarComponent implements OnInit {

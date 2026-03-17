@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { TranslateModule } from '@ngx-translate/core';
 
-import { TranslationService } from '../../../shared/services/translation.service';
-import { MenuItemHeader, ItemTitle } from '../../../shared/interfaces/menu-item';
+import { TranslationService } from '@presentation/shared/services/translation.service';
+import { MenuItemHeader, ItemTitle } from '@presentation/shared/interfaces/menu-item';
 
 @Component({
+  standalone: true,
   selector: 'app-header',
   imports: [CommonModule, TranslateModule],
   templateUrl: './header.component.html',
@@ -20,8 +21,8 @@ export class HeaderComponent {
   ];
 
   public menuItemsHeader = signal<MenuItemHeader[]> ([
-    { flag: 'USA Flag',   img: '../../../../../assets/icons/usa.png',   event: () => this.changeLanguage('en') },
-    { flag: 'Spain Flag', img: '../../../../../assets/icons/spain.png', event: () => this.changeLanguage('es') },
+    { flag: 'USA Flag',   img: '@assets/icons/usa.png',   event: () => this.changeLanguage('en') },
+    { flag: 'Spain Flag', img: '@assets/icons/spain.png', event: () => this.changeLanguage('es') },
   ]);
 
   constructor( private translationService: TranslationService ) {}

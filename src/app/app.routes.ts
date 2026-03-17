@@ -1,50 +1,41 @@
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { Routes } from '@angular/router';
 
 import { LayoutComponent } from '@presentation/shared/components/layout/layout.component';
-
-import HomeComponent from '@presentation/features/profile/pages/home/home.component';
-import PortfolioComponent from '@presentation/features/profile/pages/portfolio/portfolio.component';
-import ResumeComponent from '@presentation/features/profile/pages/resume/resume.component';
-import ContactComponent from '@presentation/features/profile/pages/contact/contact.component';
-import NotFoundComponent from '@presentation/features/profile/pages/not-found/not-found.component';
+import { NotFoundComponent } from '@presentation/features/portfolio/pages/not-found/not-found.component';
 
 export const routes: Routes = [
-
   {
     path: '',
     component: LayoutComponent,
     children: [
       {
         path: '',
-        component: HomeComponent
+        loadComponent: () =>
+          import('@presentation/features/portfolio/pages/home/home.component')
+            .then(m => m.HomeComponent),
       },
       {
         path: 'portfolio',
-        component: PortfolioComponent
+        loadComponent: () =>
+          import('@presentation/features/portfolio/pages/portfolio/portfolio.component')
+            .then(m => m.PortfolioComponent),
       },
       {
         path: 'resume',
-        component: ResumeComponent
+        loadComponent: () =>
+          import('@presentation/features/portfolio/pages/resume/resume.component')
+            .then(m => m.ResumeComponent),
       },
       {
         path: 'contact',
-        component: ContactComponent
+        loadComponent: () =>
+          import('@presentation/features/portfolio/pages/contact/contact.component')
+            .then(m => m.ContactComponent),
       },
-    ]
+    ],
   },
   {
     path: '**',
     component: NotFoundComponent,
-    pathMatch: 'full'
-  }
-
+  },
 ];
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { enableTracing: true, useHash: true }),
-  ],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
