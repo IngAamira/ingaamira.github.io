@@ -20,7 +20,8 @@
       "Currently, I’m deepening my frontend skills to provide fully integrated end-to-end solutions.",
       "Let’s connect if you’re working on anything related to fullstack development, backend architecture, or conversational AI!"
     ],
-    "CV": "Download CV"
+    "CV": "Download CV",
+    "SCHEDULE": "For more information about my services, please visit this link:"
   },
 
   "FEATURED_PROJECT": {
@@ -37,7 +38,7 @@
         "JOBS": [
           {
             "TITLE": "Software Engineer",
-            "DATE": "02/2025 – Present",
+            "DATE": "02/2025 – 02/2026",
             "TITLE_ACHIEVEMENTS": "Key Achievements",
             "ACHIEVEMENTS": [
               "⚡ 60% chatbot performance boost │ Optimized backend architecture and component reuse in NestJS.",
