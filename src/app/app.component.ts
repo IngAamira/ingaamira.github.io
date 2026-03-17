@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
 
+import { LayoutComponent } from "@presentation/shared/components/layout/layout.component";
+
 @Component({
   selector: 'app-root',
-  template: '<router-outlet />',
+  imports: [LayoutComponent],
+  template: `<layout-page />`,
 })
 export class AppComponent {
-  title = 'Portfolio IngAamira';
+
+  title = 'Business Card IngAamira';
+
 }
