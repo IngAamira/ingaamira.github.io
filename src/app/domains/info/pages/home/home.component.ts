@@ -52,4 +52,9 @@ export default class HomeComponent implements OnInit {
     return years;
   }
 
+  openContactPage() {
+    const url = 'https://ingaamira.netlify.app/';
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
+
 }
