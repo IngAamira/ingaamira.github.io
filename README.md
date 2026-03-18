@@ -1,160 +1,223 @@
-# Website Ingaamira
+# 🚀 Website IngAamira 🚀
 
 ## Table of Contents
 
-- [Project Description](#project-description)
-- [Project Structure](#project-structure)
-  - [Pages](#pages)
-  - [Components](#components)
-- [Shared Folder](#shared-folder)
-  - [Classes](#classes)
-  - [Components](#components-1)
-  - [Interfaces](#interfaces)
-  - [Modules](#modules)
-  - [Services](#services)
-- [NPM Commands Used](#npm-commands-used)
-  - [Project Name](#project-name)
-  - [Folder Info](#folder-info)
-    - [Pages](#pages-1)
-    - [Components](#components-2)
-  - [Shared Folder](#shared-folder-1)
-    - [Classes](#classes-1)
-    - [Components](#components-3)
-    - [Interfaces](#interfaces-1)
-    - [Modules](#modules-1)
-    - [Services](#services-1)
-- [Library Installation](#library-installation)
-- [Additional Resources](#additional-resources)
-- [Contributions](#contributions)
-- [Project Status](#project-status)
+* [Project Description](#project-description)
+* [Architecture](#architecture)
+* [System Requirements](#system-requirements)
+* [Execution Instructions](#execution-instructions)
+* [Key Features](#key-features)
+* [Project Structure](#project-structure)
+* [State Management (Signals)](#state-management-signals)
+* [Use Cases](#use-cases)
+* [Libraries](#libraries)
+* [Best Practices Applied](#best-practices-applied)
+* [Project Status](#project-status)
+
+---
 
 ## Project Description
-This project, named "Website Ingaamira," is a web application developed using Angular. The purpose of the application is to provide information about Ingaamira, including details about projects, work experience, and contact information. The project's structure is organized into specific folders to facilitate code management and maintenance.
+
+"Website Ingaamira" is a modern Angular application designed to showcase professional experience, projects, and services.
+
+The project follows a **Clean Architecture approach**, separating responsibilities into layers such as domain, application (use cases), and presentation.
+
+---
+
+## Architecture
+
+The application is structured using **Clean Architecture principles**:
+
+```
+src/
+│
+├── domain/           → Models, enums, use cases
+├── infrastructure/   → (future: adapters, APIs, mappers)
+├── presentation/     → Components, pages (UI)
+└── app/              → Configuration and routing
+```
+
+### Key Concepts
+
+* **Domain Layer** → Business logic (pure, reusable)
+* **Use Cases** → Application logic (orchestration)
+* **Presentation** → UI (Angular components with signals)
+
+---
 
 ## System Requirements
-- Node.js (v18.0.0 or higher)
-- Angular CLI (v15.0.0 or higher)
+
+* Node.js (v18+)
+* Angular CLI (v17+ recommended)
+
+---
 
 ## Execution Instructions
-1. Clone this repository: `git clone https://github.com/IngAamira/ingaamira.github.io.git`
-2. Navigate to the project directory: `cd ingaamira.github.io`
-3. Install dependencies: `npm i`
-4. Run the application locally: `ng serve`
 
-## Usage Examples
-Below are some examples of how to interact with key features of the application:
+```bash
+git clone https://github.com/IngAamira/ingaamira.github.io.git
+cd ingaamira.github.io
+npm install
+ng serve
+```
 
-- **View Projects:**
-  - Access the portfolio page to view the list of projects.
+---
 
-- **Contact:**
-  - Visit the contact page to obtain contact information and send messages.
+## Key Features
+
+### 🔹 Portfolio Filtering (PRO)
+
+* Dynamic filtering by technology (Angular, Java, etc.)
+* Reactive state using Angular Signals
+* Clean separation between UI and business logic
+* Optimized filtering (only executes when needed)
+
+### 🔹 Responsive UI
+
+* Mobile-friendly interactions
+* Collapsible filters panel
+* UX improvements for small screens
+
+### 🔹 Scalable Architecture
+
+* Easy to add new filters or categories
+* Decoupled types (`Category`, `TagType`)
+* Extendable use cases
+
+---
 
 ## Project Structure
 
-### Pages
-- `contact`: Contact page.
-- `home`: Home page.
-- `not-found`: Error 404 page.
-- `portfolio`: Portfolio page.
-- `project-card`: Component to display project cards.
-- `project-modal`: Component to display project details in a modal.
-- `resume`: Resume page.
+### Presentation Layer
 
-### Components
-- `workExperience`: Component to display work experience.
-- `workDev`: Component to display information as a software developer.
-- `workData`: Component to display information as a data engineer.
+```
+presentation/
+└── features/
+    └── portfolio/
+        ├── pages/
+        │   └── portfolio.component.ts
+        └── components/
+            └── project-card/
+```
 
-## Shared Folder
+### Domain Layer
 
-### Classes
-- `project`: Class to represent a project.
-- `tag`: Class to represent a tag associated with a project.
+```
+domain/
+├── models/
+│   ├── project.model.ts
+│   └── tag.model.ts
+└── use-cases/
+    ├── get-projects.use-case.ts
+    └── filter-projects.use-case.ts
+```
 
-### Components
-- `footer`: Footer component.
-- `header`: Header component.
-- `layout`: Component for the overall layout.
-- `navbar`: Navigation bar component.
+### Shared Types
 
-### Interfaces
-- `menu-item`: Interface to define menu items.
+```
+presentation/shared/types/
+└── category.type.ts
+```
 
-### Modules
-- `ngx-bootstrap`: Module to integrate ngx-bootstrap.
-- `translation`: Module for internationalization and translation.
+---
 
-### Services
-- `projects`: Service to manage project information.
-- `translation`: Service to manage application translation.
+## State Management (Signals)
 
-## NPM Commands Used
+The app uses **Angular Signals (modern reactive state)** instead of RxJS for UI state.
 
-### Project Name
-`ng new ingaamira.github.io --skip-tests`
+### Example
 
-### Folder Info
+```ts
+filters = signal<Record<TagType, boolean>>({})
+selectedTags = computed(() => ...)
+projects = computed(() => ...)
+```
 
-#### Pages
-- `ng g c domains/info/pages/contact --skip-selector --inline-style --skip-tests`
-- `ng g c domains/info/pages/home --skip-selector --inline-style --skip-tests`
-- `ng g c domains/info/pages/not-found --skip-selector --skip-tests`
-- `ng g c domains/info/pages/portfolio --skip-selector --inline-style --skip-tests`
-- `ng g c domains/info/pages/project-card --skip-selector --inline-style --skip-tests`
-- `ng g c domains/info/pages/project-modal --skip-selector --inline-style --skip-tests`
-- `ng g c domains/info/pages/resume --skip-selector --skip-tests`
+### Benefits
 
-#### Components
-- `ng g c domains/info/components/workExperience --standalone --skip-tests`
-- `ng g c domains/info/components/workDev --standalone --skip-tests`
-- `ng g c domains/info/components/workData --standalone --skip-tests`
-- `ng g c domains/info/components/workData --standalone --skip-tests`
-- `ng g c domains/info/components/workSector --standalone --inline-template --inline-style --skip-tests`
-- `ng g c domains/info/components/education --standalone --inline-template --inline-style --skip-tests`
-- `ng g c domains/info/components/languages --standalone --inline-template --inline-style --skip-tests`
+* No subscriptions
+* Declarative state
+* Better performance
+* Simpler mental model
 
-#### Services
-- `ng g i domains/info/services/workExperience --flat`
+---
 
-## Shared Folder
+## Use Cases
 
-#### Classes
-- `ng g cl domains/shared/classes/tag --flat`
+Business logic is encapsulated in use cases:
 
-#### Components
-- `ng g c domains/shared/components/footer --skip-tests`
-- `ng g c domains/shared/components/header --skip-tests`
-- `ng g c domains/shared/components/layout --inline-style --skip-tests`
-- `ng g c domains/shared/components/navbar --skip-tests`
+### GetProjectsUseCase
 
-#### Interfaces
-- `ng g i domains/shared/classes/project`
-- `ng g i domains/shared/interfaces/menu-item`
-- `ng g i domains/shared/interfaces/work`
+Responsible for retrieving all projects.
 
-#### Modules
-- `ng g m domains/shared/modules/ngx-bootstrap --flat`
-- `ng g m domains/shared/modules/translation --flat`
+### FilterProjectsUseCase
 
-#### Services
-- `ng g s domains/shared/services/projects --flat`
-- `ng g s domains/shared/services/translation --flat`
+Filters projects based on selected tags.
 
-## Library Installation
-- Run `ng add ngx-bootstrap` to add ngx-bootstrap.
-- Run `npm i @ngx-translate/core --save` to install ngx-translate/core.
-- Run `npm i @ngx-translate/http-loader --save` to install ngx-translate/http-loader.
+```ts
+filterProjectsUseCase.execute(projects, tags)
+```
 
-## Additional Resources
-- [ngx-bootstrap Documentation](https://valor-software.com/ngx-bootstrap/#/documentation)
-- [ngx-translate/core on GitHub](https://github.com/ngx-translate/core)
-- [ngx-translate/http-loader on npm](https://www.npmjs.com/package/@ngx-translate/http-loader)
-- [Bootstrap](https://getbootstrap.com/)
-- [Dynamic Component](https://github.com/funOfheuristic/dynamic-component/blob/main/src/app/dynamic-wrapper/dynamic-wrapper.component.html)
+---
 
-## Contributions
-Contributions are welcome!
+## Libraries
+
+* ngx-bootstrap → UI components (collapse)
+* bootstrap → styling
+* Angular Signals → reactive state management
+
+---
+
+## Best Practices Applied
+
+### ✅ Clean Architecture
+
+* Separation of concerns
+* Domain independent of UI
+
+### ✅ Reactive Programming (Signals)
+
+* Derived state (`computed`)
+* No duplicated state
+
+### ✅ Strong Typing
+
+* `Record<TagType, boolean>`
+* No `any`, no `undefined`
+
+### ✅ Performance Optimization
+
+* Avoid unnecessary computations
+* Efficient filtering logic
+
+### ✅ UX Improvements
+
+* Collapsible filters
+* Mobile-first behavior
+* Reset filters functionality
+
+---
 
 ## Project Status
-This project is actively under development.
+
+🚧 Actively under development
+
+### Next Improvements (Roadmap)
+
+* Persist filters in URL (`?tags=angular,java`)
+* LocalStorage state persistence
+* Animations (SaaS-level UX)
+* Backend integration
+* Testing (unit + e2e)
+
+---
+
+## Author
+
+[**IngAamira**](https://ingaamira.github.io/)
+
+---
+
+## Contributions
+
+Contributions are welcome! 🚀
