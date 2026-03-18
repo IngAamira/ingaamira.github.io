@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 
@@ -13,10 +13,11 @@ import { ProjectModalComponent } from '../project-modal/project-modal.component'
   templateUrl: './project-card.component.html'
 })
 export class ProjectCardComponent {
-  @Input() project = {} as Project;
-  bsModalRef?: BsModalRef;
 
-  constructor(private modalService: BsModalService) { }
+  @Input() project = {} as Project;
+  private modalService = inject(BsModalService);
+
+  bsModalRef?: BsModalRef;
 
   OpenProjectModal() {
     const modalOptions:ModalOptions = {

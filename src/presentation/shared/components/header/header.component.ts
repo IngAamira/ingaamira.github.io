@@ -21,8 +21,8 @@ export class HeaderComponent {
   ];
 
   public menuItemsHeader = signal<MenuItemHeader[]> ([
-    { flag: 'USA Flag',   img: '@assets/icons/usa.png',   event: () => this.changeLanguage('en') },
-    { flag: 'Spain Flag', img: '@assets/icons/spain.png', event: () => this.changeLanguage('es') },
+    { flag: 'USA Flag',   img: '../../../../assets/icons/usa.png',   event: () => this.changeLanguage('en') },
+    { flag: 'Spain Flag', img: '../../../../assets/icons/spain.png', event: () => this.changeLanguage('es') },
   ]);
 
   constructor( private translationService: TranslationService ) {}

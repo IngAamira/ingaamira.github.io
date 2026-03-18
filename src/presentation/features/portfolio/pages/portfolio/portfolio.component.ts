@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 
-import { NgxBootstrapModule } from '@presentation/shared/modules/ngx-bootstrap.module';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+
 import { Project } from '@presentation/shared/interfaces/project';
 import { ProjectCardComponent } from '../project-card/project-card.component';
 import { ProjectsService } from '@presentation/shared/services/projects.service';
@@ -14,7 +15,12 @@ type FilterKey = 'java' | 'python' | 'javascript' | 'typescript' | 'spring' | 'a
 @Component({
   standalone: true,
   selector: 'app-portfolio',
-  imports: [ProjectCardComponent, CommonModule, NgxBootstrapModule, FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    CollapseModule,
+    ProjectCardComponent,
+  ],
   templateUrl: './portfolio.component.html'
 })
 export class PortfolioComponent implements OnInit {

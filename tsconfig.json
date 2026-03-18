@@ -8,7 +8,6 @@
       "@domain/*": ["src/domain/*"],
       "@infrastructure/*": ["src/infrastructure/*"],
       "@presentation/*": ["src/presentation/*"],
-      "@assets/*": ["src/assets/*"],
     },
     "outDir": "./dist/out-tsc",
     "strict": true,

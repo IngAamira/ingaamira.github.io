@@ -7,7 +7,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { EducationComponent } from '@presentation/features/portfolio/components/education/education.component';
 import { LanguageComponent } from '@presentation/features/portfolio/components/language/language.component';
 import { MenuItemResume } from '@presentation/shared/interfaces/menu-item';
-import { NgxBootstrapModule } from '@presentation/shared/modules/ngx-bootstrap.module';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { TranslationService } from '@presentation/shared/services/translation.service';
 import { WorkDataComponent } from '@presentation/features/portfolio/components/work-data/work-data.component';
 import { WorkDevComponent } from '@presentation/features/portfolio/components/work-dev/work-dev.component';
@@ -21,7 +21,7 @@ import { WorkAiComponent } from '@presentation/features/portfolio/components/wor
   imports: [
     CommonModule,
     TranslateModule,
-    NgxBootstrapModule
+    AccordionModule
   ],
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.css'],

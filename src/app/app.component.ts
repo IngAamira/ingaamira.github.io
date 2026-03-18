@@ -1,13 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
-import { LayoutComponent } from "@presentation/shared/components/layout/layout.component";
+import { TranslateService } from '@ngx-translate/core';
+
+import { RouterOutlet } from "@angular/router";
 
 @Component({
   standalone: true,
   selector: 'app-root',
-  imports: [LayoutComponent],
-  template: `<app-layout />`,
+  imports: [RouterOutlet],
+  template: '<router-outlet />',
 })
 export class AppComponent {
-  title = 'Business Card IngAamira';
+
+  private translate = inject(TranslateService);
+  title = 'Portfolio IngAamira';
+
+  constructor() {
+    this.translate.addLangs(['es', 'en']);
+    this.translate.setFallbackLang('en');
+    this.translate.use('en');
+  }
+
 }

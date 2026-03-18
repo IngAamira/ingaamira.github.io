@@ -8,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { NgxBootstrapModule } from '@presentation/shared/modules/ngx-bootstrap.module';
+
 import { Project } from '@presentation/shared/interfaces/project';
 import { ProjectsService } from '@presentation/shared/services/projects.service';
 import { AboutMeTexts } from '../../interfaces/i18n-item';
@@ -16,7 +16,12 @@ import { AboutMeTexts } from '../../interfaces/i18n-item';
 @Component({
   standalone: true,
   selector: 'app-home',
-  imports: [CommonModule, TranslateModule, NgxBootstrapModule, RouterLink, CarouselModule],
+  imports: [
+    CommonModule,
+    TranslateModule,
+    RouterLink,
+    CarouselModule
+  ],
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
@@ -32,7 +37,6 @@ export class HomeComponent implements OnInit {
   constructor(
     private titleService: Title,
     private projectService: ProjectsService,
-    public ngxBootstrapModule: NgxBootstrapModule,
     private translate: TranslateService
   ) {
     this.titleService.setTitle('Home');
