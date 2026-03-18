@@ -4,16 +4,17 @@ import { Title } from '@angular/platform-browser';
 
 import { TranslateModule } from '@ngx-translate/core';
 
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+
 import { EducationComponent } from '@presentation/features/portfolio/components/education/education.component';
 import { LanguageComponent } from '@presentation/features/portfolio/components/language/language.component';
-import { MenuItemResume } from '@presentation/shared/interfaces/menu-item';
-import { AccordionModule } from 'ngx-bootstrap/accordion';
-import { TranslationService } from '@presentation/shared/services/translation.service';
 import { WorkDataComponent } from '@presentation/features/portfolio/components/work-data/work-data.component';
 import { WorkDevComponent } from '@presentation/features/portfolio/components/work-dev/work-dev.component';
 import { WorkExperienceComponent } from '@presentation/features/portfolio/components/work-experience/work-experience.component';
 import { WorkSectorComponent } from '@presentation/features/portfolio/components/work-sector/work-sector.component';
 import { WorkAiComponent } from '@presentation/features/portfolio/components/work-ai/work-ai.component';
+import { MenuItemResume } from '@presentation/shared/interfaces/menu-item';
+import { TranslationService } from '@presentation/shared/services/translation.service';
 
 @Component({
   standalone: true,

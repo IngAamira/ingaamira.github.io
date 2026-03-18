@@ -1,4 +1,4 @@
-import { Tag } from "../classes/tag";
+import { TagType } from "./tag.model";
 
 export interface Project {
   id: number;
@@ -6,5 +6,5 @@ export interface Project {
   summary: string;
   projectLink: string;
   pictures: string[];
-  tags: Tag[];
+  tags: TagType[];
 }

@@ -9,6 +9,10 @@ import { provideTranslateHttpLoader } from "@ngx-translate/http-loader";
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { routes } from './app.routes';
+import { ProjectDatasource } from "@infrastructure/datasources/project.datasource";
+import { ProjectLocalDatasource } from "@infrastructure/datasources/project-local.datasource";
+import { ProjectRepository } from "@domain/repositories/project.repository";
+import { ProjectRepositoryImpl } from "@infrastructure/repositories/project.repository.impl";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -28,6 +32,16 @@ export const appConfig: ApplicationConfig = {
       }),
       fallbackLang: 'en',
       lang: 'en'
-    })
+    }),
+
+    {
+      provide: ProjectDatasource,
+      useClass: ProjectLocalDatasource
+    },
+    {
+      provide: ProjectRepository,
+      useClass: ProjectRepositoryImpl
+    }
+
   ],
 };

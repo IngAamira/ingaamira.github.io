@@ -1,16 +1,23 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, effect, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 
-import { Project } from '@presentation/shared/interfaces/project';
+import { Project } from '@domain/models/project.model';
 import { ProjectCardComponent } from '../project-card/project-card.component';
-import { ProjectsService } from '@presentation/shared/services/projects.service';
-import { Tag } from '@presentation/shared/classes/tag';
+import { ProjectRepository } from '@domain/repositories/project.repository';
+import { TagType } from '@domain/models/tag.model';
 
-type FilterKey = 'java' | 'python' | 'javascript' | 'typescript' | 'spring' | 'angular' | 'nodejs';
+type FilterKey =
+  | 'java'
+  | 'python'
+  | 'javascript'
+  | 'typescript'
+  | 'spring'
+  | 'angular'
+  | 'nodejs';
 
 @Component({
   standalone: true,
@@ -21,81 +28,105 @@ type FilterKey = 'java' | 'python' | 'javascript' | 'typescript' | 'spring' | 'a
     CollapseModule,
     ProjectCardComponent,
   ],
-  templateUrl: './portfolio.component.html'
+  templateUrl: './portfolio.component.html',
 })
-export class PortfolioComponent implements OnInit {
+export class PortfolioComponent {
 
-  languages: { name: string; binding: FilterKey }[] = [
-    { name: 'Java', binding: 'java' },
-    { name: 'JavaScript', binding: 'javascript' },
-    { name: 'TypeScript', binding: 'typescript' },
-    { name: 'Python', binding: 'python' }
-  ];
+  private titleService = inject(Title);
+  private projectRepository = inject(ProjectRepository);
 
-  frameworks: { name: string; binding: FilterKey }[] = [
-    { name: 'Spring Boot', binding: 'spring' },
-    { name: 'Angular', binding: 'angular' },
-    { name: 'Node Js', binding: 'nodejs' }
-  ];
+  // 🔥 STATE (signals)
+  projects = signal<Project[]>([]);
+  filtering = signal(false);
+  isCollapsed = signal(true);
 
-  categories = [
-    { title: 'Languages', items: this.languages },
-    { title: 'Frameworks', items: this.frameworks }
-  ];
-
-  projects = {} as Project[];
-
-  /* Processes */
-  isCollapsed: boolean = true;
-  filtering: boolean = false;
-
-  /* Filters */
-  filters: Record<FilterKey, boolean> = {
+  filters = signal<Record<FilterKey, boolean>>({
     java: false,
     python: false,
     javascript: false,
     typescript: false,
     spring: false,
     angular: false,
-    nodejs: false
-  };
+    nodejs: false,
+  });
 
-  constructor(private titleService: Title, private projectService: ProjectsService) {
+  languages: { name: string; binding: FilterKey }[] = [
+    { name: 'Java', binding: 'java' },
+    { name: 'JavaScript', binding: 'javascript' },
+    { name: 'TypeScript', binding: 'typescript' },
+    { name: 'Python', binding: 'python' },
+  ];
+
+  frameworks: { name: string; binding: FilterKey }[] = [
+    { name: 'Spring Boot', binding: 'spring' },
+    { name: 'Angular', binding: 'angular' },
+    { name: 'Node Js', binding: 'nodejs' },
+  ];
+
+  categories = [
+    { title: 'Languages', items: this.languages },
+    { title: 'Frameworks', items: this.frameworks },
+  ];
+
+  constructor() {
     this.titleService.setTitle('Portfolio');
+
+    this.loadProjects();
+
+    effect(() => {
+      this.applyFilters();
+    });
   }
 
-  ngOnInit(): void {
-    this.projects = this.projectService.GetProjects();
+  private async loadProjects() {
+    const data = await this.projectRepository.getProjects();
+    this.projects.set(data);
   }
 
-  Filter() {
-    const filterTags: Tag[] = [];
-    const filters: Record<FilterKey, Tag> = {
-      java: Tag.JAVA,
-      python: Tag.PYTHON,
-      javascript: Tag.JAVASCRIPT,
-      typescript: Tag.TYPESCRIPT,
-      spring: Tag.SPRING,
-      angular: Tag.ANGULAR,
-      nodejs: Tag.NODEJS
+   private async applyFilters() {
+    const currentFilters = this.filters();
+
+    const filtersMap: Record<FilterKey, TagType> = {
+      java: TagType.JAVA,
+      python: TagType.PYTHON,
+      javascript: TagType.JAVASCRIPT,
+      typescript: TagType.TYPESCRIPT,
+      spring: TagType.SPRING_BOOT,
+      angular: TagType.ANGULAR,
+      nodejs: TagType.NODE_JS,
     };
 
-    for (const key in filters) {
-      if (this.filters[key as FilterKey]) {
-        filterTags.push(filters[key as FilterKey]);
-      }
-    }
+    const activeTags = Object.keys(currentFilters)
+      .filter(key => currentFilters[key as FilterKey])
+      .map(key => filtersMap[key as FilterKey]);
 
-    this.filtering = filterTags.length > 0;
-    this.projects = this.projectService.GetProjectsByFilter(filterTags);
+    this.filtering.set(activeTags.length > 0);
+
+    const data = this.filtering()
+      ? await this.projectRepository.getProjectsByFilter(activeTags)
+      : await this.projectRepository.getProjects();
+
+    this.projects.set(data);
   }
 
-  ResetFilters() {
-    for (const key in this.filters) {
-      this.filters[key as FilterKey] = false;
-    }
+  // 🔥 Toggle filtro (reactivo)
+  toggleFilter(key: FilterKey) {
+    this.filters.update(f => ({
+      ...f,
+      [key]: !f[key],
+    }));
+  }
 
-    this.filtering = false;
-    this.projects = this.projectService.GetProjects();
+  // 🔥 Reset filtros
+  resetFilters() {
+    this.filters.set({
+      java: false,
+      python: false,
+      javascript: false,
+      typescript: false,
+      spring: false,
+      angular: false,
+      nodejs: false,
+    });
   }
 }
