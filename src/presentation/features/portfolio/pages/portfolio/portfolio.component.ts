@@ -1,132 +1,117 @@
+import { Component, OnInit, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, effect, inject, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Title } from '@angular/platform-browser';
-
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 
-import { Project } from '@domain/models/project.model';
+import { GetProjectsUseCase } from '@domain/use-cases/get-projects.use-case';
+import { FilterProjectsUseCase } from '@domain/use-cases/filter-projects.use-case';
 import { ProjectCardComponent } from '../project-card/project-card.component';
-import { ProjectRepository } from '@domain/repositories/project.repository';
-import { TagType } from '@domain/models/tag.model';
 
-type FilterKey =
-  | 'java'
-  | 'python'
-  | 'javascript'
-  | 'typescript'
-  | 'spring'
-  | 'angular'
-  | 'nodejs';
+import { Project } from '@domain/models/project.model';
+import { TagType } from '@domain/models/tag.model';
+import { Category } from '@presentation/shared/types/category-dev.type';
 
 @Component({
-  standalone: true,
   selector: 'app-portfolio',
-  imports: [
-    CommonModule,
-    FormsModule,
-    CollapseModule,
-    ProjectCardComponent,
-  ],
+  standalone: true,
+  imports: [CommonModule, CollapseModule, ProjectCardComponent],
   templateUrl: './portfolio.component.html',
 })
-export class PortfolioComponent {
+export class PortfolioComponent implements OnInit {
 
-  private titleService = inject(Title);
-  private projectRepository = inject(ProjectRepository);
+  private allProjects = signal<Project[]>([]);
+  readonly isFilterOpen = signal(false);
+  readonly loading = signal(true);
 
-  // 🔥 STATE (signals)
-  projects = signal<Project[]>([]);
-  filtering = signal(false);
-  isCollapsed = signal(true);
+  readonly filters = signal<Record<TagType, boolean>>(
+    {} as Record<TagType, boolean>
+  );
 
-  filters = signal<Record<FilterKey, boolean>>({
-    java: false,
-    python: false,
-    javascript: false,
-    typescript: false,
-    spring: false,
-    angular: false,
-    nodejs: false,
+  selectedTags = computed(() => {
+    const filters = this.filters();
+    const result: TagType[] = [];
+
+    for (const key in filters) {
+      const tag = key as TagType;
+
+      if (filters[tag]) {
+        result.push(tag);
+      }
+    }
+
+    return result;
   });
 
-  languages: { name: string; binding: FilterKey }[] = [
-    { name: 'Java', binding: 'java' },
-    { name: 'JavaScript', binding: 'javascript' },
-    { name: 'TypeScript', binding: 'typescript' },
-    { name: 'Python', binding: 'python' },
+  readonly filtering = computed(() => this.selectedTags().length > 0);
+
+  readonly projects = computed(() => {
+    const projects = this.allProjects();
+    const tags = this.selectedTags();
+
+    if (!tags.length) return projects;
+
+    return this.filterProjectsUseCase.execute(projects, tags);
+  });
+
+  readonly categories: Category[] = [
+    {
+      title: 'Backend',
+      items: [
+        { name: 'Java', binding: TagType.JAVA },
+        { name: 'Spring Boot', binding: TagType.SPRING_BOOT },
+        { name: 'Node JS', binding: TagType.NODE_JS },
+      ]
+    },
+    {
+      title: 'Frontend',
+      items: [
+        { name: 'Angular', binding: TagType.ANGULAR },
+        { name: 'TypeScript', binding: TagType.TYPESCRIPT },
+      ]
+    }
   ];
 
-  frameworks: { name: string; binding: FilterKey }[] = [
-    { name: 'Spring Boot', binding: 'spring' },
-    { name: 'Angular', binding: 'angular' },
-    { name: 'Node Js', binding: 'nodejs' },
-  ];
+  constructor(
+    private getProjectsUseCase: GetProjectsUseCase,
+    private filterProjectsUseCase: FilterProjectsUseCase
+  ) {}
 
-  categories = [
-    { title: 'Languages', items: this.languages },
-    { title: 'Frameworks', items: this.frameworks },
-  ];
+  async ngOnInit() {
+    this.loading.set(true);
 
-  constructor() {
-    this.titleService.setTitle('Portfolio');
+    try {
+      const data = await this.getProjectsUseCase.execute();
+      this.allProjects.set(data);
 
-    this.loadProjects();
+      this.filters.set(this.createInitialFilters());
 
-    effect(() => {
-      this.applyFilters();
-    });
+    } catch (error) {
+      console.error('Error loading projects', error);
+    } finally {
+      this.loading.set(false);
+    }
   }
 
-  private async loadProjects() {
-    const data = await this.projectRepository.getProjects();
-    this.projects.set(data);
+  private createInitialFilters(): Record<TagType, boolean> {
+    return Object.values(TagType).reduce((acc, tag) => {
+      acc[tag] = false;
+      return acc;
+    }, {} as Record<TagType, boolean>);
   }
 
-   private async applyFilters() {
-    const currentFilters = this.filters();
-
-    const filtersMap: Record<FilterKey, TagType> = {
-      java: TagType.JAVA,
-      python: TagType.PYTHON,
-      javascript: TagType.JAVASCRIPT,
-      typescript: TagType.TYPESCRIPT,
-      spring: TagType.SPRING_BOOT,
-      angular: TagType.ANGULAR,
-      nodejs: TagType.NODE_JS,
-    };
-
-    const activeTags = Object.keys(currentFilters)
-      .filter(key => currentFilters[key as FilterKey])
-      .map(key => filtersMap[key as FilterKey]);
-
-    this.filtering.set(activeTags.length > 0);
-
-    const data = this.filtering()
-      ? await this.projectRepository.getProjectsByFilter(activeTags)
-      : await this.projectRepository.getProjects();
-
-    this.projects.set(data);
-  }
-
-  // 🔥 Toggle filtro (reactivo)
-  toggleFilter(key: FilterKey) {
-    this.filters.update(f => ({
-      ...f,
-      [key]: !f[key],
+  toggleFilter(tag: TagType) {
+    this.filters.update(current => ({
+      ...current,
+      [tag]: !current[tag],
     }));
+
+     if (window.innerWidth < 768) {
+      this.isFilterOpen.set(false);
+    }
   }
 
-  // 🔥 Reset filtros
   resetFilters() {
-    this.filters.set({
-      java: false,
-      python: false,
-      javascript: false,
-      typescript: false,
-      spring: false,
-      angular: false,
-      nodejs: false,
-    });
+    this.filters.set(this.createInitialFilters());
+    this.isFilterOpen.set(false);
   }
+
 }

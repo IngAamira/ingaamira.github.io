@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { TranslateModule } from '@ngx-translate/core';
 
-import { MenuItemContact } from '@presentation/shared/interfaces/menu-item';
+import { MenuItemContact } from '@presentation/shared/types/menu-item.type';
 
 @Component({
   standalone: true,

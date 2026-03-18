@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
-import { MenuItemNav } from '@presentation/shared/interfaces/menu-item';
+import { MenuItemNav } from '@presentation/shared/types/menu-item.type';
 
 @Component({
   standalone: true,

@@ -13,7 +13,7 @@ import { WorkDevComponent } from '@presentation/features/portfolio/components/wo
 import { WorkExperienceComponent } from '@presentation/features/portfolio/components/work-experience/work-experience.component';
 import { WorkSectorComponent } from '@presentation/features/portfolio/components/work-sector/work-sector.component';
 import { WorkAiComponent } from '@presentation/features/portfolio/components/work-ai/work-ai.component';
-import { MenuItemResume } from '@presentation/shared/interfaces/menu-item';
+import { MenuItemResume } from '@presentation/shared/types/menu-item.type';
 import { TranslationService } from '@presentation/shared/services/translation.service';
 
 @Component({

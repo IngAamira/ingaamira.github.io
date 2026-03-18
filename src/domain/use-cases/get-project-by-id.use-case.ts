@@ -1,12 +1,15 @@
-import { inject, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
+
+import { Project } from "@domain/models/project.model";
 import { ProjectRepository } from "@domain/repositories/project.repository";
 
 @Injectable({ providedIn: 'root' })
 export class GetProjectByIdUseCase {
 
-  private repo = inject(ProjectRepository);
+  constructor(private repository: ProjectRepository) {}
 
-  execute(id: number) {
-    return this.repo.getProjectById(id);
+  execute(id: number): Promise<Project | null> {
+    return this.repository.getProjectById(id);
   }
+
 }

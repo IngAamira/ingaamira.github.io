@@ -1,14 +1,17 @@
-import { inject, Injectable } from "@angular/core";
-import { ProjectRepository } from "@domain/repositories/project.repository";
+import { Injectable } from "@angular/core";
 
 import { TagType } from "@domain/models/tag.model";
+import { Project } from "@domain/models/project.model";
 
 @Injectable({ providedIn: 'root' })
 export class FilterProjectsUseCase {
 
-  private repo = inject(ProjectRepository);
+  execute(projects: Project[], tags: TagType[]): Project[] {
+    if (!tags.length) return projects;
 
-  execute(tags: TagType[]) {
-    return this.repo.getProjectsByFilter(tags);
+    return projects.filter(project =>
+      tags.every(tag => project.tags.includes(tag))
+    );
   }
+
 }

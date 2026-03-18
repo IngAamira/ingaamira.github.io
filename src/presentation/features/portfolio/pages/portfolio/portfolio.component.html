@@ -1,67 +1,70 @@
 <div class="container">
 
+  <!-- 🔹 Actions -->
   <div class="mb-2">
-    <div>
-      <button
-        class="btn btn-outline-primary mb-2 me-2"
-        (click)="isCollapsed.set(!isCollapsed())"
-      >
-        <i class="bi bi-funnel-fill"></i>
-        Filter
-      </button>
+    <button
+      class="btn btn-outline-primary mb-2 me-2"
+      (click)="isFilterOpen.set(!isFilterOpen())"
+    >
+      <i class="bi bi-funnel-fill"></i>
+      Filter
+    </button>
 
-      <button
-        class="btn btn-outline-secondary mb-2"
-        (click)="resetFilters()"
-        [hidden]="!filtering()"
-      >
-        <i class="bi bi-trash-fill"></i>
-        Reset
-      </button>
-    </div>
+    <button
+      class="btn btn-outline-secondary mb-2"
+      (click)="resetFilters()"
+      [hidden]="!filtering()"
+    >
+      <i class="bi bi-trash-fill"></i>
+      Reset
+    </button>
   </div>
 
-  <div>
-    <div [collapse]="isCollapsed()" [isAnimated]="true">
-      <div class="border mb-2 shadow-sm" style="width: 250px;">
-        <form>
-          <div class="row mx-0">
+  <!-- 🔹 Filters -->
+  <div [collapse]="!isFilterOpen()" [isAnimated]="true">
+    <div class="border mb-3 shadow-sm p-2" style="max-width: 300px;">
 
-            <div class="col" *ngFor="let category of categories">
-              <small><b>{{ category.title }}:</b></small>
+      <form>
+        <div class="row">
 
-              <div class="form-group" *ngFor="let item of category.items">
-                <div class="form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input position-static me-2"
-                    [checked]="filters()[item.binding]"
-                    (change)="toggleFilter(item.binding)"
-                    [name]="item.name"
-                  />
+          <div class="col-12 mb-2" *ngFor="let category of categories">
+            <small><b>{{ category.title }}:</b></small>
 
-                  <label class="form-check-label small">
-                    {{ item.name }}
-                  </label>
-                </div>
-              </div>
+            <div *ngFor="let item of category.items" class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input me-2"
+                [checked]="filters()[item.binding]"
+                (change)="toggleFilter(item.binding)"
+              />
 
+              <label class="form-check-label small">
+                {{ item.name }}
+              </label>
             </div>
-
           </div>
-        </form>
-      </div>
+
+        </div>
+      </form>
+
     </div>
   </div>
 
-  <!-- Projects -->
+  <!-- 🔹 Loading -->
+  <div *ngIf="loading()" class="text-center my-4">
+    <span class="spinner-border"></span>
+  </div>
 
-  <div class="card-group">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div *ngFor="let project of projects()">
-        <app-project-card [project]="project"></app-project-card>
-      </div>
+  <!-- 🔹 Projects -->
+  <div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="!loading()">
+    <div *ngFor="let project of projects()">
+      <app-project-card [project]="project"></app-project-card>
     </div>
+  </div>
+
+  <!-- 🔹 Empty state -->
+  <div *ngIf="!loading() && projects().length === 0" class="text-center mt-4">
+    <p class="text-muted">No projects found.</p>
   </div>
 
 </div>
