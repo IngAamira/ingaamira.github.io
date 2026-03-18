@@ -3,8 +3,11 @@ import { Component, inject, Input } from '@angular/core';
 
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 
-import { Project } from '@presentation/shared/interfaces/project';
+import { Project } from '@domain/models/project.model';
 import { ProjectModalComponent } from '../project-modal/project-modal.component';
+
+import { TAG_COLORS } from '@presentation/shared/constants/tag-colors';
+import { TagType } from '@domain/models/tag.model';
 
 @Component({
   standalone: true,
@@ -29,5 +32,9 @@ export class ProjectCardComponent {
 
     this.bsModalRef = this.modalService.show(ProjectModalComponent, modalOptions);
   };
+
+  getTagColor(tag: TagType): string {
+    return TAG_COLORS[tag] ?? '#ccc';
+  }
 
 }

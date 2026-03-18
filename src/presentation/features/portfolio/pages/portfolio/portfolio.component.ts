@@ -1,101 +1,117 @@
+import { Component, OnInit, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Title } from '@angular/platform-browser';
-
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 
-import { Project } from '@presentation/shared/interfaces/project';
+import { GetProjectsUseCase } from '@domain/use-cases/get-projects.use-case';
+import { FilterProjectsUseCase } from '@domain/use-cases/filter-projects.use-case';
 import { ProjectCardComponent } from '../project-card/project-card.component';
-import { ProjectsService } from '@presentation/shared/services/projects.service';
-import { Tag } from '@presentation/shared/classes/tag';
 
-type FilterKey = 'java' | 'python' | 'javascript' | 'typescript' | 'spring' | 'angular' | 'nodejs';
+import { Project } from '@domain/models/project.model';
+import { TagType } from '@domain/models/tag.model';
+import { Category } from '@presentation/shared/types/category-dev.type';
 
 @Component({
-  standalone: true,
   selector: 'app-portfolio',
-  imports: [
-    CommonModule,
-    FormsModule,
-    CollapseModule,
-    ProjectCardComponent,
-  ],
-  templateUrl: './portfolio.component.html'
+  standalone: true,
+  imports: [CommonModule, CollapseModule, ProjectCardComponent],
+  templateUrl: './portfolio.component.html',
 })
 export class PortfolioComponent implements OnInit {
 
-  languages: { name: string; binding: FilterKey }[] = [
-    { name: 'Java', binding: 'java' },
-    { name: 'JavaScript', binding: 'javascript' },
-    { name: 'TypeScript', binding: 'typescript' },
-    { name: 'Python', binding: 'python' }
-  ];
+  private allProjects = signal<Project[]>([]);
+  readonly isFilterOpen = signal(false);
+  readonly loading = signal(true);
 
-  frameworks: { name: string; binding: FilterKey }[] = [
-    { name: 'Spring Boot', binding: 'spring' },
-    { name: 'Angular', binding: 'angular' },
-    { name: 'Node Js', binding: 'nodejs' }
-  ];
+  readonly filters = signal<Record<TagType, boolean>>(
+    {} as Record<TagType, boolean>
+  );
 
-  categories = [
-    { title: 'Languages', items: this.languages },
-    { title: 'Frameworks', items: this.frameworks }
-  ];
-
-  projects = {} as Project[];
-
-  /* Processes */
-  isCollapsed: boolean = true;
-  filtering: boolean = false;
-
-  /* Filters */
-  filters: Record<FilterKey, boolean> = {
-    java: false,
-    python: false,
-    javascript: false,
-    typescript: false,
-    spring: false,
-    angular: false,
-    nodejs: false
-  };
-
-  constructor(private titleService: Title, private projectService: ProjectsService) {
-    this.titleService.setTitle('Portfolio');
-  }
-
-  ngOnInit(): void {
-    this.projects = this.projectService.GetProjects();
-  }
-
-  Filter() {
-    const filterTags: Tag[] = [];
-    const filters: Record<FilterKey, Tag> = {
-      java: Tag.JAVA,
-      python: Tag.PYTHON,
-      javascript: Tag.JAVASCRIPT,
-      typescript: Tag.TYPESCRIPT,
-      spring: Tag.SPRING,
-      angular: Tag.ANGULAR,
-      nodejs: Tag.NODEJS
-    };
+  selectedTags = computed(() => {
+    const filters = this.filters();
+    const result: TagType[] = [];
 
     for (const key in filters) {
-      if (this.filters[key as FilterKey]) {
-        filterTags.push(filters[key as FilterKey]);
+      const tag = key as TagType;
+
+      if (filters[tag]) {
+        result.push(tag);
       }
     }
 
-    this.filtering = filterTags.length > 0;
-    this.projects = this.projectService.GetProjectsByFilter(filterTags);
-  }
+    return result;
+  });
 
-  ResetFilters() {
-    for (const key in this.filters) {
-      this.filters[key as FilterKey] = false;
+  readonly filtering = computed(() => this.selectedTags().length > 0);
+
+  readonly projects = computed(() => {
+    const projects = this.allProjects();
+    const tags = this.selectedTags();
+
+    if (!tags.length) return projects;
+
+    return this.filterProjectsUseCase.execute(projects, tags);
+  });
+
+  readonly categories: Category[] = [
+    {
+      title: 'Backend',
+      items: [
+        { name: 'Java', binding: TagType.JAVA },
+        { name: 'Spring Boot', binding: TagType.SPRING_BOOT },
+        { name: 'Node JS', binding: TagType.NODE_JS },
+      ]
+    },
+    {
+      title: 'Frontend',
+      items: [
+        { name: 'Angular', binding: TagType.ANGULAR },
+        { name: 'TypeScript', binding: TagType.TYPESCRIPT },
+      ]
     }
+  ];
 
-    this.filtering = false;
-    this.projects = this.projectService.GetProjects();
+  constructor(
+    private getProjectsUseCase: GetProjectsUseCase,
+    private filterProjectsUseCase: FilterProjectsUseCase
+  ) {}
+
+  async ngOnInit() {
+    this.loading.set(true);
+
+    try {
+      const data = await this.getProjectsUseCase.execute();
+      this.allProjects.set(data);
+
+      this.filters.set(this.createInitialFilters());
+
+    } catch (error) {
+      console.error('Error loading projects', error);
+    } finally {
+      this.loading.set(false);
+    }
   }
+
+  private createInitialFilters(): Record<TagType, boolean> {
+    return Object.values(TagType).reduce((acc, tag) => {
+      acc[tag] = false;
+      return acc;
+    }, {} as Record<TagType, boolean>);
+  }
+
+  toggleFilter(tag: TagType) {
+    this.filters.update(current => ({
+      ...current,
+      [tag]: !current[tag],
+    }));
+
+     if (window.innerWidth < 768) {
+      this.isFilterOpen.set(false);
+    }
+  }
+
+  resetFilters() {
+    this.filters.set(this.createInitialFilters());
+    this.isFilterOpen.set(false);
+  }
+
 }
