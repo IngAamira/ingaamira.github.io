@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
   }
 
   openContactPage() {
-    const url = 'https://ingaamira.netlify.app/';
+    const url = 'https://ingaamira.com/';
     window.open(url, '_blank', 'noopener,noreferrer');
   }
 }

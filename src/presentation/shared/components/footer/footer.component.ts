@@ -8,25 +8,52 @@ import { MenuItemContact } from '@presentation/shared/types/menu-item.type';
 @Component({
   standalone: true,
   selector: 'app-footer',
-  imports: [ CommonModule, TranslateModule ],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css',]
+  styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent {
-
   currentYear: number;
 
-  constructor( ) {
+  constructor() {
     this.currentYear = new Date().getFullYear();
   }
 
-  public menuItemsFooter = signal<MenuItemContact[]> ([
-    { url: 'https://linkedin.com/in/ingaamira/',      img: 'assets/icons/linkedin.png', flag: 'LinkedIn' },
-    { url: 'https://github.com/IngAamira/',           img: 'assets/icons/github.png',   flag: 'GitHub'   },
-    { url: 'https://platzi.com/p/IngAamira/',         img: 'assets/icons/platzi.png',   flag: 'Platzi'   },
-    { url: 'https://www.udemy.com/user/andres-mira/', img: 'assets/icons/udemy.png',    flag: 'Udemy'    },
-    { url: 'https://twitter.com/Ingaamira/',          img: 'assets/icons/twitter.png',  flag: 'Twitter'  },
-    { url: 'mailto:andres.mira@outlook.com/',         img: 'assets/icons/e-mail.png',   flag: 'Email'    },
+  public menuItemsFooter = signal<MenuItemContact[]>([
+    {
+      url: 'https://linkedin.com/in/ingaamira/',
+      img: 'assets/icons/linkedin.png',
+      flag: 'LinkedIn',
+    },
+    {
+      url: 'https://github.com/IngAamira/',
+      img: 'assets/icons/github.png',
+      flag: 'GitHub',
+    },
+    {
+      url: 'https://api.whatsapp.com/send/?phone=573217295412&text=Hola%2C+vengo+de+tu+p%C3%A1gina+de+portfolio+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre++de+tu+CV&type=phone_number&app_absent=0',
+      img: 'assets/icons/whatsapp.png',
+      flag: 'WhatsApp',
+    },
+    {
+      url: 'https://platzi.com/p/IngAamira/',
+      img: 'assets/icons/platzi.png',
+      flag: 'Platzi',
+    },
+    {
+      url: 'https://www.udemy.com/user/andres-mira/',
+      img: 'assets/icons/udemy.png',
+      flag: 'Udemy',
+    },
+    {
+      url: 'https://twitter.com/Ingaamira/',
+      img: 'assets/icons/twitter.png',
+      flag: 'Twitter',
+    },
+    {
+      url: 'mailto:andres.mira@outlook.com/',
+      img: 'assets/icons/e-mail.png',
+      flag: 'Email',
+    },
   ]);
-
 }
