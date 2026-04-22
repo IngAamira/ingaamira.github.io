@@ -21,7 +21,8 @@
       "¡Conectemos si estás trabajando en desarrollo fullstack, arquitectura backend o soluciones basadas en IA!"
     ],
     "CV": "Descargar CV",
-    "SCHEDULE": "Para conocer más sobre mis servicios, visita este enlace: "
+    "SERVICES_INFO": "Para conocer más sobre mis servicios, visita:",
+    "SERVICES_LINK": "Ver servicios"
   },
 
   "FEATURED_PROJECT": {

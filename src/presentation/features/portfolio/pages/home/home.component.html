@@ -29,9 +29,18 @@
 
             <div class="card-text mt-2" style="text-align: justify;">
               <p>
-                {{ 'ABOUT_ME.SCHEDULE' | translate }}
-                <a (click)="openContactPage()">
-                  <i class="bi bi-calendar3"></i>
+                {{ 'ABOUT_ME.SERVICES_INFO' | translate }}
+
+                <a
+                  (click)="openContactPage()"
+                  class="link-services"
+                  role="button"
+                  tabindex="0"
+                >
+                  <i class="bi bi-box-arrow-up-right"></i>
+                  <span class="ms-1">
+                    {{ 'ABOUT_ME.SERVICES_LINK' | translate }}
+                  </span>
                 </a>
               </p>
             </div>

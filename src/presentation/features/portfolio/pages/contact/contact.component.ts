@@ -17,10 +17,18 @@ import { MenuItemContact } from '@presentation/shared/types/menu-item.type';
         <p>{{ 'CONTACT.DESCRIPTION' | translate }}:</p>
       </div>
       <div class="list-group shadow">
-        <a *ngFor="let item of menuItemsContact()"
-          [href]="item.url" target="_blank"
-          class="list-group-item list-group-item-action d-flex gap-3 py-3" >
-          <img [src]="item.img" width="32" height="32" class="rounded-circle flex-shrink-0 me-5">
+        <a
+          *ngFor="let item of menuItemsContact()"
+          [href]="item.url"
+          target="_blank"
+          class="list-group-item list-group-item-action d-flex gap-3 py-3"
+        >
+          <img
+            [src]="item.img"
+            width="32"
+            height="32"
+            class="rounded-circle flex-shrink-0 me-5"
+          />
           <h3 class="mb-0">{{ item.flag }}</h3>
         </a>
       </div>
@@ -28,18 +36,45 @@ import { MenuItemContact } from '@presentation/shared/types/menu-item.type';
   `,
 })
 export class ContactComponent {
-
-  constructor( private titleService: Title,) {
+  constructor(private titleService: Title) {
     this.titleService.setTitle('Contact Me');
   }
 
-  public menuItemsContact = signal<MenuItemContact[]> ([
-    { url: 'https://linkedin.com/in/ingaamira/',      img: 'assets/icons/linkedin.png', flag: 'Linkedin' },
-    { url: 'https://github.com/IngAamira/',           img: 'assets/icons/github.png',   flag: 'GitHub'   },
-    { url: 'https://platzi.com/p/IngAamira/',         img: 'assets/icons/platzi.png',   flag: 'Platzi'   },
-    { url: 'https://www.udemy.com/user/andres-mira/', img: 'assets/icons/udemy.png',    flag: 'Udemy'    },
-    { url: 'https://twitter.com/Ingaamira/',          img: 'assets/icons/twitter.png',  flag: 'Twitter'  },
-    { url: 'mailto:andres.mira@outlook.com/',         img: 'assets/icons/e-mail.png',   flag: 'Email'    },
+  public menuItemsContact = signal<MenuItemContact[]>([
+    {
+      url: 'https://linkedin.com/in/ingaamira/',
+      img: 'assets/icons/linkedin.png',
+      flag: 'Linkedin',
+    },
+    {
+      url: 'https://github.com/IngAamira/',
+      img: 'assets/icons/github.png',
+      flag: 'GitHub',
+    },
+    {
+      url: 'https://api.whatsapp.com/send/?phone=573217295412&text=Hola%2C+vengo+de+tu+p%C3%A1gina+de+portfolio+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre++de+tu+CV&type=phone_number&app_absent=0',
+      img: 'assets/icons/whatsapp.png',
+      flag: 'WhatsApp',
+    },
+    {
+      url: 'https://platzi.com/p/IngAamira/',
+      img: 'assets/icons/platzi.png',
+      flag: 'Platzi',
+    },
+    {
+      url: 'https://www.udemy.com/user/andres-mira/',
+      img: 'assets/icons/udemy.png',
+      flag: 'Udemy',
+    },
+    {
+      url: 'https://twitter.com/Ingaamira/',
+      img: 'assets/icons/twitter.png',
+      flag: 'Twitter',
+    },
+    {
+      url: 'mailto:andres.mira@outlook.com/',
+      img: 'assets/icons/e-mail.png',
+      flag: 'Email',
+    },
   ]);
-
 }
