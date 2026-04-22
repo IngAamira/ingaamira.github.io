@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Renderer2, signal } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component, inject, Renderer2, signal } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -28,6 +28,12 @@ import { TranslationService } from '@presentation/shared/services/translation.se
   styleUrls: ['./resume.component.css'],
 })
 export class ResumeComponent {
+
+  private title = inject(Title);
+  private meta = inject(Meta);
+  private renderer =  inject(Renderer2);
+  private translationService = inject(TranslationService);
+
   isOpenState: Record<string, boolean> = {
     isWorkExperienceOpen: false,
     isSectorExperienceOpen: false,
@@ -48,23 +54,60 @@ export class ResumeComponent {
     { isOpen: 'isLanguagesOpen', title: 'LANGUAGES.TITLE', component: LanguageComponent },
   ];
 
-  constructor(
-    private titleService: Title,
-    private renderer: Renderer2,
-    private translationService: TranslationService
-  ) {
-    this.titleService.setTitle('Resume');
+  ngOnInit(): void {
+    const title = 'Portfolio IngAamira | Data Engineer & Fullstack Developer | Resume';
+    const description = 'Explora la hoja de vida de Andrés Mira, Data Engineer y Fullstack Developer en Colombia. Experiencia en desarrollo web, análisis de datos, BI e inteligencia artificial.';
+    const url = 'https://portfolio.ingaamira.com/resume';
+    const image = 'https://portfolio.ingaamira.com/assets/icons/cv.png';
+
+    this.title.setTitle(title);
+    this.meta.updateTag({ name: 'description', content: description });
+    this.meta.updateTag({ name: 'robots', content: 'index, follow' });
+    this.meta.updateTag({ property: 'og:title', content: title });
+    this.meta.updateTag({ property: 'og:description', content: description });
+    this.meta.updateTag({ property: 'og:url', content: url });
+    this.meta.updateTag({ property: 'og:image', content: image });
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.meta.updateTag({ name: 'twitter:title', content: title });
+    this.meta.updateTag({ name: 'twitter:description', content: description });
+    this.meta.updateTag({ name: 'twitter:image', content: image });
+    this.setCanonical(url);
+  }
+
+  private setCanonical(url: string): void {
+    let link: HTMLLinkElement | null = document.querySelector("link[rel='canonical']");
+
+    if (!link) {
+      link = document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      document.head.appendChild(link);
+    }
+
+    link.setAttribute('href', url);
   }
 
   public menuItemsResume = signal<MenuItemResume[]>([
-    { name: 'ABOUT_ME.CV', event: () => this.DownloadFile() },
+    { name: 'ABOUT_ME.CV', event: () => this.downloadFile() },
   ]);
 
-  DownloadFile() {
+  downloadFile(): void {
     const link = this.renderer.createElement('a');
     link.setAttribute('target', '_blank');
-    link.setAttribute('href', this.translationService.getPdfPath());
+
+    const pdfPath = this.translationService.getPdfPath();
+    const lang = this.translationService.getCurrentLanguage();
+
+    link.setAttribute('href', pdfPath);
+
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'download_cv', {
+        language: lang,
+        file_name: pdfPath
+      });
+    }
+
     link.click();
     link.remove();
   }
+
 }

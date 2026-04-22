@@ -8,7 +8,10 @@ import { MenuItemContact } from '@presentation/shared/types/menu-item.type';
 @Component({
   standalone: true,
   selector: 'app-footer',
-  imports: [CommonModule, TranslateModule],
+  imports: [
+    CommonModule,
+    TranslateModule
+  ],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css'],
 })
@@ -17,6 +20,36 @@ export class FooterComponent {
 
   constructor() {
     this.currentYear = new Date().getFullYear();
+  }
+
+  private getType(platform: string): string {
+    const direct = ['WhatsApp', 'Email'];
+    return direct.includes(platform) ? 'direct_lead' : 'social';
+  }
+
+  trackFooterClick(platform: string, url: string): void {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+
+      const lang = document.documentElement.lang || 'en';
+      const type = this.getType(platform);
+
+      (window as any).gtag('event', 'footer_click', {
+        contact_method: platform,
+        link_url: url,
+        page: 'footer',
+        language: lang,
+        engagement_type: type,
+        timestamp: new Date().toISOString()
+      });
+
+      if (type === 'direct_lead') {
+        (window as any).gtag('event', 'generate_lead', {
+          method: platform,
+          source: 'footer',
+          language: lang
+        });
+      }
+    }
   }
 
   public menuItemsFooter = signal<MenuItemContact[]>([
@@ -31,7 +64,7 @@ export class FooterComponent {
       flag: 'GitHub',
     },
     {
-      url: 'https://api.whatsapp.com/send/?phone=573217295412&text=Hola%2C+vengo+de+tu+p%C3%A1gina+de+portfolio+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre++de+tu+CV&type=phone_number&app_absent=0',
+      url: 'https://api.whatsapp.com/send/?phone=573217295412&text=Hola%2C+vengo+de+tu+p%C3%A1gina+de+portfolio+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre+tu+perfil',
       img: 'assets/icons/whatsapp.png',
       flag: 'WhatsApp',
     },
@@ -51,7 +84,7 @@ export class FooterComponent {
       flag: 'Twitter',
     },
     {
-      url: 'mailto:andres.mira@outlook.com/',
+      url: 'mailto:andres.mira@outlook.com',
       img: 'assets/icons/e-mail.png',
       flag: 'Email',
     },

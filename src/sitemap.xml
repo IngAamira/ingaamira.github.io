@@ -1,31 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Home -->
   <url>
     <loc>https://portfolio.ingaamira.com/</loc>
-    <priority>1.0</priority>
-    <changefreq>weekly</changefreq>
     <lastmod>2026-04-21</lastmod>
   </url>
 
+  <!-- Core -->
   <url>
     <loc>https://portfolio.ingaamira.com/portfolio</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
     <lastmod>2026-04-21</lastmod>
   </url>
 
   <url>
     <loc>https://portfolio.ingaamira.com/resume</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
     <lastmod>2026-04-21</lastmod>
   </url>
 
   <url>
     <loc>https://portfolio.ingaamira.com/contact</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
     <lastmod>2026-04-21</lastmod>
   </url>
 

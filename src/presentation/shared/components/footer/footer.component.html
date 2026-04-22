@@ -1,18 +1,21 @@
 <footer class="footer">
-
   <div class="text-center info">
-    <p>🚀 {{ 'FOOTER.TEXT' | translate }} 🚀</p>
+    <p>🚀 {{ "FOOTER.TEXT" | translate }} 🚀</p>
   </div>
 
   <div class="text-center social-links">
-    <a *ngFor="let item of menuItemsFooter()"
-      [href]="item.url" target="_blank" >
-      <img [src]="item.img" [alt]="item.flag" width="50" height="50">
+    <a
+      *ngFor="let item of menuItemsFooter()"
+      [href]="item.url"
+      target="_blank"
+      rel="noopener noreferrer"
+      (click)="trackFooterClick(item.flag, item.url)"
+    >
+      <img [src]="item.img" [alt]="item.flag" width="50" height="50" />
     </a>
   </div>
 
   <div class="text-center current-year">
-    <p>&copy; {{ currentYear }} </p>
+    <p>&copy; {{ currentYear }}</p>
   </div>
-
 </footer>

@@ -1,6 +1,7 @@
-import { Component, OnInit, signal, computed } from '@angular/core';
+import { Component, OnInit, signal, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { Title, Meta } from '@angular/platform-browser';
 
 import { GetProjectsUseCase } from '@domain/use-cases/get-projects.use-case';
 import { FilterProjectsUseCase } from '@domain/use-cases/filter-projects.use-case';
@@ -18,6 +19,9 @@ import { Category } from '@presentation/shared/types/category-dev.type';
 })
 export class PortfolioComponent implements OnInit {
 
+  private title = inject(Title);
+  private meta = inject(Meta);
+
   private allProjects = signal<Project[]>([]);
   readonly isFilterOpen = signal(false);
   readonly loading = signal(true);
@@ -28,17 +32,9 @@ export class PortfolioComponent implements OnInit {
 
   selectedTags = computed(() => {
     const filters = this.filters();
-    const result: TagType[] = [];
-
-    for (const key in filters) {
-      const tag = key as TagType;
-
-      if (filters[tag]) {
-        result.push(tag);
-      }
-    }
-
-    return result;
+    return Object.keys(filters)
+      .filter(key => filters[key as TagType])
+      .map(key => key as TagType);
   });
 
   readonly filtering = computed(() => this.selectedTags().length > 0);
@@ -76,6 +72,8 @@ export class PortfolioComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
+    this.setSEO();
+
     this.loading.set(true);
 
     try {
@@ -91,6 +89,38 @@ export class PortfolioComponent implements OnInit {
     }
   }
 
+  private setSEO(): void {
+    const title = 'Portfolio IngAamira | Data Engineer & Fullstack Developer | Portfolio';
+    const description = 'Explora los proyectos de Andrés Mira, Data Engineer y Fullstack Developer en Colombia. Desarrollo web, análisis de datos, automatización e inteligencia artificial.';
+    const url = 'https://portfolio.ingaamira.com/portfolio';
+    const image = 'https://portfolio.ingaamira.com/assets/icons/idea.png';
+
+    this.title.setTitle(title);
+    this.meta.updateTag({ name: 'description', content: description });
+    this.meta.updateTag({ name: 'robots', content: 'index, follow' });
+    this.meta.updateTag({ property: 'og:title', content: title });
+    this.meta.updateTag({ property: 'og:description', content: description });
+    this.meta.updateTag({ property: 'og:url', content: url });
+    this.meta.updateTag({ property: 'og:image', content: image });
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.meta.updateTag({ name: 'twitter:title', content: title });
+    this.meta.updateTag({ name: 'twitter:description', content: description });
+    this.meta.updateTag({ name: 'twitter:image', content: image });
+    this.setCanonical(url);
+  }
+
+  private setCanonical(url: string): void {
+    let link: HTMLLinkElement | null = document.querySelector("link[rel='canonical']");
+
+    if (!link) {
+      link = document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      document.head.appendChild(link);
+    }
+
+    link.setAttribute('href', url);
+  }
+
   private createInitialFilters(): Record<TagType, boolean> {
     return Object.values(TagType).reduce((acc, tag) => {
       acc[tag] = false;
@@ -104,7 +134,7 @@ export class PortfolioComponent implements OnInit {
       [tag]: !current[tag],
     }));
 
-     if (window.innerWidth < 768) {
+    if (window.innerWidth < 768) {
       this.isFilterOpen.set(false);
     }
   }
@@ -113,5 +143,4 @@ export class PortfolioComponent implements OnInit {
     this.filters.set(this.createInitialFilters());
     this.isFilterOpen.set(false);
   }
-
 }
