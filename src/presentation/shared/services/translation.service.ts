@@ -9,8 +9,10 @@ export class TranslationService {
 
   private translate = inject(TranslateService);
 
-  private currentLanguageSubject: BehaviorSubject<string> = new BehaviorSubject<string>('en');
+  private currentLanguageSubject = new BehaviorSubject<string>('en');
   currentLanguage$ = this.currentLanguageSubject.asObservable();
+
+  private supportedLanguages = ['en', 'es'];
 
   private pdfPaths: Record<string, string> = {
     en: 'assets/docs/CV_Dev_en.pdf',
@@ -22,21 +24,41 @@ export class TranslationService {
   }
 
   private initializeTranslation(): void {
+    const savedLang = localStorage.getItem('lang');
+
+    const browserLang = this.translate.getBrowserLang();
+    const normalizedBrowserLang = browserLang?.split('-')[0];
+
+    let selectedLang = 'en';
+
+    if (savedLang && this.isSupported(savedLang)) {
+      selectedLang = savedLang;
+    } else if (normalizedBrowserLang && this.isSupported(normalizedBrowserLang)) {
+      selectedLang = normalizedBrowserLang;
+    }
+
     this.translate.setDefaultLang('en');
-    this.translate.use('en');
+    this.setLanguage(selectedLang);
+  }
+
+  setLanguage(lang: string): void {
+    if (!this.isSupported(lang)) {
+      console.warn(`Unsupported language: ${lang}, fallback to 'en'`);
+      lang = 'en';
+    }
+
+    this.translate.use(lang);
+    this.currentLanguageSubject.next(lang);
+
+    localStorage.setItem('lang', lang);
   }
 
   changeLanguage(lang: string): void {
-    if (!this.pdfPaths[lang]) {
-      console.error(`Unsupported language: ${lang}`);
-      return;
-    }
-    try {
-      this.translate.use(lang);
-      this.currentLanguageSubject.next(lang);
-    } catch (error) {
-      console.error('Error changing language:', error);
-    }
+    this.setLanguage(lang);
+  }
+
+  private isSupported(lang: string): boolean {
+    return this.supportedLanguages.includes(lang);
   }
 
   getInstantTranslation(key: string): string {
@@ -44,8 +66,12 @@ export class TranslationService {
   }
 
   getPdfPath(): string {
-    const currentLanguage = this.currentLanguageSubject.getValue();
-    return this.pdfPaths[currentLanguage] || this.pdfPaths['en'];
+    const lang = this.getCurrentLanguage();
+    return this.pdfPaths[lang] || this.pdfPaths['en'];
   }
 
+  getCurrentLanguage(): string {
+    return this.currentLanguageSubject.getValue();
+  }
+  
 }
