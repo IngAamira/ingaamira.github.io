@@ -21,7 +21,8 @@
       "Let’s connect if you’re working on anything related to fullstack development, backend architecture, or conversational AI!"
     ],
     "CV": "Download CV",
-    "SCHEDULE": "For more information about my services, please visit this link:"
+    "SERVICES_INFO": "For more information about my services, visit:",
+    "SERVICES_LINK": "See services"
   },
 
   "FEATURED_PROJECT": {
