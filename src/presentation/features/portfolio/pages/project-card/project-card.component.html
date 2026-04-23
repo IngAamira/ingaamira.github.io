@@ -1,26 +1,42 @@
-<div class="card h-100">
-  <div class="card-header text-center">
-    <h5>{{ project.name }}</h5>
+<div class="bg-white rounded-2xl shadow-md flex flex-col h-full overflow-hidden">
+
+  <!-- Header -->
+  <div class="border-b p-4 text-center">
+    <h5 class="text-lg font-semibold">
+      {{ project.name }}
+    </h5>
   </div>
 
-  <div class="card-body">
-    <p class="card-text" *ngFor="let text of project.summary">{{ text }}</p>
+  <!-- Body -->
+  <div class="p-4 flex-1 flex flex-col">
+
+    <div class="space-y-2 text-sm text-gray-700">
+      <p *ngFor="let text of project.summary">
+        {{ text }}
+      </p>
+    </div>
+
     <button
       type="button"
-      class="btn btn-outline-primary mb-2 me-2"
-      (click)="OpenProjectModal()"
+      class="mt-4 self-start px-3 py-2 border border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 transition"
+      (click)="openProject()"
     >
-      <i class="bi bi-three-dots"></i>
+      ⋯ Ver más
     </button>
+
   </div>
 
-  <div class="card-footer">
-    <div class="d-flex flex-wrap justify-content-center">
-      <div *ngFor="let tag of project.tags">
-        <div class="tag me-2 mb-1" [style.background-color]="getTagColor(tag)">
-          {{ tag }}
-        </div>
-      </div>
-    </div>
+  <!-- Footer -->
+  <div class="border-t p-3 flex flex-wrap justify-center gap-2">
+
+    <span
+      *ngFor="let tag of project.tags"
+      class="text-xs px-2 py-1 rounded-full text-white"
+      [style.background-color]="getTagColor(tag)"
+    >
+      {{ tag }}
+    </span>
+
   </div>
+
 </div>

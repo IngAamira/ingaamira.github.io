@@ -11,34 +11,45 @@ import { MenuItemContact } from '@presentation/shared/types/menu-item.type';
   selector: 'app-contact',
   imports: [CommonModule, TranslateModule],
   template: `
-    <div class="container" style="padding-bottom: 12px;">
+    <div class="max-w-3xl mx-auto px-4 pb-6">
 
-      <div class="text-center border mb-5 shadow rounded p-4">
-        <h1>{{ 'CONTACT.TITLE' | translate }}</h1>
-        <p>{{ 'CONTACT.DESCRIPTION' | translate }}</p>
+      <!-- 🔹 Header -->
+      <div class="text-center border rounded-xl shadow-sm p-6 mb-8 bg-white">
+        <h1 class="text-2xl md:text-3xl font-bold mb-2">
+          {{ 'CONTACT.TITLE' | translate }}
+        </h1>
+
+        <p class="text-gray-600 text-sm md:text-base">
+          {{ 'CONTACT.DESCRIPTION' | translate }}
+        </p>
       </div>
 
-      <div class="list-group shadow">
+      <!-- 🔹 Contact list -->
+      <div class="bg-white rounded-xl shadow-sm divide-y">
+
         <a
           *ngFor="let item of menuItemsContact()"
           [href]="item.url"
           target="_blank"
           rel="noopener noreferrer"
           (click)="trackClick(item.flag, item.url)"
-          class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3"
+          class="flex items-center gap-4 px-4 py-4 hover:bg-gray-50 transition group"
         >
+
+          <!-- Icon -->
           <img
             [src]="item.img"
-            width="32"
-            height="32"
-            class="rounded-circle flex-shrink-0"
             [alt]="item.flag"
+            class="w-10 h-10 rounded-full object-cover group-hover:scale-110 transition"
           />
 
-          <div>
-            <h3 class="mb-0">{{ item.flag }}</h3>
-          </div>
+          <!-- Text -->
+          <span class="text-lg font-medium text-gray-800 group-hover:text-purple-600 transition">
+            {{ item.flag }}
+          </span>
+
         </a>
+
       </div>
 
     </div>
@@ -125,7 +136,7 @@ export class ContactComponent implements OnInit {
       flag: 'GitHub',
     },
     {
-      url: 'https://api.whatsapp.com/send/?phone=573217295412&text=Hola%2C+vengo+de+tu+p%C3%A1gina+de+portfolio+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre+tu+perfil',
+      url: 'https://api.whatsapp.com/send/?phone=573217295412&text=Hola%2C+vengo+de+la+p%C3%A1gina+Portfolio+IngAamira+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre+tu+perfil&type=phone_number&app_absent=0',
       img: 'assets/icons/whatsapp.png',
       flag: 'WhatsApp',
     },

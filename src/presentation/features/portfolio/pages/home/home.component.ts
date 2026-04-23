@@ -6,8 +6,6 @@ import { RouterLink } from '@angular/router';
 
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
-import { CarouselModule } from 'ngx-bootstrap/carousel';
-
 import { Project } from '@domain/models/project.model';
 import { ProjectRepository } from '@domain/repositories/project.repository';
 
@@ -17,7 +15,6 @@ import { ProjectRepository } from '@domain/repositories/project.repository';
   imports: [
     CommonModule,
     TranslateModule,
-    CarouselModule,
     RouterLink
   ],
   templateUrl: './home.component.html',
@@ -56,15 +53,11 @@ export class HomeComponent implements OnInit {
 
     this.meta.updateTag({ name: 'description', content: description });
     this.meta.updateTag({ name: 'robots', content: 'index, follow' });
-
-    // Open Graph
     this.meta.updateTag({ property: 'og:title', content: title });
     this.meta.updateTag({ property: 'og:description', content: description });
     this.meta.updateTag({ property: 'og:url', content: url });
     this.meta.updateTag({ property: 'og:image', content: image });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
-
-    // Twitter
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.meta.updateTag({ name: 'twitter:title', content: title });
     this.meta.updateTag({ name: 'twitter:description', content: description });

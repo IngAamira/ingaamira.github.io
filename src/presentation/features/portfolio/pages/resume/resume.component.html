@@ -1,26 +1,49 @@
-<div class="container text-center">
-  <div class="d-flex flex-wrap justify-content-center pb-4">
-    <button *ngFor="let item of menuItemsResume()" class="btn btn-outline-primary mb-2 me-2" (click)="item.event()">
-      <i class="bi bi-file-earmark-pdf-fill"></i>
-      {{ item.name | translate }}
+<div class="max-w-5xl mx-auto px-4 py-8 text-center">
+
+  <!-- 🔹 Actions -->
+  <div class="flex flex-wrap justify-center gap-2 pb-6">
+
+    <button
+      *ngFor="let item of menuItemsResume()"
+      class="flex items-center gap-2 border border-blue-500 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition"
+      (click)="item.event()"
+    >
+      📄 {{ item.name | translate }}
     </button>
+
   </div>
 
-  <div class="pb-2">
-    <accordion [isAnimated]="true" class="shadow">
-      <accordion-group *ngFor="let group of accordionGroups" [(isOpen)]="isOpenState[group.isOpen]" class="d-flex flex-column">
-        <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
-          <div style="visibility: hidden;">></div>
-          <div class="btn-link">
-            <div class="text-truncate">{{ group.title | translate }}</div>
-          </div>
-          <div style="width: 10.95px;">
-            <div *ngIf="!isOpenState[group.isOpen]" style="color: white;">></div>
-            <div *ngIf="isOpenState[group.isOpen]" style="color: white;">v</div>
-          </div>
-        </button>
+  <!-- 🔹 Accordion -->
+  <div class="space-y-3 text-left">
+
+    <div
+      *ngFor="let group of accordionGroups"
+      class="bg-white rounded-xl shadow-sm border overflow-hidden"
+    >
+
+      <!-- Header -->
+      <button
+        class="w-full flex justify-between items-center px-4 py-3 bg-blue-600 text-white"
+        (click)="toggle(group.isOpen)"
+      >
+        <span class="truncate font-medium">
+          {{ group.title | translate }}
+        </span>
+
+        <span class="text-lg">
+          {{ isOpenState[group.isOpen] ? '−' : '+' }}
+        </span>
+      </button>
+
+      <!-- Content -->
+      <div *ngIf="isOpenState[group.isOpen]" class="p-4 border-t">
+
         <ng-container *ngComponentOutlet="group.component"></ng-container>
-      </accordion-group>
-    </accordion>
+
+      </div>
+
+    </div>
+
   </div>
+
 </div>

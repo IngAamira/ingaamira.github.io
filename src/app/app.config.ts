@@ -1,12 +1,10 @@
-import { ApplicationConfig, provideZoneChangeDetection, importProvidersFrom } from "@angular/core";
+import { ApplicationConfig, provideZoneChangeDetection } from "@angular/core";
 import { provideRouter } from "@angular/router";
 import { provideHttpClient } from "@angular/common/http";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 import { provideTranslateService } from "@ngx-translate/core";
 import { provideTranslateHttpLoader } from "@ngx-translate/http-loader";
-
-import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { routes } from './app.routes';
 import { ProjectDatasource } from "@infrastructure/datasources/project.datasource";
@@ -20,10 +18,6 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideHttpClient(),
-
-    importProvidersFrom(
-      ModalModule.forRoot()
-    ),
 
     provideTranslateService({
       loader: provideTranslateHttpLoader({

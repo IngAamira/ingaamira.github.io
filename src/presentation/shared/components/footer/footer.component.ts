@@ -12,8 +12,7 @@ import { MenuItemContact } from '@presentation/shared/types/menu-item.type';
     CommonModule,
     TranslateModule
   ],
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css'],
+  templateUrl: './footer.component.html'
 })
 export class FooterComponent {
   currentYear: number;
@@ -52,6 +51,27 @@ export class FooterComponent {
     }
   }
 
+  goToWhatsApp(): void {
+    const number = '573217295412'
+    const message = `Hola, vengo de la página Portfolio IngAamira y quiero más información sobre tu perfil`;
+    const url = this.getWhatsAppLink(number, message);
+
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      const lang = document.documentElement.lang || 'en';
+
+      (window as any).gtag('event', 'whatsapp_click_signature', {
+        source: 'footer_signature',
+        language: lang
+      });
+    }
+
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
+
+  getWhatsAppLink(number: string, message: string): string {
+    return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+  }
+
   public menuItemsFooter = signal<MenuItemContact[]>([
     {
       url: 'https://linkedin.com/in/ingaamira/',
@@ -64,7 +84,7 @@ export class FooterComponent {
       flag: 'GitHub',
     },
     {
-      url: 'https://api.whatsapp.com/send/?phone=573217295412&text=Hola%2C+vengo+de+tu+p%C3%A1gina+de+portfolio+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre+tu+perfil',
+      url: 'https://api.whatsapp.com/send/?phone=573217295412&text=Hola%2C+vengo+de+la+p%C3%A1gina+Portfolio+IngAamira+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre+tu+perfil&type=phone_number&app_absent=0',
       img: 'assets/icons/whatsapp.png',
       flag: 'WhatsApp',
     },

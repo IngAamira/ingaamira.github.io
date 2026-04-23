@@ -1,18 +1,25 @@
-<!-- Menu Nav-->
-<hr>
+<hr class="my-4 border-gray-200">
 
-<div class="d-flex justify-content-center">
-  <a *ngFor="let item of menuItemsHome()"
-     [routerLink]="[item.route]"
-     [routerLinkActive]="'active-link'"
-     [routerLinkActiveOptions]="{ exact: true }"
-     class="navigation-link m-2 text-center"
-     aria-current="page">
-    <div>
-      <i class="{{ item.img }}"></i>
-      <p class="d-none d-md-block mt-1 mb-0">{{ item.name | translate }}</p>
-    </div>
+<nav class="flex justify-center">
+
+  <a
+    *ngFor="let item of menuItemsHome()"
+    [routerLink]="item.route"
+    routerLinkActive="bg-purple-600 text-white font-semibold"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="flex flex-col items-center justify-center mx-2 px-4 py-2 rounded-xl text-purple-700 hover:bg-purple-100 transition text-2xl md:text-base"
+  >
+
+    <!-- Icon -->
+    <i [class]="item.img"></i>
+
+    <!-- Label -->
+    <span class="hidden md:block mt-1 text-sm">
+      {{ item.name | translate }}
+    </span>
+
   </a>
-</div>
 
-<hr>
+</nav>
+
+<hr class="my-4 border-gray-200">
