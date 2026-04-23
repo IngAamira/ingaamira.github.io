@@ -9,7 +9,11 @@ export class ProjectLocalDatasource implements ProjectDatasource {
   private projects: Project[] = [
     {
           name: 'Stock Flow App',
-          summary: 'StockFlow is an Inventory Management System that allows users to manage categories, products, and view dashboards with charts. It is built with SPRING_BOOT Boot for the backend and Angular for the frontend. The application integrates with Keycloak for authentication and supports exporting data to Excel.',
+          summary: [
+            "StockFlow is an inventory management system that lets you organize categories, manage products, and keep an eye on your business with clean, data-driven dashboards.",
+            "On the backend, it runs on Spring Boot; on the frontend, it’s powered by Angular—giving you a fast, modern, and responsive experience.",
+            "It also integrates with Keycloak for secure authentication, and when you need your data offline, you can easily export everything to Excel."
+          ],
           projectLink: 'https://github.com/IngAamira/StockFlow',
           pictures: [
             "assets/imgs/projects/stock-flow/folder.png",
@@ -22,7 +26,10 @@ export class ProjectLocalDatasource implements ProjectDatasource {
         },
         {
           name: 'Neo Shop App',
-          summary: 'This is an e-commerce application developed in Java with the SPRING_BOOT Boot framework and using SPRING_BOOT WebFlux for reactive programming. The application allows users to search for and purchase products online, organized into categories.',
+          summary: [
+            "This is a modern e-commerce application built in Java using Spring Boot, with Spring WebFlux powering a fully reactive, high-performance backend.",
+            "Users can seamlessly browse products, explore categories, and make purchases online—all within a smooth, responsive experience designed to scale."
+          ],
           projectLink: 'https://github.com/IngAamira/NeoShop',
           pictures: [
             "assets/imgs/projects/neo-shop/rest.png",
@@ -35,7 +42,11 @@ export class ProjectLocalDatasource implements ProjectDatasource {
         },
         {
           name: 'Eye Care Hub',
-          summary: 'This is a web-app product management system designed for managing an optician\'s office. It allows users to handle clients, products, sales, and appointments efficiently. The project consists of two main components: a backend built with Java and SPRING_BOOT Boot, and a frontend developed using Angular.',
+          summary: [
+            "This is a web app built to run an optician’s office without the usual chaos. It lets you manage clients, products, sales, and appointments—all in one clean, efficient flow.",
+            "On the backend, it’s powered by Java with Spring Boot. On the frontend, Angular keeps everything fast, smooth, and easy to use.",
+            "Simple, organized, and built to keep your day-to-day operations moving without friction."
+          ],
           projectLink: 'https://github.com/IngAamira/EyeCareHub',
           pictures: [
             "assets/imgs/projects/eye-care-hub/tech-used.png",
@@ -46,7 +57,10 @@ export class ProjectLocalDatasource implements ProjectDatasource {
         },
         {
           name: 'Tech-Solutions',
-          summary: 'This is an e-commerce project developed in Java using Spring Boot. The application implements key functionalities for managing products, orders, users, and the online purchasing process.',
+          summary: [
+            "This is a solid e-commerce app built in Java with Spring Boot, designed to handle the full online shopping experience from end to end.",
+            "It covers everything that matters—product management, user handling, order processing, and a smooth purchasing flow—so the whole system just works, clean and reliable."
+          ],
           projectLink: 'https://github.com/IngAamira/TechSolutions',
           pictures: [
             "assets/imgs/projects/tech-solutions/home.png",
@@ -62,7 +76,10 @@ export class ProjectLocalDatasource implements ProjectDatasource {
         },
         {
           name: 'To-Do App',
-          summary: 'This is a simple To-Do application project developed in Angular.',
+          summary: [
+            "This is a simple, no-nonsense To-Do app built with Angular.",
+            "It helps you stay on top of your tasks, keep things organized, and get stuff done without overcomplicating the experience. Clean, fast, and straight to the point."
+          ],
           projectLink: 'https://ingaamira.github.io/To-doApp/',
           pictures: [
             "assets/imgs/projects/todo-app/home.png",
@@ -73,7 +90,10 @@ export class ProjectLocalDatasource implements ProjectDatasource {
         },
         {
           name: 'Gifs App',
-          summary: 'This is an Angular application that allows users to search and view gifs using the Giphy API.',
+          summary: [
+            "This is a fun, lightweight Angular app that lets users search and browse GIFs in real time using the Giphy API.",
+            "Fast, smooth, and straight to the point—just type what you’re feeling and get the perfect GIF instantly."
+          ],
           projectLink: 'https://ingaamira.github.io/GifsApp/',
           pictures: [
             "assets/imgs/projects/gifs-app/home.png",
@@ -84,7 +104,10 @@ export class ProjectLocalDatasource implements ProjectDatasource {
         },
         {
           name: 'Dragon Ball Z App',
-          summary: 'This is a simple Angular application for managing Dragon Ball Z characters.',
+          summary: [
+            "This is a simple Angular app built for managing Dragon Ball Z characters.",
+            "You can add, view, and organize your favorite fighters in one place—clean, straightforward, and made for fans who like to keep things in order."
+          ],
           projectLink: 'https://ingaamira.github.io/DbzApp/',
           pictures: [
             "assets/imgs/projects/dbz-app/home.png",
@@ -93,7 +116,10 @@ export class ProjectLocalDatasource implements ProjectDatasource {
         },
         {
           name: 'World Demographics API',
-          summary: 'Provides global demographic data for countries and continents. Access population statistics with ease. Ideal for developers and analysts. Explore demographics.',
+          summary: [
+            "Get global demographic data at your fingertips—country by country, continent by continent.",
+            "Quick access to population stats, clean and easy to work with. Built for developers and analysts who need reliable data without the hassle."
+          ],
           projectLink: 'https://github.com/IngAamira/WorldDemographicsAPI',
           pictures: [
             "assets/imgs/projects/world-demo-graphics-api/folder.png",
@@ -103,8 +129,12 @@ export class ProjectLocalDatasource implements ProjectDatasource {
           tags: [ TagType.PYTHON, TagType.FAST_API, TagType.HTML ]
         },
         {
-          name: 'Chatbot WHATSAPP_API API',
-          summary: 'MedPet is an online pet store chatbot service that integrates with WHATSAPP_API to provide users with assistance, appointment scheduling, and other functionalities. It also integrates with Google Sheets for storing appointment data and OPEN_AI for answering user queries.',
+          name: 'Chatbot WhatsApp API',
+          summary: [
+            "MedPet is an online pet store chatbot built to handle customer interactions directly through WhatsApp.",
+            "It helps users get support, schedule appointments, and resolve questions in real time—without friction. Behind the scenes, it connects with Google Sheets to store appointment data and uses OpenAI to deliver smart, conversational responses.",
+            "Simple for users, powerful under the hood."
+          ],
           projectLink: 'https://github.com/IngAamira/ChatbotWhatsappAPI',
           pictures: [
             "assets/imgs/projects/chatbot-wa-api/config.png",

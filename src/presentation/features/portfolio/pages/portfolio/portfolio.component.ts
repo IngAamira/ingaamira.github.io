@@ -14,7 +14,11 @@ import { Category } from '@presentation/shared/types/category-dev.type';
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [CommonModule, CollapseModule, ProjectCardComponent],
+  imports: [
+    CommonModule,
+    CollapseModule,
+    ProjectCardComponent
+  ],
   templateUrl: './portfolio.component.html',
 })
 export class PortfolioComponent implements OnInit {
@@ -53,6 +57,7 @@ export class PortfolioComponent implements OnInit {
       title: 'Backend',
       items: [
         { name: 'Java', binding: TagType.JAVA },
+        { name: 'Python', binding: TagType.PYTHON },
         { name: 'Spring Boot', binding: TagType.SPRING_BOOT },
         { name: 'Node JS', binding: TagType.NODE_JS },
       ]
@@ -61,9 +66,35 @@ export class PortfolioComponent implements OnInit {
       title: 'Frontend',
       items: [
         { name: 'Angular', binding: TagType.ANGULAR },
+        { name: 'JavaScript', binding: TagType.JAVASCRIPT },
         { name: 'TypeScript', binding: TagType.TYPESCRIPT },
       ]
-    }
+    },
+    {
+      title: 'Database',
+      items: [
+        { name: 'Postgres', binding: TagType.POSTGRES },
+      ]
+    },
+    {
+      title: 'Web',
+      items: [
+        { name: 'Html', binding: TagType.HTML },
+        { name: 'CSS', binding: TagType.CSS },
+        { name: 'Botstrap', binding: TagType.BOOTSTRAP },
+        { name: 'Thymeleaf', binding: TagType.THYMELEAF },
+      ]
+    },
+    {
+      title: 'API',
+      items: [
+        { name: 'Giphy', binding: TagType.GIPHY },
+        { name: 'Fast API', binding: TagType.FAST_API },
+        { name: 'WhatsApp API', binding: TagType.WHATSAPP_API },
+        { name: 'Open AI', binding: TagType.OPEN_AI },
+      ]
+    },
+
   ];
 
   constructor(
