@@ -60,8 +60,8 @@ declare global {
   /* Menu Navbar */
   interface MenuItemNav {
     route: string;
-    img: string;
     name: string;
+    icon: string;
   }
 
   /* Menu Resume */
