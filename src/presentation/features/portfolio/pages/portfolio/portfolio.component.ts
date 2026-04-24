@@ -1,6 +1,12 @@
-import { Component, OnInit, signal, computed, inject, HostListener } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  signal,
+  computed,
+  inject,
+  HostListener
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Title, Meta } from '@angular/platform-browser';
 
 import { GetProjectsUseCase } from '@domain/use-cases/get-projects.use-case';
 import { FilterProjectsUseCase } from '@domain/use-cases/filter-projects.use-case';
@@ -10,7 +16,9 @@ import { ProjectModalComponent } from '../project-modal/project-modal.component'
 
 import { Project } from '@domain/models/project.model';
 import { TagType } from '@domain/models/tag.model';
-import { Category } from '@presentation/shared/types/category-dev.type';
+
+import { BrowserService } from '@presentation/shared/services/browser.service';
+import { SeoService } from '@presentation/shared/services/seo.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -18,51 +26,50 @@ import { Category } from '@presentation/shared/types/category-dev.type';
   imports: [
     CommonModule,
     ProjectCardComponent,
-    ProjectModalComponent // 🔥 IMPORTANTE
+    ProjectModalComponent
   ],
   templateUrl: './portfolio.component.html',
 })
 export class PortfolioComponent implements OnInit {
 
-  private title = inject(Title);
-  private meta = inject(Meta);
+  private browser = inject(BrowserService);
+  private seo = inject(SeoService);
 
+  private getProjectsUseCase = inject(GetProjectsUseCase);
+  private filterProjectsUseCase = inject(FilterProjectsUseCase);
+
+  /** 🔥 SIEMPRE array inicial */
   private allProjects = signal<Project[]>([]);
 
   readonly isFilterOpen = signal(false);
   readonly loading = signal(true);
-
-  // 🔥 NUEVO: estado del modal
   readonly selectedProject = signal<Project | null>(null);
 
   readonly filters = signal<Record<TagType, boolean>>(
-    {} as Record<TagType, boolean>
+    this.createInitialFilters()
   );
 
-  // 🔹 Tags seleccionados
   readonly selectedTags = computed(() => {
-    const filters = this.filters();
+    const filters = this.filters() || {};
 
     return Object.keys(filters)
       .filter(key => filters[key as TagType])
       .map(key => key as TagType);
   });
 
-  // 🔹 Si hay filtros activos
   readonly filtering = computed(() => this.selectedTags().length > 0);
 
-  // 🔹 Proyectos filtrados
+  /** 🔥 SIEMPRE retorna array */
   readonly projects = computed(() => {
-    const projects = this.allProjects();
+    const projects = this.allProjects() || [];
     const tags = this.selectedTags();
 
     if (!tags.length) return projects;
 
-    return this.filterProjectsUseCase.execute(projects, tags);
+    return this.filterProjectsUseCase.execute(projects, tags) || [];
   });
 
-  // 🔹 Categorías
-  readonly categories: Category[] = [
+  readonly categories = [
     {
       title: 'Backend',
       items: [
@@ -106,74 +113,46 @@ export class PortfolioComponent implements OnInit {
     },
   ];
 
-  constructor(
-    private getProjectsUseCase: GetProjectsUseCase,
-    private filterProjectsUseCase: FilterProjectsUseCase
-  ) {}
-
   async ngOnInit() {
     this.setSEO();
 
-    this.loading.set(true);
-
     try {
-      const data = await this.getProjectsUseCase.execute();
-      this.allProjects.set(data);
+      this.loading.set(true);
 
-      this.filters.set(this.createInitialFilters());
+      const data = await this.getProjectsUseCase.execute();
+
+      /** 🔥 DEFENSA SSR */
+      this.allProjects.set(Array.isArray(data) ? data : []);
 
     } catch (error) {
       console.error('Error loading projects', error);
+
+      /** 🔥 fallback SSR */
+      this.allProjects.set([]);
+
     } finally {
       this.loading.set(false);
     }
   }
 
-  // 🔥 UX PRO: cerrar modal con ESC
   @HostListener('document:keydown.escape')
   onEscape() {
+    if (!this.browser.isBrowser()) return;
     this.selectedProject.set(null);
   }
 
   private setSEO(): void {
-    const title = 'Portfolio IngAamira | Data Engineer & Fullstack Developer | Portfolio';
-    const description = 'Explora los proyectos de Andrés Mira, Data Engineer y Fullstack Developer en Colombia.';
-    const url = 'https://portfolio.ingaamira.com/portfolio';
-    const image = 'https://portfolio.ingaamira.com/assets/icons/idea.png';
-
-    this.title.setTitle(title);
-
-    this.meta.updateTag({ name: 'description', content: description });
-    this.meta.updateTag({ name: 'robots', content: 'index, follow' });
-
-    this.meta.updateTag({ property: 'og:title', content: title });
-    this.meta.updateTag({ property: 'og:description', content: description });
-    this.meta.updateTag({ property: 'og:url', content: url });
-    this.meta.updateTag({ property: 'og:image', content: image });
-
-    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
-    this.meta.updateTag({ name: 'twitter:title', content: title });
-    this.meta.updateTag({ name: 'twitter:description', content: description });
-    this.meta.updateTag({ name: 'twitter:image', content: image });
-
-    this.setCanonical(url);
-  }
-
-  private setCanonical(url: string): void {
-    let link: HTMLLinkElement | null = document.querySelector("link[rel='canonical']");
-
-    if (!link) {
-      link = document.createElement('link');
-      link.setAttribute('rel', 'canonical');
-      document.head.appendChild(link);
-    }
-
-    link.setAttribute('href', url);
+    this.seo.setSEO({
+      title: 'Portfolio IngAamira | Portfolio',
+      description: 'Explora proyectos de Andrés Mira.',
+      url: 'https://portfolio.ingaamira.com/portfolio',
+      image: 'https://portfolio.ingaamira.com/assets/icons/idea.png'
+    });
   }
 
   private createInitialFilters(): Record<TagType, boolean> {
     return Object.values(TagType).reduce((acc, tag) => {
-      acc[tag] = false;
+      acc[tag as TagType] = false;
       return acc;
     }, {} as Record<TagType, boolean>);
   }
@@ -184,8 +163,9 @@ export class PortfolioComponent implements OnInit {
       [tag]: !current[tag],
     }));
 
-    // UX mobile
-    if (window.innerWidth < 768) {
+    if (!this.browser.isBrowser()) return;
+
+    if (this.browser.window && this.browser.window.innerWidth < 768) {
       this.isFilterOpen.set(false);
     }
   }
@@ -194,5 +174,4 @@ export class PortfolioComponent implements OnInit {
     this.filters.set(this.createInitialFilters());
     this.isFilterOpen.set(false);
   }
-
 }

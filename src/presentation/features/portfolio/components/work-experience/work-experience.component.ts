@@ -4,8 +4,6 @@ import { Subscription } from 'rxjs';
 
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
-import { Company } from '../../interfaces/i18n-item';
-
 @Component({
   selector: 'app-work-experience',
   imports: [CommonModule, TranslateModule],

@@ -21,7 +21,7 @@
     <div *ngIf="project.pictures.length > 0" class="flex flex-col items-center">
 
       <img
-        [src]="selectedImage || project.pictures[0]"
+        [src]="selectedImage || project.pictures[0] || ''"
         class="w-80 h-80 object-contain rounded-lg"
         alt="project image"
       />

@@ -13,7 +13,14 @@ import { TagType } from '@domain/models/tag.model';
 })
 export class ProjectModalComponent {
 
-  @Input() project = {} as Project;
+  @Input() project: Project = {
+    id: 0,
+    name: '',
+    summary: [],
+    projectLink: '',
+    pictures: [],
+    tags: []
+  };
 
   @Output() close = new EventEmitter<void>();
 

@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { Project } from "@domain/models/project.model";
 import { TagType } from "@domain/models/tag.model";
 import { ProjectRepository } from "@domain/repositories/project.repository";
@@ -7,19 +7,45 @@ import { ProjectDatasource } from "@infrastructure/datasources/project.datasourc
 @Injectable()
 export class ProjectRepositoryImpl implements ProjectRepository {
 
-  constructor(private datasource: ProjectDatasource) {}
+  private datasource = inject(ProjectDatasource)
+  private cache: Project[] | null = null;
 
   async getProjects(): Promise<Project[]> {
-    return this.datasource.getProjects();
+    if (this.cache) return this.cache;
+
+    try {
+      const data = await this.datasource.getProjects();
+      this.cache = data;
+      return data;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
   }
 
   async getProjectById(id: number): Promise<Project> {
-    const projects = await this.datasource.getProjects();
-    const project = projects.find(p => p.id === id);
+    try {
+      const projects = await this.datasource.getProjects();
+      const project = projects.find(p => p.id === id);
 
-    if (!project) throw new Error('Project not found');
+      if (!project) {
+        throw new Error('Project not found');
+      }
 
-    return project;
+      return project;
+
+    } catch (error) {
+      console.error('[ProjectRepository] getProjectById error:', error);
+
+      return {
+        id: -1,
+        name: 'Project not available',
+        summary: ['No data available'],
+        pictures: [],
+        tags: [],
+        projectLink: ''
+      };
+    }
   }
 
   async getProjectsByFilter(tags: TagType[]): Promise<Project[]> {

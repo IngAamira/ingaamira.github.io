@@ -1,6 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Renderer2, signal } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
+import {
+  Component,
+  inject,
+  Renderer2,
+  OnInit
+} from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { EducationComponent } from '@presentation/features/portfolio/components/education/education.component';
@@ -11,111 +15,116 @@ import { WorkExperienceComponent } from '@presentation/features/portfolio/compon
 import { WorkSectorComponent } from '@presentation/features/portfolio/components/work-sector/work-sector.component';
 import { WorkAiComponent } from '@presentation/features/portfolio/components/work-ai/work-ai.component';
 
-import { MenuItemResume } from '@presentation/shared/types/menu-item.type';
 import { TranslationService } from '@presentation/shared/services/translation.service';
+import { BrowserService } from '@presentation/shared/services/browser.service';
+import { SeoService } from '@presentation/shared/services/seo.service';
+
+type ResumeSection =
+  | 'work'
+  | 'sector'
+  | 'ai'
+  | 'dev'
+  | 'data'
+  | 'education'
+  | 'language';
 
 @Component({
   standalone: true,
   selector: 'app-resume',
   imports: [
     CommonModule,
-    TranslateModule
+    TranslateModule,
+    WorkExperienceComponent,
+    WorkSectorComponent,
+    WorkAiComponent,
+    WorkDevComponent,
+    WorkDataComponent,
+    EducationComponent,
+    LanguageComponent
   ],
   templateUrl: './resume.component.html',
 })
-export class ResumeComponent {
+export class ResumeComponent implements OnInit {
 
-  private title = inject(Title);
-  private meta = inject(Meta);
   private renderer = inject(Renderer2);
   private translationService = inject(TranslationService);
+  private browser = inject(BrowserService);
+  private seo = inject(SeoService);
 
-  // 🔥 Estado del accordion
-  isOpenState: Record<string, boolean> = {
-    isWorkExperienceOpen: false,
-    isSectorExperienceOpen: false,
-    isSkillsIaOpen: false,
-    isSkillsDevOpen: false,
-    isSkillsDataOpen: false,
-    isEducationOpen: false,
-    isLanguagesOpen: false,
+  /** 🔹 Estado accordion */
+  isOpenState: Record<ResumeSection, boolean> = {
+    work: false,
+    sector: false,
+    ai: false,
+    dev: false,
+    data: false,
+    education: false,
+    language: false,
   };
 
-  // 🔹 Toggle simple
-  toggle(key: string) {
-    this.isOpenState[key] = !this.isOpenState[key];
-  }
-
-  // 🔹 Grupos
+  /** 🔹 Config limpia */
   accordionGroups = [
-    { isOpen: 'isWorkExperienceOpen', title: 'WORK.TITLE', component: WorkExperienceComponent },
-    { isOpen: 'isSectorExperienceOpen', title: 'SECTOR.TITLE', component: WorkSectorComponent },
-    { isOpen: 'isSkillsIaOpen', title: 'TECHNICAL_SKILLS_AI.TITLE', component: WorkAiComponent },
-    { isOpen: 'isSkillsDevOpen', title: 'TECHNICAL_SKILLS_DEV.TITLE', component: WorkDevComponent },
-    { isOpen: 'isSkillsDataOpen', title: 'TECHNICAL_SKILLS_DATA.TITLE', component: WorkDataComponent },
-    { isOpen: 'isEducationOpen', title: 'EDUCATION.TITLE', component: EducationComponent },
-    { isOpen: 'isLanguagesOpen', title: 'LANGUAGES.TITLE', component: LanguageComponent },
+    { key: 'work', title: 'WORK.TITLE' },
+    { key: 'sector', title: 'SECTOR.TITLE' },
+    { key: 'ai', title: 'TECHNICAL_SKILLS_AI.TITLE' },
+    { key: 'dev', title: 'TECHNICAL_SKILLS_DEV.TITLE' },
+    { key: 'data', title: 'TECHNICAL_SKILLS_DATA.TITLE' },
+    { key: 'education', title: 'EDUCATION.TITLE' },
+    { key: 'language', title: 'LANGUAGES.TITLE' },
+  ] as const;
+
+  public menuItemsResume: MenuItemResume[] = [
+    { name: 'ABOUT_ME.CV', event: () => this.downloadFile() },
   ];
 
   ngOnInit(): void {
-    const title = 'Portfolio IngAamira | Resume';
-    const description = 'Hoja de vida de Andrés Mira.';
-    const url = 'https://portfolio.ingaamira.com/resume';
-    const image = 'https://portfolio.ingaamira.com/assets/icons/cv.png';
-
-    this.title.setTitle(title);
-
-    this.meta.updateTag({ name: 'description', content: description });
-    this.meta.updateTag({ name: 'robots', content: 'index, follow' });
-
-    this.meta.updateTag({ property: 'og:title', content: title });
-    this.meta.updateTag({ property: 'og:description', content: description });
-    this.meta.updateTag({ property: 'og:url', content: url });
-    this.meta.updateTag({ property: 'og:image', content: image });
-
-    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
-    this.meta.updateTag({ name: 'twitter:title', content: title });
-    this.meta.updateTag({ name: 'twitter:description', content: description });
-    this.meta.updateTag({ name: 'twitter:image', content: image });
-
-    this.setCanonical(url);
+    this.seo.setSEO({
+      title: 'Portfolio IngAamira | Resume',
+      description: 'Hoja de vida de Andrés Mira.',
+      url: 'https://portfolio.ingaamira.com/resume',
+      image: 'https://portfolio.ingaamira.com/assets/icons/cv.png',
+    });
   }
 
-  private setCanonical(url: string): void {
-    let link = document.querySelector("link[rel='canonical']") as HTMLLinkElement | null;
-
-    if (!link) {
-      link = document.createElement('link');
-      link.setAttribute('rel', 'canonical');
-      document.head.appendChild(link);
-    }
-
-    link.setAttribute('href', url);
+  toggle(key: ResumeSection) {
+    this.isOpenState[key] = !this.isOpenState[key];
   }
-
-  // 🔹 Botones
-  public menuItemsResume = signal<MenuItemResume[]>([
-    { name: 'ABOUT_ME.CV', event: () => this.downloadFile() },
-  ]);
 
   downloadFile(): void {
-    const link = this.renderer.createElement('a');
-    link.setAttribute('target', '_blank');
+    if (!this.browser.isBrowser()) return;
 
     const pdfPath = this.translationService.getPdfPath();
     const lang = this.translationService.getCurrentLanguage();
 
-    link.setAttribute('href', pdfPath);
+    const documentRef = this.browser.document;
+    if (!documentRef) return;
 
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'download_cv', {
+    const link = this.renderer.createElement('a');
+
+    this.renderer.setAttribute(link, 'href', pdfPath);
+    this.renderer.setAttribute(link, 'target', '_blank');
+
+    this.renderer.appendChild(documentRef.body, link);
+    link.click();
+    this.renderer.removeChild(documentRef.body, link);
+
+    const win = this.browser.window;
+    const gtag = win?.gtag;
+
+    if (gtag) {
+      gtag('event', 'download_cv', {
         language: lang,
         file_name: pdfPath
       });
     }
+  }
 
-    link.click();
-    link.remove();
+  trackByName(index: number, item: MenuItemResume) {
+    return item.name;
+  }
+
+  trackByKey(index: number, item: any) {
+    return item.key;
   }
 
 }

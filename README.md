@@ -162,9 +162,40 @@ filterProjectsUseCase.execute(projects, tags)
 
 ## Libraries
 
-* ngx-bootstrap → UI components (collapse)
-* bootstrap → styling
-* Angular Signals → reactive state management
+### Tailwind
+
+#### Install labrery
+```sh
+  npm install -D tailwindcss@3 postcss autoprefixer
+  npx tailwindcss init
+```
+
+#### postcss.config.js
+```js
+  module.exports = {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  }
+```
+
+#### tailwind.config.js
+
+```js
+  /** @type {import('tailwindcss').Config} */
+  module.exports = {
+    content: [
+      "./src/**/*.{html,ts}"
+    ],
+    theme: {
+      extend: {},
+    },
+    plugins: [],
+  }
+```
+
+### Angular Signals → reactive state management
 
 ---
 

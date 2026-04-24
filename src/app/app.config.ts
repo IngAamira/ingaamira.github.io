@@ -1,7 +1,7 @@
 import { ApplicationConfig, provideZoneChangeDetection } from "@angular/core";
 import { provideRouter } from "@angular/router";
 import { provideHttpClient } from "@angular/common/http";
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { provideTranslateService } from "@ngx-translate/core";
 import { provideTranslateHttpLoader } from "@ngx-translate/http-loader";
@@ -15,7 +15,7 @@ import { ProjectRepositoryImpl } from "@infrastructure/repositories/project.repo
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideAnimationsAsync(),
+    provideAnimations(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideHttpClient(),
 
@@ -36,6 +36,5 @@ export const appConfig: ApplicationConfig = {
       provide: ProjectRepository,
       useClass: ProjectRepositoryImpl
     }
-
   ],
 };

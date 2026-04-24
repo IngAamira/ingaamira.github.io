@@ -4,8 +4,6 @@ import { Subscription } from 'rxjs';
 
 import { TranslateModule, TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
-import { ItemTechnicalSkill } from '../../interfaces/i18n-item';
-
 @Component({
   selector: 'app-work-ai',
   imports: [CommonModule, TranslateModule],

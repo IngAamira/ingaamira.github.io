@@ -1,9 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { TranslateModule } from '@ngx-translate/core';
 
-import { MenuItemContact } from '@presentation/shared/types/menu-item.type';
+import { BrowserService } from '@presentation/shared/services/browser.service';
 
 @Component({
   standalone: true,
@@ -15,10 +14,18 @@ import { MenuItemContact } from '@presentation/shared/types/menu-item.type';
   templateUrl: './footer.component.html'
 })
 export class FooterComponent {
-  currentYear: number;
 
-  constructor() {
-    this.currentYear = new Date().getFullYear();
+  private browser = inject(BrowserService);
+
+  currentYear: number = new Date().getFullYear();
+
+  private isBrowser(): boolean {
+    return this.browser.isBrowser();
+  }
+
+  private getLang(): string {
+    const doc = this.browser.document;
+    return doc?.documentElement?.lang || 'en';
   }
 
   private getType(platform: string): string {
@@ -27,52 +34,59 @@ export class FooterComponent {
   }
 
   trackFooterClick(platform: string, url: string): void {
-    if (typeof window !== 'undefined' && (window as any).gtag) {
+    if (!this.isBrowser()) return;
 
-      const lang = document.documentElement.lang || 'en';
-      const type = this.getType(platform);
+    const windowRef = this.browser.window;
+    const gtag = windowRef?.gtag;
+    if (!gtag) return;
 
-      (window as any).gtag('event', 'footer_click', {
-        contact_method: platform,
-        link_url: url,
-        page: 'footer',
-        language: lang,
-        engagement_type: type,
-        timestamp: new Date().toISOString()
+    const lang = this.getLang();
+    const type = this.getType(platform);
+
+    gtag('event', 'footer_click', {
+      contact_method: platform,
+      link_url: url,
+      page: 'footer',
+      language: lang,
+      engagement_type: type,
+      timestamp: new Date().toISOString()
+    });
+
+    if (type === 'direct_lead') {
+      gtag('event', 'generate_lead', {
+        method: platform,
+        source: 'footer',
+        language: lang
       });
-
-      if (type === 'direct_lead') {
-        (window as any).gtag('event', 'generate_lead', {
-          method: platform,
-          source: 'footer',
-          language: lang
-        });
-      }
     }
   }
 
   goToWhatsApp(): void {
-    const number = '573217295412'
-    const message = `Hola, vengo de la página Portfolio IngAamira y quiero más información sobre tu perfil`;
+    if (!this.isBrowser()) return;
+
+    const number = '573217295412';
+    const message = 'Hola, vengo de la página Portfolio IngAamira y quiero más información sobre tu perfil';
+
     const url = this.getWhatsAppLink(number, message);
 
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      const lang = document.documentElement.lang || 'en';
+    const windowRef = this.browser.window;
+    const gtag = windowRef?.gtag;
 
-      (window as any).gtag('event', 'whatsapp_click_signature', {
+    if (gtag) {
+      gtag('event', 'whatsapp_click_signature', {
         source: 'footer_signature',
-        language: lang
+        language: this.getLang()
       });
     }
 
-    window.open(url, '_blank', 'noopener,noreferrer');
+    windowRef?.open(url, '_blank', 'noopener,noreferrer');
   }
 
   getWhatsAppLink(number: string, message: string): string {
     return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
   }
 
-  public menuItemsFooter = signal<MenuItemContact[]>([
+  public menuItemsFooter: MenuItemContact[] = [
     {
       url: 'https://linkedin.com/in/ingaamira/',
       img: 'assets/icons/linkedin.png',
@@ -108,5 +122,5 @@ export class FooterComponent {
       img: 'assets/icons/e-mail.png',
       flag: 'Email',
     },
-  ]);
+  ];
 }

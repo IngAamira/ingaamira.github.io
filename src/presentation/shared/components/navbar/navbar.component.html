@@ -3,7 +3,7 @@
 <nav class="flex justify-center">
 
   <a
-    *ngFor="let item of menuItemsHome()"
+    *ngFor="let item of menuItemsHome"
     [routerLink]="item.route"
     routerLinkActive="bg-purple-600 text-white font-semibold"
     [routerLinkActiveOptions]="{ exact: true }"

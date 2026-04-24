@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { TranslationService } from '@presentation/shared/services/translation.service';
-import { MenuItemHeader, ItemTitle } from '@presentation/shared/types/menu-item.type';
 
 @Component({
   standalone: true,
@@ -22,10 +21,10 @@ export class HeaderComponent {
     { title: 'PROFILE.HEADLINE' },
   ];
 
-  public menuItemsHeader = signal<MenuItemHeader[]>([
+  public menuItemsHeader: MenuItemHeader[] = [
     { flag: 'English', img: 'assets/icons/usa.png', event: () => this.changeLanguage('en') },
     { flag: 'Español', img: 'assets/icons/spain.png', event: () => this.changeLanguage('es') },
-  ]);
+  ];
 
   constructor(private translationService: TranslationService) {}
 

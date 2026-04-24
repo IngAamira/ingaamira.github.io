@@ -4,7 +4,7 @@
   <div class="flex flex-wrap justify-center gap-2 pb-6">
 
     <button
-      *ngFor="let item of menuItemsResume()"
+      *ngFor="let item of menuItemsResume; trackBy: trackByName"
       class="flex items-center gap-2 border border-blue-500 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition"
       (click)="item.event()"
     >
@@ -17,28 +17,34 @@
   <div class="space-y-3 text-left">
 
     <div
-      *ngFor="let group of accordionGroups"
+      *ngFor="let group of accordionGroups; trackBy: trackByKey"
       class="bg-white rounded-xl shadow-sm border overflow-hidden"
     >
 
       <!-- Header -->
       <button
         class="w-full flex justify-between items-center px-4 py-3 bg-blue-600 text-white"
-        (click)="toggle(group.isOpen)"
+        (click)="toggle(group.key)"
       >
         <span class="truncate font-medium">
           {{ group.title | translate }}
         </span>
 
         <span class="text-lg">
-          {{ isOpenState[group.isOpen] ? '−' : '+' }}
+          {{ isOpenState[group.key] ? '−' : '+' }}
         </span>
       </button>
 
       <!-- Content -->
-      <div *ngIf="isOpenState[group.isOpen]" class="p-4 border-t">
+      <div *ngIf="isOpenState[group.key]" class="p-4 border-t">
 
-        <ng-container *ngComponentOutlet="group.component"></ng-container>
+        <app-work-experience *ngIf="group.key === 'work'"></app-work-experience>
+        <app-work-sector *ngIf="group.key === 'sector'"></app-work-sector>
+        <app-work-ai *ngIf="group.key === 'ai'"></app-work-ai>
+        <app-work-dev *ngIf="group.key === 'dev'"></app-work-dev>
+        <app-work-data *ngIf="group.key === 'data'"></app-work-data>
+        <app-education *ngIf="group.key === 'education'"></app-education>
+        <app-language *ngIf="group.key === 'language'"></app-language>
 
       </div>
 

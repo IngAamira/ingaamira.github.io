@@ -25,7 +25,7 @@
   <div class="absolute bottom-3 right-3 flex gap-2">
 
     <button
-      *ngFor="let item of menuItemsHeader()"
+      *ngFor="let item of menuItemsHeader"
       (click)="item.event()"
       class="p-1 rounded-full hover:scale-110 transition"
       [attr.aria-label]="item.flag"

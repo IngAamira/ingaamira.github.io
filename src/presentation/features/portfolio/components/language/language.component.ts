@@ -4,10 +4,8 @@ import { Subscription } from 'rxjs';
 
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
-import { ItemLanguage } from '../../interfaces/i18n-item';
-
 @Component({
-  selector: 'app-languages',
+  selector: 'app-language',
   imports: [CommonModule, TranslateModule],
   template: `
     <div style="text-align: left;">
