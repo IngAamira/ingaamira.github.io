@@ -38,8 +38,7 @@ export class PortfolioComponent implements OnInit {
   private getProjectsUseCase = inject(GetProjectsUseCase);
   private filterProjectsUseCase = inject(FilterProjectsUseCase);
 
-  /** 🔥 SIEMPRE array inicial */
-  private allProjects = signal<Project[]>([]);
+  private readonly allProjects = signal<Project[]>([]);
 
   readonly isFilterOpen = signal(false);
   readonly loading = signal(true);
@@ -49,27 +48,24 @@ export class PortfolioComponent implements OnInit {
     this.createInitialFilters()
   );
 
-  readonly selectedTags = computed(() => {
-    const filters = this.filters() || {};
-
-    return Object.keys(filters)
-      .filter(key => filters[key as TagType])
-      .map(key => key as TagType);
-  });
+  readonly selectedTags = computed(() =>
+    Object.entries(this.filters())
+      .filter(([_, active]) => active)
+      .map(([tag]) => tag as TagType)
+  );
 
   readonly filtering = computed(() => this.selectedTags().length > 0);
 
-  /** 🔥 SIEMPRE retorna array */
   readonly projects = computed(() => {
-    const projects = this.allProjects() || [];
     const tags = this.selectedTags();
+    const projects = this.allProjects();
 
-    if (!tags.length) return projects;
-
-    return this.filterProjectsUseCase.execute(projects, tags) || [];
+    return tags.length
+      ? this.filterProjectsUseCase.execute(projects, tags)
+      : projects;
   });
 
-  readonly categories = [
+  readonly categories: Category[] = [
     {
       title: 'Backend',
       items: [
@@ -111,34 +107,27 @@ export class PortfolioComponent implements OnInit {
         { name: 'Open AI', binding: TagType.OPEN_AI },
       ]
     },
-  ];
+  ] as const;
 
-  async ngOnInit() {
+  async ngOnInit(): Promise<void> {
     this.setSEO();
+    await this.loadProjects();
+  }
+
+  private async loadProjects(): Promise<void> {
+    this.loading.set(true);
 
     try {
-      this.loading.set(true);
-
       const data = await this.getProjectsUseCase.execute();
-
-      /** 🔥 DEFENSA SSR */
       this.allProjects.set(Array.isArray(data) ? data : []);
 
     } catch (error) {
-      console.error('Error loading projects', error);
-
-      /** 🔥 fallback SSR */
+      console.error('[Portfolio] Error loading projects', error);
       this.allProjects.set([]);
 
     } finally {
       this.loading.set(false);
     }
-  }
-
-  @HostListener('document:keydown.escape')
-  onEscape() {
-    if (!this.browser.isBrowser()) return;
-    this.selectedProject.set(null);
   }
 
   private setSEO(): void {
@@ -150,28 +139,46 @@ export class PortfolioComponent implements OnInit {
     });
   }
 
+  toggleFilter(tag: TagType): void {
+    this.filters.update(current => ({
+      ...current,
+      [tag]: !current[tag],
+    }));
+
+    this.closeFilterOnMobile();
+  }
+
+  resetFilters(): void {
+    this.filters.set(this.createInitialFilters());
+    this.isFilterOpen.set(false);
+  }
+
+  private closeFilterOnMobile(): void {
+    const win = this.browser.window;
+
+    if (win && win.innerWidth < 768) {
+      this.isFilterOpen.set(false);
+    }
+  }
+
+  openProject(project: Project): void {
+    this.selectedProject.set(project);
+  }
+
+  closeProject(): void {
+    this.selectedProject.set(null);
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    this.closeProject();
+  }
+
   private createInitialFilters(): Record<TagType, boolean> {
     return Object.values(TagType).reduce((acc, tag) => {
       acc[tag as TagType] = false;
       return acc;
     }, {} as Record<TagType, boolean>);
   }
-
-  toggleFilter(tag: TagType) {
-    this.filters.update(current => ({
-      ...current,
-      [tag]: !current[tag],
-    }));
-
-    if (!this.browser.isBrowser()) return;
-
-    if (this.browser.window && this.browser.window.innerWidth < 768) {
-      this.isFilterOpen.set(false);
-    }
-  }
-
-  resetFilters() {
-    this.filters.set(this.createInitialFilters());
-    this.isFilterOpen.set(false);
-  }
+  
 }

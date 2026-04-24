@@ -1,6 +1,6 @@
 <div class="max-w-7xl mx-auto px-4 py-8">
 
-  <!-- 🔹 Actions -->
+  <!-- Actions -->
   <div class="flex flex-wrap gap-2 mb-4">
 
     <button
@@ -20,7 +20,7 @@
 
   </div>
 
-  <!-- 🔹 Filters -->
+  <!-- Filters -->
   <div
     *ngIf="isFilterOpen()"
     class="mb-6 bg-white border rounded-xl shadow-sm p-4 max-w-sm"
@@ -56,12 +56,12 @@
     </form>
   </div>
 
-  <!-- 🔹 Loading -->
+  <!-- Loading -->
   <div *ngIf="loading()" class="flex justify-center my-10">
     <div class="animate-spin rounded-full h-8 w-8 border-2 border-gray-300 border-t-blue-500"></div>
   </div>
 
-  <!-- 🔹 Projects -->
+  <!-- Projects -->
   <div
     *ngIf="!loading()"
     class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -69,11 +69,11 @@
     <app-project-card
       *ngFor="let project of projects()"
       [project]="project"
-      (viewProject)="selectedProject.set($event)"
+      (viewProject)="openProject($event)"
     ></app-project-card>
   </div>
 
-  <!-- 🔹 Empty state -->
+  <!-- Empty state -->
   <div
     *ngIf="!loading() && projects().length === 0"
     class="text-center mt-10 text-gray-500"
@@ -83,7 +83,7 @@
 
 </div>
 
-<!-- 🔥 MODAL GLOBAL -->
+<!-- MODAL GLOBAL -->
 <div
   *ngIf="selectedProject()"
   class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
@@ -91,7 +91,7 @@
 
   <app-project-modal
     [project]="selectedProject()!"
-    (close)="selectedProject.set(null)"
+    (close)="closeProject()"
   ></app-project-modal>
 
 </div>

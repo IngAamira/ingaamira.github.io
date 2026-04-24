@@ -3,7 +3,8 @@ import {
   Component,
   inject,
   Renderer2,
-  OnInit
+  OnInit,
+  Type
 } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -19,28 +20,12 @@ import { TranslationService } from '@presentation/shared/services/translation.se
 import { BrowserService } from '@presentation/shared/services/browser.service';
 import { SeoService } from '@presentation/shared/services/seo.service';
 
-type ResumeSection =
-  | 'work'
-  | 'sector'
-  | 'ai'
-  | 'dev'
-  | 'data'
-  | 'education'
-  | 'language';
-
 @Component({
   standalone: true,
   selector: 'app-resume',
   imports: [
     CommonModule,
-    TranslateModule,
-    WorkExperienceComponent,
-    WorkSectorComponent,
-    WorkAiComponent,
-    WorkDevComponent,
-    WorkDataComponent,
-    EducationComponent,
-    LanguageComponent
+    TranslateModule
   ],
   templateUrl: './resume.component.html',
 })
@@ -51,7 +36,6 @@ export class ResumeComponent implements OnInit {
   private browser = inject(BrowserService);
   private seo = inject(SeoService);
 
-  /** 🔹 Estado accordion */
   isOpenState: Record<ResumeSection, boolean> = {
     work: false,
     sector: false,
@@ -62,8 +46,7 @@ export class ResumeComponent implements OnInit {
     language: false,
   };
 
-  /** 🔹 Config limpia */
-  accordionGroups = [
+  readonly accordionGroups: AccordionGroup[] = [
     { key: 'work', title: 'WORK.TITLE' },
     { key: 'sector', title: 'SECTOR.TITLE' },
     { key: 'ai', title: 'TECHNICAL_SKILLS_AI.TITLE' },
@@ -71,7 +54,17 @@ export class ResumeComponent implements OnInit {
     { key: 'data', title: 'TECHNICAL_SKILLS_DATA.TITLE' },
     { key: 'education', title: 'EDUCATION.TITLE' },
     { key: 'language', title: 'LANGUAGES.TITLE' },
-  ] as const;
+  ];
+
+  readonly componentMap: Record<ResumeSection, Type<any>> = {
+    work: WorkExperienceComponent,
+    sector: WorkSectorComponent,
+    ai: WorkAiComponent,
+    dev: WorkDevComponent,
+    data: WorkDataComponent,
+    education: EducationComponent,
+    language: LanguageComponent,
+  };
 
   public menuItemsResume: MenuItemResume[] = [
     { name: 'ABOUT_ME.CV', event: () => this.downloadFile() },
@@ -86,7 +79,7 @@ export class ResumeComponent implements OnInit {
     });
   }
 
-  toggle(key: ResumeSection) {
+  toggle(key: ResumeSection): void {
     this.isOpenState[key] = !this.isOpenState[key];
   }
 
@@ -94,36 +87,30 @@ export class ResumeComponent implements OnInit {
     if (!this.browser.isBrowser()) return;
 
     const pdfPath = this.translationService.getPdfPath();
-    const lang = this.translationService.getCurrentLanguage();
+    const doc = this.browser.document;
 
-    const documentRef = this.browser.document;
-    if (!documentRef) return;
+    if (!doc?.body) return;
 
     const link = this.renderer.createElement('a');
 
     this.renderer.setAttribute(link, 'href', pdfPath);
     this.renderer.setAttribute(link, 'target', '_blank');
 
-    this.renderer.appendChild(documentRef.body, link);
+    this.renderer.appendChild(doc.body, link);
     link.click();
-    this.renderer.removeChild(documentRef.body, link);
+    this.renderer.removeChild(doc.body, link);
 
-    const win = this.browser.window;
-    const gtag = win?.gtag;
-
-    if (gtag) {
-      gtag('event', 'download_cv', {
-        language: lang,
-        file_name: pdfPath
-      });
-    }
+    this.browser.gtag('download_cv', {
+      language: this.browser.lang,
+      file_name: pdfPath
+    });
   }
 
-  trackByName(index: number, item: MenuItemResume) {
+  trackByName(index: number, item: MenuItemResume): string {
     return item.name;
   }
 
-  trackByKey(index: number, item: any) {
+  trackByKey(index: number, item: AccordionGroup): ResumeSection {
     return item.key;
   }
 

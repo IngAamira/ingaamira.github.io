@@ -28,10 +28,18 @@ export class HomeComponent implements OnInit {
   private projectRepository = inject(ProjectRepository);
   private translate = inject(TranslateService);
 
-  project: Project | null = null;
-  years: number;
+  project: Project = {
+    id: -1,
+    name: '',
+    summary: [],
+    projectLink: '',
+    pictures: [],
+    tags: []
+  };
 
-  private startDate: Date = new Date(2012, 11, 16);
+  readonly years: number;
+
+  private readonly startDate: Date = new Date(2012, 11, 16);
 
   constructor() {
     this.years = this.calculateYears(this.startDate);
@@ -39,20 +47,19 @@ export class HomeComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.setSEO();
+    await this.loadProject();
+  }
 
+  private async loadProject(): Promise<void> {
     try {
-      this.project = await this.projectRepository.getProjectById(0);
+      const data = await this.projectRepository.getProjectById(0);
+
+      if (data) {
+        this.project = data;
+      }
+
     } catch (error) {
       console.error('[HomeComponent] Error loading project', error);
-
-      this.project = {
-        id: -1,
-        name: 'Default project',
-        summary: [],
-        pictures: [],
-        tags: [],
-        projectLink: ''
-      };
     }
   }
 
@@ -72,37 +79,39 @@ export class HomeComponent implements OnInit {
     return Math.floor(timeDiff / (1000 * 3600 * 24 * 365.25));
   }
 
-  private getLang(): string {
-    const doc = this.browser.document;
-    return doc?.documentElement?.lang || 'en';
+  private get lang(): string {
+    return this.browser.lang;
   }
 
   goToContact(): void {
-    const lang = this.getLang();
-
-    if (this.browser.window?.gtag) {
-      this.browser.window.gtag('event', 'cta_click', {
-        cta_name: 'contact_home',
-        page: 'home',
-        language: lang
-      });
-    }
+    this.browser.gtag('cta_click', {
+      cta_name: 'contact_home',
+      page: 'home',
+      language: this.lang
+    });
 
     this.router.navigate(['/contact']);
   }
 
   openMainWebsite(): void {
     const url = 'https://ingaamira.com/';
-    const lang = this.getLang();
 
-    if (this.browser.window?.gtag) {
-      this.browser.window.gtag('event', 'external_click_ingaamira', {
-        destination: url,
-        page: 'home',
-        language: lang
-      });
-    }
+    this.browser.gtag('external_click_ingaamira', {
+      destination: url,
+      page: 'home',
+      language: this.lang
+    });
 
-    this.browser.window?.open(url, '_blank', 'noopener,noreferrer');
+    this.browser.open(url);
   }
+
+  get aboutTexts(): string[] {
+    const value = this.translate.instant('ABOUT_ME.TEXT');
+
+    if (Array.isArray(value)) return value;
+    if (typeof value === 'string') return [value];
+
+    return [];
+  }
+  
 }

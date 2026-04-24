@@ -12,7 +12,6 @@ import { SeoService } from '@presentation/shared/services/seo.service';
   template: `
     <div class="max-w-3xl mx-auto px-4 pb-6">
 
-      <!-- Header -->
       <div class="text-center border rounded-xl shadow-sm p-6 mb-8 bg-white">
         <h1 class="text-2xl md:text-3xl font-bold mb-2">
           {{ 'CONTACT.TITLE' | translate }}
@@ -23,7 +22,6 @@ import { SeoService } from '@presentation/shared/services/seo.service';
         </p>
       </div>
 
-      <!-- Contact list -->
       <div class="bg-white rounded-xl shadow-sm divide-y">
 
         <a
@@ -133,5 +131,5 @@ export class ContactComponent implements OnInit {
       flag: 'Email',
     },
   ];
-  
+
 }

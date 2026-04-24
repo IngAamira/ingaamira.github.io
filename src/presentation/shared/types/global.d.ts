@@ -23,10 +23,27 @@ declare global {
     binding: TagType;
   }
 
-  interface Category {
+  type ResumeSection =
+    | 'work'
+    | 'sector'
+    | 'ai'
+    | 'dev'
+    | 'data'
+    | 'education'
+    | 'language';
+
+  type AccordionGroup = {
+    key: ResumeSection;
     title: string;
-    items: FilterItem[];
-  }
+  };
+
+  type Category = {
+    title: string;
+    items: {
+      name: string;
+      binding: TagType;
+    }[];
+  };
 
   /* Menu Header */
   interface MenuItemHeader {

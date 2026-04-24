@@ -19,7 +19,7 @@
 
       <div class="mt-6 text-justify space-y-4">
 
-        <ng-container *ngIf="('ABOUT_ME.TEXT' | translate) as texts">
+        <ng-container *ngIf="aboutTexts as texts">
           <p *ngFor="let aboutMeText of texts">
             {{ aboutMeText }}
           </p>
@@ -48,9 +48,8 @@
 
       <div *ngIf="project" class="flex flex-col items-center">
 
-        <!-- 🔥 Reemplazo del carousel -->
         <img
-          [src]="project.pictures[0]" />
+          [src]="project.pictures[0] || 'assets/imgs/fallback.png'"
           alt="Project preview"
           class="w-72 h-72 object-contain rounded-lg"
         />
