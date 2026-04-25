@@ -10,7 +10,7 @@ import { SeoService } from '@presentation/shared/services/seo.service';
   selector: 'app-contact',
   imports: [CommonModule, TranslateModule],
   template: `
-    <div class="max-w-3xl mx-auto px-4 pb-6">
+    <div class="max-w-3xl mx-auto m-3 p-3">
 
       <div class="text-center border rounded-xl shadow-sm p-6 mb-8 bg-white">
         <h1 class="text-2xl md:text-3xl font-bold mb-2">
@@ -106,7 +106,7 @@ export class ContactComponent implements OnInit {
       flag: 'GitHub',
     },
     {
-      url: 'https://api.whatsapp.com/send/?phone=573217295412&text=Hola...',
+      url: 'https://api.whatsapp.com/send/?phone=573217295412&text=Hola%2C+vengo+de+la+p%C3%A1gina+Portfolio+IngAamira+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre+tu+perfil&type=phone_number&app_absent=0',
       img: 'assets/icons/whatsapp.png',
       flag: 'WhatsApp',
     },
