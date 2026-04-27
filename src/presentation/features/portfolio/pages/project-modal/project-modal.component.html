@@ -1,25 +1,18 @@
 <div class="bg-white rounded-2xl shadow-xl max-w-2xl w-full overflow-hidden">
-
   <!-- Header -->
   <div class="flex justify-between items-center border-b p-4">
     <h2 class="text-xl font-bold">
       {{ project.name }}
     </h2>
 
-    <button
-      class="text-gray-500 hover:text-gray-700"
-      (click)="close.emit()"
-    >
+    <button class="text-gray-500 hover:text-gray-700" (click)="close.emit()">
       ✕
     </button>
   </div>
 
   <!-- Body -->
   <div class="p-4 space-y-4">
-
-    <!-- Imagen principal + thumbnails -->
     <div *ngIf="project.pictures.length > 0" class="flex flex-col items-center">
-
       <img
         [src]="selectedImage || project.pictures[0] || ''"
         class="w-80 h-80 object-contain rounded-lg"
@@ -34,10 +27,9 @@
           (click)="selectedImage = pic"
         />
       </div>
-
     </div>
 
-    <hr>
+    <hr />
 
     <!-- Description -->
     <div>
@@ -62,12 +54,10 @@
         </a>
       </p>
     </div>
-
   </div>
 
   <!-- Footer -->
   <div class="border-t p-4 flex flex-wrap justify-center gap-2">
-
     <span
       *ngFor="let tag of project.tags"
       class="text-xs px-2 py-1 rounded-full text-white"
@@ -75,7 +65,5 @@
     >
       {{ tag }}
     </span>
-
   </div>
-
 </div>

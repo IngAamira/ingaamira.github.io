@@ -11,19 +11,16 @@ import { SeoService } from '@presentation/shared/services/seo.service';
   imports: [CommonModule, TranslateModule],
   template: `
     <div class="max-w-3xl mx-auto m-3 p-3">
-
       <div class="text-center border rounded-xl shadow-sm p-6 mb-8 bg-white">
         <h1 class="text-2xl md:text-3xl font-bold mb-2">
           {{ 'CONTACT.TITLE' | translate }}
         </h1>
-
         <p class="text-gray-600 text-sm md:text-base">
           {{ 'CONTACT.DESCRIPTION' | translate }}
         </p>
       </div>
 
       <div class="bg-white rounded-xl shadow-sm divide-y">
-
         <a
           *ngFor="let item of menuItemsContact"
           [href]="item.url"
@@ -37,28 +34,29 @@ import { SeoService } from '@presentation/shared/services/seo.service';
             [alt]="item.flag"
             class="w-10 h-10 rounded-full object-cover group-hover:scale-110 transition"
           />
-
-          <span class="text-lg font-medium text-gray-800 group-hover:text-purple-600 transition">
+          <span
+            class="text-lg font-medium text-gray-800 group-hover:text-purple-600 transition"
+          >
             {{ item.flag }}
           </span>
         </a>
-
       </div>
-
     </div>
   `,
 })
 export class ContactComponent implements OnInit {
-
   private browser = inject(BrowserService);
   private seo = inject(SeoService);
 
   ngOnInit(): void {
     this.seo.setSEO({
-      title: 'Portfolio IngAamira | Data Engineer & Fullstack Developer | Contact',
-      description: 'Contacta a Andrés Mira, Data Engineer y Fullstack Developer en Colombia. Disponible para proyectos de desarrollo web, análisis de datos e inteligencia artificial.',
+      title:
+        'Portfolio IngAamira | Data Engineer & Fullstack Developer | Contact',
+      description:
+        'Contacta a Andrés Mira, Data Engineer y Fullstack Developer en Colombia. Disponible para proyectos de desarrollo web, análisis de datos e inteligencia artificial.',
       url: 'https://portfolio.ingaamira.com/contact',
-      image: 'https://portfolio.ingaamira.com/assets/icons/contact-information.png'
+      image:
+        'https://portfolio.ingaamira.com/assets/icons/contact-information.png',
     });
   }
 
@@ -82,14 +80,14 @@ export class ContactComponent implements OnInit {
       page: 'contact',
       language: lang,
       engagement_type: type,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     });
 
     if (type === 'direct_lead') {
       win?.gtag?.('event', 'generate_lead', {
         method: platform,
         page: 'contact',
-        language: lang
+        language: lang,
       });
     }
   }
@@ -109,27 +107,6 @@ export class ContactComponent implements OnInit {
       url: 'https://api.whatsapp.com/send/?phone=573217295412&text=Hola%2C+vengo+de+la+p%C3%A1gina+Portfolio+IngAamira+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre+tu+perfil&type=phone_number&app_absent=0',
       img: 'assets/icons/whatsapp.png',
       flag: 'WhatsApp',
-    },
-    {
-      url: 'https://platzi.com/p/IngAamira/',
-      img: 'assets/icons/platzi.png',
-      flag: 'Platzi',
-    },
-    {
-      url: 'https://www.udemy.com/user/andres-mira/',
-      img: 'assets/icons/udemy.png',
-      flag: 'Udemy',
-    },
-    {
-      url: 'https://twitter.com/Ingaamira/',
-      img: 'assets/icons/twitter.png',
-      flag: 'Twitter',
-    },
-    {
-      url: 'mailto:andres.mira@outlook.com',
-      img: 'assets/icons/e-mail.png',
-      flag: 'Email',
-    },
+    }
   ];
-
 }

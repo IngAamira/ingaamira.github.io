@@ -1,51 +1,40 @@
 <div class="max-w-5xl mx-auto px-4 py-8 text-center">
-
-  <!-- Actions -->
-  <div class="flex flex-wrap justify-center gap-2 pb-6">
-
+  <div class="flex flex-wrap justify-center gap-3 pb-8">
     <button
       *ngFor="let item of menuItemsResume; trackBy: trackByName"
-      class="flex items-center gap-2 border border-blue-500 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition"
+      class="flex items-center gap-2 border border-blue-500 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 hover:shadow-sm transition"
       (click)="item.event()"
     >
       📄 {{ item.name | translate }}
     </button>
-
   </div>
 
-  <!-- Accordion -->
-  <div class="space-y-3 text-left">
-
+  <div class="space-y-4 text-left">
     <div
       *ngFor="let group of accordionGroups; trackBy: trackByKey"
-      class="bg-white rounded-xl shadow-sm border overflow-hidden"
+      class="bg-white rounded-xl shadow-sm border overflow-hidden transition hover:shadow-md"
     >
-
-      <!-- Header -->
       <button
-        class="w-full flex justify-between items-center px-4 py-3 bg-blue-600 text-white"
+        class="w-full flex justify-between items-center px-5 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white"
         (click)="toggle(group.key)"
       >
-        <span class="truncate font-medium">
+        <span class="truncate font-semibold text-sm md:text-base">
           {{ group.title | translate }}
         </span>
-
-        <span class="text-lg">
-          {{ isOpenState[group.key] ? '−' : '+' }}
+        <span
+          class="flex items-center justify-center w-6 h-6 rounded-full bg-white/20 text-sm transition"
+          [ngClass]="{
+            'rotate-45': isOpenState[group.key],
+          }"
+        >
+          +
         </span>
       </button>
-
-      <!-- Content -->
-      <div *ngIf="isOpenState[group.key]" class="p-4 border-t">
-
+      <div *ngIf="isOpenState[group.key]" class="p-5 border-t bg-gray-50">
         <ng-container
           *ngComponentOutlet="componentMap[group.key]"
         ></ng-container>
-
       </div>
-
     </div>
-
   </div>
-
 </div>

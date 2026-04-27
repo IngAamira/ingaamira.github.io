@@ -1,68 +1,96 @@
-<div class="max-w-7xl mx-auto m-3 p-3">
-
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
+<div class="max-w-full mx-auto m-3 p-3">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <!-- About Me -->
-    <div class="bg-white shadow-lg rounded-2xl p-6 flex flex-col h-full">
-
-      <h2 class="text-2xl font-bold text-center mb-6">
-        {{ 'ABOUT_ME.TITLE' | translate }}
-      </h2>
-
-      <div class="hidden md:flex justify-center">
-        <img
-          src="assets/imgs/home/profile.jpg"
-          alt="Profile picture"
-          class="w-56 h-56 object-cover rounded-full mt-2"
-        />
+    <div class="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col">
+      <!-- Header -->
+      <div
+        class="bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-4 text-white text-center"
+      >
+        <h2 class="text-lg md:text-xl font-semibold">
+          {{ "ABOUT_ME.TITLE" | translate }}
+        </h2>
       </div>
 
-      <div class="mt-6 text-justify space-y-4">
+      <!-- Body -->
+      <div class="p-6 flex flex-col h-full">
+        <div class="hidden md:flex justify-center">
+          <img
+            src="assets/imgs/home/profile.jpg"
+            alt="Profile picture"
+            class="w-48 h-48 object-cover rounded-full"
+          />
+        </div>
 
-        <ng-container *ngIf="aboutTexts as texts">
-          <p *ngFor="let aboutMeText of texts">
-            {{ aboutMeText }}
+        <div class="mt-6 text-justify space-y-4 text-sm text-gray-700">
+          <ng-container *ngIf="aboutTexts as texts">
+            <p *ngFor="let aboutMeText of texts">
+              {{ aboutMeText }}
+            </p>
+          </ng-container>
+
+          <p>
+            {{ "ABOUT_ME.SERVICES_INFO" | translate }}
+
+            <button
+              (click)="openMainWebsite()"
+              class="inline-flex items-center gap-1 text-blue-600 hover:underline font-medium ml-1"
+            >
+              ↗ {{ "ABOUT_ME.SERVICES_LINK" | translate }}
+            </button>
           </p>
-        </ng-container>
-
-        <p>
-          {{ 'ABOUT_ME.SERVICES_INFO' | translate }}
-
-          <button
-            (click)="openMainWebsite()"
-            class="inline-flex items-center gap-1 text-blue-600 hover:underline font-medium ml-1"
-          >
-            ↗ {{ 'ABOUT_ME.SERVICES_LINK' | translate }}
-          </button>
-        </p>
-
+        </div>
       </div>
     </div>
 
     <!-- Featured Project -->
-    <div class="hidden md:flex bg-white shadow-lg rounded-2xl p-6 flex-col h-full">
+    <div
+      *ngIf="project"
+      class="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col"
+    >
+      <!-- Header -->
+      <div
+        class="bg-gradient-to-r from-teal-500 to-cyan-600 px-6 py-4 text-white text-center"
+      >
+        <h2 class="text-lg md:text-xl font-semibold">
+          {{ "FEATURED_PROJECT.TITLE" | translate }}
+        </h2>
+      </div>
 
-      <h2 class="text-2xl font-bold text-center mb-6">
-        {{ 'FEATURED_PROJECT.TITLE' | translate }}
-      </h2>
-
-      <div *ngIf="project" class="flex flex-col items-center">
-
+      <!-- Body -->
+      <div class="p-6 flex flex-col items-center text-center">
+        <!-- Imagen principal -->
         <img
-          [src]="project.pictures[0] || 'assets/imgs/fallback.png'"
+          [src]="
+            selectedImage ||
+            project.pictures[0] ||
+            'assets/imgs/projects/stock-flow/folder.png'
+          "
           alt="Project preview"
-          class="w-72 h-72 object-contain rounded-lg"
+          class="w-64 h-64 object-contain rounded-lg transition"
         />
 
-        <h5 class="mt-6 text-lg font-semibold">
+        <!-- Thumbnails -->
+        <div class="flex gap-2 mt-4 flex-wrap justify-center">
+          <img
+            *ngFor="let pic of project.pictures"
+            [src]="pic"
+            alt="thumbnail"
+            class="w-14 h-14 object-cover rounded cursor-pointer opacity-70 hover:opacity-100 border transition"
+            (click)="selectedImage = pic"
+          />
+        </div>
+
+        <!-- Nombre -->
+        <h5 class="mt-6 text-base md:text-lg font-semibold text-gray-800">
           {{ project.name }}
         </h5>
 
-        <div class="mt-4 text-justify space-y-2">
-          <p>{{ 'FEATURED_PROJECT.SUMMARY' | translate }}</p>
+        <!-- Descripción -->
+        <div class="mt-4 text-sm text-gray-700 space-y-2 text-justify">
+          <p>{{ "FEATURED_PROJECT.SUMMARY" | translate }}</p>
 
           <p>
-            {{ 'FEATURED_PROJECT.INFO' | translate }}
+            {{ "FEATURED_PROJECT.INFO" | translate }}
             <a
               [routerLink]="'/portfolio'"
               class="ml-1 text-blue-600 hover:underline"
@@ -71,11 +99,7 @@
             </a>
           </p>
         </div>
-
       </div>
-
     </div>
-
   </div>
-
 </div>

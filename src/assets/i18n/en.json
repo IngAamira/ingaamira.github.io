@@ -1,7 +1,7 @@
 {
   "PROFILE": {
     "NAME": "Andres Alfonso Mira Mejia",
-    "HEADLINE": "Software, Data and IA Engineer | 60% Efficiency Boost in Data-Driven Solutions"
+    "HEADLINE": "Web Development | Data Analytics | Custom Software Solutions | AI & Automation"
   },
 
   "NAVIGATION": {
@@ -604,6 +604,8 @@
   },
 
   "FOOTER": {
-    "TEXT": "Let's drive the future together!"
+    "TEXT": "Let's drive the future together!",
+    "BY_DESCRIPTION": "Do you like this web page?",
+    "BY_TALK": "Let's talk"
   }
 }

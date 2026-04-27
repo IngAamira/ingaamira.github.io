@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
   private router = inject(Router);
   private browser = inject(BrowserService);
   private seo = inject(SeoService);
-
   private projectRepository = inject(ProjectRepository);
   private translate = inject(TranslateService);
 
@@ -38,6 +37,7 @@ export class HomeComponent implements OnInit {
   };
 
   readonly years: number;
+  selectedImage: string | null = null;
 
   private readonly startDate: Date = new Date(2012, 11, 16);
 
@@ -113,5 +113,5 @@ export class HomeComponent implements OnInit {
 
     return [];
   }
-  
+
 }

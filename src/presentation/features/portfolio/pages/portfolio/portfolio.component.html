@@ -1,8 +1,6 @@
-<div class="max-w-7xl mx-auto m-3 p-3">
-
+<div class="max-w-full mx-auto m-3 p-3">
   <!-- Actions -->
   <div class="flex flex-wrap gap-2 mb-4">
-
     <button
       class="flex items-center gap-2 border border-blue-500 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition"
       (click)="isFilterOpen.set(!isFilterOpen())"
@@ -17,7 +15,6 @@
     >
       🗑 Reset
     </button>
-
   </div>
 
   <!-- Filters -->
@@ -26,15 +23,12 @@
     class="mb-6 bg-white border rounded-xl shadow-sm p-4 max-w-sm"
   >
     <form class="space-y-4">
-
       <div *ngFor="let category of categories">
-
         <p class="text-sm font-semibold text-gray-700 mb-2">
           {{ category.title }}
         </p>
 
         <div class="space-y-1">
-
           <label
             *ngFor="let item of category.items"
             class="flex items-center gap-2 text-sm cursor-pointer"
@@ -48,17 +42,15 @@
 
             {{ item.name }}
           </label>
-
         </div>
-
       </div>
-
     </form>
   </div>
 
-  <!-- Loading -->
   <div *ngIf="loading()" class="flex justify-center my-10">
-    <div class="animate-spin rounded-full h-8 w-8 border-2 border-gray-300 border-t-blue-500"></div>
+    <div
+      class="animate-spin rounded-full h-8 w-8 border-2 border-gray-300 border-t-blue-500"
+    ></div>
   </div>
 
   <!-- Projects -->
@@ -73,25 +65,20 @@
     ></app-project-card>
   </div>
 
-  <!-- Empty state -->
   <div
     *ngIf="!loading() && projects().length === 0"
     class="text-center mt-10 text-gray-500"
   >
     No projects found.
   </div>
-
 </div>
 
-<!-- MODAL GLOBAL -->
 <div
   *ngIf="selectedProject()"
   class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
 >
-
   <app-project-modal
     [project]="selectedProject()!"
     (close)="closeProject()"
   ></app-project-modal>
-
 </div>
