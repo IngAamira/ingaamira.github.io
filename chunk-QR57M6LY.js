@@ -1,0 +1,1 @@
+var P=(A=>(A.JAVA="Java",A.PYTHON="Python",A.JAVASCRIPT="JavaScript",A.TYPESCRIPT="TypeScript",A.SPRING_BOOT="Spring Boot",A.ANGULAR="Angular",A.NODE_JS="Node JS",A.FAST_API="Fast API",A.POSTGRES="Postgres",A.HTML="Html",A.CSS="CSS",A.BOOTSTRAP="Bootstrap",A.THYMELEAF="Thymeleaf",A.OPEN_AI="Open AI",A.GIPHY="Giphy",A.WHATSAPP_API="WhatsApp API",A))(P||{});export{P as a};
