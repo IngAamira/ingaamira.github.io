@@ -1,70 +1,84 @@
-<div class="container">
-
-  <!-- 🔹 Actions -->
-  <div class="mb-2">
+<div class="max-w-full mx-auto m-3 p-3">
+  <!-- Actions -->
+  <div class="flex flex-wrap gap-2 mb-4">
     <button
-      class="btn btn-outline-primary mb-2 me-2"
+      class="flex items-center gap-2 border border-blue-500 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition"
       (click)="isFilterOpen.set(!isFilterOpen())"
     >
-      <i class="bi bi-funnel-fill"></i>
-      Filter
+      🔍 Filter
     </button>
 
     <button
-      class="btn btn-outline-secondary mb-2"
+      *ngIf="filtering()"
+      class="flex items-center gap-2 border border-gray-400 text-gray-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition"
       (click)="resetFilters()"
-      [hidden]="!filtering()"
     >
-      <i class="bi bi-trash-fill"></i>
-      Reset
+      🗑 Reset
     </button>
   </div>
 
-  <!-- 🔹 Filters -->
-  <div [collapse]="!isFilterOpen()" [isAnimated]="true">
-    <div class="border mb-3 shadow-sm p-2" style="max-width: 300px;">
+  <!-- Filters -->
+  <div
+    *ngIf="isFilterOpen()"
+    class="mb-6 bg-white border rounded-xl shadow-sm p-4 max-w-sm"
+  >
+    <form class="space-y-4">
+      <div *ngFor="let category of categories">
+        <p class="text-sm font-semibold text-gray-700 mb-2">
+          {{ category.title }}
+        </p>
 
-      <form>
-        <div class="row">
+        <div class="space-y-1">
+          <label
+            *ngFor="let item of category.items"
+            class="flex items-center gap-2 text-sm cursor-pointer"
+          >
+            <input
+              type="checkbox"
+              class="w-4 h-4 accent-blue-600"
+              [checked]="filters()[item.binding]"
+              (change)="toggleFilter(item.binding)"
+            />
 
-          <div class="col-12 mb-2" *ngFor="let category of categories">
-            <small><b>{{ category.title }}:</b></small>
-
-            <div *ngFor="let item of category.items" class="form-check">
-              <input
-                type="checkbox"
-                class="form-check-input me-2"
-                [checked]="filters()[item.binding]"
-                (change)="toggleFilter(item.binding)"
-              />
-
-              <label class="form-check-label small">
-                {{ item.name }}
-              </label>
-            </div>
-          </div>
-
+            {{ item.name }}
+          </label>
         </div>
-      </form>
-
-    </div>
+      </div>
+    </form>
   </div>
 
-  <!-- 🔹 Loading -->
-  <div *ngIf="loading()" class="text-center my-4">
-    <span class="spinner-border"></span>
+  <div *ngIf="loading()" class="flex justify-center my-10">
+    <div
+      class="animate-spin rounded-full h-8 w-8 border-2 border-gray-300 border-t-blue-500"
+    ></div>
   </div>
 
-  <!-- 🔹 Projects -->
-  <div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="!loading()">
-    <div *ngFor="let project of projects()">
-      <app-project-card [project]="project"></app-project-card>
-    </div>
+  <!-- Projects -->
+  <div
+    *ngIf="!loading()"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+  >
+    <app-project-card
+      *ngFor="let project of projects()"
+      [project]="project"
+      (viewProject)="openProject($event)"
+    ></app-project-card>
   </div>
 
-  <!-- 🔹 Empty state -->
-  <div *ngIf="!loading() && projects().length === 0" class="text-center mt-4">
-    <p class="text-muted">No projects found.</p>
+  <div
+    *ngIf="!loading() && projects().length === 0"
+    class="text-center mt-10 text-gray-500"
+  >
+    No projects found.
   </div>
+</div>
 
+<div
+  *ngIf="selectedProject()"
+  class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+>
+  <app-project-modal
+    [project]="selectedProject()!"
+    (close)="closeProject()"
+  ></app-project-modal>
 </div>

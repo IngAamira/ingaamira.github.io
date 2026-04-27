@@ -2,12 +2,13 @@ import { Injectable, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+import { BrowserService } from '@presentation/shared/services/browser.service';
+
+@Injectable({ providedIn: 'root' })
 export class TranslationService {
 
   private translate = inject(TranslateService);
+  private browser = inject(BrowserService);
 
   private currentLanguageSubject = new BehaviorSubject<string>('en');
   currentLanguage$ = this.currentLanguageSubject.asObservable();
@@ -24,7 +25,12 @@ export class TranslationService {
   }
 
   private initializeTranslation(): void {
-    const savedLang = localStorage.getItem('lang');
+    let savedLang: string | null = null;
+
+    const localStorageRef = this.browser.localStorage;
+    if (localStorageRef) {
+      savedLang = localStorageRef.getItem('lang');
+    }
 
     const browserLang = this.translate.getBrowserLang();
     const normalizedBrowserLang = browserLang?.split('-')[0];
@@ -42,15 +48,15 @@ export class TranslationService {
   }
 
   setLanguage(lang: string): void {
-    if (!this.isSupported(lang)) {
-      console.warn(`Unsupported language: ${lang}, fallback to 'en'`);
-      lang = 'en';
-    }
+    if (!this.isSupported(lang)) lang = 'en';
 
     this.translate.use(lang);
     this.currentLanguageSubject.next(lang);
 
-    localStorage.setItem('lang', lang);
+    const localStorageRef = this.browser.localStorage;
+    if (localStorageRef) {
+      localStorageRef.setItem('lang', lang);
+    }
   }
 
   changeLanguage(lang: string): void {
@@ -61,10 +67,6 @@ export class TranslationService {
     return this.supportedLanguages.includes(lang);
   }
 
-  getInstantTranslation(key: string): string {
-    return this.translate.instant(key);
-  }
-
   getPdfPath(): string {
     const lang = this.getCurrentLanguage();
     return this.pdfPaths[lang] || this.pdfPaths['en'];
@@ -73,5 +75,4 @@ export class TranslationService {
   getCurrentLanguage(): string {
     return this.currentLanguageSubject.getValue();
   }
-  
 }

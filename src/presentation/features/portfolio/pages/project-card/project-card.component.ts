@@ -1,11 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input } from '@angular/core';
-
-import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Project } from '@domain/models/project.model';
-import { ProjectModalComponent } from '../project-modal/project-modal.component';
-
 import { TAG_COLORS } from '@presentation/shared/constants/tag-colors';
 import { TagType } from '@domain/models/tag.model';
 
@@ -17,21 +13,20 @@ import { TagType } from '@domain/models/tag.model';
 })
 export class ProjectCardComponent {
 
-  @Input() project = {} as Project;
-  private modalService = inject(BsModalService);
-
-  bsModalRef?: BsModalRef;
-
-  OpenProjectModal() {
-    const modalOptions:ModalOptions = {
-      class: "modal-lg",
-      initialState: {
-        project: this.project
-      }
-    };
-
-    this.bsModalRef = this.modalService.show(ProjectModalComponent, modalOptions);
+  @Input() project: Project = {
+    id: 0,
+    name: '',
+    summary: [],
+    projectLink: '',
+    pictures: [],
+    tags: []
   };
+
+  @Output() viewProject = new EventEmitter<Project>();
+
+  openProject() {
+    this.viewProject.emit(this.project);
+  }
 
   getTagColor(tag: TagType): string {
     return TAG_COLORS[tag] ?? '#ccc';

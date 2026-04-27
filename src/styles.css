@@ -1,4 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   font-family: Arial, sans-serif;
 }
@@ -13,6 +16,7 @@ element.style {
   margin-top: 12px;
 }
 
+/*
 .tag {
   padding: 0 20px;
   height: 30px;
@@ -24,3 +28,4 @@ element.style {
   color: white;
   margin-right: 8px;
 }
+*/

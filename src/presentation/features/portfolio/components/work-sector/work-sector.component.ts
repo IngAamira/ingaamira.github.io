@@ -4,20 +4,22 @@ import { Subscription } from 'rxjs';
 
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
-import { ItemSector } from '../../interfaces/i18n-item';
-
 @Component({
   selector: 'app-work-sector',
   imports: [CommonModule, TranslateModule],
   template: `
-      <div class="container">
-        <ul style="text-align: left;">
-          <li *ngFor="let sector of itemsSector[0]?.sectors">
-            {{ sector | translate }}
-          </li>
-        </ul>
-      </div>
-    `,
+    <div class="max-w-3xl mx-auto">
+      <ul class="space-y-2 text-sm md:text-base text-gray-700">
+        <li
+          *ngFor="let sector of itemsSector[0]?.sectors"
+          class="flex items-start gap-2"
+        >
+          <span class="text-purple-500 mt-1">•</span>
+          <span>{{ sector | translate }}</span>
+        </li>
+      </ul>
+    </div>
+  `,
 })
 export class WorkSectorComponent implements OnInit, OnDestroy {
   itemsSector: ItemSector[] = [];

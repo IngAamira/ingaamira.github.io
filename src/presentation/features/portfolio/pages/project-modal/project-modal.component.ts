@@ -1,23 +1,30 @@
 import { CommonModule } from '@angular/common';
-import { Component} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
-
+import { Project } from '@domain/models/project.model';
 import { TAG_COLORS } from '@presentation/shared/constants/tag-colors';
 import { TagType } from '@domain/models/tag.model';
-import { Project } from '@domain/models/project.model';
 
 @Component({
   standalone: true,
   selector: 'app-project-modal',
-  imports: [CommonModule, CarouselModule],
+  imports: [CommonModule],
   templateUrl: './project-modal.component.html'
 })
 export class ProjectModalComponent {
-  project = {} as Project;
 
-  constructor(public bsModalRef: BsModalRef) { }
+  @Input() project: Project = {
+    id: 0,
+    name: '',
+    summary: [],
+    projectLink: '',
+    pictures: [],
+    tags: []
+  };
+
+  @Output() close = new EventEmitter<void>();
+
+  selectedImage: string | null = null;
 
   getTagColor(tag: TagType): string {
     return TAG_COLORS[tag] ?? '#ccc';

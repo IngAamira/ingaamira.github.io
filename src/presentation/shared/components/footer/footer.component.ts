@@ -1,9 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { TranslateModule } from '@ngx-translate/core';
 
-import { MenuItemContact } from '@presentation/shared/types/menu-item.type';
+import { BrowserService } from '@presentation/shared/services/browser.service';
 
 @Component({
   standalone: true,
@@ -12,14 +11,21 @@ import { MenuItemContact } from '@presentation/shared/types/menu-item.type';
     CommonModule,
     TranslateModule
   ],
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css'],
+  templateUrl: './footer.component.html'
 })
 export class FooterComponent {
-  currentYear: number;
 
-  constructor() {
-    this.currentYear = new Date().getFullYear();
+  private browser = inject(BrowserService);
+
+  currentYear: number = new Date().getFullYear();
+
+  private isBrowser(): boolean {
+    return this.browser.isBrowser();
+  }
+
+  private getLang(): string {
+    const doc = this.browser.document;
+    return doc?.documentElement?.lang || 'en';
   }
 
   private getType(platform: string): string {
@@ -28,31 +34,59 @@ export class FooterComponent {
   }
 
   trackFooterClick(platform: string, url: string): void {
-    if (typeof window !== 'undefined' && (window as any).gtag) {
+    if (!this.isBrowser()) return;
 
-      const lang = document.documentElement.lang || 'en';
-      const type = this.getType(platform);
+    const windowRef = this.browser.window;
+    const gtag = windowRef?.gtag;
+    if (!gtag) return;
 
-      (window as any).gtag('event', 'footer_click', {
-        contact_method: platform,
-        link_url: url,
-        page: 'footer',
-        language: lang,
-        engagement_type: type,
-        timestamp: new Date().toISOString()
+    const lang = this.getLang();
+    const type = this.getType(platform);
+
+    gtag('event', 'footer_click', {
+      contact_method: platform,
+      link_url: url,
+      page: 'footer',
+      language: lang,
+      engagement_type: type,
+      timestamp: new Date().toISOString()
+    });
+
+    if (type === 'direct_lead') {
+      gtag('event', 'generate_lead', {
+        method: platform,
+        source: 'footer',
+        language: lang
       });
-
-      if (type === 'direct_lead') {
-        (window as any).gtag('event', 'generate_lead', {
-          method: platform,
-          source: 'footer',
-          language: lang
-        });
-      }
     }
   }
 
-  public menuItemsFooter = signal<MenuItemContact[]>([
+  goToWhatsApp(): void {
+    if (!this.isBrowser()) return;
+
+    const number = '573217295412';
+    const message = 'Hola, vengo de la página Portfolio IngAamira y quiero más información sobre tu perfil';
+
+    const url = this.getWhatsAppLink(number, message);
+
+    const windowRef = this.browser.window;
+    const gtag = windowRef?.gtag;
+
+    if (gtag) {
+      gtag('event', 'whatsapp_click_signature', {
+        source: 'footer_signature',
+        language: this.getLang()
+      });
+    }
+
+    windowRef?.open(url, '_blank', 'noopener,noreferrer');
+  }
+
+  getWhatsAppLink(number: string, message: string): string {
+    return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+  }
+
+  public menuItemsFooter: MenuItemContact[] = [
     {
       url: 'https://linkedin.com/in/ingaamira/',
       img: 'assets/icons/linkedin.png',
@@ -64,7 +98,7 @@ export class FooterComponent {
       flag: 'GitHub',
     },
     {
-      url: 'https://api.whatsapp.com/send/?phone=573217295412&text=Hola%2C+vengo+de+tu+p%C3%A1gina+de+portfolio+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre+tu+perfil',
+      url: 'https://api.whatsapp.com/send/?phone=573217295412&text=Hola%2C+vengo+de+la+p%C3%A1gina+Portfolio+IngAamira+y+quiero+m%C3%A1s+informaci%C3%B3n+sobre+tu+perfil&type=phone_number&app_absent=0',
       img: 'assets/icons/whatsapp.png',
       flag: 'WhatsApp',
     },
@@ -88,5 +122,5 @@ export class FooterComponent {
       img: 'assets/icons/e-mail.png',
       flag: 'Email',
     },
-  ]);
+  ];
 }

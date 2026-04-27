@@ -1,26 +1,40 @@
-<div class="container text-center">
-  <div class="d-flex flex-wrap justify-content-center pb-4">
-    <button *ngFor="let item of menuItemsResume()" class="btn btn-outline-primary mb-2 me-2" (click)="item.event()">
-      <i class="bi bi-file-earmark-pdf-fill"></i>
-      {{ item.name | translate }}
+<div class="max-w-5xl mx-auto px-4 py-8 text-center">
+  <div class="flex flex-wrap justify-center gap-3 pb-8">
+    <button
+      *ngFor="let item of menuItemsResume; trackBy: trackByName"
+      class="flex items-center gap-2 border border-blue-500 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 hover:shadow-sm transition"
+      (click)="item.event()"
+    >
+      📄 {{ item.name | translate }}
     </button>
   </div>
 
-  <div class="pb-2">
-    <accordion [isAnimated]="true" class="shadow">
-      <accordion-group *ngFor="let group of accordionGroups" [(isOpen)]="isOpenState[group.isOpen]" class="d-flex flex-column">
-        <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
-          <div style="visibility: hidden;">></div>
-          <div class="btn-link">
-            <div class="text-truncate">{{ group.title | translate }}</div>
-          </div>
-          <div style="width: 10.95px;">
-            <div *ngIf="!isOpenState[group.isOpen]" style="color: white;">></div>
-            <div *ngIf="isOpenState[group.isOpen]" style="color: white;">v</div>
-          </div>
-        </button>
-        <ng-container *ngComponentOutlet="group.component"></ng-container>
-      </accordion-group>
-    </accordion>
+  <div class="space-y-4 text-left">
+    <div
+      *ngFor="let group of accordionGroups; trackBy: trackByKey"
+      class="bg-white rounded-xl shadow-sm border overflow-hidden transition hover:shadow-md"
+    >
+      <button
+        class="w-full flex justify-between items-center px-5 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white"
+        (click)="toggle(group.key)"
+      >
+        <span class="truncate font-semibold text-sm md:text-base">
+          {{ group.title | translate }}
+        </span>
+        <span
+          class="flex items-center justify-center w-6 h-6 rounded-full bg-white/20 text-sm transition"
+          [ngClass]="{
+            'rotate-45': isOpenState[group.key],
+          }"
+        >
+          +
+        </span>
+      </button>
+      <div *ngIf="isOpenState[group.key]" class="p-5 border-t bg-gray-50">
+        <ng-container
+          *ngComponentOutlet="componentMap[group.key]"
+        ></ng-container>
+      </div>
+    </div>
   </div>
 </div>

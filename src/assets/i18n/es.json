@@ -1,7 +1,7 @@
 {
   "PROFILE": {
     "NAME": "Andrés Alfonso Mira Mejía",
-    "HEADLINE": "Ingeniero de Software, Datos e IA | Transformo datos en soluciones (+60% eficiencia)"
+    "HEADLINE": "Desarrollo Web | Análisis de Datos | Software a medida | IA & Automatización"
   },
 
   "NAVIGATION": {
@@ -603,7 +603,9 @@
   },
 
   "FOOTER": {
-    "TEXT": "¡Impulsemos el Futuro Juntos!"
+    "TEXT": "¡Impulsemos el Futuro Juntos!",
+    "BY_DESCRIPTION": "¿Te gustó esta página?",
+    "BY_TALK": "Hablemos"
   }
 
 }

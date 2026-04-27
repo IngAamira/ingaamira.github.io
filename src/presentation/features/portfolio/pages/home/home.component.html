@@ -1,97 +1,105 @@
-<div class="container">
-
-  <div class="row">
-
+<div class="max-w-full mx-auto m-3 p-3">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <!-- About Me -->
-    <div class="col-sm-6">
-      <div class="card h-100">
-        <div class="card-header text-center">
-          <h2>{{ 'ABOUT_ME.TITLE' | translate }}</h2>
-        </div>
+    <div class="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col">
+      <!-- Header -->
+      <div
+        class="bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-4 text-white text-center"
+      >
+        <h2 class="text-lg md:text-xl font-semibold">
+          {{ "ABOUT_ME.TITLE" | translate }}
+        </h2>
+      </div>
 
-        <div class="text-center mx-auto d-none d-md-block">
+      <!-- Body -->
+      <div class="p-6 flex flex-col h-full">
+        <div class="hidden md:flex justify-center">
           <img
             src="assets/imgs/home/profile.jpg"
             alt="Profile picture"
-            width="250"
-            height="250"
-            class="img-fluid rounded-circle mt-4">
+            class="w-48 h-48 object-cover rounded-full"
+          />
         </div>
 
-        <div class="card-body">
-          <div class="card-text mt-3" style="text-align: justify;">
+        <div class="mt-6 text-justify space-y-4 text-sm text-gray-700">
+          <ng-container *ngIf="aboutTexts as texts">
+            <p *ngFor="let aboutMeText of texts">
+              {{ aboutMeText }}
+            </p>
+          </ng-container>
 
-            <ng-container *ngIf="('ABOUT_ME.TEXT' | translate) as texts">
-              <div *ngFor="let aboutMeText of texts">
-                <p>{{ aboutMeText }}</p>
-              </div>
-            </ng-container>
+          <p>
+            {{ "ABOUT_ME.SERVICES_INFO" | translate }}
 
-            <div class="card-text mt-2" style="text-align: justify;">
-              <p>
-                {{ 'ABOUT_ME.SERVICES_INFO' | translate }}
-
-                <a
-                  (click)="openMainWebsite()"
-                  class="link-services"
-                  role="button"
-                  tabindex="0"
-                >
-                  <i class="bi bi-box-arrow-up-right"></i>
-                  <span class="ms-1">
-                    {{ 'ABOUT_ME.SERVICES_LINK' | translate }}
-                  </span>
-                </a>
-              </p>
-            </div>
-
-          </div>
+            <button
+              (click)="openMainWebsite()"
+              class="inline-flex items-center gap-1 text-blue-600 hover:underline font-medium ml-1"
+            >
+              ↗ {{ "ABOUT_ME.SERVICES_LINK" | translate }}
+            </button>
+          </p>
         </div>
       </div>
     </div>
 
     <!-- Featured Project -->
-    <div class="col-sm-6 mx-auto d-none d-md-block">
-      <div class="card h-100">
-        <div class="card-header text-center">
-          <h2>{{ 'FEATURED_PROJECT.TITLE' | translate }}</h2>
+    <div
+      *ngIf="project"
+      class="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col"
+    >
+      <!-- Header -->
+      <div
+        class="bg-gradient-to-r from-teal-500 to-cyan-600 px-6 py-4 text-white text-center"
+      >
+        <h2 class="text-lg md:text-xl font-semibold">
+          {{ "FEATURED_PROJECT.TITLE" | translate }}
+        </h2>
+      </div>
+
+      <!-- Body -->
+      <div class="p-6 flex flex-col items-center text-center">
+        <!-- Imagen principal -->
+        <img
+          [src]="
+            selectedImage ||
+            project.pictures[0] ||
+            'assets/imgs/projects/stock-flow/folder.png'
+          "
+          alt="Project preview"
+          class="w-64 h-64 object-contain rounded-lg transition"
+        />
+
+        <!-- Thumbnails -->
+        <div class="flex gap-2 mt-4 flex-wrap justify-center">
+          <img
+            *ngFor="let pic of project.pictures"
+            [src]="pic"
+            alt="thumbnail"
+            class="w-14 h-14 object-cover rounded cursor-pointer opacity-70 hover:opacity-100 border transition"
+            (click)="selectedImage = pic"
+          />
         </div>
 
-        <div class="card-body">
+        <!-- Nombre -->
+        <h5 class="mt-6 text-base md:text-lg font-semibold text-gray-800">
+          {{ project.name }}
+        </h5>
 
-          <carousel *ngIf="project" class="d-block carousel carousel-dark slide">
-            <div *ngFor="let picture of project.pictures">
-              <slide>
-                <div class="text-center py-2">
-                  <img
-                    [src]="picture"
-                    alt="Project introduction"
-                    width="300"
-                    height="300"
-                    class="img-fluid">
-                </div>
-              </slide>
-            </div>
-          </carousel>
+        <!-- Descripción -->
+        <div class="mt-4 text-sm text-gray-700 space-y-2 text-justify">
+          <p>{{ "FEATURED_PROJECT.SUMMARY" | translate }}</p>
 
-          <div class="card-title mt-5" *ngIf="project">
-            <h5>{{ project.name }}</h5>
-          </div>
-
-          <div class="card-text mt-2" style="text-align: justify;">
-            <p>{{ 'FEATURED_PROJECT.SUMMARY' | translate }}</p>
-            <p>
-              {{ 'FEATURED_PROJECT.INFO' | translate }}
-              <a [routerLink]="'/portfolio'">
-                <i class="bi bi-briefcase-fill"></i>
-              </a>
-            </p>
-          </div>
-
+          <p>
+            {{ "FEATURED_PROJECT.INFO" | translate }}
+            <a
+              [routerLink]="'/portfolio'"
+              class="ml-1 text-blue-600 hover:underline"
+            >
+              💼
+            </a>
+          </p>
         </div>
       </div>
     </div>
-
   </div>
-
 </div>

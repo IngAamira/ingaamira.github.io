@@ -1,55 +1,68 @@
-import { Component, OnInit, signal, computed, inject } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  signal,
+  computed,
+  inject,
+  HostListener
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { Title, Meta } from '@angular/platform-browser';
 
 import { GetProjectsUseCase } from '@domain/use-cases/get-projects.use-case';
 import { FilterProjectsUseCase } from '@domain/use-cases/filter-projects.use-case';
+
 import { ProjectCardComponent } from '../project-card/project-card.component';
+import { ProjectModalComponent } from '../project-modal/project-modal.component';
 
 import { Project } from '@domain/models/project.model';
 import { TagType } from '@domain/models/tag.model';
-import { Category } from '@presentation/shared/types/category-dev.type';
+
+import { BrowserService } from '@presentation/shared/services/browser.service';
+import { SeoService } from '@presentation/shared/services/seo.service';
 
 @Component({
   selector: 'app-portfolio',
   standalone: true,
   imports: [
     CommonModule,
-    CollapseModule,
-    ProjectCardComponent
+    ProjectCardComponent,
+    ProjectModalComponent
   ],
   templateUrl: './portfolio.component.html',
 })
 export class PortfolioComponent implements OnInit {
 
-  private title = inject(Title);
-  private meta = inject(Meta);
+  private browser = inject(BrowserService);
+  private seo = inject(SeoService);
 
-  private allProjects = signal<Project[]>([]);
+  private getProjectsUseCase = inject(GetProjectsUseCase);
+  private filterProjectsUseCase = inject(FilterProjectsUseCase);
+
+  private readonly allProjects = signal<Project[]>([]);
+
   readonly isFilterOpen = signal(false);
   readonly loading = signal(true);
+  readonly selectedProject = signal<Project | null>(null);
 
   readonly filters = signal<Record<TagType, boolean>>(
-    {} as Record<TagType, boolean>
+    this.createInitialFilters()
   );
 
-  selectedTags = computed(() => {
-    const filters = this.filters();
-    return Object.keys(filters)
-      .filter(key => filters[key as TagType])
-      .map(key => key as TagType);
-  });
+  readonly selectedTags = computed(() =>
+    Object.entries(this.filters())
+      .filter(([_, active]) => active)
+      .map(([tag]) => tag as TagType)
+  );
 
   readonly filtering = computed(() => this.selectedTags().length > 0);
 
   readonly projects = computed(() => {
-    const projects = this.allProjects();
     const tags = this.selectedTags();
+    const projects = this.allProjects();
 
-    if (!tags.length) return projects;
-
-    return this.filterProjectsUseCase.execute(projects, tags);
+    return tags.length
+      ? this.filterProjectsUseCase.execute(projects, tags)
+      : projects;
   });
 
   readonly categories: Category[] = [
@@ -81,7 +94,7 @@ export class PortfolioComponent implements OnInit {
       items: [
         { name: 'Html', binding: TagType.HTML },
         { name: 'CSS', binding: TagType.CSS },
-        { name: 'Botstrap', binding: TagType.BOOTSTRAP },
+        { name: 'Bootstrap', binding: TagType.BOOTSTRAP },
         { name: 'Thymeleaf', binding: TagType.THYMELEAF },
       ]
     },
@@ -94,84 +107,78 @@ export class PortfolioComponent implements OnInit {
         { name: 'Open AI', binding: TagType.OPEN_AI },
       ]
     },
+  ] as const;
 
-  ];
-
-  constructor(
-    private getProjectsUseCase: GetProjectsUseCase,
-    private filterProjectsUseCase: FilterProjectsUseCase
-  ) {}
-
-  async ngOnInit() {
+  async ngOnInit(): Promise<void> {
     this.setSEO();
+    await this.loadProjects();
+  }
 
+  private async loadProjects(): Promise<void> {
     this.loading.set(true);
 
     try {
       const data = await this.getProjectsUseCase.execute();
-      this.allProjects.set(data);
-
-      this.filters.set(this.createInitialFilters());
+      this.allProjects.set(Array.isArray(data) ? data : []);
 
     } catch (error) {
-      console.error('Error loading projects', error);
+      console.error('[Portfolio] Error loading projects', error);
+      this.allProjects.set([]);
+
     } finally {
       this.loading.set(false);
     }
   }
 
   private setSEO(): void {
-    const title = 'Portfolio IngAamira | Data Engineer & Fullstack Developer | Portfolio';
-    const description = 'Explora los proyectos de Andrés Mira, Data Engineer y Fullstack Developer en Colombia. Desarrollo web, análisis de datos, automatización e inteligencia artificial.';
-    const url = 'https://portfolio.ingaamira.com/portfolio';
-    const image = 'https://portfolio.ingaamira.com/assets/icons/idea.png';
-
-    this.title.setTitle(title);
-    this.meta.updateTag({ name: 'description', content: description });
-    this.meta.updateTag({ name: 'robots', content: 'index, follow' });
-    this.meta.updateTag({ property: 'og:title', content: title });
-    this.meta.updateTag({ property: 'og:description', content: description });
-    this.meta.updateTag({ property: 'og:url', content: url });
-    this.meta.updateTag({ property: 'og:image', content: image });
-    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
-    this.meta.updateTag({ name: 'twitter:title', content: title });
-    this.meta.updateTag({ name: 'twitter:description', content: description });
-    this.meta.updateTag({ name: 'twitter:image', content: image });
-    this.setCanonical(url);
+    this.seo.setSEO({
+      title: 'Portfolio IngAamira | Portfolio',
+      description: 'Explora proyectos de Andrés Mira.',
+      url: 'https://portfolio.ingaamira.com/portfolio',
+      image: 'https://portfolio.ingaamira.com/assets/icons/idea.png'
+    });
   }
 
-  private setCanonical(url: string): void {
-    let link: HTMLLinkElement | null = document.querySelector("link[rel='canonical']");
-
-    if (!link) {
-      link = document.createElement('link');
-      link.setAttribute('rel', 'canonical');
-      document.head.appendChild(link);
-    }
-
-    link.setAttribute('href', url);
-  }
-
-  private createInitialFilters(): Record<TagType, boolean> {
-    return Object.values(TagType).reduce((acc, tag) => {
-      acc[tag] = false;
-      return acc;
-    }, {} as Record<TagType, boolean>);
-  }
-
-  toggleFilter(tag: TagType) {
+  toggleFilter(tag: TagType): void {
     this.filters.update(current => ({
       ...current,
       [tag]: !current[tag],
     }));
 
-    if (window.innerWidth < 768) {
+    this.closeFilterOnMobile();
+  }
+
+  resetFilters(): void {
+    this.filters.set(this.createInitialFilters());
+    this.isFilterOpen.set(false);
+  }
+
+  private closeFilterOnMobile(): void {
+    const win = this.browser.window;
+
+    if (win && win.innerWidth < 768) {
       this.isFilterOpen.set(false);
     }
   }
 
-  resetFilters() {
-    this.filters.set(this.createInitialFilters());
-    this.isFilterOpen.set(false);
+  openProject(project: Project): void {
+    this.selectedProject.set(project);
   }
+
+  closeProject(): void {
+    this.selectedProject.set(null);
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    this.closeProject();
+  }
+
+  private createInitialFilters(): Record<TagType, boolean> {
+    return Object.values(TagType).reduce((acc, tag) => {
+      acc[tag as TagType] = false;
+      return acc;
+    }, {} as Record<TagType, boolean>);
+  }
+  
 }
