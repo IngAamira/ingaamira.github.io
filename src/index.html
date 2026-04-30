@@ -1,75 +1,174 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
 
-  <!-- Idioma -->
-  <meta http-equiv="content-language" content="en, es">
+    <title>Portfolio IngAamira | Data Engineer & Fullstack Developer</title>
+    <base href="/" />
 
-  <!-- SEO base -->
-  <title>Portfolio IngAamira | Data Engineer & Fullstack Developer</title>
-  <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="description"
-    content="Andrés Mira - Data Engineer y Fullstack Developer en Colombia. Desarrollo web, análisis de datos, automatización e inteligencia artificial.">
+    <meta http-equiv="content-language" content="en, es" />
 
-  <meta name="keywords"
-    content="Andrés Mira, Data Engineer Colombia, Fullstack Developer, Desarrollo Web, Inteligencia Artificial, Portafolio">
+    <meta
+      name="description"
+      content="Andrés Mira - Data Engineer y Fullstack Developer en Colombia. Desarrollo web, análisis de datos, automatización e inteligencia artificial."
+    />
 
-  <meta name="robots" content="index, follow">
+    <meta
+      name="keywords"
+      content="IngAamira, Andres Alfonso Mira Mejia, Data Engineer, Fullstack Developer, Desarrollo Web, Inteligencia Artificial, Portfolio"
+    />
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://portfolio.ingaamira.com/">
+    <meta name="author" content="IngAamira" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://portfolio.ingaamira.com/" />
 
-  <!-- Hreflang (SEO internacional) -->
-  <link rel="alternate" hreflang="en" href="https://portfolio.ingaamira.com/">
-  <link rel="alternate" hreflang="es" href="https://portfolio.ingaamira.com/">
-  <link rel="alternate" hreflang="x-default" href="https://portfolio.ingaamira.com/">
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://portfolio.ingaamira.com/"
+    />
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://portfolio.ingaamira.com/"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://portfolio.ingaamira.com/"
+    />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Andrés Mira | Data Engineer & Fullstack Developer">
-  <meta property="og:description"
-    content="Portafolio profesional con proyectos de desarrollo web, análisis de datos e inteligencia artificial.">
-  <meta property="og:url" content="https://portfolio.ingaamira.com/">
-  <meta property="og:image"
-    content="https://portfolio.ingaamira.com/assets/icons/portfolio-ingaamira.png">
+    <meta
+      property="og:title"
+      content="Andrés Mira | Data Engineer & Fullstack Developer"
+    />
+    <meta
+      property="og:description"
+      content="Portafolio profesional con proyectos de desarrollo web, análisis de datos e inteligencia artificial."
+    />
+    <meta
+      property="og:image"
+      content="https://portfolio.ingaamira.com/assets/og/preview.png"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://portfolio.ingaamira.com/assets/og/preview.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta
+      property="og:image:alt"
+      content="IngAamira - Datos en decisiones, Software en eficiencia"
+    />
+    <meta
+      property="og:url"
+      content="https://portfolio.ingaamira.com/assets/og/preview.png"
+    />
+    <meta property="og:type" content="website" />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Andrés Mira | Data Engineer & Fullstack Developer">
-  <meta name="twitter:description"
-    content="Explora proyectos de desarrollo web, data e inteligencia artificial.">
-  <meta name="twitter:image"
-    content="https://portfolio.ingaamira.com/assets/icons/portfolio-ingaamira.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Andrés Mira | Data Engineer & Fullstack Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="Explora proyectos de desarrollo web, data e inteligencia artificial."
+    />
+    <meta
+      name="twitter:image"
+      content="https://portfolio.ingaamira.com/assets/og/preview.png"
+    />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
-  <!-- Preconnect (performance) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KEC6JZR2MT"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "name": "Andrés Mira",
+            "url": "https://portfolio.ingaamira.com/",
+            "image": "https://portfolio.ingaamira.com/assets/og/preview.png",
+            "jobTitle": "Data Engineer & Fullstack Developer",
+            "sameAs": [
+              "https://www.linkedin.com/in/ingaamira/",
+              "https://github.com/ingaamira",
+              "https://web.facebook.com/people/IngAamira/61576464488432/"
+            ],
+            "worksFor": {
+              "@type": "Organization",
+              "name": "IngAamira"
+            },
+            "knowsAbout": [
+              "Desarrollo Web",
+              "Análisis de Datos",
+              "Automatización de Procesos",
+              "Inteligencia Artificial",
+              "Angular",
+              "Python",
+              "AWS"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "name": "Portfolio IngAamira",
+            "url": "https://portfolio.ingaamira.com/",
+            "description": "Portafolio profesional de Andrés Mira con proyectos de desarrollo web, análisis de datos e inteligencia artificial",
+            "inLanguage": ["es", "en"]
+          },
+          {
+            "@type": "Service",
+            "provider": {
+              "@type": "Person",
+              "name": "Andrés Mira"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "Colombia"
+            },
+            "serviceType": [
+              "Desarrollo de software a medida",
+              "Automatización de procesos",
+              "Desarrollo de páginas web",
+              "Análisis de datos"
+            ]
+          }
+        ]
+      }
+    </script>
 
-    gtag("config", "G-KEC6JZR2MT", {
-      traffic_type: "internal",
-    });
-  </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-KEC6JZR2MT"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-</head>
+      gtag("config", "G-KEC6JZR2MT", {
+        traffic_type: "internal",
+      });
+    </script>
+  </head>
 
-<body class="container">
-  <app-root></app-root>
+  <body class="container">
+    <app-root></app-root>
 
-  <noscript>
-    This site requires JavaScript to run properly.
-  </noscript>
-</body>
+    <noscript> This site requires JavaScript to run properly. </noscript>
+  </body>
 </html>
