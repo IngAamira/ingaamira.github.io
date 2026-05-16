@@ -72,8 +72,8 @@ export class ResumeComponent implements OnInit {
 
   ngOnInit(): void {
     this.seo.setSEO({
-      title: 'Portfolio IngAamira | Resume',
-      description: 'Hoja de vida de Andrés Mira.',
+      title: 'Portfolio IngAamira | Data Engineer & Fullstack Developer | Resume',
+      description: 'CV de Andres Mira, un talentoso Data Engineer y Fullstack Developer en Colombia. Descubre su experiencia laboral, habilidades técnicas, educación y competencias lingüísticas a través de su currículum vitae.',
       url: 'https://portfolio.ingaamira.com/resume',
       image: 'https://portfolio.ingaamira.com/assets/icons/cv.png',
     });

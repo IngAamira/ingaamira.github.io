@@ -132,8 +132,8 @@ export class PortfolioComponent implements OnInit {
 
   private setSEO(): void {
     this.seo.setSEO({
-      title: 'Portfolio IngAamira | Portfolio',
-      description: 'Explora proyectos de Andrés Mira.',
+      title: 'Portfolio IngAamira | Data Engineer & Fullstack Developer | Portfolio',
+      description: 'Explora proyectos de Andres Mira, un talentoso Data Engineer y Fullstack Developer en Colombia. Descubre su experiencia en desarrollo web, análisis de datos, automatización e inteligencia artificial a través de su portfolio.',
       url: 'https://portfolio.ingaamira.com/portfolio',
       image: 'https://portfolio.ingaamira.com/assets/icons/idea.png'
     });
@@ -180,5 +180,5 @@ export class PortfolioComponent implements OnInit {
       return acc;
     }, {} as Record<TagType, boolean>);
   }
-  
+
 }
