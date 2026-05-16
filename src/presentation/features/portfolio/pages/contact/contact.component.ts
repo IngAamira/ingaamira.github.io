@@ -53,7 +53,7 @@ export class ContactComponent implements OnInit {
       title:
         'Portfolio IngAamira | Data Engineer & Fullstack Developer | Contact',
       description:
-        'Contacta a Andrés Mira, Data Engineer y Fullstack Developer en Colombia. Disponible para proyectos de desarrollo web, análisis de datos e inteligencia artificial.',
+        'Contacta a Andrés Mira, un talentoso Data Engineer y Fullstack Developer. Conéctate a través de LinkedIn, GitHub o WhatsApp para discutir proyectos, colaboraciones o cualquier consulta relacionada con su experiencia en tecnología.',
       url: 'https://portfolio.ingaamira.com/contact',
       image:
         'https://portfolio.ingaamira.com/assets/icons/contact-information.png',

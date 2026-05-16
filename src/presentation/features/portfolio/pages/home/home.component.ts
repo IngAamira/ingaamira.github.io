@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
   private setSEO(): void {
     this.seo.setSEO({
       title: 'Portfolio IngAamira | Data Engineer & Fullstack Developer',
-      description: 'Desarrollador Fullstack y Data Engineer en Colombia. Especializado en desarrollo web, análisis de datos, automatización e inteligencia artificial.',
+      description: 'Portfolio de Andres Mira, un talentoso Data Engineer y Fullstack Developer en Colombia. Especializado en desarrollo web, análisis de datos, automatización e inteligencia artificial.',
       url: 'https://portfolio.ingaamira.com/',
       image: 'https://portfolio.ingaamira.com/assets/preview.jpg',
       type: 'website'
