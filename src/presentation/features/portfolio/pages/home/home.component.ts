@@ -63,12 +63,12 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  private setSEO(): void {
+private setSEO(): void {
     this.seo.setSEO({
       title: 'Portfolio IngAamira | Data Engineer & Fullstack Developer',
       description: 'Portfolio de Andres Mira, un talentoso Data Engineer y Fullstack Developer en Colombia. Especializado en desarrollo web, análisis de datos, automatización e inteligencia artificial.',
       url: 'https://portfolio.ingaamira.com/',
-      image: 'https://portfolio.ingaamira.com/assets/preview.jpg',
+      image: 'https://portfolio.ingaamira.com/assets/og/preview.png',
       type: 'website'
     });
   }
