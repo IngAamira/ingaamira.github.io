@@ -1,5 +1,21 @@
+# Robots.txt for portfolio.ingaamira.com
+# https://www.robotstxt.org/robotstxt.html
+
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /*.json$
 
-# Sitemap
+# Crawl delay (optional, be kind to the server)
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://portfolio.ingaamira.com/sitemap.xml
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
