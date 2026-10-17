@@ -18,7 +18,7 @@ El estado operativo (qué se está haciendo, decisiones, pendientes) vive en `ME
 npm start            # ng serve (dev server, SSR). Puerto 4200
 npm run build        # producción (defaultConfiguration=production). Type-check + prerender
 npm run build:prod   # build con base-href=/ y deploy-url=/
-npm test             # builder Karma (legacy, requiere navegador); NO hay specs (ver Validación)
+npm test             # Vitest (sin navegador). Ver Validación
 npm run serve:ssr:ingaamira.github.io   # sirve dist/.../server/server.mjs (PORT o 4000)
 ```
 
@@ -26,12 +26,10 @@ Gestor de paquetes: **npm** (hay `package-lock.json` y `npm` está instalado). N
 reintroducir `pnpm-lock.yaml`; los scripts, `README.md` y `vercel.json` usan `npm`.
 `pnpm` no está instalado en el entorno.
 
-## Validación (no asumas que existe lint o tests)
+## Validación
 
 - **No hay lint ni formatter configurados** (sin ESLint/Prettier; solo `.editorconfig`).
-- No hay ningún `*.spec.ts`. `ng test` usa el builder **Karma** (legacy; requiere navegador).
-  Para tests sin navegador, migrar a `@angular/build:unit-test` (Vitest + jsdom):
-  `ng update @angular/cli --name migrate-karma-to-vitest`.
+- Tests con **Vitest + jsdom** (`@angular/build:unit-test`, sin navegador). Correr: `npm test -- --watch=false`.
 - La verificación real es el build:
 
 ```bash
@@ -111,7 +109,7 @@ El prerender **ejecuta los componentes en Node durante el build**.
 
 ## CI
 
-- GitHub Actions (`.github/workflows/ci.yml`): `npm ci` + `npm run build` en push a `trunk` y en PRs.
+- GitHub Actions (`.github/workflows/ci.yml`): `npm ci` + `npm run build` + `npm test` en push a `trunk` y en PRs.
 - CI usa Node 22.
 
 ## Agentes y skills de OpenCode (V2)
