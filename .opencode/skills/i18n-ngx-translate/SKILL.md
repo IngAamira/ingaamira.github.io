@@ -5,10 +5,16 @@ description: Use when adding or changing translations, adding a language, or tou
 
 # i18n con @ngx-translate
 
-- Librería: `@ngx-translate/core` + `http-loader` v17.
-- Configurado en `src/app/app.config.ts` con `provideTranslateService` + `provideTranslateHttpLoader`
-  (prefix `/assets/i18n/`, suffix `.json`). Fallback e idioma inicial: `en`.
+- Librería: `@ngx-translate/core` v17.
+- Configurado en `src/app/app.config.ts` con `provideTranslateService` + **`provideBundledTranslateLoader`**
+  (`src/infrastructure/i18n/bundled-translate.loader.ts`): las traducciones se importan de los JSON y se
+  sirven **síncronamente**. Fallback e idioma inicial: `en`.
 - Traducciones: `src/assets/i18n/en.json` y `src/assets/i18n/es.json`.
+
+> **Por qué el loader empaquetado (y no HTTP):** con el loader HTTP el HTML **prerenderizado** salía con
+> las claves (`ABOUT_ME.TITLE`, `NAVIGATION.HOME`, ...) en vez del texto, así que los buscadores veían
+> secciones vacías. El loader síncrono garantiza que SSR/prerender ya tienen las traducciones.
+> Requiere `resolveJsonModule: true` en `tsconfig.json`.
 
 ## Añadir un idioma nuevo (hay que tocar VARIOS sitios)
 

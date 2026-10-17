@@ -1,10 +1,10 @@
 import { ApplicationConfig, provideZoneChangeDetection } from "@angular/core";
 import { provideRouter } from "@angular/router";
-import { provideHttpClient, withXhr } from "@angular/common/http";
 import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { provideTranslateService } from "@ngx-translate/core";
-import { provideTranslateHttpLoader } from "@ngx-translate/http-loader";
+
+import { provideBundledTranslateLoader } from "@infrastructure/i18n/bundled-translate.loader";
 
 import { routes } from './app.routes';
 import { ProjectDatasource } from "@infrastructure/datasources/project.datasource";
@@ -17,13 +17,9 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimations(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideHttpClient(withXhr()),
 
     provideTranslateService({
-      loader: provideTranslateHttpLoader({
-        prefix: '/assets/i18n/',
-        suffix: '.json'
-      }),
+      loader: provideBundledTranslateLoader(),
       fallbackLang: 'en',
       lang: 'en'
     }),

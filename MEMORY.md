@@ -94,6 +94,8 @@ Sitemap y `robots.txt` en `src/` (copiados como assets).
 - **`hreflang` sin URLs por idioma**: `SeoService` solo emite `rel="alternate"`/`hreflang` si la
   página pasa `alternates` con URLs distintas; hoy no se emiten (una sola URL por ruta, i18n en cliente).
 - APIs de navegador encapsuladas en `BrowserService` (requisito de SSR/prerender).
+- **Traducciones empaquetadas** (`provideBundledTranslateLoader`): el loader HTTP dejaba el HTML
+  prerenderizado con las claves; ahora SSR/prerender renderiza el texto. Se quitó `provideHttpClient(withXhr())`.
 - **`<html lang>` sincronizado con el idioma**: `TranslationService.setLanguage()` actualiza
   `document.documentElement.lang` vía `BrowserService` (SSR-safe).
 
