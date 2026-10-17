@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Project } from '@domain/models/project.model';
@@ -8,7 +8,7 @@ import { TagType } from '@domain/models/tag.model';
 @Component({
   standalone: true,
   selector: 'app-project-modal',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './project-modal.component.html'
 })
 export class ProjectModalComponent {

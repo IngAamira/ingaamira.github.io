@@ -4,81 +4,90 @@
     <button
       class="flex items-center gap-2 border border-blue-500 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition"
       (click)="isFilterOpen.set(!isFilterOpen())"
-    >
+      >
       🔍 Filter
     </button>
 
-    <button
-      *ngIf="filtering()"
-      class="flex items-center gap-2 border border-gray-400 text-gray-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition"
-      (click)="resetFilters()"
-    >
-      🗑 Reset
-    </button>
+    @if (filtering()) {
+      <button
+        class="flex items-center gap-2 border border-gray-400 text-gray-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition"
+        (click)="resetFilters()"
+        >
+        🗑 Reset
+      </button>
+    }
   </div>
 
   <!-- Filters -->
-  <div
-    *ngIf="isFilterOpen()"
-    class="mb-6 bg-white border rounded-xl shadow-sm p-4 max-w-sm"
-  >
-    <form class="space-y-4">
-      <div *ngFor="let category of categories">
-        <p class="text-sm font-semibold text-gray-700 mb-2">
-          {{ category.title }}
-        </p>
-
-        <div class="space-y-1">
-          <label
-            *ngFor="let item of category.items"
-            class="flex items-center gap-2 text-sm cursor-pointer"
-          >
-            <input
-              type="checkbox"
-              class="w-4 h-4 accent-blue-600"
-              [checked]="filters()[item.binding]"
-              (change)="toggleFilter(item.binding)"
-            />
-
-            {{ item.name }}
-          </label>
-        </div>
-      </div>
-    </form>
-  </div>
-
-  <div *ngIf="loading()" class="flex justify-center my-10">
+  @if (isFilterOpen()) {
     <div
-      class="animate-spin rounded-full h-8 w-8 border-2 border-gray-300 border-t-blue-500"
-    ></div>
+      class="mb-6 bg-white border rounded-xl shadow-sm p-4 max-w-sm"
+      >
+      <form class="space-y-4">
+        @for (category of categories; track category) {
+          <div>
+            <p class="text-sm font-semibold text-gray-700 mb-2">
+              {{ category.title }}
+            </p>
+            <div class="space-y-1">
+              @for (item of category.items; track item) {
+                <label
+                  class="flex items-center gap-2 text-sm cursor-pointer"
+                  >
+                  <input
+                    type="checkbox"
+                    class="w-4 h-4 accent-blue-600"
+                    [checked]="filters()[item.binding]"
+                    (change)="toggleFilter(item.binding)"
+                    />
+                    {{ item.name }}
+                  </label>
+                }
+              </div>
+            </div>
+          }
+        </form>
+      </div>
+    }
+
+    @if (loading()) {
+      <div class="flex justify-center my-10">
+        <div
+          class="animate-spin rounded-full h-8 w-8 border-2 border-gray-300 border-t-blue-500"
+        ></div>
+      </div>
+    }
+
+    <!-- Projects -->
+    @if (!loading()) {
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+        @for (project of projects(); track project) {
+          <app-project-card
+            [project]="project"
+            (viewProject)="openProject($event)"
+          ></app-project-card>
+        }
+      </div>
+    }
+
+    @if (!loading() && projects().length === 0) {
+      <div
+        class="text-center mt-10 text-gray-500"
+        >
+        No projects found.
+      </div>
+    }
   </div>
 
-  <!-- Projects -->
-  <div
-    *ngIf="!loading()"
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-  >
-    <app-project-card
-      *ngFor="let project of projects()"
-      [project]="project"
-      (viewProject)="openProject($event)"
-    ></app-project-card>
-  </div>
-
-  <div
-    *ngIf="!loading() && projects().length === 0"
-    class="text-center mt-10 text-gray-500"
-  >
-    No projects found.
-  </div>
-</div>
-
-<div
-  *ngIf="selectedProject()"
-  class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
->
-  <app-project-modal
-    [project]="selectedProject()!"
-    (close)="closeProject()"
-  ></app-project-modal>
-</div>
+  @if (selectedProject()) {
+    <div
+      class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+      >
+      <app-project-modal
+        [project]="selectedProject()!"
+        (close)="closeProject()"
+      ></app-project-modal>
+    </div>
+  }

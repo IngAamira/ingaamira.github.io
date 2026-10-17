@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -6,32 +6,34 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-education',
-  imports: [CommonModule, TranslateModule],
+  imports: [TranslateModule],
   template: `
     <div class="max-w-3xl mx-auto space-y-6">
-      <div
-        *ngFor="let university of universities"
-        class="bg-white border rounded-xl p-5 shadow-sm"
-      >
-        <h3 class="text-lg md:text-xl font-semibold text-purple-700 mb-3">
-          {{ university.name | translate }}
-        </h3>
-        <div class="space-y-4">
-          <div
-            *ngFor="let degree of university.degrees"
-            class="pl-3 border-l-2 border-purple-200"
+      @for (university of universities; track university) {
+        <div
+          class="bg-white border rounded-xl p-5 shadow-sm"
           >
-            <p class="font-medium text-gray-800">
-              {{ degree.title | translate }}
-            </p>
-            <p class="text-xs text-gray-500 mt-1">
-              {{ degree.dateRange }}
-            </p>
+          <h3 class="text-lg md:text-xl font-semibold text-purple-700 mb-3">
+            {{ university.name | translate }}
+          </h3>
+          <div class="space-y-4">
+            @for (degree of university.degrees; track degree) {
+              <div
+                class="pl-3 border-l-2 border-purple-200"
+                >
+                <p class="font-medium text-gray-800">
+                  {{ degree.title | translate }}
+                </p>
+                <p class="text-xs text-gray-500 mt-1">
+                  {{ degree.dateRange }}
+                </p>
+              </div>
+            }
           </div>
         </div>
-      </div>
+      }
     </div>
-  `,
+    `,
 })
 export class EducationComponent implements OnInit, OnDestroy {
   universities: University[] = [];

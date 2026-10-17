@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -10,43 +10,44 @@ import {
 
 @Component({
   selector: 'app-work-ai',
-  imports: [CommonModule, TranslateModule],
+  imports: [TranslateModule],
   template: `
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-      <div
-        *ngFor="let skill of itemTechnicalSkills"
-        class="bg-white border rounded-xl p-4 shadow-sm"
-      >
-        <h3 class="text-base md:text-lg font-semibold text-purple-700 mb-3">
-          {{ skill.category | translate }}
-        </h3>
-
-        <ul class="space-y-2 text-sm text-gray-700">
-          <li *ngFor="let item of skill.items">
-            <ng-container *ngIf="isSkillItemObject(item); else simpleItem">
-              <p class="font-medium text-gray-800">
-                {{ item.name }}
-              </p>
-
-              <ul class="list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
-                <li *ngFor="let subitem of item.subitems">
-                  {{ subitem }}
-                </li>
-              </ul>
-            </ng-container>
-
-            <ng-template #simpleItem>
-              <span
-                class="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
-              >
-                {{ item }}
-              </span>
-            </ng-template>
-          </li>
-        </ul>
-      </div>
+      @for (skill of itemTechnicalSkills; track skill) {
+        <div
+          class="bg-white border rounded-xl p-4 shadow-sm"
+          >
+          <h3 class="text-base md:text-lg font-semibold text-purple-700 mb-3">
+            {{ skill.category | translate }}
+          </h3>
+          <ul class="space-y-2 text-sm text-gray-700">
+            @for (item of skill.items; track item) {
+              <li>
+                @if (isSkillItemObject(item)) {
+                  <p class="font-medium text-gray-800">
+                    {{ item.name }}
+                  </p>
+                  <ul class="list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
+                    @for (subitem of item.subitems; track subitem) {
+                      <li>
+                        {{ subitem }}
+                      </li>
+                    }
+                  </ul>
+                } @else {
+                  <span
+                    class="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >
+                    {{ item }}
+                  </span>
+                }
+              </li>
+            }
+          </ul>
+        </div>
+      }
     </div>
-  `,
+    `,
 })
 export class WorkAiComponent implements OnInit, OnDestroy {
   itemTechnicalSkills: ItemTechnicalSkill[] = [];

@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -8,10 +8,9 @@ import { TranslateModule } from '@ngx-translate/core';
   standalone: true,
   selector: 'app-navbar',
   imports: [
-    CommonModule,
     RouterModule,
     TranslateModule
-  ],
+],
   templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {

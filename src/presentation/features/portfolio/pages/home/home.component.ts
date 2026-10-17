@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { Router, RouterLink } from '@angular/router';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
@@ -13,10 +13,9 @@ import { SeoService } from '@presentation/shared/services/seo.service';
   standalone: true,
   selector: 'app-home',
   imports: [
-    CommonModule,
     TranslateModule,
     RouterLink
-  ],
+],
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {

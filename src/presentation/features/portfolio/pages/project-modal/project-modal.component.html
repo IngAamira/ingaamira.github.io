@@ -12,58 +12,63 @@
 
   <!-- Body -->
   <div class="p-4 space-y-4">
-    <div *ngIf="project.pictures.length > 0" class="flex flex-col items-center">
-      <img
-        [src]="selectedImage || project.pictures[0] || ''"
-        class="w-80 h-80 object-contain rounded-lg"
-        alt="project image"
-      />
-
-      <div class="flex gap-2 mt-3 flex-wrap justify-center">
+    @if (project.pictures.length > 0) {
+      <div class="flex flex-col items-center">
         <img
-          *ngFor="let pic of project.pictures"
-          [src]="pic"
-          class="w-16 h-16 object-cover rounded cursor-pointer opacity-70 hover:opacity-100 border"
-          (click)="selectedImage = pic"
-        />
+          [src]="selectedImage || project.pictures[0] || ''"
+          class="w-80 h-80 object-contain rounded-lg"
+          alt="project image"
+          />
+          <div class="flex gap-2 mt-3 flex-wrap justify-center">
+            @for (pic of project.pictures; track pic) {
+              <img
+                [src]="pic"
+                class="w-16 h-16 object-cover rounded cursor-pointer opacity-70 hover:opacity-100 border"
+                (click)="selectedImage = pic"
+                />
+            }
+          </div>
+        </div>
+      }
+
+      <hr />
+
+      <!-- Description -->
+      <div>
+        <h3 class="font-semibold text-lg mb-2">Description:</h3>
+
+        @for (text of project.summary; track text) {
+          <p>
+            {{ text }}
+          </p>
+        }
+      </div>
+
+      <!-- Link -->
+      <div>
+        <p>
+          You can find this project on Github/Website
+          <a
+            [href]="project.projectLink"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-600 hover:underline ml-1"
+            >
+            🌐
+          </a>
+        </p>
       </div>
     </div>
 
-    <hr />
-
-    <!-- Description -->
-    <div>
-      <h3 class="font-semibold text-lg mb-2">Description:</h3>
-
-      <p *ngFor="let text of project.summary">
-        {{ text }}
-      </p>
-    </div>
-
-    <!-- Link -->
-    <div>
-      <p>
-        You can find this project on Github/Website
-        <a
-          [href]="project.projectLink"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-blue-600 hover:underline ml-1"
-        >
-          🌐
-        </a>
-      </p>
+    <!-- Footer -->
+    <div class="border-t p-4 flex flex-wrap justify-center gap-2">
+      @for (tag of project.tags; track tag) {
+        <span
+          class="text-xs px-2 py-1 rounded-full text-white"
+          [style.background-color]="getTagColor(tag)"
+          >
+          {{ tag }}
+        </span>
+      }
     </div>
   </div>
-
-  <!-- Footer -->
-  <div class="border-t p-4 flex flex-wrap justify-center gap-2">
-    <span
-      *ngFor="let tag of project.tags"
-      class="text-xs px-2 py-1 rounded-full text-white"
-      [style.background-color]="getTagColor(tag)"
-    >
-      {{ tag }}
-    </span>
-  </div>
-</div>

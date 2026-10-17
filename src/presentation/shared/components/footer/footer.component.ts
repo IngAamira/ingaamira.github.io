@@ -1,5 +1,5 @@
 import { Component, signal, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { TranslateModule } from '@ngx-translate/core';
 
 import { BrowserService } from '@presentation/shared/services/browser.service';
@@ -8,9 +8,8 @@ import { BrowserService } from '@presentation/shared/services/browser.service';
   standalone: true,
   selector: 'app-footer',
   imports: [
-    CommonModule,
     TranslateModule
-  ],
+],
   templateUrl: './footer.component.html'
 })
 export class FooterComponent {

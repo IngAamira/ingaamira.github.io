@@ -6,7 +6,7 @@ import {
   inject,
   HostListener
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 import { GetProjectsUseCase } from '@domain/use-cases/get-projects.use-case';
 import { FilterProjectsUseCase } from '@domain/use-cases/filter-projects.use-case';
@@ -24,10 +24,9 @@ import { SeoService } from '@presentation/shared/services/seo.service';
   selector: 'app-portfolio',
   standalone: true,
   imports: [
-    CommonModule,
     ProjectCardComponent,
     ProjectModalComponent
-  ],
+],
   templateUrl: './portfolio.component.html',
 })
 export class PortfolioComponent implements OnInit {

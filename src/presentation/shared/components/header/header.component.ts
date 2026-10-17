@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -9,9 +9,8 @@ import { TranslationService } from '@presentation/shared/services/translation.se
   standalone: true,
   selector: 'app-header',
   imports: [
-    CommonModule,
     TranslateModule
-  ],
+],
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {

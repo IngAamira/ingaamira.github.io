@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { TranslateModule } from '@ngx-translate/core';
 
 import { BrowserService } from '@presentation/shared/services/browser.service';
@@ -8,7 +8,7 @@ import { SeoService } from '@presentation/shared/services/seo.service';
 @Component({
   standalone: true,
   selector: 'app-contact',
-  imports: [CommonModule, TranslateModule],
+  imports: [TranslateModule],
   template: `
     <div class="max-w-3xl mx-auto m-3 p-3">
       <div class="text-center border rounded-xl shadow-sm p-6 mb-8 bg-white">
@@ -19,30 +19,31 @@ import { SeoService } from '@presentation/shared/services/seo.service';
           {{ 'CONTACT.DESCRIPTION' | translate }}
         </p>
       </div>
-
+    
       <div class="bg-white rounded-xl shadow-sm divide-y">
-        <a
-          *ngFor="let item of menuItemsContact"
-          [href]="item.url"
-          target="_blank"
-          rel="noopener noreferrer"
-          (click)="trackClick(item.flag, item.url)"
-          class="flex items-center gap-4 px-4 py-4 hover:bg-gray-50 transition group"
-        >
-          <img
-            [src]="item.img"
-            [alt]="item.flag"
-            class="w-10 h-10 rounded-full object-cover group-hover:scale-110 transition"
-          />
-          <span
-            class="text-lg font-medium text-gray-800 group-hover:text-purple-600 transition"
-          >
-            {{ item.flag }}
-          </span>
-        </a>
+        @for (item of menuItemsContact; track item) {
+          <a
+            [href]="item.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            (click)="trackClick(item.flag, item.url)"
+            class="flex items-center gap-4 px-4 py-4 hover:bg-gray-50 transition group"
+            >
+            <img
+              [src]="item.img"
+              [alt]="item.flag"
+              class="w-10 h-10 rounded-full object-cover group-hover:scale-110 transition"
+              />
+              <span
+                class="text-lg font-medium text-gray-800 group-hover:text-purple-600 transition"
+                >
+                {{ item.flag }}
+              </span>
+            </a>
+          }
+        </div>
       </div>
-    </div>
-  `,
+    `,
 })
 export class ContactComponent implements OnInit {
   private browser = inject(BrowserService);
