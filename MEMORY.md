@@ -90,6 +90,8 @@ Sitemap y `robots.txt` en `src/` (copiados como assets).
 - **Skills y agentes de OpenCode** (V2) project-local, en español.
 - Estilos con Tailwind (Bootstrap retirado).
 - SEO centralizado por página vía `SeoService`.
+- **`hreflang` sin URLs por idioma**: `SeoService` solo emite `rel="alternate"`/`hreflang` si la
+  página pasa `alternates` con URLs distintas; hoy no se emiten (una sola URL por ruta, i18n en cliente).
 - APIs de navegador encapsuladas en `BrowserService` (requisito de SSR/prerender).
 
 ## 11. Problemas y riesgos conocidos
@@ -102,14 +104,13 @@ Sitemap y `robots.txt` en `src/` (copiados como assets).
 - Builder de test **Karma legacy** (requiere navegador). Migrar a `@angular/build:unit-test` (Vitest) al añadir tests.
 - **Bug i18n:** `TranslationService.setLanguage()` no actualiza `document.documentElement.lang`; el `lang`
   del HTML y `BrowserService.lang` quedan en `en` al cambiar idioma (afecta analítica y SEO).
-- SEO: `setAlternateLinks` usa la misma URL para `en`/`es`/`x-default` (no hay URLs por idioma).
 - Prerender cubre solo `''`, `portfolio`, `resume`, `contact`; `**` se sirve en modo Server.
 
 ## 12. Pendientes
 
 1. Añadir tests (migrar primero el builder a Vitest: `ng update @angular/cli --name migrate-karma-to-vitest`).
 2. Corregir el bug de `lang` del documento al cambiar idioma.
-3. Revisar `hreflang`/canónicas por idioma.
+3. SEO multilingüe real (URLs por idioma `/es/...` + SSR que respete el idioma), si se quiere indexar español.
 4. Revisar `npm audit` tras futuros upgrades.
 
 ## 13. Siguiente paso

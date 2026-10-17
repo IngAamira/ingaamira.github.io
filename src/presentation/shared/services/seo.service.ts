@@ -20,7 +20,7 @@ export class SeoService {
 
     if (data.url) {
       this.setCanonical(data.url);
-      this.setAlternateLinks(data.url);
+      this.setAlternateLinks(data.alternates);
     }
   }
 
@@ -80,7 +80,14 @@ export class SeoService {
     link.setAttribute('href', url);
   }
 
-  private setAlternateLinks(url: string): void {
+  /**
+   * Emits `hreflang` alternates only when the site actually serves a distinct URL per
+   * language. This site uses a single URL per route with client-side language switching
+   * and English SSR output, so advertising `en`/`es` versions pointing at the same URL
+   * is misleading and ignored by search engines. When real per-language URLs exist, pass
+   * them explicitly via `SeoData.alternates`.
+   */
+  private setAlternateLinks(alternates?: SeoAlternate[]): void {
     if (!this.document) return;
 
     const head = this.document.head;
@@ -90,17 +97,12 @@ export class SeoService {
     const existingLinks = head.querySelectorAll("link[rel='alternate'][hreflang]");
     existingLinks.forEach(link => link.remove());
 
-    // Add new alternate links for the current URL
-    const hreflangs = [
-      { lang: 'en', href: url },
-      { lang: 'es', href: url },
-      { lang: 'x-default', href: url }
-    ];
+    if (!alternates || alternates.length === 0) return;
 
-    hreflangs.forEach(({ lang, href }) => {
+    alternates.forEach(({ hreflang, href }) => {
       const link = this.document.createElement('link');
       link.setAttribute('rel', 'alternate');
-      link.setAttribute('hreflang', lang);
+      link.setAttribute('hreflang', hreflang);
       link.setAttribute('href', href);
       head.appendChild(link);
     });

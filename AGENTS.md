@@ -95,6 +95,8 @@ El prerender **ejecuta los componentes en Node durante el build**.
 - Metadatos globales y JSON-LD en `src/index.html`; Google Analytics también allí.
 - Por página se usa `SeoService.setSEO(...)`. Las URLs canónicas están **hardcodeadas** a
   `https://portfolio.ingaamira.com/...`, así que hay que actualizarlas al añadir/renombrar rutas.
+- `hreflang` solo se emite si se pasan `alternates` con URLs distintas por idioma; hoy no hay
+  (una URL por ruta con i18n en cliente), así que no se emiten alternates.
 - `src/sitemap.xml` y `src/robots.txt` se copian como assets: actualízalos al cambiar rutas.
 
 ## Deploy
