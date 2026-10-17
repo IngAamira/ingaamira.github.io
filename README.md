@@ -31,10 +31,10 @@ The application is structured using **Clean Architecture principles**:
 ```
 src/
 │
-├── domain/           → Models, enums, use cases
-├── infrastructure/   → (future: adapters, APIs, mappers)
-├── presentation/     → Components, pages (UI)
-└── app/              → Configuration and routing
+├── domain/           → Models, enums, repository interfaces, use cases
+├── infrastructure/   → Datasources and repository implementations
+├── presentation/     → Components, pages, shared services (UI)
+└── app/              → DI configuration and routing
 ```
 
 ### Key Concepts
@@ -92,32 +92,39 @@ ng serve
 
 ```
 presentation/
-└── features/
-    └── portfolio/
-        ├── pages/
-        │   └── portfolio.component.ts
-        └── components/
-            └── project-card/
+├── features/
+│   └── portfolio/
+│       ├── pages/          (home, portfolio, resume, contact, project-card, project-modal, not-found)
+│       ├── components/     (education, language, work-*)
+│       └── portfolio.routes.ts
+└── shared/
+    ├── components/         (layout, header, navbar, footer)
+    ├── services/           (browser, seo, translation)
+    ├── constants/
+    └── types/global.d.ts
 ```
 
 ### Domain Layer
 
 ```
 domain/
-├── models/
-│   ├── project.model.ts
-│   └── tag.model.ts
-└── use-cases/
-    ├── get-projects.use-case.ts
-    └── filter-projects.use-case.ts
+├── models/                 (project.model.ts, tag.model.ts)
+├── repositories/           (project.repository.ts — interface)
+└── use-cases/              (get-projects, get-project-by-id, filter-projects)
+```
+
+### Infrastructure Layer
+
+```
+infrastructure/
+├── datasources/            (project.datasource.ts — abstract; project-local.datasource.ts — data)
+└── repositories/           (project.repository.impl.ts)
 ```
 
 ### Shared Types
 
-```
-presentation/shared/types/
-└── category.type.ts
-```
+Most shared interfaces are declared globally in `presentation/shared/types/global.d.ts`
+(no import required).
 
 ---
 
