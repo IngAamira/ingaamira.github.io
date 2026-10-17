@@ -9,12 +9,18 @@ declare global {
   }
 
   /* SEO */
+  interface SeoAlternate {
+    hreflang: string;
+    href: string;
+  }
+
   interface SeoData {
     title: string;
     description: string;
     url: string;
     image?: string;
     type?: string;
+    alternates?: SeoAlternate[];
   }
 
   /* Categories */

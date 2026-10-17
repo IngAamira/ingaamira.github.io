@@ -91,6 +91,8 @@ Sitemap y `robots.txt` en `src/` (copiados como assets).
 - **Skills y agentes de OpenCode** (V2) project-local, en español.
 - Estilos con Tailwind (Bootstrap retirado).
 - SEO centralizado por página vía `SeoService`.
+- **`hreflang` sin URLs por idioma**: `SeoService` solo emite `rel="alternate"`/`hreflang` si la
+  página pasa `alternates` con URLs distintas; hoy no se emiten (una sola URL por ruta, i18n en cliente).
 - APIs de navegador encapsuladas en `BrowserService` (requisito de SSR/prerender).
 - **`<html lang>` sincronizado con el idioma**: `TranslationService.setLanguage()` actualiza
   `document.documentElement.lang` vía `BrowserService` (SSR-safe).
@@ -103,13 +105,12 @@ Sitemap y `robots.txt` en `src/` (copiados como assets).
 - `tsconfig.json` mantiene `baseUrl` (los alias lo necesitan) con `ignoreDeprecations: "6.0"` para la
   deprecación de `baseUrl` rumbo a TS 7. Revisar al subir a TS 7.
 - Los tests actuales cubren solo el dominio; faltan servicios y componentes.
-- SEO: `setAlternateLinks` usa la misma URL para `en`/`es`/`x-default` (no hay URLs por idioma).
 - Prerender cubre solo `''`, `portfolio`, `resume`, `contact`; `**` se sirve en modo Server.
 
 ## 12. Pendientes
 
 1. Ampliar tests: cubrir servicios (`SeoService`, `TranslationService`) y componentes (TestBed/jsdom).
-2. Revisar `hreflang`/canónicas por idioma.
+2. SEO multilingüe real (URLs por idioma `/es/...` + SSR que respete el idioma), si se quiere indexar español.
 3. Revisar `npm audit` tras futuros upgrades.
 
 ## 13. Siguiente paso

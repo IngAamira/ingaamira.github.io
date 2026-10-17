@@ -7,9 +7,9 @@ description: Use when working on SEO, meta tags, Open Graph, canonical/hreflang,
 
 ## Por página
 
-`SeoService.setSEO({ title, description, url, image?, type? })`
+`SeoService.setSEO({ title, description, url, image?, type?, alternates? })`
 (`src/presentation/shared/services/seo.service.ts`) establece: title, description, robots,
-Open Graph, Twitter card, canonical y `hreflang` alternates. Se llama en el `ngOnInit` de cada página.
+Open Graph, Twitter card y canonical. Se llama en el `ngOnInit` de cada página.
 
 Las **URLs canónicas están hardcodeadas** a `https://portfolio.ingaamira.com/...` dentro de cada
 componente (home, portfolio, resume, contact, not-found).
@@ -31,7 +31,9 @@ componente (home, portfolio, resume, contact, not-found).
 3. Canonical/OG en el componente (`SeoService.setSEO`).
 4. `src/sitemap.xml` y `src/robots.txt`.
 
-## Mejoras conocidas (si se toca SEO)
+## i18n y SEO
 
-- `setAlternateLinks` usa **la misma URL** para `en`, `es` y `x-default`; no hay URLs distintas por idioma.
-- El `lang` del HTML no se actualiza al cambiar idioma (ver skill `i18n-ngx-translate`).
+- `hreflang` (`rel="alternate"`) solo se emite si la página pasa `alternates` con **URLs distintas
+  por idioma**. En el modelo actual (una URL por ruta + cambio de idioma en cliente + SSR en inglés)
+  no se emiten: declarar `en`/`es` sobre la misma URL es incorrecto.
+- SEO multilingüe real requiere URLs por idioma (`/es/...`) y SSR que respete el idioma.
