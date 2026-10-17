@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 
 
 import { TranslateModule } from '@ngx-translate/core';
@@ -11,6 +11,7 @@ import { TranslationService } from '@presentation/shared/services/translation.se
   imports: [
     TranslateModule
 ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {

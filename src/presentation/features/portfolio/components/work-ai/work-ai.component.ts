@@ -1,5 +1,5 @@
 
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import {
@@ -11,6 +11,7 @@ import {
 @Component({
   selector: 'app-work-ai',
   imports: [TranslateModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
       @for (skill of itemTechnicalSkills; track skill) {

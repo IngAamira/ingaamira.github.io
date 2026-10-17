@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 
@@ -15,6 +15,7 @@ import { FooterComponent } from '@presentation/shared/components/footer/footer.c
     NavbarComponent,
     FooterComponent
 ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './layout.component.html'
 })
 export class LayoutComponent {

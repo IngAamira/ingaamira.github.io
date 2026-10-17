@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -9,6 +9,7 @@ import { SeoService } from '@presentation/shared/services/seo.service';
   standalone: true,
   selector: 'app-contact',
   imports: [TranslateModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="max-w-3xl mx-auto m-3 p-3">
       <div class="text-center border rounded-xl shadow-sm p-6 mb-8 bg-white">

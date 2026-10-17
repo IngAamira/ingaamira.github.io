@@ -1,5 +1,5 @@
 
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -7,6 +7,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-work-experience',
   imports: [TranslateModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="space-y-8">
       @for (company of companies; track company) {

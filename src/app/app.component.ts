@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
 
@@ -8,6 +8,7 @@ import { RouterOutlet } from "@angular/router";
   standalone: true,
   selector: 'app-root',
   imports: [RouterOutlet],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: '<router-outlet />',
 })
 export class AppComponent {

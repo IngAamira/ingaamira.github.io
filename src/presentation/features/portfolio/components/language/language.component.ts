@@ -1,5 +1,5 @@
 
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -7,6 +7,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-language',
   imports: [TranslateModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="max-w-2xl mx-auto text-left">
       <ul class="space-y-3">

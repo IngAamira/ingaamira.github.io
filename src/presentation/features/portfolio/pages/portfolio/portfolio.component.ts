@@ -4,7 +4,8 @@ import {
   signal,
   computed,
   inject,
-  HostListener
+  HostListener,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 
@@ -27,6 +28,7 @@ import { SeoService } from '@presentation/shared/services/seo.service';
     ProjectCardComponent,
     ProjectModalComponent
 ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './portfolio.component.html',
 })
 export class PortfolioComponent implements OnInit {

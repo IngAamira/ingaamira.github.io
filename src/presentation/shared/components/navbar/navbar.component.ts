@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 
@@ -11,6 +11,7 @@ import { TranslateModule } from '@ngx-translate/core';
     RouterModule,
     TranslateModule
 ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {

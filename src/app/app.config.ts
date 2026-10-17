@@ -1,6 +1,6 @@
 import { ApplicationConfig, provideZoneChangeDetection } from "@angular/core";
 import { provideRouter } from "@angular/router";
-import { provideHttpClient } from "@angular/common/http";
+import { provideHttpClient, withXhr } from "@angular/common/http";
 import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { provideTranslateService } from "@ngx-translate/core";
@@ -17,7 +17,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimations(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideHttpClient(),
+    provideHttpClient(withXhr()),
 
     provideTranslateService({
       loader: provideTranslateHttpLoader({

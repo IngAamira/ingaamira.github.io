@@ -1,4 +1,4 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, signal, inject, ChangeDetectionStrategy } from '@angular/core';
 
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -10,6 +10,7 @@ import { BrowserService } from '@presentation/shared/services/browser.service';
   imports: [
     TranslateModule
 ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './footer.component.html'
 })
 export class FooterComponent {

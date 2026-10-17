@@ -1,5 +1,5 @@
 
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 
 import { Project } from '@domain/models/project.model';
 import { TAG_COLORS } from '@presentation/shared/constants/tag-colors';
@@ -9,6 +9,7 @@ import { TagType } from '@domain/models/tag.model';
   standalone: true,
   selector: 'app-project-modal',
   imports: [],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './project-modal.component.html'
 })
 export class ProjectModalComponent {

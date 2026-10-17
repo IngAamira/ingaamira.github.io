@@ -4,7 +4,8 @@ import {
   inject,
   Renderer2,
   OnInit,
-  Type
+  Type,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -27,6 +28,7 @@ import { SeoService } from '@presentation/shared/services/seo.service';
     CommonModule,
     TranslateModule
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './resume.component.html',
 })
 export class ResumeComponent implements OnInit {

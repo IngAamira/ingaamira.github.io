@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectionStrategy } from '@angular/core';
 
 import { Router, RouterLink } from '@angular/router';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
@@ -16,6 +16,7 @@ import { SeoService } from '@presentation/shared/services/seo.service';
     TranslateModule,
     RouterLink
 ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
