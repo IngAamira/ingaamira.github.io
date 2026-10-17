@@ -21,7 +21,7 @@ Mantener breve. Verificar contra el código/configuración real; no guardar secr
 - **Verificado:** `npm run build` pasa en Angular 22; prerenderiza 4 rutas sin errores.
 - **Última actualización:** 2026-10-17.
 - **Último trabajo:** upgrade Angular 19 → 22 (escalonado, 3 commits), skills y agentes de OpenCode,
-  CI con GitHub Actions, y actualización de `AGENTS.md`/`MEMORY.md`.
+  CI con GitHub Actions, migración de tests a Vitest y actualización de `AGENTS.md`/`MEMORY.md`.
 - **Bloqueos:** ninguno conocido.
 
 ## 3. Stack
@@ -34,7 +34,7 @@ Mantener breve. Verificar contra el código/configuración real; no guardar secr
 | Reactividad | RxJS / zone.js (signals para estado UI) | ~7.8 / ~0.15 |
 | i18n | `@ngx-translate/core` + `http-loader` | ^17 |
 | Estilos | Tailwind CSS | ^3.4 |
-| Testing | Karma + Jasmine (**legacy, sin specs**) | 6.4 / 5.6 |
+| Testing | Vitest + jsdom (`@angular/build:unit-test`, sin navegador) | ^5 |
 | Gestor de paquetes | npm (lockfile `package-lock.json`) | npm 11 |
 | Runtime observado | Node | v26.10.0 |
 
@@ -71,13 +71,13 @@ Sitemap y `robots.txt` en `src/` (copiados como assets).
 | Validación | Comando | Estado |
 |---|---|---|
 | Build producción (type-check + prerender) | `npm run build` | PASA (≈30 s, 4 rutas prerenderizadas) |
-| Tests | `npm test` | Builder Karma **legacy** (requiere navegador), **0 specs** |
+| Tests (Vitest) | `npm test -- --watch=false` | PASA (2 archivos, 4 tests) |
 | Lint / formato | — | No configurado |
 
 ## 9. Git
 
 - Rama principal: `trunk`. Integración por Pull Request. Commits en inglés (Conventional Commits).
-- CI: GitHub Actions (`.github/workflows/ci.yml`) — `npm ci` + `npm run build`.
+- CI: GitHub Actions (`.github/workflows/ci.yml`) — `npm ci` + `npm run build` + `npm test`.
 
 ## 10. Decisiones consolidadas
 
@@ -86,7 +86,8 @@ Sitemap y `robots.txt` en `src/` (copiados como assets).
 - **Upgrade Angular 19 → 22 escalonado** (20 → 21 → 22, un commit por salto) con `npm run build` verde en cada uno.
   Motivo: resolver `npm audit` y volver a una versión soportada. Migraciones automáticas aplicadas:
   control flow (`@if`/`@for`), `provideServerRendering(withRoutes(...))`, `withXhr`, `DOCUMENT` a `@angular/core`.
-- **CI con GitHub Actions** (`npm ci` + `build`).
+- **CI con GitHub Actions** (`npm ci` + `build` + `test`).
+- **Tests con Vitest** (`@angular/build:unit-test`, sin navegador), migrado desde Karma.
 - **Skills y agentes de OpenCode** (V2) project-local, en español.
 - Estilos con Tailwind (Bootstrap retirado).
 - SEO centralizado por página vía `SeoService`.
@@ -99,7 +100,7 @@ Sitemap y `robots.txt` en `src/` (copiados como assets).
 - Entorno con Node **v26**; Angular 22 soporta oficialmente 20/22/24. El build funciona, pero verificar en CI/otras máquinas.
 - `tsconfig.json` mantiene `baseUrl` (los alias lo necesitan) con `ignoreDeprecations: "6.0"` para la
   deprecación de `baseUrl` rumbo a TS 7. Revisar al subir a TS 7.
-- Builder de test **Karma legacy** (requiere navegador). Migrar a `@angular/build:unit-test` (Vitest) al añadir tests.
+- Los tests actuales cubren solo el dominio; faltan servicios y componentes.
 - **Bug i18n:** `TranslationService.setLanguage()` no actualiza `document.documentElement.lang`; el `lang`
   del HTML y `BrowserService.lang` quedan en `en` al cambiar idioma (afecta analítica y SEO).
 - SEO: `setAlternateLinks` usa la misma URL para `en`/`es`/`x-default` (no hay URLs por idioma).
@@ -107,11 +108,11 @@ Sitemap y `robots.txt` en `src/` (copiados como assets).
 
 ## 12. Pendientes
 
-1. Añadir tests (migrar primero el builder a Vitest: `ng update @angular/cli --name migrate-karma-to-vitest`).
+1. Ampliar tests: cubrir servicios (`SeoService`, `TranslationService`) y componentes (TestBed/jsdom).
 2. Corregir el bug de `lang` del documento al cambiar idioma.
 3. Revisar `hreflang`/canónicas por idioma.
 4. Revisar `npm audit` tras futuros upgrades.
 
 ## 13. Siguiente paso
 
-Añadir tests migrando el builder a Vitest (sin navegador), empezando por los casos de uso del dominio.
+Añadir tests de servicios y componentes, y corregir el bug de `lang` del documento.
