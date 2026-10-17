@@ -7,7 +7,7 @@ El estado operativo (qué se está haciendo, decisiones, pendientes) vive en `ME
 
 ## Qué es este proyecto
 
-- Portfolio personal de IngAamira: **Angular 19 standalone** + **SSR/prerender** (`@angular/ssr`).
+- Portfolio personal de IngAamira: **Angular 22 standalone** (TypeScript 6, zone.js) + **SSR/prerender** (`@angular/ssr`).
 - **No hay backend.** Los proyectos se cargan desde datos hardcodeados en el repositorio.
 - Dominio de producción: `https://portfolio.ingaamira.com`.
 - UI en Tailwind CSS (v3). No se usa Bootstrap (el `TagType.BOOTSTRAP` es solo una etiqueta de skill).
@@ -18,7 +18,7 @@ El estado operativo (qué se está haciendo, decisiones, pendientes) vive en `ME
 npm start            # ng serve (dev server, SSR). Puerto 4200
 npm run build        # producción (defaultConfiguration=production). Type-check + prerender
 npm run build:prod   # build con base-href=/ y deploy-url=/
-npm test             # Karma, pero NO hay specs en el repo (ver Validación)
+npm test             # builder Karma (legacy, requiere navegador); NO hay specs (ver Validación)
 npm run serve:ssr:ingaamira.github.io   # sirve dist/.../server/server.mjs (PORT o 4000)
 ```
 
@@ -29,7 +29,9 @@ reintroducir `pnpm-lock.yaml`; los scripts, `README.md` y `vercel.json` usan `np
 ## Validación (no asumas que existe lint o tests)
 
 - **No hay lint ni formatter configurados** (sin ESLint/Prettier; solo `.editorconfig`).
-- `ng test` está configurado (Karma + Chrome) pero **no existe ningún `*.spec.ts`**.
+- No hay ningún `*.spec.ts`. `ng test` usa el builder **Karma** (legacy; requiere navegador).
+  Para tests sin navegador, migrar a `@angular/build:unit-test` (Vitest + jsdom):
+  `ng update @angular/cli --name migrate-karma-to-vitest`.
 - La verificación real es el build:
 
 ```bash
@@ -83,7 +85,9 @@ El prerender **ejecuta los componentes en Node durante el build**.
 - `.editorconfig`: 2 espacios, comillas simples en `.ts`, newline final, sin espacios al final.
 - Muchas interfaces compartidas son **globales** en `src/presentation/shared/types/global.d.ts`
   (no requieren import; solo hay que tenerlas declaradas allí).
+- Control flow `@if` / `@for` (migrado en Angular 21); **no** usar `*ngIf` / `*ngFor`. Estado de UI con signals.
 - Los schematics tienen `skipTests: true`: `ng generate` no crea archivos de test.
+- `tsconfig.json` conserva `baseUrl` (los alias de import lo necesitan) con `ignoreDeprecations: "6.0"` (deprecación de `baseUrl` rumbo a TS 7).
 - Presupuesto de build: `anyComponentStyle` falla por encima de **8 kB** (aviso a 4 kB).
 
 ## SEO
@@ -104,3 +108,15 @@ El prerender **ejecuta los componentes en Node durante el build**.
 
 - Rama principal: **`trunk`** (no `main`). Los cambios llegan por Pull Request (`Merge pull request #...`).
 - Mensajes de commit en inglés, estilo Conventional Commits (`feat:`, `fix:`, `refactor:`, `docs:`).
+
+## CI
+
+- GitHub Actions (`.github/workflows/ci.yml`): `npm ci` + `npm run build` en push a `trunk` y en PRs.
+- CI usa Node 22.
+
+## Agentes y skills de OpenCode (V2)
+
+- Config project-local: agentes en `.opencode/agents/*.md` y skills en `.opencode/skills/<id>/SKILL.md`.
+- Agentes: `architect`, `developer`, `qa`, `seo`, `devops-release`, `accessibility`.
+- Skills: `angular-clean-architecture`, `tailwind-ui`, `i18n-ngx-translate`, `ssr-safety`, `seo-portfolio`, `deploy-vercel`, `verify-build`.
+- No hay `opencode.json` en el repo (no es necesario para usar agentes/skills).
