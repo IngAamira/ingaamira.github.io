@@ -26,10 +26,10 @@ Si falta cualquiera de los tres, el idioma no se ofrece o el selector lo ignora.
 - En HTML se usa `TranslateModule` / pipe `translate`; en TS a veces `translate.instant(...)`
   (ver `HomeComponent.aboutTexts`).
 
-## Bug conocido (corregir si se toca i18n)
+## `<html lang>`
 
-`setLanguage()` **no** actualiza `document.documentElement.lang`. Consecuencia: el atributo `lang`
-del HTML (y `BrowserService.lang`, usado en analítica y SEO) queda siempre en `en` al cambiar idioma.
-Al corregir, hacerlo vía `BrowserService`/`DOCUMENT` (nunca `document` directo; ver skill `ssr-safety`).
+`setLanguage()` actualiza `document.documentElement.lang` vía `BrowserService` (SSR-safe; nunca
+`document` directo, ver skill `ssr-safety`), de modo que el atributo `lang` y `BrowserService.lang`
+(analítica, SEO) reflejan el idioma activo.
 
 Ver también: skill `seo-portfolio` (hreflang).
