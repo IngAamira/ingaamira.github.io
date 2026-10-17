@@ -1,5 +1,5 @@
-import { Injectable, inject, Inject, Optional } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Injectable, inject, Inject, Optional, DOCUMENT } from '@angular/core';
+
 import { Title, Meta } from '@angular/platform-browser';
 import { BrowserService } from './browser.service';
 
