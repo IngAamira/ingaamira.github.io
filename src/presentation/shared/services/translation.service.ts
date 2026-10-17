@@ -52,10 +52,18 @@ export class TranslationService {
 
     this.translate.use(lang);
     this.currentLanguageSubject.next(lang);
+    this.updateDocumentLang(lang);
 
     const localStorageRef = this.browser.localStorage;
     if (localStorageRef) {
       localStorageRef.setItem('lang', lang);
+    }
+  }
+
+  private updateDocumentLang(lang: string): void {
+    const doc = this.browser.document;
+    if (doc) {
+      doc.documentElement.lang = lang;
     }
   }
 
