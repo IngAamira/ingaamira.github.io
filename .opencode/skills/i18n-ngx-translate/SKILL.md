@@ -32,4 +32,4 @@ Si falta cualquiera de los tres, el idioma no se ofrece o el selector lo ignora.
 `document` directo, ver skill `ssr-safety`), de modo que el atributo `lang` y `BrowserService.lang`
 (analítica, SEO) reflejan el idioma activo.
 
-Ver también: skill `seo-portfolio` (hreflang).
+Ver también: skills `seo-portfolio` (hreflang) e `i18n-routing` (URLs por idioma `/es`, `/en`).

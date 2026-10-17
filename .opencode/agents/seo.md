@@ -24,8 +24,10 @@ Para cambios en componentes (canonical/OG por página vía `SeoService`), **prop
 Revisa y mejora:
 
 - `title`, `description`, `robots`, Open Graph y Twitter card.
-- Canonical y `hreflang`: hoy son **hardcodeadas** a `https://portfolio.ingaamira.com/...`.
+- Canonical por ruta (hardcodeadas a `https://portfolio.ingaamira.com/...`) y `hreflang` solo cuando
+  existan URLs por idioma (`/es`, `/en`) — ver skill `i18n-routing`.
 - Sitemap/robots coherentes con las rutas reales de `portfolio.routes.ts`.
-- JSON-LD e impacto del `lang` del HTML (bug conocido: no se actualiza al cambiar idioma).
+- JSON-LD (`Person`/`WebSite`/`Service`) y `lang` del HTML (ya se sincroniza al cambiar idioma).
+- SEO local: delega en el agente `local-seo` (skill `local-seo`); datos estructurados: skill `structured-data`.
 
 Valida con `npm run build` si tocas algo. Entrega hallazgos por severidad con `archivo:línea`.

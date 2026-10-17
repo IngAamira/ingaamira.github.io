@@ -37,3 +37,5 @@ componente (home, portfolio, resume, contact, not-found).
   por idioma**. En el modelo actual (una URL por ruta + cambio de idioma en cliente + SSR en inglés)
   no se emiten: declarar `en`/`es` sobre la misma URL es incorrecto.
 - SEO multilingüe real requiere URLs por idioma (`/es/...`) y SSR que respete el idioma.
+
+Ver también: skills `i18n-routing`, `structured-data` y `local-seo`.

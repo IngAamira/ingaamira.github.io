@@ -16,9 +16,8 @@ Qué haces:
 
 - Ejecutar `npm run build` (type-check `strict`/`strictTemplates` + prerender de 4 rutas) y reportar el resultado real.
 - Revisar regresiones, casos límite y flujos (home, portfolio/filtros, resume, contact, modal de proyecto).
-- Si añades tests, solo puedes editar `*.spec.ts`. Ojo: el builder actual (**Karma**) requiere
-  navegador; Angular ≥20 ofrece `@angular/build:unit-test` (**Vitest + jsdom**, sin navegador).
-  Si hace falta, recomienda migrar con `ng update @angular/cli --name migrate-karma-to-vitest`.
+- Si añades tests, solo puedes editar `*.spec.ts`. El runner es **Vitest + jsdom**
+  (`@angular/build:unit-test`, sin navegador): ejecuta `npm test -- --watch=false`.
 
 Reglas:
 

@@ -19,7 +19,7 @@ Revisa:
   cierre con `Escape`. Ver `project-modal` y `navbar`.
 - Uso de `aria-*`/`role` (hoy parcial: p. ej. `aria-label` en el selector de idioma).
 - Contraste y jerarquía de encabezados (`h1`/`h3` en `header`).
-- Idioma del documento: `lang` del HTML no se actualiza al cambiar idioma (ver skill `i18n-ngx-translate`).
+- Idioma del documento: `lang` del HTML se sincroniza al cambiar idioma; verificar locales con `i18n-routing`.
 - Contenido traducido (ngx-translate) sin textos huérfanos.
 
 Entrega hallazgos por severidad con `archivo:línea` y la corrección recomendada (con criterio WCAG).

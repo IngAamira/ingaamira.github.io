@@ -20,8 +20,8 @@ Mantener breve. Verificar contra el código/configuración real; no guardar secr
 
 - **Verificado:** `npm run build` pasa en Angular 22; prerenderiza 4 rutas sin errores.
 - **Última actualización:** 2026-10-17.
-- **Último trabajo:** upgrade Angular 19 → 22 (escalonado, 3 commits), skills y agentes de OpenCode,
-  CI con GitHub Actions, migración de tests a Vitest y actualización de `AGENTS.md`/`MEMORY.md`.
+- **Último trabajo:** upgrade Angular 19 → 22, CI con Actions, tests con Vitest, fix de `lang` y de
+  `hreflang`, y **agentes/skills nuevos** (diseño, contenido, SEO local, rendimiento, analítica).
 - **Bloqueos:** ninguno conocido.
 
 ## 3. Stack
@@ -109,10 +109,29 @@ Sitemap y `robots.txt` en `src/` (copiados como assets).
 
 ## 12. Pendientes
 
-1. Ampliar tests: cubrir servicios (`SeoService`, `TranslationService`) y componentes (TestBed/jsdom).
-2. SEO multilingüe real (URLs por idioma `/es/...` + SSR que respete el idioma), si se quiere indexar español.
-3. Revisar `npm audit` tras futuros upgrades.
+1. Fase 1: i18n por URL (`/es`, `/en`) + SSR por locale + `hreflang`/x-default + sitemap multilingüe.
+2. Rediseño (design system oscuro tech) y contenido (servicios, casos de estudio, blog, testimonios).
+3. SEO local (GBP, NAP/citas, `LocalBusiness`) y rendimiento (`fetch`, Inter self-host, CWV).
+4. Ampliar tests (servicios/componentes) y revisar `npm audit` tras futuros upgrades.
 
 ## 13. Siguiente paso
 
-Ampliar tests (servicios y componentes) y revisar el SEO multilingüe (URLs por idioma).
+Fase 1 del plan: i18n por URL (`/es`, `/en`) con SSR por locale (ver sección 14).
+
+## 14. Plan activo: rediseño + posicionamiento (2026-10-17)
+
+Decisiones:
+
+- Conversión: **clientes freelance/consultoría**. Prioridad **local** (Medellín, Rionegro, La Ceja,
+  El Retiro) → Colombia → regional → internacional.
+- Idiomas **ES + EN por igual** con **URLs por idioma** (`/es`, `/en`); `/` responde **302** con fallback `es`.
+- **Rediseño completo**, estética **oscura tech moderna**.
+- Mantener dominio `portfolio.ingaamira.com`. Herramientas: GSC + GA4 + GBP + LinkedIn/GitHub (sin pago).
+- Contenido: Servicios (hub + 6), casos de estudio, blog, testimonios.
+
+Fases: 0 baseline · 1 i18n + SEO técnico · 2 rediseño · 3 contenido · 4 SEO local · 5 perf + a11y · 6 medición.
+Guía: skills `i18n-routing`, `design-system`, `local-seo`, `content-strategy`, `structured-data`,
+`performance-web-vitals`, `analytics-ga4`.
+
+Abierto: (a) dirección visible vs *service-area*; (b) slug traducido vs igual; (c) blog Markdown vs TS;
+(d) testimonios reales.

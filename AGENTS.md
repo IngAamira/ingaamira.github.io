@@ -96,6 +96,8 @@ El prerender **ejecuta los componentes en Node durante el build**.
 - `hreflang` solo se emite si se pasan `alternates` con URLs distintas por idioma; hoy no hay
   (una URL por ruta con i18n en cliente), así que no se emiten alternates.
 - `src/sitemap.xml` y `src/robots.txt` se copian como assets: actualízalos al cambiar rutas.
+- Dirección: SEO multilingüe por URL (`/es`, `/en`) + SEO local (Medellín, Rionegro, La Ceja, El Retiro);
+  ver skills `i18n-routing`, `local-seo` y `structured-data`.
 
 ## Deploy
 
@@ -117,6 +119,6 @@ El prerender **ejecuta los componentes en Node durante el build**.
 ## Agentes y skills de OpenCode (V2)
 
 - Config project-local: agentes en `.opencode/agents/*.md` y skills en `.opencode/skills/<id>/SKILL.md`.
-- Agentes: `architect`, `developer`, `qa`, `seo`, `devops-release`, `accessibility`.
-- Skills: `angular-clean-architecture`, `tailwind-ui`, `i18n-ngx-translate`, `ssr-safety`, `seo-portfolio`, `deploy-vercel`, `verify-build`.
+- Agentes: `architect`, `developer`, `designer`, `content`, `qa`, `seo`, `local-seo`, `performance`, `analytics`, `devops-release`, `accessibility`.
+- Skills: `angular-clean-architecture`, `tailwind-ui`, `design-system`, `i18n-ngx-translate`, `i18n-routing`, `ssr-safety`, `seo-portfolio`, `structured-data`, `local-seo`, `content-strategy`, `performance-web-vitals`, `analytics-ga4`, `deploy-vercel`, `verify-build`.
 - No hay `opencode.json` en el repo (no es necesario para usar agentes/skills).
