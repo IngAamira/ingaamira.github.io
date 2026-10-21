@@ -20,6 +20,8 @@ import { WorkAiComponent } from '@presentation/features/portfolio/components/wor
 import { TranslationService } from '@presentation/shared/services/translation.service';
 import { BrowserService } from '@presentation/shared/services/browser.service';
 import { SeoService } from '@presentation/shared/services/seo.service';
+import { TranslateService } from '@ngx-translate/core';
+import { LocaleService } from '@presentation/shared/services/locale.service';
 
 @Component({
   standalone: true,
@@ -37,6 +39,8 @@ export class ResumeComponent implements OnInit {
   private translationService = inject(TranslationService);
   private browser = inject(BrowserService);
   private seo = inject(SeoService);
+  private translate = inject(TranslateService);
+  private localeService = inject(LocaleService);
 
   isOpenState: Record<ResumeSection, boolean> = {
     work: false,
@@ -74,9 +78,10 @@ export class ResumeComponent implements OnInit {
 
   ngOnInit(): void {
     this.seo.setSEO({
-      title: 'Portfolio IngAamira | Data Engineer & Fullstack Developer | Resume',
-      description: 'CV de Andres Mira, un talentoso Data Engineer y Fullstack Developer en Colombia. Descubre su experiencia laboral, habilidades técnicas, educación y competencias lingüísticas a través de su currículum vitae.',
-      url: 'https://portfolio.ingaamira.com/resume',
+      title: this.translate.instant('SEO.RESUME.TITLE'),
+      description: this.translate.instant('SEO.RESUME.DESCRIPTION'),
+      url: this.localeService.url('/resume'),
+      alternates: this.localeService.alternates('/resume'),
       image: 'https://portfolio.ingaamira.com/assets/icons/cv.png',
     });
   }

@@ -1,9 +1,9 @@
-import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
-
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 
 import { TranslateModule } from '@ngx-translate/core';
 
-import { TranslationService } from '@presentation/shared/services/translation.service';
+import { Locale, isLocale } from '@presentation/shared/i18n/locale';
+import { LocaleService } from '@presentation/shared/services/locale.service';
 
 @Component({
   standalone: true,
@@ -16,6 +16,8 @@ import { TranslationService } from '@presentation/shared/services/translation.se
 })
 export class HeaderComponent {
 
+  private localeService = inject(LocaleService);
+
   public itemsTitle: ItemTitle[] = [
     { title: 'PROFILE.NAME' },
     { title: 'PROFILE.HEADLINE' },
@@ -26,10 +28,11 @@ export class HeaderComponent {
     { flag: 'Español', img: 'assets/icons/spain.png', event: () => this.changeLanguage('es') },
   ];
 
-  constructor(private translationService: TranslationService) {}
-
+  /** Cambia de idioma navegando a la URL equivalente (`/en/...`): el resolver fija el idioma. */
   changeLanguage(lang: string): void {
-    this.translationService.changeLanguage(lang);
+    if (isLocale(lang)) {
+      this.localeService.switchTo(lang as Locale);
+    }
   }
 
 }

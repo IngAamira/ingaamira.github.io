@@ -606,6 +606,24 @@
     "TEXT": "¡Impulsemos el Futuro Juntos!",
     "BY_DESCRIPTION": "¿Te gustó esta página web?",
     "BY_TALK": "Hablemos"
-  }
+  },
 
+  "SEO": {
+    "HOME": {
+      "TITLE": "IngAamira | Desarrollo web a medida, datos e IA en Colombia",
+      "DESCRIPTION": "Andrés Mira, ingeniero de software en Colombia. Desarrollo web a medida, automatización, datos/BI e IA para equipos de Medellín, el Oriente antioqueño y el mundo."
+    },
+    "PORTFOLIO": {
+      "TITLE": "Proyectos | IngAamira — Software a medida, datos e IA",
+      "DESCRIPTION": "Explora los proyectos de Andrés Mira: aplicaciones web a medida, APIs, automatización y pipelines de datos con Angular, Java, Python, Node y AWS."
+    },
+    "RESUME": {
+      "TITLE": "Currículum | IngAamira — Data Engineer & Fullstack Developer",
+      "DESCRIPTION": "Currículum de Andrés Mira, ingeniero de software en Colombia: experiencia laboral, habilidades técnicas, educación e idiomas."
+    },
+    "CONTACT": {
+      "TITLE": "Contacto | IngAamira — Software e IA",
+      "DESCRIPTION": "Contacta a Andrés Mira por LinkedIn, GitHub, WhatsApp o email para hablar de software a medida, automatización e IA."
+    }
+  }
 }

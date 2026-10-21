@@ -1,34 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Home -->
+  <!-- Home ES -->
   <url>
-    <loc>https://portfolio.ingaamira.com/</loc>
-    <lastmod>2026-05-19</lastmod>
+    <loc>https://portfolio.ingaamira.com/es</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://portfolio.ingaamira.com/es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio.ingaamira.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio.ingaamira.com/es"/>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Portfolio -->
+  <!-- Home EN -->
   <url>
-    <loc>https://portfolio.ingaamira.com/portfolio</loc>
-    <lastmod>2026-05-19</lastmod>
+    <loc>https://portfolio.ingaamira.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://portfolio.ingaamira.com/es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio.ingaamira.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio.ingaamira.com/es"/>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Portfolio ES -->
+  <url>
+    <loc>https://portfolio.ingaamira.com/es/portfolio</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://portfolio.ingaamira.com/es/portfolio"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio.ingaamira.com/en/portfolio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio.ingaamira.com/es/portfolio"/>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Resume -->
+  <!-- Portfolio EN -->
   <url>
-    <loc>https://portfolio.ingaamira.com/resume</loc>
-    <lastmod>2026-05-19</lastmod>
+    <loc>https://portfolio.ingaamira.com/en/portfolio</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://portfolio.ingaamira.com/es/portfolio"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio.ingaamira.com/en/portfolio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio.ingaamira.com/es/portfolio"/>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Resume ES -->
+  <url>
+    <loc>https://portfolio.ingaamira.com/es/resume</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://portfolio.ingaamira.com/es/resume"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio.ingaamira.com/en/resume"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio.ingaamira.com/es/resume"/>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Contact -->
+  <!-- Resume EN -->
   <url>
-    <loc>https://portfolio.ingaamira.com/contact</loc>
-    <lastmod>2026-05-19</lastmod>
+    <loc>https://portfolio.ingaamira.com/en/resume</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://portfolio.ingaamira.com/es/resume"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio.ingaamira.com/en/resume"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio.ingaamira.com/es/resume"/>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact ES -->
+  <url>
+    <loc>https://portfolio.ingaamira.com/es/contact</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://portfolio.ingaamira.com/es/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio.ingaamira.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio.ingaamira.com/es/contact"/>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contact EN -->
+  <url>
+    <loc>https://portfolio.ingaamira.com/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://portfolio.ingaamira.com/es/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio.ingaamira.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio.ingaamira.com/es/contact"/>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

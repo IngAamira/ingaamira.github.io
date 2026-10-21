@@ -5,8 +5,16 @@ description: Use when adding locale-prefixed URLs (/es, /en), SSR language handl
 
 # i18n por URL (`/es`, `/en`)
 
+> **Estado: IMPLEMENTADO** (2026-10-20). Arquitectura real:
+> - Guard/resolver: `src/presentation/shared/guards/locale.guard.ts` (`localeMatchGuard`,
+>   `localeResolver` — fija idioma **antes** de renderizar) + fallback de `/` en cliente.
+> - `/` → **302 por `Accept-Language`** desde `src/server.ts` (`RenderMode.Server`).
+> - `LocaleService`: `current`, `url()` (absoluta, SEO), `path()` (relativa, `[routerLink]`).
+> - SEO: claves `SEO.*` en los JSON + `LocaleService.alternates()` (canonical/hreflang).
+> - Prerender: 8 rutas (`:lang` × home/portfolio/resume/contact) con `getPrerenderParams`.
+> - Gotcha: en prerender `REQUEST.url` **no** está disponible; el locale se obtiene de `Router.url`.
+
 Objetivo: **una URL canónica por idioma** para SEO multilingüe real (SEO local + internacional).
-Sustituye el cambio de idioma solo en cliente.
 
 ## Modelo acordado
 

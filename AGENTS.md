@@ -61,21 +61,31 @@ Puntos clave:
 
 ## SSR / prerender (gotcha principal)
 
-`src/app/app.routes.server.ts` prerenderiza `''`, `portfolio`, `resume`, `contact` y sirve `**` con `RenderMode.Server`.
+`src/app/app.routes.server.ts` prerenderiza `/es`, `/en` y sus subrutas (`portfolio`,
+`resume`, `contact`) → **8 rutas estáticas**; `''` y `**` se sirven con `RenderMode.Server`.
 El prerender **ejecuta los componentes en Node durante el build**.
 
 - Nunca uses `window`, `document`, `localStorage`, `navigator` directamente.
   Inyéctalo a través de `BrowserService` (`src/presentation/shared/services/browser.service.ts`),
-  que ya devuelve `null` fuera del navegador.
+  que ya devuelve `null` fuera del navegador (para atributos del documento usa `DOCUMENT` de
+  `@angular/core`, que sí funciona en SSR — ver `TranslationService.updateDocumentLang`).
 - Acceder a APIs de navegador en constructores/`ngOnInit`/carga de módulo rompe `npm run build`.
 
-## i18n
+## i18n (URL por idioma)
 
-- `@ngx-translate` con JSON en `src/assets/i18n/{en,es}.json` (prefijo `/assets/i18n/`).
-- Para añadir un idioma hay que tocar **varios** sitios: el JSON nuevo, `addLangs` en
-  `src/app/app.component.ts` y `supportedLanguages` (más `pdfPaths`) en
-  `src/presentation/shared/services/translation.service.ts`.
-- El idioma se guarda en `localStorage['lang']` (solo navegador).
+- **URLs `/es/...` y `/en/...`**: el idioma se toma de la URL, no del navegador. El `:lang`
+  se valida con `localeMatchGuard` y el idioma se fija **antes de renderizar** por
+  `localeResolver` (`src/presentation/shared/guards/locale.guard.ts`).
+- `/` no se indexa: `server.ts` responde **302 por `Accept-Language`** (fallback `es`),
+  con guard de fallback en cliente.
+- Locale-service: `src/presentation/shared/services/locale.service.ts` — `current`,
+  `url()` (absoluta, para canonical/alternates), `path()` (relativa, para `[routerLink]`).
+- SEO por página: título/descripción traducidos (claves `SEO.*` de los JSON), canonical y
+  `hreflang` (es/en/x-default) vía `LocaleService.alternates()`. `og:locale` dinámico.
+- `@ngx-translate` con loader **empaquetado** (`src/infrastructure/i18n/bundled-translate.loader.ts`),
+  no HTTP: necesario para que prerender emita texto real.
+- Para añadir un idioma: JSON nuevo + `SUPPORTED_LOCALES` +
+  `addLangs` en `app.component.ts` + `pdfPaths` en `translation.service.ts` + sitemap/serverRoutes.
 
 ## Estilo y convenciones
 

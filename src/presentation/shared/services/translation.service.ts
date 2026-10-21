@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject, Inject, DOCUMENT } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -9,8 +9,10 @@ export class TranslationService {
 
   private translate = inject(TranslateService);
   private browser = inject(BrowserService);
+  /** `DOCUMENT` funciona también en SSR/prerender; `BrowserService.document` es `null` fuera del navegador. */
+  private document = inject(DOCUMENT);
 
-  private currentLanguageSubject = new BehaviorSubject<string>('en');
+  private currentLanguageSubject = new BehaviorSubject<string>('es');
   currentLanguage$ = this.currentLanguageSubject.asObservable();
 
   private supportedLanguages = ['en', 'es'];
@@ -24,47 +26,30 @@ export class TranslationService {
     this.initializeTranslation();
   }
 
+  /**
+   * El idioma viene de la URL (`/es/...`, `/en/...`, fijado por `localeResolver`).
+   * Aquí solo se define el fallback: no se fuerza un idioma inicial.
+   */
   private initializeTranslation(): void {
-    let savedLang: string | null = null;
-
-    const localStorageRef = this.browser.localStorage;
-    if (localStorageRef) {
-      savedLang = localStorageRef.getItem('lang');
-    }
-
-    const browserLang = this.translate.getBrowserLang();
-    const normalizedBrowserLang = browserLang?.split('-')[0];
-
-    let selectedLang = 'en';
-
-    if (savedLang && this.isSupported(savedLang)) {
-      selectedLang = savedLang;
-    } else if (normalizedBrowserLang && this.isSupported(normalizedBrowserLang)) {
-      selectedLang = normalizedBrowserLang;
-    }
-
     this.translate.setDefaultLang('en');
-    this.setLanguage(selectedLang);
   }
 
+  /** Cambia el idioma y devuelve el Observable de `use()` (lo espera `localeResolver`). */
   setLanguage(lang: string): void {
-    if (!this.isSupported(lang)) lang = 'en';
+    const locale = this.isSupported(lang) ? lang : 'en';
 
-    this.translate.use(lang);
-    this.currentLanguageSubject.next(lang);
-    this.updateDocumentLang(lang);
+    this.translate.use(locale);
+    this.currentLanguageSubject.next(locale);
+    this.updateDocumentLang(locale);
 
     const localStorageRef = this.browser.localStorage;
     if (localStorageRef) {
-      localStorageRef.setItem('lang', lang);
+      localStorageRef.setItem('lang', locale);
     }
   }
 
   private updateDocumentLang(lang: string): void {
-    const doc = this.browser.document;
-    if (doc) {
-      doc.documentElement.lang = lang;
-    }
+    this.document.documentElement.lang = lang;
   }
 
   changeLanguage(lang: string): void {

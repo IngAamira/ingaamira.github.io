@@ -20,6 +20,8 @@ import { TagType } from '@domain/models/tag.model';
 
 import { BrowserService } from '@presentation/shared/services/browser.service';
 import { SeoService } from '@presentation/shared/services/seo.service';
+import { TranslateService } from '@ngx-translate/core';
+import { LocaleService } from '@presentation/shared/services/locale.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -35,6 +37,8 @@ export class PortfolioComponent implements OnInit {
 
   private browser = inject(BrowserService);
   private seo = inject(SeoService);
+  private translate = inject(TranslateService);
+  private localeService = inject(LocaleService);
 
   private getProjectsUseCase = inject(GetProjectsUseCase);
   private filterProjectsUseCase = inject(FilterProjectsUseCase);
@@ -133,10 +137,11 @@ export class PortfolioComponent implements OnInit {
 
   private setSEO(): void {
     this.seo.setSEO({
-      title: 'Portfolio IngAamira | Data Engineer & Fullstack Developer | Portfolio',
-      description: 'Explora proyectos de Andres Mira, un talentoso Data Engineer y Fullstack Developer en Colombia. Descubre su experiencia en desarrollo web, análisis de datos, automatización e inteligencia artificial a través de su portfolio.',
-      url: 'https://portfolio.ingaamira.com/portfolio',
-      image: 'https://portfolio.ingaamira.com/assets/icons/idea.png'
+      title: this.translate.instant('SEO.PORTFOLIO.TITLE'),
+      description: this.translate.instant('SEO.PORTFOLIO.DESCRIPTION'),
+      url: this.localeService.url('/portfolio'),
+      alternates: this.localeService.alternates('/portfolio'),
+      image: 'https://portfolio.ingaamira.com/assets/icons/idea.png',
     });
   }
 

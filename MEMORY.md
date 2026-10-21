@@ -18,11 +18,13 @@ Mantener breve. Verificar contra el código/configuración real; no guardar secr
 
 ## 2. Estado actual
 
-- **Verificado:** `npm run build` pasa en Angular 22; prerenderiza 4 rutas sin errores.
-- **Última actualización:** 2026-10-17.
-- **Último trabajo:** upgrade Angular 19 → 22, CI con Actions, tests con Vitest, fix de `lang` y de
-  `hreflang`, y **agentes/skills nuevos** (diseño, contenido, SEO local, rendimiento, analítica).
-- **Bloqueos:** ninguno conocido.
+- **Verificado:** `npm run build` pasa; prerender de **8 rutas** (`/es`,`/en` × home/portfolio/resume/contact)
+  con texto traducido real, canonical/hreflang por idioma y 0 claves filtradas.
+- **Última actualización:** 2026-10-20.
+- **Último trabajo:** **Fase 1 del plan** — URLs por idioma (`/es`,`/en`), translations empaquetadas,
+  redirect 302 de `/`, SEO multilingüe (canonical/hreflang/og:locale/sitemap). Antes: upgrade Angular,
+  CI, Vitest, agentes/skills nuevos.
+- **Bloqueos:** ver que el deploy de Vercel recoja `trunk` (producción aún mostraba claves crudas).
 
 ## 3. Stack
 
@@ -111,14 +113,14 @@ Sitemap y `robots.txt` en `src/` (copiados como assets).
 
 ## 12. Pendientes
 
-1. Fase 1: i18n por URL (`/es`, `/en`) + SSR por locale + `hreflang`/x-default + sitemap multilingüe.
+1. Verificar en producción (Vercel): 302 de `/`, `/es`/`/en` prerenderizadas, hreflang y sitemap.
 2. Rediseño (design system oscuro tech) y contenido (servicios, casos de estudio, blog, testimonios).
-3. SEO local (GBP, NAP/citas, `LocalBusiness`) y rendimiento (`fetch`, Inter self-host, CWV).
+3. SEO local (GBP, NAP/citas, `LocalBusiness`) y rendimiento (Inter self-host, CWV).
 4. Ampliar tests (servicios/componentes) y revisar `npm audit` tras futuros upgrades.
 
 ## 13. Siguiente paso
 
-Fase 1 del plan: i18n por URL (`/es`, `/en`) con SSR por locale (ver sección 14).
+**Fase 2: rediseño** (estética oscura tech) — con skill `design-system`. Después contenido (Fase 3).
 
 ## 14. Plan activo: rediseño + posicionamiento (2026-10-17)
 

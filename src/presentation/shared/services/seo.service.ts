@@ -3,6 +3,8 @@ import { Injectable, inject, Inject, Optional, DOCUMENT } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { BrowserService } from './browser.service';
 
+import { OG_LOCALES, Locale, isLocale } from '@presentation/shared/i18n/locale';
+
 @Injectable({ providedIn: 'root' })
 export class SeoService {
 
@@ -24,6 +26,21 @@ export class SeoService {
     }
   }
 
+  /** `og:locale` según el `<html lang>` fijado por el resolver de idioma (URL). */
+  private ogLocale(): string {
+    return OG_LOCALES[this.locale()] ?? OG_LOCALES['es'];
+  }
+
+  private ogAlternateLocale(): string {
+    return this.locale() === 'en' ? OG_LOCALES['es'] : OG_LOCALES['en'];
+  }
+
+  private locale(): Locale {
+    const lang = (this.document?.documentElement?.lang || 'es').split('-')[0];
+
+    return isLocale(lang) ? lang : 'es';
+  }
+
   private setTitle(title: string): void {
     this.title.setTitle(title);
   }
@@ -38,8 +55,8 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:description', content: data.description });
     this.meta.updateTag({ property: 'og:url', content: data.url || '' });
     this.meta.updateTag({ property: 'og:site_name', content: 'Portfolio IngAamira' });
-    this.meta.updateTag({ property: 'og:locale', content: 'es_CO' });
-    this.meta.updateTag({ property: 'og:locale:alternate', content: 'en_US' });
+    this.meta.updateTag({ property: 'og:locale', content: this.ogLocale() });
+    this.meta.updateTag({ property: 'og:locale:alternate', content: this.ogAlternateLocale() });
 
     if (data.image) {
       this.meta.updateTag({ property: 'og:image', content: data.image });
