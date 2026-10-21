@@ -43,7 +43,9 @@ Además el último commit (`3206b5b fix(i18n): bundle translations so SSR/preren
 
 - **Paleta:** azul `#005CBB` / blanco / negro (acentos verde/morado solo secundarios). Eliminar gradientes teal→púrpura→índigo como identidad principal.
 - **Tipografía:** fuera Arial. Micro-decisión pendiente: `brand/tipografias.md` dice Segoe UI, www usa Inter → **recomendado alinear portfolio con www (Inter)** y luego resolver la discrepancia marca↔web en el repo de contenido (bandera en `MEMORY.md`).
-- **Logo:** adoptar el hexagonal IL (unificado en la landing social); hoy usa `logo-ingaamira.png` antiguo.
+- **Logo:** ✅ hexagonal IL adoptado (mismo asset que la landing social: `logo-192.png` →
+  `src/assets/icons/logo-ingaamira-lab.png`), también como favicon y `apple-touch-icon`;
+  el logo antiguo `logo-ingaamira.png` se retiró.
 - Objetivo: dejar de parecer plantilla genérica de portfolio dev.
 
 ## Fase 3 — Copy por audiencia (rol ordenado)
@@ -84,7 +86,7 @@ Instagram: reel 20/09 ya publicado (240 vistas, enlaza el sitio del cliente)
 - [ ] `ng build` sin errores; prerender con texto real en `/`, `/portfolio`, `/resume`, `/contact` (curl).
 - [ ] GA4 sin `traffic_type: internal`; tráfico real visible en modo depuración.
 - [ ] hreflang es/en/x-default correctos (sin regresión del trabajo en vuelo).
-- [ ] Paleta azul/blanco/negro, tipografía de marca, logo hexagonal en toda la web.
+- [x] Paleta azul/blanco/negro, tipografía de marca, logo hexagonal en toda la web.
 - [ ] CTA diagnóstico → WhatsApp con mensaje exacto.
 - [ ] Eye Care Hub con narrativa de negocio y demo enlazada; caso sin cifras.
 - [ ] `/resume` intacto.
