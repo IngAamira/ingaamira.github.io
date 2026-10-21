@@ -19,7 +19,7 @@ npm start            # ng serve (dev server, SSR). Puerto 4200
 npm run build        # producción (defaultConfiguration=production). Type-check + prerender
 npm run build:prod   # build con base-href=/ y deploy-url=/
 npm test             # Vitest (sin navegador). Ver Validación
-npm run serve:ssr:ingaamira.github.io   # sirve dist/.../server/server.mjs (PORT o 4000)
+npm run serve:ssr:portfolio-ingaamira-lab   # sirve dist/.../server/server.mjs (PORT o 4000)
 ```
 
 Gestor de paquetes: **npm** (hay `package-lock.json` y `npm` está instalado). No
@@ -112,7 +112,7 @@ El prerender **ejecuta los componentes en Node durante el build**.
 ## Deploy
 
 - **Vercel** es el destino principal (`vercel.json`): build `npm run build:prod`, salida
-  `dist/ingaamira.github.io`, y reescribe todo a `/server/server.mjs` (SSR).
+  `dist/portfolio-ingaamira-lab`, y reescribe todo a `/server/server.mjs` (SSR).
 - Existe además `npm run build:ghpages` (GitHub Pages, rama `gh-pages`) que usa `ngh`,
   pero **`ngh` no está en `devDependencies`**; requeriría instalarlo. Es una vía secundaria.
 

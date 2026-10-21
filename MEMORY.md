@@ -9,9 +9,9 @@ Mantener breve. Verificar contra el código/configuración real; no guardar secr
 
 ## 1. Identidad
 
-- **Nombre:** Portfolio IngAamira (paquete `ingaamira.github.io`).
+- **Nombre:** Portfolio IngAamira (paquete `portfolio-ingaamira-lab`).
 - **Descripción:** sitio personal/portfolio (Angular standalone + SSR) de Andrés Mira.
-- **Repo:** https://github.com/IngAamira/ingaamira.github.io
+- **Repo:** https://github.com/IngAamira/portfolio-ingaamira-lab
 - **Producción:** https://portfolio.ingaamira.com
 - **Responsable:** IngAamira.
 - **Estado:** EN DESARROLLO con despliegue en producción.
@@ -60,8 +60,14 @@ implementación en `infrastructure`) → datasource local. Sin persistencia; el 
 ## 6. Entornos
 
 - **Desarrollo:** `npm start` (ng serve, SSR, puerto 4200).
-- **SSR local:** `npm run build` + `npm run serve:ssr:ingaamira.github.io` (puerto `PORT` o 4000).
-- **Producción:** Vercel (`vercel.json`), build `npm run build:prod`, todo reescrito a `/server/server.mjs`.
+- **SSR local:** `npm run build` + `npm run serve:ssr:portfolio-ingaamira-lab` (puerto `PORT` o 4000).
+- **Producción (hoy):** GitHub Pages — la rama `gh-pages` sirve `portfolio.ingaamira.com`
+  (CNAME en la rama; build con `ngh` — el script existe pero `ngh` no está instalado y el
+  contenido de `gh-pages` está desactualizado: build viejo con claves crudas y sin `/es`).
+- **Producción (migración en curso):** Vercel, proyecto **`portfolio-ingaamira-lab`**
+  (Owner renombra el repo de GitHub al mismo nombre). `vercel.json` ya apunta al nuevo
+  `dist/portfolio-ingaamira-lab`; merges a `trunk` despliegan ahí. Tras validar el `.vercel.app`,
+  añadir el dominio y cortar el DNS desde GitHub Pages.
 - **CI:** GitHub Actions (`.github/workflows/ci.yml`), Node 22.
 - **Variables de entorno:** solo `PORT` (opcional). No hay secretos en el repo.
 
@@ -122,10 +128,17 @@ Sitemap y `robots.txt` en `src/` (copiados como assets).
 
 ## 13. Siguiente paso
 
-Verificación final del plan en producción (tras redeploy de Vercel): 302 de `/`, `/es`/`/en`,
-CTA diagnóstico visible, GA4 events. **Pendiente Fase 2:** logo hexagonal IL (asset no está en
-este repo; vive en la landing social — traer a `assets/icons/` y usar en footer). Después:
-plan de contenido (blog/testimonios) y doc de medición unificada (repo de contenido).
+## 13. Siguiente paso
+
+Repo **renombrado a `portfolio-ingaamira-lab`** (paquete, `angular.json`, `vercel.json`,
+scripts, docs; el remote de GitHub ya apunta al nombre nuevo). El dominio
+`portfolio.ingaamira.com` ya responde desde Vercel. Pendiente del Owner: mergear los PRs
+de rename/limpieza, fijar en Vercel **Production Branch = `trunk`** + Redeploy (hoy `/`
+responde **404 `DEPLOYMENT_NOT_FOUND`**: no hay deployment) y desactivar GitHub Pages en
+Settings (Source: None, sin custom domain). Verificación: 302 de `/`, prerender de
+`/es`/`/en` sin claves crudas, CTA diagnóstico, `sitemap.xml`/`robots.txt`. Después:
+logo hexagonal IL (Fase 2) y contenido (blog/testimonios); doc de medición unificada va
+en el repo de contenido.
 
 ## 14. Plan activo: `.opencode/plan/portfolio-ingaamira.md` (2026-10-21)
 
