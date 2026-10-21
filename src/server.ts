@@ -8,11 +8,22 @@ import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { localeFromAcceptLanguage } from './presentation/shared/i18n/locale';
+
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 
 const app = express();
 const angularApp = new AngularNodeAppEngine();
+
+/**
+ * `/` no se indexa: 302 al idioma según `Accept-Language` (fallback `es`).
+ */
+app.get('/', (req, res) => {
+  const locale = localeFromAcceptLanguage(req.headers['accept-language'] ?? null);
+
+  res.redirect(302, `/${locale}`);
+});
 
 /**
  * Example Express Rest API endpoints can be defined here.

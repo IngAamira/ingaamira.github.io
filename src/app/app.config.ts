@@ -5,6 +5,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideTranslateService } from "@ngx-translate/core";
 
 import { provideBundledTranslateLoader } from "@infrastructure/i18n/bundled-translate.loader";
+import { DEFAULT_LOCALE } from "@presentation/shared/i18n/locale";
 
 import { routes } from './app.routes';
 import { ProjectDatasource } from "@infrastructure/datasources/project.datasource";
@@ -20,8 +21,8 @@ export const appConfig: ApplicationConfig = {
 
     provideTranslateService({
       loader: provideBundledTranslateLoader(),
-      fallbackLang: 'en',
-      lang: 'en'
+      fallbackLang: DEFAULT_LOCALE,
+      lang: DEFAULT_LOCALE
     }),
 
     {
