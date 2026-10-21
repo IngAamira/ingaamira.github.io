@@ -26,8 +26,8 @@ Puedes editar: `.github/**`, `vercel.json` y `package.json`. Para el resto, prop
 Ámbito:
 
 - CI con GitHub Actions: `.github/workflows/ci.yml` (`npm ci` + `npm run build`).
-- Deploy principal en **Vercel** (`vercel.json`, SSR hacia `/server/server.mjs`).
-- Deploy secundario a **GitHub Pages** (`npm run build:ghpages`; recuerda que `ngh` no está en devDependencies).
+- Deploy principal y único en **Vercel** (`vercel.json`, SSR hacia `/server/server.mjs`).
+  El destino GitHub Pages (`gh-pages`, `ngh`) fue retirado.
 - Gestor de paquetes canónico: **npm**.
 
 Reglas:

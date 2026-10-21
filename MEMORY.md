@@ -62,13 +62,11 @@ implementación en `infrastructure`) → datasource local. Sin persistencia; el 
 
 - **Desarrollo:** `npm start` (ng serve, SSR, puerto 4200).
 - **SSR local:** `npm run build` + `npm run serve:ssr:portfolio-ingaamira-lab` (puerto `PORT` o 4000).
-- **Producción (hoy):** GitHub Pages — la rama `gh-pages` sirve `portfolio.ingaamira.com`
-  (CNAME en la rama; build con `ngh` — el script existe pero `ngh` no está instalado y el
-  contenido de `gh-pages` está desactualizado: build viejo con claves crudas y sin `/es`).
-- **Producción (migración en curso):** Vercel, proyecto **`portfolio-ingaamira-lab`**
-  (Owner renombra el repo de GitHub al mismo nombre). `vercel.json` ya apunta al nuevo
-  `dist/portfolio-ingaamira-lab`; merges a `trunk` despliegan ahí. Tras validar el `.vercel.app`,
-  añadir el dominio y cortar el DNS desde GitHub Pages.
+- **Producción:** Vercel, proyecto **`portfolio-ingaamira-lab`** — build `npm run build:prod`,
+  `vercel.json` reescribe todo a `/server/server.mjs` (SSR) y sitemap/robots a `/browser`.
+  El dominio `portfolio.ingaamira.com` ya apunta a Vercel; el repo de GitHub se renombró al
+  mismo nombre y el destino GitHub Pages fue retirado (rama `gh-pages` eliminada, scripts
+  `build:ghpages`/`build:deploy` con `ngh` borrados, Pages por desactivar del lado del Owner).
 - **CI:** GitHub Actions (`.github/workflows/ci.yml`), Node 22.
 - **Variables de entorno:** solo `PORT` (opcional). No hay secretos en el repo.
 
@@ -129,12 +127,15 @@ Sitemap y `robots.txt` en `src/` (copiados como assets).
 
 ## 13. Siguiente paso
 
-Repo **renombrado a `portfolio-ingaamira-lab`** (paquete, `angular.json`, `vercel.json`,
-scripts, docs). Pendiente del Owner: (1) renombrar el repo en GitHub al mismo nombre y
-actualizar el remote; (2) crear el proyecto en Vercel **`portfolio-ingaamira-lab`** con
-Production Branch = `trunk`; (3) validar el `.vercel.app` (302 de `/`, `/es`/`/en`, CTA de
-diagnóstico, sitemap); (4) cortar el DNS de `portfolio.ingaamira.com` (hoy en GitHub Pages,
-stale) → Vercel. Después: logo hexagonal IL (Fase 2) y contenido (blog/testimonios).
+Repo renombrado (`portfolio-ingaamira-lab`) y **gh-pages retirado** (rama+scripts+docs).
+Pendiente del Owner: (1) mergear los PRs abiertos — `feat/visual-blue-alignment` y
+`chore/remove-gh-pages` (apilado sobre `chore/rename-project`; si merger `rename` primero,
+este PR queda limpio; ojo conflictos menores de `MEMORY.md` entre ramas); (2) en Vercel:
+Production Branch = `trunk` + Redeploy — **producción da 404 `DEPLOYMENT_NOT_FOUND`**
+(dominio pointing a Vercel sin deployment); (3) si Pages sigue activo en GitHub Settings,
+poner Source: None y quitar el custom domain de Pages; (4) verificar producción: 302 de `/`
+→ `/es`, prerender `/es`/`/en` sin claves crudas, CTA diagnóstico, `sitemap.xml`. Luego:
+logo hexagonal IL (Fase 2) y contenido (blog/testimonios).
 
 ## 14. Plan activo: `.opencode/plan/portfolio-ingaamira.md` (2026-10-21)
 
