@@ -1,7 +1,7 @@
 {
   "PROFILE": {
     "NAME": "Andres Alfonso Mira Mejia",
-    "HEADLINE": "Web Development | Data Analytics | Custom Software Solutions | AI & Automation"
+    "HEADLINE": "Custom software that brings order to your operations: web development, data & AI"
   },
 
   "NAVIGATION": {
@@ -27,8 +27,8 @@
 
   "FEATURED_PROJECT": {
     "TITLE": "Featured Project",
-    "SUMMARY": "This is an e-commerce application developed in Java with the Spring Boot framework and using Spring WebFlux for reactive programming. The application allows users to search for and purchase products online, organized into categories.",
-    "INFO": "Visit the section to learn more!"
+    "SUMMARY": "The web app for an optician's office that left appointment chaos behind: clients, products, sales and appointments handled in a single flow. A real project, in production for its owner, with a live demo.",
+    "INFO": "Need to bring order to your operation too? Visit the portfolio to see the other cases."
   },
 
   "WORK": {
@@ -600,7 +600,10 @@
 
   "CONTACT": {
     "TITLE": "Contact Me",
-    "DESCRIPTION": "Feel free to reach out to me for any inquiries or collaboration opportunities"
+    "DESCRIPTION": "Feel free to reach out to me for any inquiries or collaboration opportunities",
+    "CTA_TITLE": "Where to start?",
+    "CTA_TEXT": "Book a free diagnosis: in 15 minutes we review your process and I tell you where you can save time.",
+    "CTA_BUTTON": "Book your free 15-min diagnosis"
   },
 
   "FOOTER": {

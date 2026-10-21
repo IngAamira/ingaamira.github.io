@@ -41,6 +41,9 @@ export class HomeComponent implements OnInit {
   readonly years: number;
   selectedImage: string | null = null;
 
+  /** Caso destacado en la home (Fase 4: Eye Care Hub → opticarlos.ingaamira.com). */
+  private readonly featuredProjectName = 'Eye Care Hub';
+
   private readonly startDate: Date = new Date(2012, 11, 16);
 
   constructor() {
@@ -54,11 +57,10 @@ export class HomeComponent implements OnInit {
 
   private async loadProject(): Promise<void> {
     try {
-      const data = await this.projectRepository.getProjectById(0);
-
-      if (data) {
-        this.project = data;
-      }
+      /* Fase 4: el destacado de la home es el caso con demo en producción. */
+      const data = await this.projectRepository.getProjects();
+      this.project =
+        data.find((p) => p.name === this.featuredProjectName) ?? data[0];
 
     } catch (error) {
       console.error('[HomeComponent] Error loading project', error);

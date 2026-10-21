@@ -21,6 +21,25 @@ import { LocaleService } from '@presentation/shared/services/locale.service';
           {{ 'CONTACT.DESCRIPTION' | translate }}
         </p>
       </div>
+
+      <!-- CTA diagnóstico (WhatsApp, mensaje exacto del plan) -->
+      <div class="text-center border border-accent/40 rounded-xl shadow-sm p-6 mb-8 bg-ink-900">
+        <h2 class="text-xl md:text-2xl font-bold text-accent-soft mb-2">
+          {{ 'CONTACT.CTA_TITLE' | translate }}
+        </h2>
+        <p class="text-slate-300 text-sm md:text-base mb-4">
+          {{ 'CONTACT.CTA_TEXT' | translate }}
+        </p>
+        <a
+          [href]="whatsappDiagnosticUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          (click)="trackClick('WhatsApp', whatsappDiagnosticUrl)"
+          class="inline-flex bg-accent text-ink-950 font-semibold rounded-lg px-5 py-2.5 hover:bg-accent-soft transition"
+          >
+          {{ 'CONTACT.CTA_BUTTON' | translate }}
+        </a>
+      </div>
     
       <div class="bg-ink-900 rounded-xl shadow-sm divide-y divide-slate-800">
         @for (item of menuItemsContact; track item) {
@@ -94,6 +113,11 @@ export class ContactComponent implements OnInit {
       });
     }
   }
+
+  /** Enlace real de diagnóstico (mensaje exacto del plan; URL SSR-safe). */
+  readonly whatsappDiagnosticUrl = `https://wa.me/573217295412?text=${encodeURIComponent(
+    'Hola Andrés, quiero agendar el diagnóstico gratuito de 15 min de mi proceso.'
+  )}`;
 
   public menuItemsContact: MenuItemContact[] = [
     {
