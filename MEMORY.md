@@ -21,12 +21,11 @@ Mantener breve. Verificar contra el código/configuración real; no guardar secr
 - **Verificado:** `npm run build` pasa; prerender de **8 rutas** (`/es`,`/en` × home/portfolio/resume/contact)
   con texto traducido real, canonical/hreflang por idioma y 0 claves filtradas.
 - **Última actualización:** 2026-10-21.
-- **Último trabajo:** **Plan `portfolio-ingaamira.md` — Fase 1 + 3 + 4**: GA4 sin `traffic_type``,
-  footer con enlace real WhatsApp (mensaje exacto del diagnóstico), demo EyeCareHub →
-  `opticarlos.ingaamira.com` (repo privado 404), CTA "Agenda tu diagnóstico (15 min)" en `/contact`
-  (ambos idiomas), titular home orientado a negocio, **Eye Care Hub = proyecto destacado** con
-  narrativa sin cifras (proyecto real, demo en producción). Producción pendiente de redeploy
-  (Vercel aún sirvió build viejo con claves crudas y `/es` 404).
+- **Último trabajo:** **Plan Fase 2 (alineación visual)**: acento recoloreado a azul de marca
+  (rampa derivada de `#005CBB`: `accent` #2b8fe0, `soft` #93cbf4, `dim` #005CBB) en
+  `tailwind.config.js`; gradientes violeta/cyan de identidad eliminados (solo hints
+  `accent-dim`); foco/selection azules. Superficies dark (`ink`) intactas (negro del plan).
+  Tipografía Inter ya en tokens. Anteriores: Fases 1/3/4 (PR #43).
 - **Bloqueos:** ver que el deploy de Vercel recoja `trunk` (producción aún mostraba claves crudas).
 
 ## 3. Stack
@@ -123,9 +122,10 @@ Sitemap y `robots.txt` en `src/` (copiados como assets).
 
 ## 13. Siguiente paso
 
-Abrir PR de `feat/copy-audiencia-diagnostico` (Fases 1/3/4 del plan). Luego: verificación en
-producción tras redeploy (302 de `/`, `/es`,`/en`, CTA) y **Fase 2 restante** del plan: paleta
-azul `#005CBB`, logo hexagonal IL. Blog/testimonios quedan para el plan de contenido.
+Verificación final del plan en producción (tras redeploy de Vercel): 302 de `/`, `/es`/`/en`,
+CTA diagnóstico visible, GA4 events. **Pendiente Fase 2:** logo hexagonal IL (asset no está en
+este repo; vive en la landing social — traer a `assets/icons/` y usar en footer). Después:
+plan de contenido (blog/testimonios) y doc de medición unificada (repo de contenido).
 
 ## 14. Plan activo: `.opencode/plan/portfolio-ingaamira.md` (2026-10-21)
 

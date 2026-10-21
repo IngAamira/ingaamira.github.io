@@ -14,12 +14,11 @@ module.exports = {
           700: '#1a2740',
           600: '#24365a',
         },
-        /* Acento eléctrico (cyan/violeta) */
+        /* AcentoAzul de marca, derivado de #005CBB (plan: azul/blanco/negro) */
         accent: {
-          DEFAULT: '#22d3ee',
-          soft: '#67e8f9',
-          dim: '#0e7490',
-          violet: '#8b5cf6',
+          DEFAULT: '#2b8fe0',
+          soft: '#93cbf4',
+          dim: '#005CBB',
         },
       },
       fontFamily: {

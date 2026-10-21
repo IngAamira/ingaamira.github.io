@@ -20,7 +20,7 @@ input:focus-visible,
 }
 
 ::selection {
-  background-color: rgba(34, 211, 238, 0.35);
+  background-color: rgba(43, 143, 224, 0.35);
 }
 
 .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
