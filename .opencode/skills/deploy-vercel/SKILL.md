@@ -15,13 +15,7 @@ description: Use when deploying, changing the build output, or editing infrastru
 - Rewrites: `/sitemap.xml` y `/robots.txt` → `/browser/...`; el resto → `/server/server.mjs` (**SSR**).
 - Headers de seguridad (`X-Content-Type-Options`, `X-Frame-Options`, `X-XSS-Protection`).
 
-Dominio de producción: `https://portfolio.ingaamira.com`.
-
-## Secundario: GitHub Pages
-
-- `npm run build:ghpages` usa `ngh --dir=dist/portfolio-ingaamira-lab/browser`.
-- **`ngh` NO está en `devDependencies`** → hay que instalarlo o `npx ngh`.
-- Existe rama remota `gh-pages`. Es una vía secundaria (build estático del `/browser`).
+Dominio de producción: `https://portfolio.ingaamira.com` (servido por Vercel desde `trunk`).
 
 ## Notas
 
