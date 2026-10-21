@@ -13,12 +13,12 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
       <ul class="space-y-3">
         @for (item of itemsLanguage; track item) {
           <li
-            class="flex items-center justify-between bg-white border rounded-lg px-4 py-3 shadow-sm"
+            class="flex items-center justify-between bg-ink-900 border rounded-lg px-4 py-3 shadow-sm"
             >
-            <span class="font-medium text-gray-800">
+            <span class="font-medium text-slate-100">
               {{ item.name | translate }}
             </span>
-            <span class="text-sm text-gray-600 bg-gray-100 px-2 py-1 rounded">
+            <span class="text-sm text-slate-300 bg-ink-700 px-2 py-1 rounded">
               {{ item.proficiency | translate }}
             </span>
           </li>

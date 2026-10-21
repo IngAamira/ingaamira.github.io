@@ -2,30 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: dark;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  @apply bg-ink-950 text-slate-200 font-sans antialiased;
+}
+
+/* Foco visible sobre dark (AA) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid theme('colors.accent.DEFAULT');
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: rgba(34, 211, 238, 0.35);
 }
 
 .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
   max-width: 100%;
   min-width: 100%;
 }
-
-element.style {
-  border-top-width: 12px;
-  margin-top: 12px;
-}
-
-/*
-.tag {
-  padding: 0 20px;
-  height: 30px;
-  width: fit-content;
-  font-size: 14px;
-  line-height: 30px;
-  border-radius: 25px;
-  background-color: blue;
-  color: white;
-  margin-right: 8px;
-}
-*/

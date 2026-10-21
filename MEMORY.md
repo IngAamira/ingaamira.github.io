@@ -20,10 +20,11 @@ Mantener breve. Verificar contra el código/configuración real; no guardar secr
 
 - **Verificado:** `npm run build` pasa; prerender de **8 rutas** (`/es`,`/en` × home/portfolio/resume/contact)
   con texto traducido real, canonical/hreflang por idioma y 0 claves filtradas.
-- **Última actualización:** 2026-10-20.
-- **Último trabajo:** **Fase 1 del plan** — URLs por idioma (`/es`,`/en`), translations empaquetadas,
-  redirect 302 de `/`, SEO multilingüe (canonical/hreflang/og:locale/sitemap). Antes: upgrade Angular,
-  CI, Vitest, agentes/skills nuevos.
+- **Última actualización:** 2026-10-21.
+- **Último trabajo:** **Fase 2 (rediseño) — base dark tech**: tokens (`ink`/`accent`) en
+  `tailwind.config.js`, globales oscuros en `styles.css` (foco AA, `color-scheme`), barrido de
+  superficies/textos claros→oscuros en todos los componentes, hero/footer/acordeón/cards con
+  acento cyan/violeta y CTA 404 con acento. Fase 1 (i18n por URL) ya en `trunk` (PR #40).
 - **Bloqueos:** ver que el deploy de Vercel recoja `trunk` (producción aún mostraba claves crudas).
 
 ## 3. Stack
@@ -120,7 +121,8 @@ Sitemap y `robots.txt` en `src/` (copiados como assets).
 
 ## 13. Siguiente paso
 
-**Fase 2: rediseño** (estética oscura tech) — con skill `design-system`. Después contenido (Fase 3).
+Verificar deploy dark en Vercel y continuar Fase 2: pulido (motion/hover, badges de tags para dark,
+imagenes sobre dark) y luego contenido (Fase 3). Verificar 302 de `/` en producción.
 
 ## 14. Plan activo: rediseño + posicionamiento (2026-10-17)
 

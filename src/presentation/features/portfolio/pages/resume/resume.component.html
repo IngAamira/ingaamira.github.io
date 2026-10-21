@@ -2,7 +2,7 @@
   <div class="flex flex-wrap justify-center gap-3 pb-8">
     @for (item of menuItemsResume; track trackByName($index, item)) {
       <button
-        class="flex items-center gap-2 border border-blue-500 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 hover:shadow-sm transition"
+        class="flex items-center gap-2 border border-accent/40 text-accent px-4 py-2 rounded-lg hover:bg-blue-50 hover:shadow-sm transition"
         (click)="item.event()"
         >
         📄 {{ item.name | translate }}
@@ -13,17 +13,17 @@
   <div class="space-y-4 text-left">
     @for (group of accordionGroups; track trackByKey($index, group)) {
       <div
-        class="bg-white rounded-xl shadow-sm border overflow-hidden transition hover:shadow-md"
+        class="bg-ink-900 rounded-xl shadow-sm border overflow-hidden transition hover:shadow-md"
         >
         <button
-          class="w-full flex justify-between items-center px-5 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white"
+          class="w-full flex justify-between items-center px-5 py-4 bg-gradient-to-r from-cyan-900/50 via-ink-800 to-ink-800 text-accent-soft border-b border-slate-800"
           (click)="toggle(group.key)"
           >
           <span class="truncate font-semibold text-sm md:text-base">
             {{ group.title | translate }}
           </span>
           <span
-            class="flex items-center justify-center w-6 h-6 rounded-full bg-white/20 text-sm transition"
+            class="flex items-center justify-center w-6 h-6 rounded-full bg-accent/10 text-accent-soft text-sm transition"
           [ngClass]="{
             'rotate-45': isOpenState[group.key],
           }"
@@ -32,7 +32,7 @@
           </span>
         </button>
         @if (isOpenState[group.key]) {
-          <div class="p-5 border-t bg-gray-50">
+          <div class="p-5 border-t bg-ink-800">
             <ng-container
               *ngComponentOutlet="componentMap[group.key]"
             ></ng-container>

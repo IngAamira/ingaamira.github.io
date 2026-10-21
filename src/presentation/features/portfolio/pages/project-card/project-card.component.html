@@ -1,16 +1,16 @@
 <div
-  class="bg-white rounded-2xl shadow-md flex flex-col h-full overflow-hidden"
+  class="bg-ink-900 rounded-2xl shadow-md flex flex-col h-full overflow-hidden"
   >
   <!-- Header -->
-  <div class="bg-gray-50 border-b px-4 py-3 text-center">
-    <h5 class="text-sm md:text-base font-semibold text-gray-800">
+  <div class="bg-ink-800 border-b px-4 py-3 text-center">
+    <h5 class="text-sm md:text-base font-semibold text-slate-100">
       {{ project.name }}
     </h5>
   </div>
 
   <!-- Body -->
   <div class="p-4 flex-1 flex flex-col">
-    <div class="space-y-2 text-sm text-gray-700">
+    <div class="space-y-2 text-sm text-slate-200">
       @for (text of project.summary; track text) {
         <p>
           {{ text }}
@@ -20,7 +20,7 @@
 
     <button
       type="button"
-      class="mt-4 self-start px-3 py-2 border border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 transition"
+      class="mt-4 self-start px-3 py-2 border border-accent/40 text-accent rounded-lg hover:bg-blue-50 transition"
       (click)="openProject()"
       >
       🌐
@@ -28,7 +28,7 @@
   </div>
 
   <!-- Footer -->
-  <div class="border-t bg-gray-50 p-3 flex flex-wrap justify-center gap-2">
+  <div class="border-t bg-ink-800 p-3 flex flex-wrap justify-center gap-2">
     @for (tag of project.tags; track tag) {
       <span
         class="text-xs px-2 py-1 rounded-full text-white"

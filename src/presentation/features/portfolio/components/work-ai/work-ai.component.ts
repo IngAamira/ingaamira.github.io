@@ -16,19 +16,19 @@ import {
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
       @for (skill of itemTechnicalSkills; track skill) {
         <div
-          class="bg-white border rounded-xl p-4 shadow-sm"
+          class="bg-ink-900 border rounded-xl p-4 shadow-sm"
           >
-          <h3 class="text-base md:text-lg font-semibold text-purple-700 mb-3">
+          <h3 class="text-base md:text-lg font-semibold text-accent-soft mb-3">
             {{ skill.category | translate }}
           </h3>
-          <ul class="space-y-2 text-sm text-gray-700">
+          <ul class="space-y-2 text-sm text-slate-200">
             @for (item of skill.items; track item) {
               <li>
                 @if (isSkillItemObject(item)) {
-                  <p class="font-medium text-gray-800">
+                  <p class="font-medium text-slate-100">
                     {{ item.name }}
                   </p>
-                  <ul class="list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
+                  <ul class="list-[circle] ml-4 mt-1 space-y-1 text-slate-300">
                     @for (subitem of item.subitems; track subitem) {
                       <li>
                         {{ subitem }}
@@ -37,7 +37,7 @@ import {
                   </ul>
                 } @else {
                   <span
-                    class="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    class="inline-block bg-ink-700 text-slate-200 px-2 py-1 rounded text-xs"
                     >
                     {{ item }}
                   </span>

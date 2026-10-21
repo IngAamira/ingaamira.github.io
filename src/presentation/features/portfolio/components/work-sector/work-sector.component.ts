@@ -10,12 +10,12 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="max-w-3xl mx-auto">
-      <ul class="space-y-2 text-sm md:text-base text-gray-700">
+      <ul class="space-y-2 text-sm md:text-base text-slate-200">
         @for (sector of itemsSector[0]?.sectors; track sector) {
           <li
             class="flex items-start gap-2"
             >
-            <span class="text-purple-500 mt-1">•</span>
+            <span class="text-accent mt-1">•</span>
             <span>{{ sector | translate }}</span>
           </li>
         }
