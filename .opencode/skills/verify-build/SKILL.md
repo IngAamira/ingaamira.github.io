@@ -26,7 +26,7 @@ Ejecutarlo antes de dar cualquier tarea por terminada. `ng build --watch` para d
 ```bash
 npm start                                        # dev server (SSR), puerto 4200
 npm run build:prod                               # build para Vercel (base-href / deploy-url)
-npm run serve:ssr:ingaamira.github.io            # sirve el SSR (PORT o 4000)
+npm run serve:ssr:portfolio-ingaamira-lab            # sirve el SSR (PORT o 4000)
 ```
 
 ## Tests (estado actual)

@@ -1,16 +1,16 @@
 {
-  "name": "ingaamira.github.io",
+  "name": "portfolio-ingaamira-lab",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --configuration=production --base-href=/ --deploy-url=/",
-    "build:ghpages": "ngh --dir=dist/ingaamira.github.io/browser",
+    "build:ghpages": "ngh --dir=dist/portfolio-ingaamira-lab/browser",
     "build:deploy": "npm run build:prod && npm run build:ghpages",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:ingaamira.github.io": "node dist/ingaamira.github.io/server/server.mjs"
+    "serve:ssr:portfolio-ingaamira-lab": "node dist/portfolio-ingaamira-lab/server/server.mjs"
   },
   "private": true,
   "dependencies": {
