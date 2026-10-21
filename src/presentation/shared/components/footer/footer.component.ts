@@ -61,13 +61,16 @@ export class FooterComponent {
     }
   }
 
+  /** Número de WhatsApp y mensaje exacto del diagnóstico (idéntico en las tres webs del plan). */
+  private readonly whatsappNumber = '573217295412';
+  private readonly diagnosticMessage =
+    'Hola Andrés, quiero agendar el diagnóstico gratuito de 15 min de mi proceso.';
+
+  /** Enlace real (SSR-safe) para la firma del footer. */
+  readonly whatsappUrl = this.getWhatsAppLink(this.whatsappNumber, this.diagnosticMessage);
+
   goToWhatsApp(): void {
     if (!this.isBrowser()) return;
-
-    const number = '573217295412';
-    const message = 'Hola, vengo de la página Portfolio IngAamira y quiero más información sobre tu perfil';
-
-    const url = this.getWhatsAppLink(number, message);
 
     const windowRef = this.browser.window;
     const gtag = windowRef?.gtag;
@@ -79,7 +82,7 @@ export class FooterComponent {
       });
     }
 
-    windowRef?.open(url, '_blank', 'noopener,noreferrer');
+    /* El enlace real ya navega; aquí solo registramos el evento. */
   }
 
   getWhatsAppLink(number: string, message: string): string {
