@@ -47,7 +47,7 @@ export class ProjectLocalDatasource implements ProjectDatasource {
             "On the backend, it’s powered by Java with Spring Boot. On the frontend, Angular keeps everything fast, smooth, and easy to use.",
             "Simple, organized, and built to keep your day-to-day operations moving without friction."
           ],
-          projectLink: 'https://github.com/IngAamira/EyeCareHub',
+          projectLink: 'https://opticarlos.ingaamira.com',
           pictures: [
             "assets/imgs/projects/eye-care-hub/tech-used.png",
             "assets/imgs/projects/eye-care-hub/feature.png",

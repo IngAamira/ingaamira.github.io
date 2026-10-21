@@ -1,7 +1,7 @@
 {
   "PROFILE": {
     "NAME": "Andrés Alfonso Mira Mejía",
-    "HEADLINE": "Desarrollo Web | Análisis de Datos | Software a medida | IA & Automatización"
+    "HEADLINE": "Software a medida que ordena tus procesos: desarrollo web, datos e IA"
   },
 
   "NAVIGATION": {
@@ -27,8 +27,8 @@
 
   "FEATURED_PROJECT": {
     "TITLE": "Proyecto Destacado",
-    "SUMMARY": "Esta es una aplicación de comercio electrónico desarrollada en Java con el framework Spring Boot y usando Spring WebFlux como programación reactiva. La aplicación permite a los usuarios buscar y comprar productos en línea, organizados en categorías.",
-    "INFO": "¡Visita la sección para conocer más!"
+    "SUMMARY": "La web de una óptica que dejó atrás el caos de las citas: clientes, productos, ventas y citas gestionadas en un solo flujo. Un proyecto real, en producción para su dueño, con demo en vivo.",
+    "INFO": "¿Tú también necesitas ordenar tu operación? Visita el portafolio para ver el resto de casos."
   },
 
   "WORK": {
@@ -599,7 +599,10 @@
 
   "CONTACT": {
     "TITLE": "Contáctame",
-    "DESCRIPTION": "No dudes en contactarme para cualquier consulta u oportunidad de colaboración"
+    "DESCRIPTION": "No dudes en contactarme para cualquier consulta u oportunidad de colaboración",
+    "CTA_TITLE": "¿Por dónde empezar?",
+    "CTA_TEXT": "Agenda un diagnóstico gratuito: en 15 minutos revisamos tu proceso y te digo dónde puedes ahorrar tiempo.",
+    "CTA_BUTTON": "Agenda tu diagnóstico (15 min)"
   },
 
   "FOOTER": {

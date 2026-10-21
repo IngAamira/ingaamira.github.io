@@ -21,11 +21,12 @@ Mantener breve. Verificar contra el código/configuración real; no guardar secr
 - **Verificado:** `npm run build` pasa; prerender de **8 rutas** (`/es`,`/en` × home/portfolio/resume/contact)
   con texto traducido real, canonical/hreflang por idioma y 0 claves filtradas.
 - **Última actualización:** 2026-10-21.
-- **Último trabajo:** **Fase 2 (rediseño) — pulido dark**: chips de tags como clases Tailwind
-  translúcidas (`tag-colors.ts`, antes hex plano), hover de cards (lift + ring accent), overlay del
-  modal con blur, tratamiento de imágenes sobre dark (ring/bg `ink-800`, ring de selección en
-  thumbnails, perfil con ring accent), `aria-label` en botones 🌐/✕. Base dark tech ya en `trunk`
-  (PR #41); i18n por URL en PR #40.
+- **Último trabajo:** **Plan `portfolio-ingaamira.md` — Fase 1 + 3 + 4**: GA4 sin `traffic_type``,
+  footer con enlace real WhatsApp (mensaje exacto del diagnóstico), demo EyeCareHub →
+  `opticarlos.ingaamira.com` (repo privado 404), CTA "Agenda tu diagnóstico (15 min)" en `/contact`
+  (ambos idiomas), titular home orientado a negocio, **Eye Care Hub = proyecto destacado** con
+  narrativa sin cifras (proyecto real, demo en producción). Producción pendiente de redeploy
+  (Vercel aún sirvió build viejo con claves crudas y `/es` 404).
 - **Bloqueos:** ver que el deploy de Vercel recoja `trunk` (producción aún mostraba claves crudas).
 
 ## 3. Stack
@@ -122,23 +123,23 @@ Sitemap y `robots.txt` en `src/` (copiados como assets).
 
 ## 13. Siguiente paso
 
-Abrir PR de `feat/ui-dark-polish` y luego **Fase 3 (contenido: servicios/casos/blog)** en rama
-nueva. Después SEO local (Fase 4), perf/Fase 5 y medición/Fase 6.
+Abrir PR de `feat/copy-audiencia-diagnostico` (Fases 1/3/4 del plan). Luego: verificación en
+producción tras redeploy (302 de `/`, `/es`,`/en`, CTA) y **Fase 2 restante** del plan: paleta
+azul `#005CBB`, logo hexagonal IL. Blog/testimonios quedan para el plan de contenido.
 
-## 14. Plan activo: rediseño + posicionamiento (2026-10-17)
+## 14. Plan activo: `.opencode/plan/portfolio-ingaamira.md` (2026-10-21)
 
-Decisiones:
+El plan vigente reemplaza el de rediseño (2026-10-17; su fichero ya no existe). Rol de la web:
+1) clientes, 2) marca personal (andres.miram), 3) empleo. Idioma default **ES**, literal EN.
 
-- Conversión: **clientes freelance/consultoría**. Prioridad **local** (Medellín, Rionegro, La Ceja,
-  El Retiro) → Colombia → regional → internacional.
-- Idiomas **ES + EN por igual** con **URLs por idioma** (`/es`, `/en`); `/` responde **302** con fallback `es`.
-- **Rediseño completo**, estética **oscura tech moderna**.
-- Mantener dominio `portfolio.ingaamira.com`. Herramientas: GSC + GA4 + GBP + LinkedIn/GitHub (sin pago).
-- Contenido: Servicios (hub + 6), casos de estudio, blog, testimonios.
-
-Fases: 0 baseline · 1 i18n + SEO técnico · 2 rediseño · 3 contenido · 4 SEO local · 5 perf + a11y · 6 medición.
-Guía: skills `i18n-routing`, `design-system`, `local-seo`, `content-strategy`, `structured-data`,
-`performance-web-vitals`, `analytics-ga4`.
-
-Abierto: (a) dirección visible vs *service-area*; (b) slug traducido vs igual; (c) blog Markdown vs TS;
-(d) testimonios reales.
+- **Fase 0** estabilización: ✅ (PRs #40–42).
+- **Fase 1** fixes técnicos (GA4, footer, lang, demos 🌐, medición): ✅ (GA4/footer/lang/demos;
+  doc de medición unificada vive en el repo de contenido, no aquí).
+- **Fase 3** copy por audiencia + CTA diagnóstico: ✅ (home titular negocio, CTA `/contact` con
+  mensaje exacto; proyectos ya en doble capa: resumen de negocio + chips de stack).
+- **Fase 4** cadena de casos Eye Care Hub ↔ Opticarlo's ↔ Instagram: ✅ lado portafolio
+  (destacado con narrativa de negocio, sin cifras, link demo).
+- **Fase 2** alineación visual: ⚠️ parado — la base dark tech (cyan/violeta info) ya está
+  mergeada; pendiente decidir: paleta azul `#005CBB`/blanco/negro y logo hexagonal IL.
+- **Reglas:** sin cifras inventadas; `/resume` íntegro; mensaje WhatsApp exacto:
+  *"Hola Andrés, quiero agendar el diagnóstico gratuito de 15 min de mi proceso."*

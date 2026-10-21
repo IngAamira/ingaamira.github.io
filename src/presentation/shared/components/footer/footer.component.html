@@ -61,8 +61,10 @@
           <p class="text-xs text-white/70">
             {{ "FOOTER.BY_DESCRIPTION" | translate }}
             <a
-              href="#"
-              (click)="goToWhatsApp(); $event.preventDefault()"
+              [href]="whatsappUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              (click)="goToWhatsApp()"
               class="text-white font-medium hover:underline ml-1"
               >
               {{ "FOOTER.BY_TALK" | translate }}
