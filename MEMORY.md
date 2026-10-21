@@ -21,10 +21,11 @@ Mantener breve. Verificar contra el código/configuración real; no guardar secr
 - **Verificado:** `npm run build` pasa; prerender de **8 rutas** (`/es`,`/en` × home/portfolio/resume/contact)
   con texto traducido real, canonical/hreflang por idioma y 0 claves filtradas.
 - **Última actualización:** 2026-10-21.
-- **Último trabajo:** **Fase 2 (rediseño) — base dark tech**: tokens (`ink`/`accent`) en
-  `tailwind.config.js`, globales oscuros en `styles.css` (foco AA, `color-scheme`), barrido de
-  superficies/textos claros→oscuros en todos los componentes, hero/footer/acordeón/cards con
-  acento cyan/violeta y CTA 404 con acento. Fase 1 (i18n por URL) ya en `trunk` (PR #40).
+- **Último trabajo:** **Fase 2 (rediseño) — pulido dark**: chips de tags como clases Tailwind
+  translúcidas (`tag-colors.ts`, antes hex plano), hover de cards (lift + ring accent), overlay del
+  modal con blur, tratamiento de imágenes sobre dark (ring/bg `ink-800`, ring de selección en
+  thumbnails, perfil con ring accent), `aria-label` en botones 🌐/✕. Base dark tech ya en `trunk`
+  (PR #41); i18n por URL en PR #40.
 - **Bloqueos:** ver que el deploy de Vercel recoja `trunk` (producción aún mostraba claves crudas).
 
 ## 3. Stack
@@ -121,8 +122,8 @@ Sitemap y `robots.txt` en `src/` (copiados como assets).
 
 ## 13. Siguiente paso
 
-Verificar deploy dark en Vercel y continuar Fase 2: pulido (motion/hover, badges de tags para dark,
-imagenes sobre dark) y luego contenido (Fase 3). Verificar 302 de `/` en producción.
+Abrir PR de `feat/ui-dark-polish` y luego **Fase 3 (contenido: servicios/casos/blog)** en rama
+nueva. Después SEO local (Fase 4), perf/Fase 5 y medición/Fase 6.
 
 ## 14. Plan activo: rediseño + posicionamiento (2026-10-17)
 
