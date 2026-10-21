@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ingaamira.github.io": {
+    "portfolio-ingaamira-lab": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:class": {
@@ -38,7 +38,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/ingaamira.github.io",
+            "outputPath": "dist/portfolio-ingaamira-lab",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -104,10 +104,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ingaamira.github.io:build:production"
+              "buildTarget": "portfolio-ingaamira-lab:build:production"
             },
             "development": {
-              "buildTarget": "ingaamira.github.io:build:development"
+              "buildTarget": "portfolio-ingaamira-lab:build:development"
             }
           },
           "defaultConfiguration": "development"

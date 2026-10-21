@@ -55,8 +55,8 @@ src/
 ## Execution Instructions
 
 ```bash
-git clone https://github.com/IngAamira/ingaamira.github.io.git
-cd ingaamira.github.io
+git clone https://github.com/IngAamira/portfolio-ingaamira-lab.git
+cd portfolio-ingaamira-lab
 npm install
 ng serve
 ```
@@ -252,7 +252,7 @@ filterProjectsUseCase.execute(projects, tags)
 
 ## Author
 
-[**IngAamira**](https://ingaamira.github.io/)
+[**IngAamira**](https://portfolio.ingaamira.com/)
 
 ---
 
