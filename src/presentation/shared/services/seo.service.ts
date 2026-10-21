@@ -98,11 +98,10 @@ export class SeoService {
   }
 
   /**
-   * Emits `hreflang` alternates only when the site actually serves a distinct URL per
-   * language. This site uses a single URL per route with client-side language switching
-   * and English SSR output, so advertising `en`/`es` versions pointing at the same URL
-   * is misleading and ignored by search engines. When real per-language URLs exist, pass
-   * them explicitly via `SeoData.alternates`.
+   * Emits `hreflang` alternates when the caller passes the per-language URLs for the route
+   * (see `LocaleService.alternates()`), which is the case for every page today: `/es`, `/en`
+   * and `x-default` → `/es`. Alternates are rebuilt on each navigation so the prerendered
+   * HTML and client-side routing stay in sync.
    */
   private setAlternateLinks(alternates?: SeoAlternate[]): void {
     if (!this.document) return;

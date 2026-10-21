@@ -103,8 +103,8 @@ El prerender **ejecuta los componentes en Node durante el build**.
 - Metadatos globales y JSON-LD en `src/index.html`; Google Analytics también allí.
 - Por página se usa `SeoService.setSEO(...)`. Las URLs canónicas están **hardcodeadas** a
   `https://portfolio.ingaamira.com/...`, así que hay que actualizarlas al añadir/renombrar rutas.
-- `hreflang` solo se emite si se pasan `alternates` con URLs distintas por idioma; hoy no hay
-  (una URL por ruta con i18n en cliente), así que no se emiten alternates.
+- `hreflang`: cada página pasa `alternates: localeService.alternates('<ruta>')`, que emite
+  `es`, `en` y `x-default` (→ `es`) con URL absoluta por idioma. Sin `alternates` no se emite nada.
 - `src/sitemap.xml` y `src/robots.txt` se copian como assets: actualízalos al cambiar rutas.
 - Dirección: SEO multilingüe por URL (`/es`, `/en`) + SEO local (Medellín, Rionegro, La Ceja, El Retiro);
   ver skills `i18n-routing`, `local-seo` y `structured-data`.

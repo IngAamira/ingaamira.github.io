@@ -100,8 +100,8 @@ Sitemap y `robots.txt` en `src/` (copiados como assets).
 - **Skills y agentes de OpenCode** (V2) project-local, en español.
 - Estilos con Tailwind (Bootstrap retirado).
 - SEO centralizado por página vía `SeoService`.
-- **`hreflang` sin URLs por idioma**: `SeoService` solo emite `rel="alternate"`/`hreflang` si la
-  página pasa `alternates` con URLs distintas; hoy no se emiten (una sola URL por ruta, i18n en cliente).
+- **`hreflang` por URL de idioma**: cada página pasa `alternates: localeService.alternates(<ruta>)`
+  y se emiten `es`/`en`/`x-default` (→ `es`) con URL absoluta; verificado en el HTML prerenderizado.
 - APIs de navegador encapsuladas en `BrowserService` (requisito de SSR/prerender).
 - **Traducciones empaquetadas** (`provideBundledTranslateLoader`): el loader HTTP dejaba el HTML
   prerenderizado con las claves; ahora SSR/prerender renderiza el texto. Se quitó `provideHttpClient(withXhr())`.
