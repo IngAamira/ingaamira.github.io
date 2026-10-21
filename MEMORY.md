@@ -61,13 +61,12 @@ implementación en `infrastructure`) → datasource local. Sin persistencia; el 
 
 - **Desarrollo:** `npm start` (ng serve, SSR, puerto 4200).
 - **SSR local:** `npm run build` + `npm run serve:ssr:portfolio-ingaamira-lab` (puerto `PORT` o 4000).
-- **Producción (hoy):** GitHub Pages — la rama `gh-pages` sirve `portfolio.ingaamira.com`
-  (CNAME en la rama; build con `ngh` — el script existe pero `ngh` no está instalado y el
-  contenido de `gh-pages` está desactualizado: build viejo con claves crudas y sin `/es`).
-- **Producción (migración en curso):** Vercel, proyecto **`portfolio-ingaamira-lab`**
-  (Owner renombra el repo de GitHub al mismo nombre). `vercel.json` ya apunta al nuevo
-  `dist/portfolio-ingaamira-lab`; merges a `trunk` despliegan ahí. Tras validar el `.vercel.app`,
-  añadir el dominio y cortar el DNS desde GitHub Pages.
+- **Producción:** Vercel, proyecto **`portfolio-ingaamira-lab`** — build `npm run build:prod`;
+  `vercel.json` reescribe todo a `/server/server.mjs` (SSR) y sitemap/robots a `/browser`.
+  El dominio `portfolio.ingaamira.com` ya responde desde Vercel (el repo de GitHub se renombró
+  al mismo nombre). El destino GitHub Pages fue retirado: rama `gh-pages` eliminada, scripts
+  `build:ghpages`/`build:deploy` con `ngh` borrados. Hoy el proyecto no tiene deployment
+  (404 `DEPLOYMENT_NOT_FOUND`): falta Redeploy tras mergear los PRs abiertos.
 - **CI:** GitHub Actions (`.github/workflows/ci.yml`), Node 22.
 - **Variables de entorno:** solo `PORT` (opcional). No hay secretos en el repo.
 

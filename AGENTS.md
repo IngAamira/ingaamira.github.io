@@ -113,8 +113,8 @@ El prerender **ejecuta los componentes en Node durante el build**.
 
 - **Vercel** es el destino principal (`vercel.json`): build `npm run build:prod`, salida
   `dist/portfolio-ingaamira-lab`, y reescribe todo a `/server/server.mjs` (SSR).
-- Existe además `npm run build:ghpages` (GitHub Pages, rama `gh-pages`) que usa `ngh`,
-  pero **`ngh` no está en `devDependencies`**; requeriría instalarlo. Es una vía secundaria.
+- Deploy: merge a `trunk` → Vercel. No hay vía secundaria (la rama `gh-pages` de GitHub Pages
+  fue retirada; los scripts `build:ghpages`/`build:deploy` con `ngh` ya no existen).
 
 ## Git
 
