@@ -1,4 +1,4 @@
-import { Routes, RouterLink } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { LayoutComponent } from '@presentation/shared/components/layout/layout.component';
 import { NotFoundComponent } from '@presentation/features/portfolio/pages/not-found/not-found.component';

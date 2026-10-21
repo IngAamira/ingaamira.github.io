@@ -30,10 +30,19 @@ export class LocaleService {
   }
 
   private get currentPath(): string | null {
+    /* 1) Router: fuente de verdad en cliente y en prerender (la navegación ya resolvió). */
+    const routerUrl = this.router.url;
+
+    if (routerUrl && routerUrl !== '/') {
+      return routerUrl;
+    }
+
+    /* 2) Location del navegador. */
     if (isPlatformBrowser(this.platformId)) {
       return this.browser.location?.pathname ?? null;
     }
 
+    /* 3) REQUEST en SSR runtime (rutas no prerenderizadas). */
     const url = this.request?.url;
 
     if (!url) return null;
@@ -48,6 +57,11 @@ export class LocaleService {
   /** URL absoluta canónica para una ruta de la página (p. ej. `url('')`, `url('/portfolio')`). */
   url(path = ''): string {
     return `${ORIGIN}/${this.current}${this.normalizePath(path)}`;
+  }
+
+  /** Ruta interna relativa para enlaces/[routerLink] en la misma app (`/es/portfolio`). */
+  path(path = ''): string {
+    return `/${this.current}${this.normalizePath(path)}`;
   }
 
   /**

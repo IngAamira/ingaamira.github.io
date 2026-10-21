@@ -1,11 +1,14 @@
-import { inject } from '@angular/core';
-import { CanActivateFn, CanMatchFn, ResolveFn, Router } from '@angular/router';
-import { REQUEST } from '@angular/core';
-
-import { TranslateService } from '@ngx-translate/core';
+import { REQUEST, inject } from '@angular/core';
+import {
+  CanActivateFn,
+  CanMatchFn,
+  ResolveFn,
+  Router,
+  type UrlSegment,
+} from '@angular/router';
 
 import {
-  Locale,
+  DEFAULT_LOCALE,
   isLocale,
   localeFromAcceptLanguage,
 } from '@presentation/shared/i18n/locale';
@@ -16,20 +19,21 @@ import { TranslationService } from '@presentation/shared/services/translation.se
  * Solo deja pasar la ruta `:lang` cuando el segmento es un idioma soportado
  * (`es`/`en`). Así `/portfolio` cae al `**` (404) en vez de tratarse como idioma.
  */
-export const localeMatchGuard: CanMatchFn = (_route, segments) => isLocale(segments[0]?.path);
+export const localeMatchGuard: CanMatchFn = (_route, segments: UrlSegment[]) =>
+  isLocale(segments[0]?.path);
 
 /**
  * Fija el idioma de la UI (y `<html lang>`) desde la URL **antes** de renderizar
- * los componentes de la ruta. Resolvers corren antes de la activación, por lo que
- * SSR/prerender ya emiten el texto en el idioma correcto.
+ * los componentes de la ruta. Los resolvers corren antes de la activación, por lo
+ * que SSR/prerender ya emiten el texto en el idioma correcto.
  */
-export const localeResolver: ResolveFn<Locale> = route => {
-  const lang = route.paramMap.get('lang')!;
-  const translationService = inject(TranslationService);
+export const localeResolver: ResolveFn<string> = route => {
+  const lang: string | null = route.paramMap.get('lang');
+  const locale = isLocale(lang) ? lang : DEFAULT_LOCALE;
 
-  translationService.setLanguage(lang);
+  inject(TranslationService).setLanguage(locale);
 
-  return isLocale(lang) ? lang : 'en';
+  return locale;
 };
 
 /**
@@ -41,8 +45,8 @@ export const rootLocaleRedirectGuard: CanActivateFn = () => {
   const browser = inject(BrowserService);
   const router = inject(Router);
 
-  const header = request !== null ? request.headers.get('accept-language') : null;
-  const locale = localeFromAcceptLanguage(header ?? browser.navigator?.language ?? null);
+  const header = request?.headers.get('accept-language');
+  const locale = localeFromAcceptLanguage(header ?? browser.navigator?.language);
 
   return router.createUrlTree(['/', locale]);
 };

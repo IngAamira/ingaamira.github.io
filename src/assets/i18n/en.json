@@ -607,5 +607,24 @@
     "TEXT": "Let's drive the future together!",
     "BY_DESCRIPTION": "Do you like this website?",
     "BY_TALK": "Let's talk"
+  },
+
+  "SEO": {
+    "HOME": {
+      "TITLE": "IngAamira | Custom Web Development, Data & AI Automation in Colombia",
+      "DESCRIPTION": "Andres Mira, software engineer in Colombia. Custom web development, process automation, data/BI and AI solutions for teams in Medellín, the Oriente antioqueño and abroad."
+    },
+    "PORTFOLIO": {
+      "TITLE": "Projects | IngAamira — Custom Software, Data & AI",
+      "DESCRIPTION": "Explore Andres Mira's projects: custom web applications, APIs, process automation and data pipelines built with Angular, Java, Python, Node and AWS."
+    },
+    "RESUME": {
+      "TITLE": "Resume | IngAamira — Data Engineer & Fullstack Developer",
+      "DESCRIPTION": "Resume of Andres Mira, software engineer in Colombia: work experience, technical skills, education and languages."
+    },
+    "CONTACT": {
+      "TITLE": "Contact | IngAamira — Software & AI Consulting",
+      "DESCRIPTION": "Get in touch with Andres Mira via LinkedIn, GitHub, WhatsApp or email to talk about custom software, automation and AI projects."
+    }
   }
 }

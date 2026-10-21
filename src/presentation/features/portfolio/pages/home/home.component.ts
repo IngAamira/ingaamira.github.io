@@ -8,6 +8,7 @@ import { ProjectRepository } from '@domain/repositories/project.repository';
 
 import { BrowserService } from '@presentation/shared/services/browser.service';
 import { SeoService } from '@presentation/shared/services/seo.service';
+import { LocaleService } from '@presentation/shared/services/locale.service';
 
 @Component({
   standalone: true,
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit {
   private router = inject(Router);
   private browser = inject(BrowserService);
   private seo = inject(SeoService);
+  private localeService = inject(LocaleService);
   private projectRepository = inject(ProjectRepository);
   private translate = inject(TranslateService);
 
@@ -65,12 +67,18 @@ export class HomeComponent implements OnInit {
 
 private setSEO(): void {
     this.seo.setSEO({
-      title: 'Portfolio IngAamira | Data Engineer & Fullstack Developer',
-      description: 'Portfolio de Andres Mira, un talentoso Data Engineer y Fullstack Developer en Colombia. Especializado en desarrollo web, análisis de datos, automatización e inteligencia artificial.',
-      url: 'https://portfolio.ingaamira.com/',
+      title: this.translate.instant('SEO.HOME.TITLE'),
+      description: this.translate.instant('SEO.HOME.DESCRIPTION'),
+      url: this.localeService.url(''),
+      alternates: this.localeService.alternates(''),
       image: 'https://portfolio.ingaamira.com/assets/og/preview.png',
-      type: 'website'
+      type: 'website',
     });
+  }
+
+  /** Enlace al portfolio con el idioma de la URL. */
+  get portfolioLink(): string {
+    return this.localeService.path('/portfolio');
   }
 
   private calculateYears(startDate: Date): number {
@@ -90,7 +98,7 @@ private setSEO(): void {
       language: this.lang
     });
 
-    this.router.navigate(['/contact']);
+    this.router.navigateByUrl(this.localeService.path('/contact'));
   }
 
   openMainWebsite(): void {

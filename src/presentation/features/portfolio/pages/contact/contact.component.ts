@@ -1,9 +1,10 @@
 import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 import { BrowserService } from '@presentation/shared/services/browser.service';
 import { SeoService } from '@presentation/shared/services/seo.service';
+import { LocaleService } from '@presentation/shared/services/locale.service';
 
 @Component({
   standalone: true,
@@ -49,16 +50,16 @@ import { SeoService } from '@presentation/shared/services/seo.service';
 export class ContactComponent implements OnInit {
   private browser = inject(BrowserService);
   private seo = inject(SeoService);
+  private translate = inject(TranslateService);
+  private localeService = inject(LocaleService);
 
   ngOnInit(): void {
     this.seo.setSEO({
-      title:
-        'Portfolio IngAamira | Data Engineer & Fullstack Developer | Contact',
-      description:
-        'Contacta a Andrés Mira, un talentoso Data Engineer y Fullstack Developer. Conéctate a través de LinkedIn, GitHub o WhatsApp para discutir proyectos, colaboraciones o cualquier consulta relacionada con su experiencia en tecnología.',
-      url: 'https://portfolio.ingaamira.com/contact',
-      image:
-        'https://portfolio.ingaamira.com/assets/icons/contact-information.png',
+      title: this.translate.instant('SEO.CONTACT.TITLE'),
+      description: this.translate.instant('SEO.CONTACT.DESCRIPTION'),
+      url: this.localeService.url('/contact'),
+      alternates: this.localeService.alternates('/contact'),
+      image: 'https://portfolio.ingaamira.com/assets/icons/contact-information.png',
     });
   }
 
