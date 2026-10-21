@@ -1,6 +1,6 @@
 # Plan — portfolio.ingaamira.com (portafolio profesional)
 
-**Proyecto destino:** `/root/projects/ingaamira.github.io` (repo `github.com:IngAamira/portfolio-ingaamira-lab`, Angular 22, ngx-translate, prerender/SSG)
+**Proyecto destino:** `/root/projects/portfolio-ingaamira-lab` (repo `github.com:IngAamira/portfolio-ingaamira-lab`, Angular 22, ngx-translate, prerender/SSG)
 **Fecha:** 2026-10-21 · **Estado:** aprobado por el dueño en modo Plan · **Independiente** de `social-ingaamira-landing.md` y `www-ingaamira-web.md`
 
 ## Decisiones aprobadas (no re-litigar)
