@@ -13,23 +13,23 @@ import { LocaleService } from '@presentation/shared/services/locale.service';
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="max-w-3xl mx-auto m-3 p-3">
-      <div class="text-center border rounded-xl shadow-sm p-6 mb-8 bg-white">
+      <div class="text-center border rounded-xl shadow-sm p-6 mb-8 bg-ink-900">
         <h1 class="text-2xl md:text-3xl font-bold mb-2">
           {{ 'CONTACT.TITLE' | translate }}
         </h1>
-        <p class="text-gray-600 text-sm md:text-base">
+        <p class="text-slate-300 text-sm md:text-base">
           {{ 'CONTACT.DESCRIPTION' | translate }}
         </p>
       </div>
     
-      <div class="bg-white rounded-xl shadow-sm divide-y">
+      <div class="bg-ink-900 rounded-xl shadow-sm divide-y divide-slate-800">
         @for (item of menuItemsContact; track item) {
           <a
             [href]="item.url"
             target="_blank"
             rel="noopener noreferrer"
             (click)="trackClick(item.flag, item.url)"
-            class="flex items-center gap-4 px-4 py-4 hover:bg-gray-50 transition group"
+            class="flex items-center gap-4 px-4 py-4 hover:bg-ink-800 transition group"
             >
             <img
               [src]="item.img"
@@ -37,7 +37,7 @@ import { LocaleService } from '@presentation/shared/services/locale.service';
               class="w-10 h-10 rounded-full object-cover group-hover:scale-110 transition"
               />
               <span
-                class="text-lg font-medium text-gray-800 group-hover:text-purple-600 transition"
+                class="text-lg font-medium text-slate-100 group-hover:text-accent-soft transition"
                 >
                 {{ item.flag }}
               </span>
