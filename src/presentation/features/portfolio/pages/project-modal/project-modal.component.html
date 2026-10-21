@@ -1,11 +1,11 @@
-<div class="bg-ink-900 rounded-2xl shadow-xl max-w-2xl w-full overflow-hidden">
+<div class="bg-ink-900 rounded-2xl shadow-xl shadow-black/40 ring-1 ring-slate-800 max-w-2xl w-full overflow-hidden">
   <!-- Header -->
   <div class="flex justify-between items-center border-b p-4">
     <h2 class="text-xl font-bold">
       {{ project.name }}
     </h2>
 
-    <button class="text-slate-400 hover:text-slate-200" (click)="close.emit()">
+    <button class="text-slate-400 hover:text-slate-200" (click)="close.emit()" aria-label="Close project details">
       ✕
     </button>
   </div>
@@ -16,14 +16,15 @@
       <div class="flex flex-col items-center">
         <img
           [src]="selectedImage || project.pictures[0] || ''"
-          class="w-80 h-80 object-contain rounded-lg"
+          class="w-80 h-80 object-contain rounded-xl ring-1 ring-slate-800 bg-ink-800"
           alt="project image"
           />
           <div class="flex gap-2 mt-3 flex-wrap justify-center">
             @for (pic of project.pictures; track pic) {
               <img
                 [src]="pic"
-                class="w-16 h-16 object-cover rounded cursor-pointer opacity-70 hover:opacity-100 border"
+                class="w-16 h-16 object-cover rounded bg-ink-800 cursor-pointer opacity-70 hover:opacity-100 transition"
+                [class]="selectedImage === pic ? 'ring-2 ring-accent' : 'ring-1 ring-slate-700'"
                 (click)="selectedImage = pic"
                 />
             }
@@ -61,11 +62,11 @@
     </div>
 
     <!-- Footer -->
-    <div class="border-t p-4 flex flex-wrap justify-center gap-2">
+    <div class="border-t border-slate-800 p-4 flex flex-wrap justify-center gap-2">
       @for (tag of project.tags; track tag) {
         <span
-          class="text-xs px-2 py-1 rounded-full text-white"
-          [style.background-color]="getTagColor(tag)"
+          class="text-xs px-2.5 py-1 rounded-full"
+          [class]="getTagColor(tag)"
           >
           {{ tag }}
         </span>

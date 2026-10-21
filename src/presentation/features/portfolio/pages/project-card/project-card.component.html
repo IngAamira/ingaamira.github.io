@@ -1,8 +1,8 @@
 <div
-  class="bg-ink-900 rounded-2xl shadow-md flex flex-col h-full overflow-hidden"
+  class="bg-ink-900 rounded-2xl shadow-lg shadow-black/30 ring-1 ring-slate-800 flex flex-col h-full overflow-hidden transition hover:-translate-y-1 hover:ring-accent/40"
   >
   <!-- Header -->
-  <div class="bg-ink-800 border-b px-4 py-3 text-center">
+  <div class="border-b border-slate-800 bg-ink-800 px-4 py-3 text-center">
     <h5 class="text-sm md:text-base font-semibold text-slate-100">
       {{ project.name }}
     </h5>
@@ -20,19 +20,20 @@
 
     <button
       type="button"
-      class="mt-4 self-start px-3 py-2 border border-accent/40 text-accent rounded-lg hover:bg-blue-50 transition"
+      class="mt-4 self-start px-3 py-2 border border-accent/40 text-accent rounded-lg hover:bg-cyan-500/10 transition"
       (click)="openProject()"
+      aria-label="Open project details"
       >
       🌐
     </button>
   </div>
 
   <!-- Footer -->
-  <div class="border-t bg-ink-800 p-3 flex flex-wrap justify-center gap-2">
+  <div class="border-t border-slate-800 bg-ink-800 p-3 flex flex-wrap justify-center gap-2">
     @for (tag of project.tags; track tag) {
       <span
-        class="text-xs px-2 py-1 rounded-full text-white"
-        [style.background-color]="getTagColor(tag)"
+        class="text-xs px-2.5 py-1 rounded-full"
+        [class]="getTagColor(tag)"
         >
         {{ tag }}
       </span>

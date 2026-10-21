@@ -30,7 +30,8 @@ export class ProjectCardComponent {
   }
 
   getTagColor(tag: TagType): string {
-    return TAG_COLORS[tag] ?? '#ccc';
+    /* Clases del chip (fondo translúcido + texto/limite del matiz) para dark. */
+    return TAG_COLORS[tag] ?? 'text-slate-300 bg-slate-500/10 border border-slate-500/40';
   }
 
 }
