@@ -10,7 +10,8 @@ description: Use when deploying, changing the build output, or editing infrastru
 `vercel.json`:
 
 - `installCommand`: `npm ci`
-- `buildCommand`: `npm run build:prod`
+- `buildCommand`: `npm run build:prod && rm -f dist/portfolio-ingaamira-lab/browser/index.csr.html`
+  (sin el `rm`, Vercel sirve ese shell CSR para `/` y la función SSR no se invoca → pierde el 302)
 - `outputDirectory`: `dist/portfolio-ingaamira-lab/browser` (HTML prerenderizado + assets → CDN)
 - `functions`: `api/index.mjs` con `includeFiles: "dist/portfolio-ingaamira-lab/**"`
 - `rewrites`: `/` y `/(.*)` → `/api` (la fase *filesystem* tiene prioridad, así que los
