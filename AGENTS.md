@@ -126,6 +126,14 @@ El prerender **ejecuta los componentes en Node durante el build**.
     borde y añade `X-Forwarded-*`; sin confiarlos Angular borra esos headers y degrada a CSR
     silencioso (se pierde el 404 real).
   - `app.routes.server.ts` termina en `'**'` → `RenderMode.Server, status: 404` (evita soft-404).
+  - Las 4 rutas prerender `:lang*` llevan `fallback: PrerenderFallback.None`. Con el fallback
+    por defecto (`Server`), cualquier segmento único desconocido (`/foo`, `/resume`) casaba con
+    `:lang` y devolvía **200 con la página de 404** (soft-404). `None` hace que solo respondan
+    las URLs realmente prerenderizadas y el resto caiga en `**`.
+  - `buildCommand` borra `dist/.../browser/index.csr.html` tras el build. Vercel mapea ese
+    fichero a `/` en la fase *filesystem* y **se salta la función** (angular-cli#30736): `/`
+    devolvía 200 con el shell CSR en vez del 302 por `Accept-Language`. El server no lo necesita:
+    usa su propia copia inlineada (`server/assets-chunks/`).
 - Deploy: merge a `trunk` → Vercel. No hay vía secundaria (la rama `gh-pages` de GitHub Pages
   fue retirada; los scripts `build:ghpages`/`build:deploy` con `ngh` ya no existen).
 
