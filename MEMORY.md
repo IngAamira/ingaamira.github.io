@@ -21,7 +21,7 @@ Mantener breve. Verificar contra el código/configuración real; no guardar secr
 - **Verificado:** `npm run build` pasa; prerender de **8 rutas** (`/es`,`/en` × home/portfolio/resume/contact)
   con texto traducido real, canonical/hreflang por idioma y 0 claves filtradas.
 - **Última actualización:** 2026-10-22.
-- **Último trabajo:** **Deploy roto en producción (corregido en `fix/vercel-ssr-function`)**: Vercel
+- **Último trabajo:** **Deploy roto en producción (corregido en `fix/vercel-ssr-function`, ya en `trunk`)**: Vercel
   servía el bundle del servidor (`content-type: application/javascript`) en vez de HTML, porque el
   `rewrites` apuntaba a `/server/server.mjs` (un archivo del output) en lugar de a una Function.
   La topología pasó a: `outputDirectory: .../browser` + `api/index.mjs` (SSR vía
@@ -30,9 +30,15 @@ Mantener breve. Verificar contra el código/configuración real; no guardar secr
   validación de host) y `trustProxyHeaders: true` en `server.ts` (sin él Vercel degrada a CSR
   silencioso y se pierde el 404 real). El wildcard `**` ahora responde `status: 404`.
   Verificado localmente: 302 por `Accept-Language`, 200 en `/es` y `/en`, 404 real en rutas
-  desconocidas. Anteriores: Fase 2 (paleta azul + logo hexagonal), Fases 1/3/4 (PR #43).
-- **Bloqueos:** pendiente de merge en GitHub de `fix/vercel-ssr-function` para que Vercel
-  vuelva a servir HTML en `portfolio.ingaamira.com`.
+  desconocidas.
+- **En paralelo (Fase 2 de marca):** **logo hexagonal IL** (`logo-192.png` de la landing social →
+  `src/assets/icons/logo-ingaamira-lab.png`) en el footer, favicon y `apple-touch-icon` con el
+  mismo símbolo; se retiró el logo antiguo `logo-ingaamira.png`. Acento recoloreado a azul de
+  marca (rampa derivada de `#005CBB`: `accent` #2b8fe0, `soft` #93cbf4, `dim` #005CBB) en
+  `tailwind.config.js`; gradientes violeta/cyan de identidad eliminados (solo hints `accent-dim`);
+  foco/selection azules. Superficies dark (`ink`) intactas. Tipografía Inter ya en tokens.
+- **Anteriores:** Fases 1/3/4 (PR #43).
+- **Bloqueos:** merges pendientes en GitHub: `feat/brand-logo-hexangular` y `docs/seo-hreflang-state`.
 
 ## 3. Stack
 
@@ -161,7 +167,8 @@ El plan vigente reemplaza el de rediseño (2026-10-17; su fichero ya no existe).
   mensaje exacto; proyectos ya en doble capa: resumen de negocio + chips de stack).
 - **Fase 4** cadena de casos Eye Care Hub ↔ Opticarlo's ↔ Instagram: ✅ lado portafolio
   (destacado con narrativa de negocio, sin cifras, link demo).
-- **Fase 2** alineación visual: ⚠️ parado — la base dark tech (cyan/violeta info) ya está
-  mergeada; pendiente decidir: paleta azul `#005CBB`/blanco/negro y logo hexagonal IL.
+- **Fase 2** alineación visual: ✅ paleta azul `#005CBB`/blanco/negro (rampa `accent`),
+  gradientes de identidad retirados, Inter en tokens y logo hexagonal IL (footer, favicon,
+  `apple-touch-icon`).
 - **Reglas:** sin cifras inventadas; `/resume` íntegro; mensaje WhatsApp exacto:
   *"Hola Andrés, quiero agendar el diagnóstico gratuito de 15 min de mi proceso."*

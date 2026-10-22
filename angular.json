@@ -47,6 +47,7 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
+              "src/apple-icon.png",
               "src/assets",
               "src/robots.txt",
               "src/sitemap.xml"
