@@ -30,8 +30,12 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Prerender,
     getPrerenderParams: async () => SUPPORTED_LOCALES.map(lang => ({ lang }))
   },
+  /* Rutas no encontradas (p. ej. `/es/loquesea`) → 404 real, no un soft-404
+   * con status 200. Con la SSR activa en Vercel esta es la única respuesta
+   * que ven los crawlers para URLs desconocidas. */
   {
     path: '**',
-    renderMode: RenderMode.Server
+    renderMode: RenderMode.Server,
+    status: 404
   }
 ];

@@ -20,13 +20,19 @@ Mantener breve. Verificar contra el código/configuración real; no guardar secr
 
 - **Verificado:** `npm run build` pasa; prerender de **8 rutas** (`/es`,`/en` × home/portfolio/resume/contact)
   con texto traducido real, canonical/hreflang por idioma y 0 claves filtradas.
-- **Última actualización:** 2026-10-21.
-- **Último trabajo:** **Plan Fase 2 (alineación visual)**: acento recoloreado a azul de marca
-  (rampa derivada de `#005CBB`: `accent` #2b8fe0, `soft` #93cbf4, `dim` #005CBB) en
-  `tailwind.config.js`; gradientes violeta/cyan de identidad eliminados (solo hints
-  `accent-dim`); foco/selection azules. Superficies dark (`ink`) intactas (negro del plan).
-  Tipografía Inter ya en tokens. Anteriores: Fases 1/3/4 (PR #43).
-- **Bloqueos:** ver que el deploy de Vercel recoja `trunk` (producción aún mostraba claves crudas).
+- **Última actualización:** 2026-10-22.
+- **Último trabajo:** **Deploy roto en producción (corregido en `fix/vercel-ssr-function`)**: Vercel
+  servía el bundle del servidor (`content-type: application/javascript`) en vez de HTML, porque el
+  `rewrites` apuntaba a `/server/server.mjs` (un archivo del output) en lugar de a una Function.
+  La topología pasó a: `outputDirectory: .../browser` + `api/index.mjs` (SSR vía
+  `reqHandler`) + `functions.includeFiles`. Se añadieron dos bugs latentes que hubieran seguido
+  rotos tras el fix: `security.allowedHosts` en `angular.json` (sin él el SSR devuelve 400 por
+  validación de host) y `trustProxyHeaders: true` en `server.ts` (sin él Vercel degrada a CSR
+  silencioso y se pierde el 404 real). El wildcard `**` ahora responde `status: 404`.
+  Verificado localmente: 302 por `Accept-Language`, 200 en `/es` y `/en`, 404 real en rutas
+  desconocidas. Anteriores: Fase 2 (paleta azul + logo hexagonal), Fases 1/3/4 (PR #43).
+- **Bloqueos:** pendiente de merge en GitHub de `fix/vercel-ssr-function` para que Vercel
+  vuelva a servir HTML en `portfolio.ingaamira.com`.
 
 ## 3. Stack
 
@@ -61,12 +67,16 @@ implementación en `infrastructure`) → datasource local. Sin persistencia; el 
 
 - **Desarrollo:** `npm start` (ng serve, SSR, puerto 4200).
 - **SSR local:** `npm run build` + `npm run serve:ssr:portfolio-ingaamira-lab` (puerto `PORT` o 4000).
-- **Producción:** Vercel, proyecto **`portfolio-ingaamira-lab`** — build `npm run build:prod`;
-  `vercel.json` reescribe todo a `/server/server.mjs` (SSR) y sitemap/robots a `/browser`.
-  El dominio `portfolio.ingaamira.com` ya responde desde Vercel (el repo de GitHub se renombró
-  al mismo nombre). El destino GitHub Pages fue retirado: rama `gh-pages` eliminada, scripts
-  `build:ghpages`/`build:deploy` con `ngh` borrados. Hoy el proyecto no tiene deployment
-  (404 `DEPLOYMENT_NOT_FOUND`): falta Redeploy tras mergear los PRs abiertos.
+- **Producción:** Vercel, proyecto **`portfolio-ingaamira-lab`** — build `npm run build:prod`.
+  Topología: `outputDirectory` = `dist/portfolio-ingaamira-lab/browser` (HTML prerenderizado + assets
+  en el CDN) y `api/index.mjs` = función SSR que importa `dist/.../server/server.mjs` y llama a
+  `reqHandler` (`functions.includeFiles` para empaquetar el bundle del servidor). El catch-all de
+  `vercel.json` reescribe `/` y `/(.*)` a `/api`. `security.allowedHosts` en `angular.json`
+  (`portfolio.ingaamira.com` + `*.vercel.app`) es obligatorio: sin él el SSR responde 400 por
+  validación de host; `server.ts` confía en los headers de proxy (`trustProxyHeaders`) porque
+  Vercel termina TLS en el borde.
+  El destino GitHub Pages fue retirado: rama `gh-pages` eliminada, scripts `build:ghpages`/
+  `build:deploy` con `ngh` borrados.
 - **CI:** GitHub Actions (`.github/workflows/ci.yml`), Node 22.
 - **Variables de entorno:** solo `PORT` (opcional). No hay secretos en el repo.
 

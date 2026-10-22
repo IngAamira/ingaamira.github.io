@@ -59,6 +59,12 @@
             "outputMode": "server",
             "ssr": {
               "entry": "src/server.ts"
+            },
+            "security": {
+              "allowedHosts": [
+                "portfolio.ingaamira.com",
+                "*.vercel.app"
+              ]
             }
           },
           "configurations": {

@@ -14,7 +14,16 @@ const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 
 const app = express();
-const angularApp = new AngularNodeAppEngine();
+
+/**
+ * Vercel actúa como proxy confiable y añade headers `X-Forwarded-*` (incluyendo
+ * `x-forwarded-for`) en cada petición. Sin confiarlos, Angular borra esos headers y
+ * degrada a CSR en silencio (sirve el shell del cliente con status 200 en lugar de
+ * ejecutar el SSR real, incluyendo el wildcard `**` que debe responder 404).
+ * Se confía explícitamente en los headers de proxy porque Vercel es la única
+ * plataforma que enruta tráfico hacia esta función.
+ */
+const angularApp = new AngularNodeAppEngine({ trustProxyHeaders: true });
 
 /**
  * `/` no se indexa: 302 al idioma según `Accept-Language` (fallback `es`).
