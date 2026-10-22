@@ -112,7 +112,20 @@ El prerender **ejecuta los componentes en Node durante el build**.
 ## Deploy
 
 - **Vercel** es el destino principal (`vercel.json`): build `npm run build:prod`, salida
-  `dist/portfolio-ingaamira-lab`, y reescribe todo a `/server/server.mjs` (SSR).
+  `dist/portfolio-ingaamira-lab/browser` (HTML prerenderizado + assets, servidos por el CDN).
+- SSR: `api/index.mjs` es la **función serverless** que importa
+  `dist/portfolio-ingaamira-lab/server/server.mjs` y llama a `reqHandler`. Vercel la empaqueta con
+  `functions.includeFiles: "dist/portfolio-ingaamira-lab/**"`. El catch-all de `vercel.json`
+  (`/` y `/(.*)` → `/api`) sólo la invoca cuando la fase *filesystem* no encuentra un archivo.
+  **No reescribir a `/server/server.mjs`**: ese archivo es estático y Vercel lo sirve como
+  `application/javascript` (rompe todo el sitio).
+- Invariantes SSR en Vercel (no romper):
+  - `security.allowedHosts` en `angular.json` (`portfolio.ingaamira.com`, `*.vercel.app`). Sin él
+    el SSR responde **400** por validación de host.
+  - `server.ts` usa `AngularNodeAppEngine({ trustProxyHeaders: true })`: Vercel termina TLS en el
+    borde y añade `X-Forwarded-*`; sin confiarlos Angular borra esos headers y degrada a CSR
+    silencioso (se pierde el 404 real).
+  - `app.routes.server.ts` termina en `'**'` → `RenderMode.Server, status: 404` (evita soft-404).
 - Deploy: merge a `trunk` → Vercel. No hay vía secundaria (la rama `gh-pages` de GitHub Pages
   fue retirada; los scripts `build:ghpages`/`build:deploy` con `ngh` ya no existen).
 
